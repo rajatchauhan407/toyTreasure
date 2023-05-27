@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Validate  from './validate';
+import { greeting } from './validate';
 
 function App() {
+  Validate();
+  greeting();
   return (
     <div className="App">
       <header className="App-header">
