@@ -1,0 +1,11 @@
+.successBtn{
+    width:100px;
+    background:green;
+    border-radius: 5px;
+    line-height: 2;
+
+}
+.successBtn:hover{
+    background:black;
+    color:white;
+}
