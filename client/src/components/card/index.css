@@ -1,0 +1,10 @@
+.cardWrapper{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap:1rem;
+    border-radius: 10px;
+    box-shadow: 8px 6px 14px 10px rgba(0, 0, 0, 0.3);
+}
+.cardWrapper img{
+    width:100%;
+}
