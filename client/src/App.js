@@ -3,6 +3,7 @@ import './App.css';
 import Button from './components/button';
 import Header from './header';
 import Card from './components/card';
+import Categories from './components/categories';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         Donate Now
     </Button>
     {/* <Card className="card"/> */}
+    <Categories/>
     </div>
   );
 }

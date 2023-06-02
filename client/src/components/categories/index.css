@@ -1,0 +1,6 @@
+.categories{
+    width:100%;
+    display:flex;
+    box-shadow: 8px 6px 14px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5%;
+}

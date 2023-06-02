@@ -1,5 +1,6 @@
 import './index.css';
-export default function Card(){
+export default function Card(props){
+    console.log(props);
     return(
         <div className="cardWrapper">
             <div>
@@ -7,10 +8,10 @@ export default function Card(){
             </div>
             <div>
                 <h3>
-                    Hello
+                    {props.heading}
                 </h3>
                 <p>
-                    EveryOne is good
+                    {props.age}
                 </p>
             </div>
         </div>
