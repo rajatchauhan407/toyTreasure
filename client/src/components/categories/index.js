@@ -21,6 +21,11 @@ function Categories(props){
     let newArr = wishList.map((el)=>{
         console.log(el);
     });
+    console.log(newArr);
+    let filtered = wishList.filter((el)=>{
+        return el.age>6;
+    })
+    console.log(filtered)
     return(
         <div className="categoriesWrapper">
             {/* {wishList.map((el)=>{

@@ -1,0 +1,14 @@
+.rewards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    -webkit-box-shadow: 5px 9px 13px -6px #000000; 
+    box-shadow: 5px 9px 13px -6px #000000;
+    padding: 0.5rem;
+    border: 2px solid black;
+}
+.rewards p:nth-child(3){
+    flex-basis: 100%;
+    font-size: 1rem;
+
+}
