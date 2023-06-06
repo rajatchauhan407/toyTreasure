@@ -18,6 +18,9 @@ function Categories(props){
         {heading:"toys", age:"8year"},
         {heading:"small puzzle", age:"10+ year"},
     ]
+    let newArr = wishList.map((el)=>{
+        console.log(el);
+    });
     return(
         <div className="categoriesWrapper">
             {/* {wishList.map((el)=>{
