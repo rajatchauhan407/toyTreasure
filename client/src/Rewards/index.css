@@ -1,0 +1,18 @@
+.rewards
+{
+    display:flex; 
+    flex-wrap: wrap;   
+    justify-content: space-between;
+    box-shadow: 11px -12px 0px 0px rgba(0, 0, 0, 0.3);
+    padding:.5rem;
+}
+.rewards p
+{
+    font-size: 2rem;
+}
+
+.rewards P:nth-of-type(3)
+{
+    flex-basis: 100%;
+    font-size: 1rem;
+}

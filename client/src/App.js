@@ -3,6 +3,7 @@ import './App.css';
 import B1 from './Button1/button1';
 import Card from './Card';
 import Categories from './Categories';
+import Rewards from './Rewards';
 
 function App() {
   const wishList = [
@@ -13,9 +14,30 @@ function App() {
     {headers:"Painting", ageLimit:"4-10 years"},
     {headers:"Barbie", ageLimit:"1-14 years"},
 ]
+
+let users=[
+  {name:'Cindy',rewardPoints:300},
+  {name:'Raha',rewardPoints:400},
+  {name:'Jannet',rewardPoints:500},
+  {name:'Rajat',rewardPoints:600}
+ 
+]
+
+let userIsLoggedIn = true;
+if(userIsLoggedIn)
+{
+  console.log("User is logged in !!!");
+}
+else
+{
+  console.log("User is not logged in !!!");
+}
+
+let result= userIsLoggedIn?"User is logged in !!!":"User is not logged in !!!";
+
   return (
     <div className="App">
-   <B1/>
+   {/* <B1/>
    
    <Categories>
     {
@@ -26,8 +48,19 @@ function App() {
   </Categories>
   <Categories>
     <B1>Hello</B1>
-  </Categories>
+  </Categories> */}
+  {
+    //  userIsLoggedIn?<Rewards name="Salmaan" rewardPoints="400"/>:"sdfdf"
+  }
+{
+ 
+  users.map((el) => {
+   return userIsLoggedIn? <Rewards name={el.name} rewardPoints={el.rewardPoints}/>:"nothin";
 
+  })
+}
+   
+   
  
     </div>
   );
