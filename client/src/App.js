@@ -4,6 +4,7 @@ import B1 from './Button1/button1';
 import Card from './Card';
 import Categories from './Categories';
 import Rewards from './Rewards';
+import OrgSideMenu from './side_menu';
 
 function App() {
   const wishList = [
@@ -59,7 +60,7 @@ let result= userIsLoggedIn?"User is logged in !!!":"User is not logged in !!!";
 
   })
 }
-   
+   <OrgSideMenu/>
    
  
     </div>
