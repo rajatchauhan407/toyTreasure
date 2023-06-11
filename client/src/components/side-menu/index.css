@@ -1,0 +1,45 @@
+.OrgSideMenuWrapper
+{  
+ display:flex;
+ flex-flow: column nowrap;
+ align-items: start; 
+ margin:1rem;
+ width: 25%;
+ height: 100vh;
+}
+.OrgSideMenuWrapper nav
+{
+    margin:0;
+}
+.OrgSideMenuWrapper img
+{
+    flex-basis:10%;
+    flex-grow:1;   
+}
+.main-menu
+{
+    flex-basis:30%;
+    flex-grow:1;
+   
+} 
+
+.OrgSideMenuWrapper nav ul
+{
+ list-style: none;
+ display:flex;
+ flex-flow: column wrap;
+ align-items: start; 
+ padding:0;
+
+
+}
+.OrgSideMenuWrapper nav ul li a
+{
+ text-decoration: none;
+ padding-bottom:1rem;
+ color:black;
+}
+.OrgSideMenuWrapper nav ul li
+{
+ padding-bottom:.5rem;
+}
