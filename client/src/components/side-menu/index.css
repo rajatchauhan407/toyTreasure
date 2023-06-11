@@ -1,11 +1,11 @@
 .OrgSideMenuWrapper
 {  
- display:flex;
- flex-flow: column nowrap;
- align-items: start; 
- margin-left:2rem;
- width: 25%;
- height: 100vh;
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: start; 
+    margin-left:2rem;
+    width: 25%;
+    height: 100vh;
 }
 .OrgSideMenuWrapper img
 {
@@ -16,31 +16,26 @@
 {
     margin:0;
 }
-
 .main-menu
 {
     flex-basis:40%;
-    flex-grow:1;
-   
+    flex-grow:1;   
 } 
-
 .OrgSideMenuWrapper nav ul
 {
- list-style: none;
- display:flex;
- flex-flow: column wrap;
- align-items: start; 
- padding:0;
-
-
+    list-style: none;
+    display:flex;
+    flex-flow: column wrap;
+    align-items: start; 
+    padding:0;
 }
 .OrgSideMenuWrapper nav ul li a
 {
- text-decoration: none;
- padding-bottom:1rem;
- color:black;
+    text-decoration: none;
+    padding-bottom:1rem;
+    color:black;
 }
 .OrgSideMenuWrapper nav ul li
 {
- padding-bottom:1rem;
+    padding-bottom:1rem;
 }
