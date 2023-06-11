@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import B1 from './Button1/button1';
-import Card from './Card';
-import Categories from './Categories';
-import Rewards from './Rewards';
+// import B1 from './Button1/button1';
+// import Card from './Card';
+// import Categories from './Categories';
+// import Rewards from './Rewards';
 import OrgSideMenu from './side_menu';
 
 function App() {
@@ -55,10 +55,10 @@ let result= userIsLoggedIn?"User is logged in !!!":"User is not logged in !!!";
   }
 {
  
-  users.map((el) => {
-   return userIsLoggedIn? <Rewards name={el.name} rewardPoints={el.rewardPoints}/>:"nothin";
+  // users.map((el) => {
+  //  return userIsLoggedIn? <Rewards name={el.name} rewardPoints={el.rewardPoints}/>:"nothin";
 
-  })
+  // })
 }
    <OrgSideMenu/>
    

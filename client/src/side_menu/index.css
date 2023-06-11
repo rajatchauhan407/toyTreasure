@@ -1,0 +1,35 @@
+.OrgSideMenuWrapper
+{
+  
+ display:flex;
+ flex-flow: column wrap;
+ align-items: start; 
+ margin-left:1rem;
+
+
+}
+.OrgSideMenuWrapper img, .OrgSideMenuWrapper nav
+{
+    flex-basis:100%;
+    flex-grow:1;
+   
+}
+.OrgSideMenuWrapper nav ul
+{
+ list-style: none;
+ display:flex;
+ flex-flow: column wrap;
+ align-items: start; 
+ padding:0;
+
+
+}
+.OrgSideMenuWrapper nav ul li a
+{
+ text-decoration: none;
+ padding-bottom:1rem;
+}
+.OrgSideMenuWrapper nav ul li
+{
+ padding-bottom:.5rem;
+}
