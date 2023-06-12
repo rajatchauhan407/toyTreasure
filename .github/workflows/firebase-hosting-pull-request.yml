@@ -16,9 +16,9 @@ jobs:
       - name: Build client
         working-directory: ./client
         run: npm run build
+      - run: cd ./client
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          run: cd ./client
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TOYSTREASURE_50C4D }}'
           projectId: toystreasure-50c4d
