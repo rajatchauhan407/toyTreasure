@@ -21,5 +21,5 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TOYSTREASURE_50C4D }}'
           projectId: toystreasure-50c4d
-          target: ./client/firebaserc
+          target: ./client/.firebaserc
           entrypoint: ./client/firebase.json
