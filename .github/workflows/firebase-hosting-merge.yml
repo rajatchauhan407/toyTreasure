@@ -24,3 +24,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TOYSTREASURE_50C4D }}'
           channelId: live
           projectId: toystreasure-50c4d
+          dir: './client/build'
