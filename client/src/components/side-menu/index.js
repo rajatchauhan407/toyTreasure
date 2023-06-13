@@ -4,8 +4,10 @@ import logo from "./appLogo.svg"
 export default function OrgSideMenu(props)
 {
     return(
-        <div className="OrgSideMenuWrapper">           
-           <img className="site-logo" src={logo} alt={"siteLogo"}/>           
+        <div className="OrgSideMenuWrapper">
+            <div class="org-image-wrapper">
+                <img className="site-logo" src={logo} alt={"siteLogo"}/>
+            </div>                  
             <nav className="main-menu">
                 <ul>
                     <li><a href="#"><i className="fa fa-user-o" aria-hidden="true"></i> Profile</a></li>
