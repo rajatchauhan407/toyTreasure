@@ -1,11 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+<<<<<<< HEAD
 // import B1 from './Button1/button1';
 // import Card from './Card';
 // import Categories from './Categories';
 // import Rewards from './Rewards';
 import OrgSideMenu from './side_menu';
+=======
+// eslint-disable-next-line no-unused-vars
+import firebase from './FirebaseConfig';
+>>>>>>> 5d87b9be2f262be6bfcf620a415087335db1535d
 
+import Routing from "./routes/routing";
 function App() {
   const wishList = [
     {headers:"Stuffed animal", ageLimit:"1-4 years"},
@@ -38,6 +43,7 @@ let result= userIsLoggedIn?"User is logged in !!!":"User is not logged in !!!";
 
   return (
     <div className="App">
+<<<<<<< HEAD
    {/* <B1/>
    
    <Categories>
@@ -63,6 +69,9 @@ let result= userIsLoggedIn?"User is logged in !!!":"User is not logged in !!!";
    <OrgSideMenu/>
    
  
+=======
+        <Routing/>
+>>>>>>> 5d87b9be2f262be6bfcf620a415087335db1535d
     </div>
   );
 }
