@@ -5,7 +5,9 @@ import Map from "../pages/map";
 import Rewards from "../pages/rewards";
 import Support from "../pages/support";
 import PageNotFound from "../pages/pageNotFound";
+import LoginForm from "../pages/login";
 export default function Routing(){
+    
 return(
     <Routes>
         <Route element={<UserRoutes/>}>
@@ -15,6 +17,7 @@ return(
             <Route path="/rewards" element={<Rewards/>}/>
             <Route path="/support" element={<Support/>}/>
         </Route>
+        <Route path="/login" element={<LoginForm/>} />
         <Route path="*" element={<PageNotFound/>} />
     </Routes>
 )

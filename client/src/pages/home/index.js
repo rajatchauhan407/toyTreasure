@@ -6,7 +6,7 @@ export default function Home(){
     const [user, setUser] = useState(null);
   FireBaseAuthService.subscribeToAuthChanges(setUser);
     return(<>
-            <h1>Home</h1>
+            <h1>{user.displayName}</h1>
             <LoginForm 
           existingUser={user}
         />
