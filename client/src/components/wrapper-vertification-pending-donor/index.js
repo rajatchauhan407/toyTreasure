@@ -1,3 +1,4 @@
+import './index.scss'
 import CardOrgTT13 from '../card-vertification-pending-donor'
 
 function App() {
@@ -8,6 +9,9 @@ function App() {
   ];
   
       return <div className="Verification">
+        <h1>Verification</h1>
+        <h2>Donation Requests</h2>
+
         
         {verification.map((el)=>{
                   return <CardOrgTT13 
