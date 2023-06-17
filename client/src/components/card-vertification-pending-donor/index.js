@@ -1,5 +1,5 @@
 import "./index.scss"
-export function CardOrgTT13(props){
+export default function CardOrgTT13(props){
     
         return(
                 <div className="listInfoCardOrgTT13">
