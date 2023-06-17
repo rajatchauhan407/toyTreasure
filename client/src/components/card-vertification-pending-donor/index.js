@@ -1,5 +1,5 @@
 import "./index.scss"
-export default function Card(props){
+export default function CardOrgTT13(props){
     return(
         <div className="cardWrapper">
             <div className="orderNumber"><li>{props.orderNumber}</li></div>
