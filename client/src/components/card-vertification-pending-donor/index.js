@@ -1,4 +1,4 @@
-import "./index.css"
+import "./index.scss"
 export default function Card(props){
     return(
         <div className="cardWrapper">
