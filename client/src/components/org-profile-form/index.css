@@ -1,0 +1,80 @@
+/* STRUCTURE =============================== */
+.OrgProfile{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem;
+}
+
+.OrgProfile h1{
+    font-size: 1.5rem;
+    grid-column: span 2;
+    margin-bottom: 0;
+}
+
+.wrapper-left form,
+.wrapper-right form{
+    margin-bottom: 1rem;
+}
+
+.Details,
+.Impact,
+.Upload,
+.ExtraDetails,
+.Categories{
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.one-line,
+.statistics{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+form input{
+    margin-bottom: 0.5rem;
+    padding: 0.3rem;
+    box-sizing: border-box;
+}
+
+input[type="text"],input[type="number"], input[type="email"], textarea, select {
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+}
+
+.phone-input{
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+
+/* TYPOGRAPHY ================================ */
+h1, h2,h3 {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+h2{
+    font-size: 1.2rem;
+}
+
+h3{
+    font-size: 1rem;
+}
+
+label{
+    font-weight: 600;
+}
+
+.Categories label {
+    font-weight: 400;
+}
+
