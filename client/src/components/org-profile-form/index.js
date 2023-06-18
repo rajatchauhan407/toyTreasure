@@ -1,7 +1,9 @@
+import MyComponent from "../multi-selector";
+
 export default function OrgProfileForm() {
 
-    return (
-      <div className="OrgProfile">
+return (
+    <div className="OrgProfile">
         <h1>Organization Profile</h1>
         
         <div className="wrapper-left">
@@ -96,47 +98,11 @@ export default function OrgProfileForm() {
             </div>
 
             <div className="ExtraDetails">
-            <div>
-                <label htmlFor="deliveryMethod">Donation Delivery Method:</label>
-                <select id="deliveryMethod" multiple onChange={handleDeliveryMethodChange}>
-                    {deliveryMethods.map((method) => (
-                    <option key={method} value={method}>
-                        {method}
-                    </option>
-                    ))}
-                </select>
-
-                <label htmlFor="availabilityDays">Availability Days:</label>
-                <select id="availabilityDays" multiple onChange={handleAvailabilityDaysChange}>
-                    {availabilityDays.map((day) => (
-                    <option key={day} value={day}>
-                        {day}
-                    </option>
-                    ))}
-                </select>
-
-                <label htmlFor="availabilityTimes">Availability Time:</label>
-                <select id="availabilityTimes" multiple onChange={handleAvailabilityTimesChange}>
-                    {availabilityTimes.map((time) => (
-                    <option key={time} value={time}>
-                        {time}
-                    </option>
-                    ))}
-                </select>
-
                 <div>
-                    <h3>Selected Options:</h3>
-                    <p>Delivery Methods: {selectedDeliveryMethods.join(', ')}</p>
-                    <p>Availability Days: {selectedAvailabilityDays.join(', ')}</p>
-                    <p>Availability Times: {selectedAvailabilityTimes.join(', ')}</p>
-                </div>
+                    <MyComponent />
                 </div>
             </div>
-
-
         </div>
-      </div>
-    );
+    </div>
+);
 } 
-
-ReactDOM.render(<MultiSelectDropdown />, document.getElementById('root'));
