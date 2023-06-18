@@ -6,9 +6,11 @@ import Rewards from "../pages/rewards";
 import Support from "../pages/support";
 import PageNotFound from "../pages/pageNotFound";
 import Login from "../pages/login";
+import ProtectedRoutes from "./protectedRoutes";
 export default function Routing(){
     
 return(
+    
     <Routes>
         <Route element={<UserRoutes/>}>
             <Route path="/" element={<Home/>}/>
@@ -17,7 +19,10 @@ return(
             <Route path="/rewards" element={<Rewards/>}/>
             <Route path="/support" element={<Support/>}/>
         </Route>
-        <Route path="/login" element={<Login/>} />
+        <Route element={<ProtectedRoutes/>}>
+            <Route path="/login" element={<Login/>} />
+        </Route>
+        
         <Route path="*" element={<PageNotFound/>} />
     </Routes>
 )

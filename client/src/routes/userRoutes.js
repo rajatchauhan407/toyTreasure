@@ -1,14 +1,13 @@
 import {Navigate,Outlet} from 'react-router-dom';
-import {useState} from "react";
-import FireBaseAuthService from '../FirebaseAuthService';
-
+import {useContext} from "react";
+import AuthContext from '../services/auth-context';
 export default function UserRoutes(){
-    const [user, setUser] = useState(null);
-  FireBaseAuthService.subscribeToAuthChanges(setUser);
+  let authCtx = useContext(AuthContext);
+  
     return(
         <>
         {
-            !user? <Navigate to="/login"/>
+            !authCtx? <Navigate to="/login"/>
             : 
             <Outlet/>
         }
