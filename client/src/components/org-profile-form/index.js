@@ -1,4 +1,5 @@
-export default function OrgProfileForm(props) {
+export default function OrgProfileForm() {
+
     return (
       <div className="OrgProfile">
         <h1>Organization Profile</h1>
@@ -74,14 +75,68 @@ export default function OrgProfileForm(props) {
                     <input type="number" id="numToysReceived" name="numToysReceived" min="0" required /> <br />
 
                     <label htmlFor="numKidsSupported">Number of Kids Being Supported</label><br />
-                    <input type="number" id="numKidsSupported" name="numKidsSupported" min="0" required />
+                    <input type="number" id="numKidsSupported" name="numKidsSupported" min="0" required /> <br />
+
+                    <label htmlFor="autoUpdate">Auto-update Numbers</label>
+                    <input type="checkbox" id="autoUpdate" name="autoUpdate" />
                 </div>
             </form>
+        </div>
+        {/* RIGHT COLUMN ================ */}
+        <div className="wrapper-right">
+            <div className="Upload">
+                <label htmlFor="logoUpload">Upload Logo</label><br />
+                <input type="file" id="logoUpload" name="logoUpload" accept="image/*" className="logo-input" required/><br />       
 
+                <label htmlFor="photoUpload">Upload Main Photo</label> <br />
+                <input type="file" id="photoUpload" name="photoUpload" accept="image/*" className="photo-input" required/><br />       
 
+                <label htmlFor="videoUpload">Upload Video</label><br />
+                <input type="file" id="videoUpload" name="videoUpload" accept="video/*" className="video-input" required/><br />      
+            </div>
+
+            <div className="ExtraDetails">
+            <div>
+                <label htmlFor="deliveryMethod">Donation Delivery Method:</label>
+                <select id="deliveryMethod" multiple onChange={handleDeliveryMethodChange}>
+                    {deliveryMethods.map((method) => (
+                    <option key={method} value={method}>
+                        {method}
+                    </option>
+                    ))}
+                </select>
+
+                <label htmlFor="availabilityDays">Availability Days:</label>
+                <select id="availabilityDays" multiple onChange={handleAvailabilityDaysChange}>
+                    {availabilityDays.map((day) => (
+                    <option key={day} value={day}>
+                        {day}
+                    </option>
+                    ))}
+                </select>
+
+                <label htmlFor="availabilityTimes">Availability Time:</label>
+                <select id="availabilityTimes" multiple onChange={handleAvailabilityTimesChange}>
+                    {availabilityTimes.map((time) => (
+                    <option key={time} value={time}>
+                        {time}
+                    </option>
+                    ))}
+                </select>
+
+                <div>
+                    <h3>Selected Options:</h3>
+                    <p>Delivery Methods: {selectedDeliveryMethods.join(', ')}</p>
+                    <p>Availability Days: {selectedAvailabilityDays.join(', ')}</p>
+                    <p>Availability Times: {selectedAvailabilityTimes.join(', ')}</p>
+                </div>
+                </div>
+            </div>
 
 
         </div>
       </div>
     );
 } 
+
+ReactDOM.render(<MultiSelectDropdown />, document.getElementById('root'));
