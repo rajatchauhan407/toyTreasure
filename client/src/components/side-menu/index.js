@@ -1,4 +1,4 @@
-import "./index.css";
+import "./index.scss";
 import logo from "./appLogo.svg"
 
 export default function OrgSideMenu(props)
