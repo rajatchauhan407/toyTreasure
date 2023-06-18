@@ -1,14 +1,28 @@
 import React, { useState } from 'react';
-import Select from 'react-select'
+import Select from 'react-select';
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-]
+const MultiSelector = () => {
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ];
 
-const MyComponent = () => (
-  <Select options={options} />
-)
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
-export default MyComponent;
+  const handleSelectChange = (selectedOptions) => {
+    setSelectedOptions(selectedOptions);
+  };
+
+  return (
+    <Select
+      options={options}
+      isMulti
+      value={selectedOptions}
+      onChange={handleSelectChange}
+    />
+  );
+};
+
+export default MultiSelector;
+
