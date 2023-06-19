@@ -1,4 +1,90 @@
-.OrgVerificationDetailsWrapper
+.OrgVerDetailsCardWrapper
+{
+    margin:1rem;
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+p
+{
+    margin:0;
+    padding:0;
+}
+.org-ver-qr-card
+{
+    
+    padding:10rem 5rem 10rem 5rem;
+}
+.displayDonorInfo
+{
+    padding-bottom: 1rem;
+}
+.details
 {
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.org-ver-details-card,.org-ver-qr-card
+{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    -webkit-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    -moz-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    border-radius: 2px;
+    background-color: #f9f8f8;;
+}
+.detailsHeader
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    h3{
+        background-color: #E9E9E9;
+        padding: 0 1rem 0 1rem;
+        border-radius: 1rem;
+    }
+}
+table
+{
+    border-collapse:collapse;
+}
+table ,  tr,td
+{
+    margin:2rem;
+    padding:1rem 2rem 1rem 2rem;
+    text-align: center;
+}
+label
+{
+    margin:0 2rem 0 2rem;
+    padding:1rem 2rem 1rem 2rem;
+}
+.totalPoints
+{
+    border-top: 1px solid black;
+}
+thead
+{
+        background-color: #E9E9E9;
+        border-radius: 1rem;
+        
+}
+.buttons
+{
+    display: flex;    
+    justify-content: center;
+}
+.buttonCancel,.buttonAccept
+{
+    border-radius: 5px;
+    font-weight: bold;
+    width: 25%;
+    margin:.5rem;
+    padding:1rem;
+}
+.buttonAccept
+{
+    background-color: #ABABAB;
 }
