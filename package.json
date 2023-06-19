@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 {}
+=======
+{
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-select": "^5.7.3"
+  }
+}
+>>>>>>> c8c0dfe9b7dd3b53d6ea249a5864254f0bde8423
