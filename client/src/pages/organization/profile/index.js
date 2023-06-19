@@ -1,6 +1,7 @@
+import OrgProfileForm from "../../../components/org-profile-form";
 
 export default function OrgProfile(){
     return (<>
-            <h1>Organisation Profile</h1>
+            <OrgProfileForm/>
     </>);   
 }

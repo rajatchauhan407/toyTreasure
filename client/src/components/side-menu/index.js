@@ -12,7 +12,7 @@ export default function OrgSideMenu(props)
                 <ul>
                     <li><Link to="/organization/profile"><i className="fa fa-user-o" aria-hidden="true"></i> Profile</Link></li>
                     <li><a href="#"><i className="fa-sharp fa-solid fa-chart-line"></i> Dashboard</a></li>               
-                    <li><a href="#"><i className="fa-brands fa-wpforms"></i> Verification</a></li>
+                    <li><Link to="/organization/verification"><i className="fa-brands fa-wpforms"></i> Verification</Link></li>
                     <li><a href="#"><i className="fa fa-cog" aria-hidden="true"></i> Setting</a></li>                
                 </ul>
             </nav>

@@ -1,6 +1,6 @@
-
+import WrapperCardOrgTT13 from "../../../components/wrapper-vertification-pending-donor";
 export default function OrgVerification(){
     return (<>
-            <h1>Organization Verification</h1>
+            <WrapperCardOrgTT13/>
     </>);
 }
