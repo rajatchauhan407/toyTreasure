@@ -6,7 +6,7 @@ const AuthContext = new React.createContext({
 
 export const AuthContextProvider = (props)=>{
     const [user, setUser] = useState(null);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     FireBaseAuthService.subscribeToAuthChanges(setUser);
     useEffect(()=>{
         if(user){

@@ -1,6 +1,6 @@
 import "./index.scss";
 import logo from "./appLogo.svg"
-
+import { Link } from "react-router-dom";
 export default function OrgSideMenu(props)
 {
     return(
@@ -10,7 +10,7 @@ export default function OrgSideMenu(props)
             </div>                  
             <nav className="main-menu">
                 <ul>
-                    <li><a href="#"><i className="fa fa-user-o" aria-hidden="true"></i> Profile</a></li>
+                    <li><Link to="/organization/profile"><i className="fa fa-user-o" aria-hidden="true"></i> Profile</Link></li>
                     <li><a href="#"><i className="fa-sharp fa-solid fa-chart-line"></i> Dashboard</a></li>               
                     <li><a href="#"><i className="fa-brands fa-wpforms"></i> Verification</a></li>
                     <li><a href="#"><i className="fa fa-cog" aria-hidden="true"></i> Setting</a></li>                

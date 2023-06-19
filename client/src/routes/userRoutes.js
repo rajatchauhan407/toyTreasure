@@ -7,7 +7,7 @@ export default function UserRoutes(){
     return(
         <>
         {
-            !authCtx? <Navigate to="/login"/>
+            !authCtx.isLoggedIn? <Navigate to="/login"/>
             : 
             <Outlet/>
         }
