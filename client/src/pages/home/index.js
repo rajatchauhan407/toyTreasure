@@ -1,5 +1,3 @@
-import './index.css';
-import OrgProfileForm from '../../components/org-profile-form';
 
 import './index.scss';
 
