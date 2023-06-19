@@ -11,7 +11,7 @@ function App() {
         {/* <Routing/> */}
       <OrgVerificationDetails/>
     </div>
+    
   );
-}
-
+};
 export default App;
