@@ -1,5 +1,5 @@
-import MultiSelector from "../multi-selector";
-import "./index.css"
+// import MultiSelector from "../multi-selector";
+import "./index.scss"
 
 export default function OrgProfileForm() {
 

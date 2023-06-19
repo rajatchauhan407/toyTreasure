@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
-
+import './index.scss'
 const MultiSelector = () => {
   const options = [
     { value: 'chocolate', label: 'Chocolate' },
