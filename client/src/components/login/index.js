@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FireBaseAuthService from "../../FirebaseAuthService";
+import { Navigate } from "react-router-dom";
 function LoginForm({existingUser}){
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
@@ -10,6 +11,7 @@ function LoginForm({existingUser}){
             await FireBaseAuthService.registerUser(userName,password);
             setUserName("");
             setPassword("");
+              
         } catch (error) {
             alert(error.message);
         }
@@ -34,6 +36,8 @@ async function handleSendResetPasswordEmail(){
 async function handleLoginWithGoogle(){
     try {
         await FireBaseAuthService.loginWithGoogle();
+        console.log("Hello");
+        <Navigate to ="/organization/profile"/>
 
     } catch (error) {
         alert(error.message);

@@ -35,6 +35,7 @@ const FireBaseAuthService = {
     logoutUser,
     sendPasswordResetEmail,
     loginWithGoogle,
-    subscribeToAuthChanges
+    subscribeToAuthChanges,
+    auth
 }
 export default FireBaseAuthService;
