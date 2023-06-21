@@ -5,13 +5,17 @@ const AuthContext = new React.createContext({
 });
 
 export const AuthContextProvider = (props)=>{
-    // const [user, setUser] = useState(FireBaseAuthService.subscribeToAuthChanges(setUser) || null);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const initialIsLoggedIn = sessionStorage.getItem('isLoggedIn');
+    const [isLoggedIn, setIsLoggedIn] = useState(initialIsLoggedIn);
     useEffect(()=>{
         const unsubscribe = FireBaseAuthService.auth.onAuthStateChanged(
             (user)=>{
                 if(user){
                     setIsLoggedIn(true);
+                    sessionStorage.setItem('isLoggedIn', 'true');
+                }else{
+                    setIsLoggedIn(false);   
+                    sessionStorage.removeItem('isLoggedIn');
                 }
             }
         );

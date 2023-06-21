@@ -36,9 +36,7 @@ async function handleSendResetPasswordEmail(){
 async function handleLoginWithGoogle(){
     try {
         await FireBaseAuthService.loginWithGoogle();
-        console.log("Hello");
-        <Navigate to ="/organization/profile"/>
-
+        sessionStorage.setItem('isLoggedIn', 'true');
     } catch (error) {
         alert(error.message);
     }
