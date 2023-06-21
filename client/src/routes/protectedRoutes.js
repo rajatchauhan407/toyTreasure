@@ -3,9 +3,6 @@ import {useContext} from "react";
 import AuthContext from '../services/auth-context';
 export default function ProtectedRoutes(){
     let authCtx = useContext(AuthContext);
-    console.log(authCtx);
-    let location = useLocation();
-    const currentUrl = location.pathname;
     return(
         <>
         {
