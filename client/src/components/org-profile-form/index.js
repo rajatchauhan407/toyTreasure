@@ -1,8 +1,20 @@
 // import MultiSelector from "../multi-selector";
 import "./index.scss"
-
+import {useState} from "react";
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function OrgProfileForm() {
-
+// managing states for org profile form
+    const [orgName, setOrgName] = useState("");
+// send the document to firestore
+    async function handleSubmit(event){
+        event.preventDefault();
+        let formValues = {
+            org_name:orgName
+        };
+        const ref = await FireBaseFirestoreService.createDocument("organization_profile",formValues);
+        console.log(ref);
+        // return ref;
+    }
 return (
     <div className="OrgProfile">
         <h1>Organization Profile</h1>
@@ -10,7 +22,12 @@ return (
         <div className="wrapper-left">
             <form className="Details">
                 <label htmlFor="orgName">Organization Name</label><br />
-                <input type="text" id="orgName" name="orgName" required /><br />
+                <input 
+                    type="text" 
+                    id="orgName" 
+                    name="orgName"
+                    onChange={(e)=>{setOrgName(e.target.value)}}
+                    required /><br />
     
                 <label htmlFor="orgDescription">Organization Description</label><br />
                 <textarea id="orgDescription" name="orgDescription" rows="4" cols="50" maxLength="250" required></textarea><br />
@@ -91,7 +108,7 @@ return (
                 </div>
             </form>
 
-            <button type="submit">Save</button>
+            <button type="submit" onClick={handleSubmit}>Save</button>
             <button type="reset">Reset</button>
         </div>
 

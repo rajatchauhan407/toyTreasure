@@ -1,6 +1,8 @@
+// This component is sample login page for checking purpose.. It shall be deleted phir.
+
 import { useState } from "react";
-import FireBaseAuthService from "../../FirebaseAuthService";
-import { Navigate } from "react-router-dom";
+import FireBaseAuthService from "../../services/FirebaseAuthService";
+
 function LoginForm({existingUser}){
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
