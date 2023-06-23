@@ -1,29 +1,41 @@
 import app from '../FirebaseConfig';
-import {getAuth} from 'firebase/auth'
+import {getAuth,
+        createUserWithEmailAndPassword, 
+        signInWithEmailAndPassword, 
+        signOut,
+        sendPasswordResetEmail,
+        GoogleAuthProvider,
+        signInWithPopup,
+        signInWithRedirect,
+        getRedirectResult,
+        linkWithPopup,
+        linkWithRedirect,
+        onAuthStateChanged
+        } from 'firebase/auth'
 const auth = getAuth(app);
 const registerUser = (email,password)=>{
-    return auth.createUserWithEmailAndPassword(email, password);
+    return createUserWithEmailAndPassword(auth,email, password);
 };
 
 const loginUser = (email,password)=>{
-    auth.signInWithEmailAndPassword(email,password);
+    signInWithEmailAndPassword(auth,email,password);
 }
 
 const logoutUser = ()=>{
-    return auth.signOut();
+    return signOut();
 };
 
-const sendPasswordResetEmail = (email)=>{
-    return auth.sendPasswordResetEmail(email);
+const PasswordResetEmail = (email)=>{
+    return sendPasswordResetEmail(auth,email);
 }
 
 const loginWithGoogle = ()=>{
-    const provider = new auth.GoogleAuthProvider();
-    return auth.signInWithPopup(provider);
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
 }
 
 const subscribeToAuthChanges = (handleAuthChange)=>{
-    auth.onAuthStateChanged((user)=>{
+    onAuthStateChanged(auth, (user)=>{
         handleAuthChange(user);
     });
 }
@@ -33,7 +45,7 @@ const FireBaseAuthService = {
     registerUser,
     loginUser,
     logoutUser,
-    sendPasswordResetEmail,
+    PasswordResetEmail,
     loginWithGoogle,
     subscribeToAuthChanges,
     auth

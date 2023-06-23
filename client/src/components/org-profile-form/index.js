@@ -1,6 +1,6 @@
 // import MultiSelector from "../multi-selector";
 import "./index.scss"
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function OrgProfileForm() {
 // managing states for org profile form
@@ -15,6 +15,29 @@ export default function OrgProfileForm() {
         console.log(ref);
         // return ref;
     }
+
+// retrieve the documents from an array
+   async function retrieveDocuments(collectionName){
+        const querySnapshot = await FireBaseFirestoreService.getDocumentsInArray(collectionName);
+        console.log(querySnapshot);
+    }
+
+// retrieve document by ID
+    async function retrieveDocumentById(collectionName,docId){
+        const doc = await FireBaseFirestoreService.getDocumentById(collectionName,docId);
+        console.log(doc.data());
+    }
+
+// updateDocument via update 
+async function updateDocument(collectionName,docId, updatedData){
+    const docRef = await FireBaseFirestoreService.updateDocumentById(collectionName, docId, updatedData);
+    console.log(docRef);
+}
+// retrieving form values, runs on first render
+    useEffect(()=>{
+        retrieveDocuments("organization_profile");
+        retrieveDocumentById("organization_profile","7M8DPzm1JWeDPSJiSsOb");
+    },[]);
 return (
     <div className="OrgProfile">
         <h1>Organization Profile</h1>
