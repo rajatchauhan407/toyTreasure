@@ -41,6 +41,8 @@ $secondary_background:#F1F1F1;
     height:auto;
     display: flex;
     gap:1rem;
+    padding:.5rem;
+    box-sizing: border-box;
 }
 .org-list-wrapper{
     @include displayfc;
