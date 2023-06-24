@@ -6,10 +6,10 @@ import {getAuth,
         sendPasswordResetEmail,
         GoogleAuthProvider,
         signInWithPopup,
-        signInWithRedirect,
-        getRedirectResult,
-        linkWithPopup,
-        linkWithRedirect,
+        // signInWithRedirect,
+        // getRedirectResult,
+        // linkWithPopup,
+        // linkWithRedirect,
         onAuthStateChanged
         } from 'firebase/auth'
 const auth = getAuth(app);

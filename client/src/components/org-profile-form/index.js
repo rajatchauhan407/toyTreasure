@@ -29,15 +29,17 @@ export default function OrgProfileForm() {
     }
 
 // updateDocument via update 
-async function updateDocument(collectionName,docId, updatedData){
-    const docRef = await FireBaseFirestoreService.updateDocumentById(collectionName, docId, updatedData);
-    console.log(docRef);
-}
+// async function updateDocument(collectionName,docId, updatedData){
+//     const docRef = await FireBaseFirestoreService.updateDocumentById(collectionName, docId, updatedData);
+//     console.log(docRef);
+// }
 // retrieving form values, runs on first render
     useEffect(()=>{
         retrieveDocuments("organization_profile");
         retrieveDocumentById("organization_profile","7M8DPzm1JWeDPSJiSsOb");
     },[]);
+
+    
 return (
     <div className="OrgProfile">
         <h1>Organization Profile</h1>
