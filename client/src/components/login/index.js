@@ -1,6 +1,5 @@
 import { useState } from "react";
 import FireBaseAuthService from "../../FirebaseAuthService";
-import { Navigate } from "react-router-dom";
 function LoginForm({existingUser}){
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
@@ -21,18 +20,18 @@ function LoginForm({existingUser}){
     }
 
     
-async function handleSendResetPasswordEmail(){
-    if(!userName){
-        alert("Missing Username!");
-        return
-    }
-    try{
-        await FireBaseAuthService.sendPasswordResetEmail(userName);
-        alert('Password to reset account has been sent to your email');
-    }catch(error){
-        alert(error.message);
-    }
-}
+// async function handleSendResetPasswordEmail(){
+//     if(!userName){
+//         alert("Missing Username!");
+//         return
+//     }
+//     try{
+//         await FireBaseAuthService.sendPasswordResetEmail(userName);
+//         alert('Password to reset account has been sent to your email');
+//     }catch(error){
+//         alert(error.message);
+//     }
+// }
 async function handleLoginWithGoogle(){
     try {
         await FireBaseAuthService.loginWithGoogle();

@@ -1,4 +1,4 @@
-import OrgWishlist from '../wishlist';
+import OrgWishlist from '../org-wishlist';
 import './index.scss';
 import {Link} from "react-router-dom";
 

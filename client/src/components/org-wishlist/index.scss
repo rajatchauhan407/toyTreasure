@@ -1,0 +1,27 @@
+@import '../../sass/main.scss';
+
+.table-container{
+    table{
+        width:100%;
+        border-collapse: collapse;
+        margin-top:2rem;
+        td:nth-of-type(1){
+            text-align: left;
+        }
+        td{
+            text-align: center;
+            @include borderBottom(1px, $secondary_not_just_gray);
+            padding:.5rem;
+        }
+        tr:nth-last-of-type() td{
+            border-bottom: none;
+        }
+        thead{
+            td{
+                font-style: bold;
+                font-family: $font_heading;
+                color: $secondary_midnight_blue;
+            }
+        }
+    }
+}
