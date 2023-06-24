@@ -29,64 +29,13 @@
         flex-wrap: wrap;
         // height:50%;
         gap:.5rem;
-        .card-wrapper{
-            flex-basis:40%;
-            flex-grow: 1;
-            padding:.5rem;
-            border:1px solid $primary_t_gray;
-            .img-wrapper{
-                width:30%;
-                img{
-                    width:100%;
-                    @include roundedBorder(9px);
-                }
-            }
-            @include roundedBorder(10px);
-        }
     }
     .org-pending-verification-header{
         display: flex;
         justify-content: space-between;
     }
 }
-.verification-card-wrapper{
-    width: 100%;
-    @include roundedBorder(9px);
-    border: 1px solid $primary_t_gray;
-    padding:.5rem;
-    box-sizing: border-box;
-    margin-bottom: .5rem;
-    background: $secondary_background;
-    h4{
-        margin: unset;
-        margin-bottom: .5rem;
-    }
-    .verification-date-button{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        p{
-            margin:0;
-        }
-        button{
-            @include customButton($secondary_midnight_blue);
-            border-radius: 18.5px;
-            width:100px;
-        }
-    }
-    .icon-author{
-        display: flex;
-        align-items: center;
-        gap:.5rem;
-        p{
-            margin:0;
-            font-size: .7rem;
-        }
-        i{
-            font-size: .7rem;
-        }
-    }
-}
+
 .org-list-header{
     display: flex;
     justify-content: space-between;

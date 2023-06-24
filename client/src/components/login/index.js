@@ -33,7 +33,7 @@ function LoginForm({existingUser}){
 //     }catch(error){
 //         alert(error.message);
 //     }
-// }
+ // }
 async function handleLoginWithGoogle(){
     try {
         await FireBaseAuthService.loginWithGoogle();

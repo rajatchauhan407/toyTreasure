@@ -1,6 +1,5 @@
 import "./index.scss";
 
-
 export default function OrgWishlist(){
     let orgWishlistData = [
         {
