@@ -1,3 +1,4 @@
+import OrgWishlist from '../org-wishlist';
 import './index.scss';
 import {Link} from "react-router-dom";
 
@@ -12,91 +13,7 @@ export default function OrgDashBoard(){
                 </button>
             </div>
             <h3>Wishlist</h3>
-            <div className="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Tag Category</td>
-                            <td>Qty Required</td>
-                            <td>Qty Received</td>
-                            <td>Pending</td>
-                            <td>Icon</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
-                            <td><i className="fa-solid fa-trash"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
-                            <td><i className="fa-solid fa-trash"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
-                            <td><i className="fa-solid fa-trash"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
-                            <td><i className="fa-solid fa-trash"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
-                            <td><i className="fa-solid fa-trash"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
-                            <td><i className="fa-solid fa-trash"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
-                            <td><i className="fa-solid fa-trash"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
-                            <td><i className="fa-solid fa-trash"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
-                            <td><i className="fa-solid fa-trash"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
-                            <td><i className="fa-solid fa-trash"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <OrgWishlist/>
         </div>
         <div className="side-container">
             <div className="cards-wrapper">

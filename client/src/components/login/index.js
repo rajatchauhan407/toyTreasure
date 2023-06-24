@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
-
 function LoginForm({existingUser}){
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
