@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
-import FireBaseAuthService from "../FirebaseAuthService";
+// import FireBaseAuthService from "./FirebaseAuthService";
+import FireBaseAuthService from "./FirebaseAuthService";
+import {onAuthStateChanged} from "firebase/auth";
 const AuthContext = new React.createContext({
     isLoggedIn:''
 });
@@ -8,7 +10,7 @@ export const AuthContextProvider = (props)=>{
     const initialIsLoggedIn = sessionStorage.getItem('isLoggedIn');
     const [isLoggedIn, setIsLoggedIn] = useState(initialIsLoggedIn);
     useEffect(()=>{
-        const unsubscribe = FireBaseAuthService.auth.onAuthStateChanged(
+        const unsubscribe = onAuthStateChanged(FireBaseAuthService.auth,
             (user)=>{
                 if(user){
                     setIsLoggedIn(true);
@@ -28,7 +30,7 @@ export const AuthContextProvider = (props)=>{
     }
     return (<AuthContext.Provider value={contextValue}>
             {props.children}
-    </AuthContext.Provider>)
+    </AuthContext.Provider>);
 }
 
 export default AuthContext;
