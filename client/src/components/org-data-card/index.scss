@@ -1,0 +1,15 @@
+@import '../../sass/main.scss';
+.card-wrapper{
+    flex-basis:40%;
+    flex-grow: 1;
+    padding:.5rem;
+    border:1px solid $primary_t_gray;
+    .img-wrapper{
+        width:30%;
+        img{
+            width:100%;
+            @include roundedBorder(9px);
+        }
+    }
+    @include roundedBorder(10px);
+}
