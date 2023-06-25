@@ -1,7 +1,7 @@
 import {Outlet,Navigate} from 'react-router-dom';
 import AuthContext from '../services/auth-context';
 import { useContext } from 'react';
-import OrgSideMenu from "../components/side-menu";
+import OrgSideMenu from "../components/org-side-menu";
 import './routes.scss';
 export default function OrganizationRoutes(){
     let authCtx = useContext(AuthContext);
