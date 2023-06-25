@@ -1,0 +1,27 @@
+.OrgVerQRCardWrapper
+{
+    margin:1rem;
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+.org-ver-qr-card
+{
+    color:#686868;
+    padding:10rem 5rem 10rem 5rem;
+    h3 
+    {
+        text-align: center;
+    }
+}
+
+.org-ver-qr-card
+{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    -webkit-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    -moz-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    border-radius: 2px;
+    background-color: #fdfdfd;
+}

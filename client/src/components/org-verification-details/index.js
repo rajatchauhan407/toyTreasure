@@ -86,10 +86,7 @@ export default function OrgVerificationDetails(props)
                     <input type="Button" value="Cancel Donation"  id="cancelDonation"  className="buttonCancel"/>
                     <input type="Button" value="Accept"  id="acceptDonation"  className="buttonAccept"/>
                 </div>                
-            </div>  
-            <div className="org-ver-qr-card">
-                    <h3>Code will be generated after verification</h3>
-            </div>              
+            </div>           
         </div>
     )
 }

@@ -29,15 +29,6 @@ i
 {
     width:5%;
 }
-.org-ver-qr-card
-{
-    color:#686868;
-    padding:10rem 5rem 10rem 5rem;
-    h3 
-    {
-        text-align: center;
-    }
-}
 .displayDonorInfo
 {
     padding-bottom: 1rem;
@@ -48,7 +39,7 @@ i
     align-items: center;
     justify-content: space-around;
 }
-.org-ver-details-card,.org-ver-qr-card
+.org-ver-details-card
 {
     display: flex;
     flex-direction: column;
