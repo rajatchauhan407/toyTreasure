@@ -1,8 +1,45 @@
 // import MultiSelector from "../multi-selector";
 import "./index.scss"
-
+import {useState, useEffect} from "react";
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function OrgProfileForm() {
+// managing states for org profile form
+    const [orgName, setOrgName] = useState("");
+// send the document to firestore
+    async function handleSubmit(event){
+        event.preventDefault();
+        let formValues = {
+            org_name:orgName
+        };
+        const ref = await FireBaseFirestoreService.createDocument("organization_profile",formValues);
+        console.log(ref);
+        // return ref;
+    }
 
+// retrieve the documents from an array
+   async function retrieveDocuments(collectionName){
+        const querySnapshot = await FireBaseFirestoreService.getDocumentsInArray(collectionName);
+        console.log(querySnapshot);
+    }
+
+// retrieve document by ID
+    async function retrieveDocumentById(collectionName,docId){
+        const doc = await FireBaseFirestoreService.getDocumentById(collectionName,docId);
+        console.log(doc.data());
+    }
+
+// updateDocument via update 
+// async function updateDocument(collectionName,docId, updatedData){
+//     const docRef = await FireBaseFirestoreService.updateDocumentById(collectionName, docId, updatedData);
+//     console.log(docRef);
+// }
+// retrieving form values, runs on first render
+    useEffect(()=>{
+        retrieveDocuments("organization_profile");
+        retrieveDocumentById("organization_profile","7M8DPzm1JWeDPSJiSsOb");
+    },[]);
+
+    
 return (
     <div className="OrgProfile">
         <h1>Organization Profile</h1>
@@ -10,7 +47,12 @@ return (
         <div className="wrapper-left">
             <form className="Details">
                 <label htmlFor="orgName">Organization Name</label><br />
-                <input type="text" id="orgName" name="orgName" required /><br />
+                <input 
+                    type="text" 
+                    id="orgName" 
+                    name="orgName"
+                    onChange={(e)=>{setOrgName(e.target.value)}}
+                    required /><br />
     
                 <label htmlFor="orgDescription">Organization Description</label><br />
                 <textarea id="orgDescription" name="orgDescription" rows="4" cols="50" maxLength="250" required></textarea><br />
@@ -91,7 +133,7 @@ return (
                 </div>
             </form>
 
-            <button type="submit">Save</button>
+            <button type="submit" onClick={handleSubmit}>Save</button>
             <button type="reset">Reset</button>
         </div>
 

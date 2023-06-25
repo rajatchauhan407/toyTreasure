@@ -5,8 +5,18 @@ import Map from "../pages/map";
 import Rewards from "../pages/rewards";
 import Support from "../pages/support";
 import PageNotFound from "../pages/pageNotFound";
+import Login from "../pages/login";
+import ProtectedRoutes from "./protectedRoutes";
+import OrganizationRoutes from "./organizationRoutes";
+import OrgProfile from "../pages/organization/profile";
+import OrgDashboard from "../pages/organization/dashboard";
+import OrgStories from "../pages/organization/stories";
+import OrgSettings from "../pages/organization/settings";
+import OrgVerification from "../pages/organization/verification";
 export default function Routing(){
+    
 return(
+    
     <Routes>
         <Route element={<UserRoutes/>}>
             <Route path="/" element={<Home/>}/>
@@ -14,6 +24,16 @@ return(
             <Route path="/map" element={<Map/>}/>
             <Route path="/rewards" element={<Rewards/>}/>
             <Route path="/support" element={<Support/>}/>
+        </Route>
+        <Route element={<ProtectedRoutes/>}>
+            <Route path="/login" element={<Login/>} />
+        </Route>
+        <Route element={<OrganizationRoutes/>}>
+                <Route path="/organization/dashboard" element={<OrgDashboard/>}/>
+                <Route path="/organization/profile" element={<OrgProfile/>}/>
+                <Route path="/organization/stories" element={<OrgStories/>}/>
+                <Route path="/organization/verification" element={<OrgVerification/>}/>
+                <Route path="/organization/settings" element={<OrgSettings/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>} />
     </Routes>
