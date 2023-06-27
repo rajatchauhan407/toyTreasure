@@ -9,8 +9,6 @@ export default function OrgProfileDetails(){
                 <input 
                     type="text" 
                     id="orgName" 
-                    name="orgName"
-                    onChange={(e)=>{setOrgName(e.target.value)}}
                     required /><br />
     
                 <label htmlFor="orgDescription">Organization Description</label><br />
@@ -68,3 +66,4 @@ export default function OrgProfileDetails(){
         </div>
 )
 }
+
