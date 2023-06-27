@@ -18,7 +18,7 @@ function LoginSidebar() {
         </div>
         </div>
         <div className="sidebar-photo">
-          <img src="https://picsum.photos/517/517" alt="Photo" />
+          <img src="https://picsum.photos/517/517" alt="sidebar" />
         </div>
       </div>
     );
