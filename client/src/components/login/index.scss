@@ -1,0 +1,50 @@
+.login-form-container{
+    width: 420px ;
+}
+.borderBottom{
+    width: 207px;
+    margin: 0%;
+}
+p{
+    margin-top: 3px;
+}
+.login-label input,
+form button{
+    display: block;
+    width: 100%;
+}
+.or-separator {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .or-line {
+    flex-grow: 1;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  
+  .or-text {
+    margin: 0 10px;
+  }
+  .primary-button{
+    height: 56px;
+    margin-top: 10px;
+    padding: 14px, 18px, 14px, 18px;
+    border-radius: 8px;
+  }
+  .google-Facebook-Button {
+    display: flex;
+    justify-content: space-between;
+  button{
+    height: 53.4px;
+    width: 187.6px;
+   background-color: #fff;
+   border-radius: 8px;
+  }
+}
+.loginRememberMe{
+    border-radius: 2px;
+    display: flex;
+}

@@ -1,5 +1,9 @@
 // This component is sample login page for checking purpose.. It shall be deleted phir.
 
+import { AiFillGoogleCircle } from 'react-icons/ai';
+import { FaFacebook } from 'react-icons/fa';
+import "./index.scss";
+
 import { useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
 function LoginForm({existingUser}){
@@ -44,12 +48,16 @@ async function handleLoginWithGoogle(){
 }
     return (<>
         <div className="login-form-container">
+            <h1>Hey,<br></br>Welcome back!</h1>
+            <hr className="borderBottom" />
+            <p>We're happy to see you back!</p>
             {existingUser ? <div className="row">
+            
                 <h3>Welcome, {existingUser.email}</h3>
                 <button type="button" className="primary-button" onClick={handleLogout}>Logout</button>
             </div> : <form onSubmit={handleSubmit} className="login-form">
                     <label className="input-label login-label">
-                        Username(email):
+                        Email:
                         <input type="email" 
                             required
                             value={userName}
@@ -65,10 +73,33 @@ async function handleLoginWithGoogle(){
                             onChange={(e)=>{setPassword(e.target.value)}}
                             className="input-text"
                         />
-                    </label>
+                        </label>
+                        <div className="loginRememberMe">
+                        <label >
+                         <input type="checkbox" className='loginRememberMeCheckbox' />
+                         Remember Me as Member of TOYS TREASURE Community.
+                         </label>
+                         </div>
+                        
                     <div className="button-box">
                         <button className="primary-button">Login</button> 
-                        <button type="button" onClick={handleLoginWithGoogle}> Login With Google</button>  
+                        <div className="or-separator">
+                        <hr className="or-line" />
+                        <p className="or-text">OR</p>
+                        <hr className="or-line" />
+                        </div>
+                        <div className='google-Facebook-Button'>
+                        <button type="button" onClick={handleLoginWithGoogle}>
+                            <AiFillGoogleCircle className="google-icon" />
+                             Login With Google
+                        </button>
+
+                        <button type="button" onClick={handleLoginWithGoogle}>
+                            <FaFacebook className="facebook-icon" />
+                             Login With Facebook
+                        </button>
+                        </div>
+   
                     </div>
             </form>
             }
