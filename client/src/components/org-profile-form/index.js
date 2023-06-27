@@ -6,8 +6,8 @@ import OrgProfileMedia from "../org-profile-form-media";
 import OrgProfileExtraD from "../org-profile-form-extradetails";
 import OrgProfileCategories from "../org-profile-form-categories";
 
-import {useState, useEffect} from "react";
-import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+// import {useState, useEffect} from "react";
+// import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function OrgProfileForm() {
 // // managing states for org profile form
 //     const [orgName, setOrgName] = useState("");
