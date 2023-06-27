@@ -5,10 +5,12 @@ export default function CardOrgTT13(props){
                 <div className="listInfoCardOrgTT13">
                     <ul> 
                         <li>{props.orderNumber}</li>
+                        <li>{props.name}</li>
                         <li>{props.method}</li>
                         <li>{props.date}</li>
                         <li>{props.Qty}</li>
                         <li>{props.donationStatus}</li>
+                        <li><button>Verify</button></li>
                     </ul>
                 </div>
         )}
