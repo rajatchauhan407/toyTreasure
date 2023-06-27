@@ -1,0 +1,15 @@
+.orgHeaderProfile{
+    box-sizing:border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.orgHeaderProfilePhoto{
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+    margin: 1%;
+}
+.orgHeaderProfileName{
+    font-size: 16px;
+}
