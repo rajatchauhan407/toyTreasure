@@ -1,9 +1,8 @@
 .orgHeaderProfile{
+    box-sizing:border-box;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 34px;
-    margin-top: 34px;
 }
 .orgHeaderProfilePhoto{
     border-radius: 50%;
