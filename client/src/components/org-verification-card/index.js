@@ -1,5 +1,5 @@
 import "./index.scss";
-export default function orgVerificationCard(){
+export default function OrgVerificationCard(){
     let orgVerificationData = [
         {
             animalType:"Stuffed Animal",
@@ -35,8 +35,7 @@ export default function orgVerificationCard(){
                     <div className="icon-author">
                         <i className="fa-solid fa-user"></i>
                         <p>{el.name}</p>
-                    </div>
-                    
+                    </div> 
                 </div>
             })
     )
