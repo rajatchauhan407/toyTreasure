@@ -5,9 +5,9 @@ import OrgAddWishlist from "../../../components/org-addwishlist-modal";
 export default function OrgDashboard(props){
     return(<>
         <OrgDashBoard/>
-        <GeneralModalWrapper>
-                <OrgAddWishlist/>
+        {/* <GeneralModalWrapper> */}
+                {/* <OrgAddWishlist/> */}
                 {/* <UserRewardsModal/> */}
-        </GeneralModalWrapper>
+        {/* </GeneralModalWrapper> */}
     </>)
 }
