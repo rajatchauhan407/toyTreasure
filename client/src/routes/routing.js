@@ -13,6 +13,7 @@ import OrgDashboard from "../pages/organization/dashboard";
 import OrgStories from "../pages/organization/stories";
 import OrgSettings from "../pages/organization/settings";
 import OrgVerification from "../pages/organization/verification";
+import OrgVerificationRequest from "../pages/organization/verification/verification-request";
 export default function Routing(){
     
 return(
@@ -33,6 +34,7 @@ return(
                 <Route path="/organization/profile" element={<OrgProfile/>}/>
                 <Route path="/organization/stories" element={<OrgStories/>}/>
                 <Route path="/organization/verification" element={<OrgVerification/>}/>
+                <Route path="/organization/verification/:id" element={<OrgVerificationRequest/>}/>  
                 <Route path="/organization/settings" element={<OrgSettings/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>} />
