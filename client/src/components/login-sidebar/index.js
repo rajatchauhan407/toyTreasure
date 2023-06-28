@@ -3,8 +3,8 @@ import "./index.scss";
 
 function LoginSidebar() {
     return (
-      <div className="sidebar">
-        <div className="logo">
+      <div className="loginSidebar">
+        <div className="loginLogo">
         <img className="site-logo" src={logo} alt={"siteLogo"}/>
         </div>
         <div className="sidebarItemWrapper">
@@ -17,7 +17,7 @@ function LoginSidebar() {
           <p>Must be at least 8 characters</p>
         </div>
         </div>
-        <div className="sidebar-photo">
+        <div className="loginSidebarPhoto">
           <img src="https://picsum.photos/517/517" alt="sidebar" />
         </div>
       </div>

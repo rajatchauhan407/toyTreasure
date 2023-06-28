@@ -1,4 +1,4 @@
-.sidebar{
+.loginSidebar{
     width: 517px;
     height: 100%;
     background-color: #F0F0F0 ;
@@ -6,17 +6,23 @@
     flex-flow: column;
     justify-content: space-between;
 
-    .sidebar-photo{
+    .loginSidebarPhoto{
         margin-top: 50px;
         align-items: end;
+
+        img{
+            width: 517px;
+            height: auto;
+        }
     }
     
-    .logo,
+    .loginLogo,
     .sidebarItemWrapper{
         margin-left: 100px;
     }
-    .logo{
+    .loginLogo{
         margin-top: 50px;
         margin-bottom: 50px;
     }
+
 }
