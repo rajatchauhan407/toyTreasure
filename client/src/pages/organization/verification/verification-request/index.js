@@ -1,6 +1,6 @@
 import {useState} from "react";
 import './index.scss';
-import OrgVerificationCard from '../../../../components/org-verification-card';
+// import OrgVerificationCard from '../../../../components/org-verification-card';
 import OrgVerificationQRCard from '../../../../components/org-verification-qr-card';
 import OrgVerificationDetails from '../../../../components/org-verification-details';
 import OrgVerificationQRActive from "../../../../components/org-verification-qr-active";
