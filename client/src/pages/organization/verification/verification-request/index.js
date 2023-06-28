@@ -7,7 +7,7 @@ import OrgVerificationQRActive from "../../../../components/org-verification-qr-
 export default function OrgVerificationRequest(props){
     const [flag, setFlag] = useState(false);
     return(
-        <div className='container'>
+        <div className='org-verification-request-container'>
         <div className="org-verification-container">
         <OrgVerificationDetails onAccept={()=>{setFlag(true)}}/>
         </div>

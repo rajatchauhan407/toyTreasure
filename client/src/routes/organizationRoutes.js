@@ -13,7 +13,7 @@ export default function OrganizationRoutes(){
                 <div className='side-menu-wrapper'>
                     <OrgSideMenu/>
                 </div>
-                <div>
+                <div className='organization-dashboard-side-menu-container'>
                 <OrgHeader/>
                 {
                     authCtx.isLoggedIn?<Outlet/>:<Navigate to="/login"/>
