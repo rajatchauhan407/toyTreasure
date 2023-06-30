@@ -1,7 +1,6 @@
 // This component is sample login page for checking purpose.. It shall be deleted phir.
 
 import { AiFillGoogleCircle } from 'react-icons/ai';
-import { FaFacebook } from 'react-icons/fa';
 import "./index.scss";
 import { useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
