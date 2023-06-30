@@ -96,7 +96,7 @@ async function handleLoginWithGoogle(){
                              Login With Google
                         </button>
                         </div>
-                        <p>Don't have an account? <a href='#'>Join Now!</a></p>
+                        <p>Don't have an account?  <a href="/home">Join Now!</a></p>
                     </div>
             </form>
             }
