@@ -41,7 +41,7 @@ export default function OrgVerificationDetails(props)
                         </div>
                     </div>
                 </div>
-                <table>
+                <table className="org-verification-details-table">
                     <thead>
                     <tr>
                         <th className="crownIcon"></th>
