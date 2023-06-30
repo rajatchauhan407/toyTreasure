@@ -1,0 +1,118 @@
+.OrgVerDetailsCardWrapper
+{
+    margin:1rem;
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+p
+{
+    margin:0;
+    padding:0;
+}
+.dInfo 
+{
+    color: #5B5B5B;
+    font-weight: 500;
+}
+.dTitle 
+{
+    color: #9E9E9E;
+    font-weight: 500;
+}
+i 
+{
+    font-family:'FontAwesome'!important;
+    color:#404040;
+}
+.crownIcon
+{
+    width:5%;
+}
+.displayDonorInfo
+{
+    padding-bottom: 1rem;
+}
+.details
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.org-ver-details-card
+{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    -webkit-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    -moz-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    border-radius: 2px;
+    background-color: #fdfdfd;
+}
+.detailsHeader
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    h2{
+        color:#404040;
+    }
+    h3{
+        background-color: #E9E9E9;
+        padding: 0 1rem 0 1rem;
+        border-radius: 1rem;
+    }
+}
+table
+{
+    border-collapse:collapse;
+    color:#817F7F;
+    font-weight:500;
+}
+table,tr,td
+{
+    margin:2rem;
+    padding:0.5rem 0.5rem 1rem 0.5rem;
+    text-align: center;
+}
+.org-ver-details-card label
+{
+    color:#5B5B5B;
+    margin:0 2rem 0 2rem;
+    padding:1rem 2rem 1rem 2rem;
+    font-weight:500;
+}
+.totalPoints
+{
+    border-top: 1px solid #817F7F;
+}
+th
+{
+    background-color: #E9E9E9;       
+    padding:1rem;         
+}
+th:nth-child(1) 
+{
+    border-radius: 9px 0px 0px 9px;
+}
+th:nth-last-child(1) 
+{
+    border-radius: 0px 9px 9px 0px;
+}
+.buttons
+{
+    display: flex;    
+    justify-content: center;
+}
+.buttonCancel,.buttonAccept
+{
+    border-radius: 5px;
+    font-weight: bold;
+    width: 25%;
+    margin:.5rem;
+    padding:1rem;
+}
+.buttonAccept
+{
+    background-color: #ABABAB;
+}

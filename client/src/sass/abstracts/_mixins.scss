@@ -1,0 +1,22 @@
+@mixin roundedBorder($amt){
+    border-radius:$amt;
+}
+
+@mixin customButton($color){
+    background: $color;
+    color:white;
+    padding:.7rem;
+    outline:none;
+    border:unset;
+    @content;
+}
+
+@mixin displayfc(){
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin borderBottom($pixel,$color){
+    border-bottom: $pixel solid $color;
+}
+
