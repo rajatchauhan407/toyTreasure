@@ -5,7 +5,7 @@
     align-items: flex-start;
     justify-content: space-evenly;
 }
-p
+.OrgVerDetailsCardWrapper p
 {
     margin:0;
     padding:0;
@@ -20,7 +20,7 @@ p
     color: #9E9E9E;
     font-weight: 500;
 }
-i 
+.OrgVerDetailsCardWrapper i 
 {
     font-family:'FontAwesome'!important;
     color:#404040;
@@ -63,13 +63,13 @@ i
         border-radius: 1rem;
     }
 }
-table
+.OrgVerDetailsCardWrapper table
 {
     border-collapse:collapse;
     color:#817F7F;
     font-weight:500;
 }
-table,tr,td
+.OrgVerDetailsCardWrapper table,.OrgVerDetailsCardWrapper tr,.OrgVerDetailsCardWrapper td
 {
     margin:2rem;
     padding:0.5rem 0.5rem 1rem 0.5rem;
@@ -86,33 +86,32 @@ table,tr,td
 {
     border-top: 1px solid #817F7F;
 }
-th
+.OrgVerDetailsCardWrapper th
 {
     background-color: #E9E9E9;       
     padding:1rem;         
 }
-th:nth-child(1) 
+.OrgVerDetailsCardWrapper th:nth-child(1) 
 {
     border-radius: 9px 0px 0px 9px;
 }
-th:nth-last-child(1) 
+.OrgVerDetailsCardWrapper th:nth-last-child(1) 
 {
     border-radius: 0px 9px 9px 0px;
 }
-.buttons
+.orgVerButtons
 {
     display: flex;    
     justify-content: center;
 }
-.buttonCancel,.buttonAccept
+.orgVerButtonCancel,.orgVerButtonAccept
 {
     border-radius: 5px;
-    font-weight: bold;
-    width: 25%;
+    font-weight: bold;   
     margin:.5rem;
     padding:1rem;
 }
-.buttonAccept
+.orgVerButtonAccept
 {
     background-color: #ABABAB;
 }
