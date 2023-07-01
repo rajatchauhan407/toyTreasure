@@ -21,13 +21,13 @@ return(
     <Routes>
         <Route element={<UserRoutes/>}>
             <Route path="/" element={<Home/>}/>
-            <Route path="/home" element={<Home/>}/>
             <Route path="/map" element={<Map/>}/>
             <Route path="/rewards" element={<Rewards/>}/>
             <Route path="/support" element={<Support/>}/>
+            <Route path="/login" element={<Login/>} />
         </Route>
         <Route element={<ProtectedRoutes/>}>
-            <Route path="/login" element={<Login/>} />
+            <Route path="/home" element={<Home/>}/>
         </Route>
         <Route element={<OrganizationRoutes/>}>
                 <Route path="/organization/dashboard" element={<OrgDashboard/>}/>
