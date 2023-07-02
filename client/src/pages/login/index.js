@@ -7,9 +7,9 @@ return (
     <>
     <div className='loginWrapper'>
     <LoginSidebar/>
-        <div className='loginFormWrapper'>
-        <LoginForm/>
-        </div>
+    <div className='loginFormWrapper'>
+    <LoginForm/>
+    </div>
     </div>
    </>
    

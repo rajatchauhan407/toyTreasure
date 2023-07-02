@@ -1,7 +1,6 @@
 // This component is sample login page for checking purpose.. It shall be deleted phir.
 
 import { AiFillGoogleCircle } from 'react-icons/ai';
-import { FaFacebook } from 'react-icons/fa';
 import "./index.scss";
 import { useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
@@ -47,9 +46,11 @@ async function handleLoginWithGoogle(){
 }
     return (<>
         <div className="login-form-container">
-            <h1>Hey,<br></br>Welcome back!</h1>
+        <button className="loginDonorButton">Donor</button> 
+        <button className="loginOrgButton">Organization</button>
+            <h1>Welcome back!</h1>
             <hr className="borderBottom" />
-            <p>We're happy to see you back!</p>
+            <p>Log in to unlock the powere of giving </p>
             {existingUser ? <div className="row">
             
                 <h3>Welcome, {existingUser.email}</h3>
@@ -58,6 +59,7 @@ async function handleLoginWithGoogle(){
                     <label className="input-label login-label">
                         Email:
                         <input type="email" 
+                        placeholder='Enter email address'
                             required
                             value={userName}
                             onChange={(e)=>{setUserName(e.target.value)}}
@@ -67,6 +69,7 @@ async function handleLoginWithGoogle(){
                     <label className="input-label login-label">
                         Password:
                         <input type="password" 
+                        placeholder='Enter password'
                             required
                             value={password}
                             onChange={(e)=>{setPassword(e.target.value)}}
@@ -76,7 +79,7 @@ async function handleLoginWithGoogle(){
                         <div className="loginRememberMe">
                         <label >
                          <input type="checkbox" className='loginRememberMeCheckbox' />
-                         Remember Me as Member of TOYS TREASURE Community.
+                         Keep signed in
                          </label>
                          </div>
                         
@@ -92,13 +95,8 @@ async function handleLoginWithGoogle(){
                             <AiFillGoogleCircle className="google-icon" />
                              Login With Google
                         </button>
-
-                        <button type="button" onClick={handleLoginWithGoogle}>
-                            <FaFacebook className="facebook-icon" />
-                             Login With Facebook
-                        </button>
                         </div>
-   
+                        <p>Don't have an account?  <a href="/home">Join Now!</a></p>
                     </div>
             </form>
             }
