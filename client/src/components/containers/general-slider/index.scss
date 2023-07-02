@@ -1,0 +1,46 @@
+.slider {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .slide-container {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  .slide {
+    flex-shrink: 0;
+    width: calc(100% / var(--visible-slides));
+    height: 300px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .slide.active {
+    opacity: 1;
+  }
+  
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .slider-btn.prev {
+    left: 20px;
+  }
+  
+  .slider-btn.next {
+    right: 20px;
+  }
+  
