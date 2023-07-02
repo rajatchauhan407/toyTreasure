@@ -1,28 +1,18 @@
 .loginSidebar{
-    width: 517px;
-    height: 100%;
-    background-color: #F0F0F0 ;
+    // width: 517px;
+    background-color: gray;
+    background-image: url(https://picsum.photos/) ;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-
-    .loginSidebarPhoto{
-        margin-top: 50px;
-        align-items: end;
-
-        img{
-            width: 517px;
-            height: auto;
-        }
-    }
     
     .loginLogo,
     .sidebarItemWrapper{
-        margin-left: 100px;
+        // margin-left: 100px;
     }
     .loginLogo{
-        margin-top: 50px;
-        margin-bottom: 50px;
+        // margin-top: 50px;
+        // margin-bottom: 50px;
     }
 
 }
