@@ -1,0 +1,68 @@
+.tt-81-donationForm
+{
+    padding:1rem;
+    margin:1rem;
+}
+.tt-81-donor-details
+{
+    display: flex;
+    flex-direction: column;   
+    background-color: lightgray;
+    padding:1rem 1rem 1rem 1rem;
+    border-radius: 1rem;
+}
+.tt-81-donor-details a
+{
+    text-decoration: none;
+    color:black;
+}
+
+.tt-81-donor-details-header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+.tt-81-donor-details-header >*
+{
+    padding:0;
+    margin:0;  
+}
+.tt-81-delivery-method, .tt-81-dateandtime
+{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    padding: 1rem 0 1rem 0;
+}
+#tt-81-dropOff, #tt-81-pickUp, #tt-81-date, #tt-81-time
+{
+    margin-left:3rem;
+}
+.tt-81-inputs label
+{
+    padding-left: .5rem;
+}
+.tt-81-donation-instruction
+{
+    padding: 1rem 0 1rem 0;
+}
+.tt-81-donation-instruction p
+{
+    padding-bottom: .5rem;
+}
+.tt-81-checkboxes
+{
+    display:flex;
+    flex-direction: column;
+    padding: 1rem 0 1rem 0;
+}
+.tt-81-buttons
+{
+    display: flex;    
+    justify-content: center;
+}
+.tt-81-confirm
+{
+    border-radius: 5px;
+}
