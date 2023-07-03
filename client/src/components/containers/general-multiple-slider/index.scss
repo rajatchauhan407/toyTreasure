@@ -1,0 +1,52 @@
+.slider {
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  
+  .slider-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card {
+    width: 300px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:last-child {
+    margin-right: 0;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+  }
+  

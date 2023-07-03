@@ -1,6 +1,7 @@
 import './index.scss';
 import OrgVerificationDetails from '../../components/org-verification-details';
-import GeneralSlider from '../../components/containers/general-slider';
+// import GeneralSlider from '../../components/containers/general-slider';
+import GeneralMultipleSlider from '../../components/containers/general-multiple-slider';
 export default function Home(){
     const cards = [
         <OrgVerificationDetails key={1} title="Card 1" />,
@@ -10,7 +11,7 @@ export default function Home(){
       ];
     return(<>
          <h1>Home</h1>
-        <GeneralSlider cards={cards} />
+        <GeneralMultipleSlider cards={cards} />
     </>);
 };
 
