@@ -10,9 +10,15 @@ function WrapperCardOrgTT13() {
 
     return <div className="Verification">
       <h1>Verification</h1>
-      <div className="">
+      <div className="org-verification-donation-req">
        <h2>Donation Requests</h2>
-       <button>Sort by</button>
+       <div id="org-verification-sort-container">
+          <button id="org-vertification-sort-button">Sort By</button>
+          {/* <ul id="org-verification-sort-options">
+            <li data-sort="date">Date</li>
+            <li data-sort="donationStatus">Donation Status</li>
+          </ul> */}
+        </div>
       </div>
       
 

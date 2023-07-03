@@ -1,18 +1,41 @@
 import "./index.scss";
-
+import { useState } from "react";
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function OrgProfileDetails(){
+const [orgName, setOrgName] = useState("");
+const [orgDesc, setOrgDesc] = useState("");
+function saveData(e){
+    e.preventDefault();
+    const formData= {
+        orgName,
+        orgDesc
+    }
+    console.log(formData);
+    sendData(formData);
+
+    function sendData(obj){
+    FireBaseFirestoreService.createDocument("organization_profile",obj);
+    }
+    
+}
 
     return(
         <div className="OrgProfileDetails">
-            <form className="Details">
+            <form className="Details" onSubmit={saveData}>
                 <label htmlFor="orgName">Organization Name</label><br />
                 <input 
                     type="text" 
                     id="orgName" 
+                    value={orgName}
+                    onChange={(e)=>{setOrgName(e.target.value)}}
                     required /><br />
     
                 <label htmlFor="orgDescription">Organization Description</label><br />
-                <textarea id="orgDescription" name="orgDescription" rows="4" cols="50" maxLength="250" required></textarea><br />
+                <textarea id="orgDescription" 
+                name="orgDescription" rows="4" cols="50" maxLength="250"
+                value={orgDesc}
+                onChange={(e)=>{setOrgDesc(e.target.value)}}
+                required></textarea><br />
     
                 <label htmlFor="orgCRA">CRA Registered Charity</label><br />
                 <input type="text" id="orgCRA" name="orgCRA" pattern="[a-zA-Z0-9]{1,15}" required /><br />
@@ -62,6 +85,7 @@ export default function OrgProfileDetails(){
                     <input type="text" id="countryCode" name="countryCode" value="+1" disabled />
                     <input type="number" id="phoneNumber" name="phoneNumber" required />
                 </div>
+                <button type="submit">Save</button>
             </form>
         </div>
 )
