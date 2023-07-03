@@ -25,7 +25,7 @@ function HomeDashboardRewardsCard() {
     <HomeDashboardRewards imageUrl={el.imageUrl} points={el.points} />
   ));
     console.log(rewardsList);
-  return <div>{rewardsList}</div>;
+  return <div className='homeDashboardRewardsCardwrapper'>{rewardsList}</div>;
 }
 
 export default HomeDashboardRewardsCard;
