@@ -24,7 +24,7 @@ function HomeDashboardRewardsCard() {
   const rewardsList = rewardsData.map((el) => (
     <HomeDashboardRewards imageUrl={el.imageUrl} points={el.points} />
   ));
-
+    console.log(rewardsList);
   return <div>{rewardsList}</div>;
 }
 
