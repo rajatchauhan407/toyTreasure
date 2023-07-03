@@ -1,0 +1,65 @@
+.tt-80-imgandquantity
+{
+    display: flex;
+}
+.tt-80-toy-list
+{
+    background-color: rgb(240, 237, 237);
+    border-radius: 1rem;
+}
+.tt-80-toy-list-header
+{
+    display: flex;
+    justify-content: space-between;
+}
+.tt-80-donationFormCardWrapper img
+{
+   border-radius: 2rem;
+}
+.tt-80-toy-list tr
+{
+    border-bottom: 1px solid lightgray;
+}
+.tt-80-toy-list tr:last-child
+{
+    border-bottom: none;
+}
+.tt-80-pointsandclose
+{
+    display: flex;
+}
+.tt-80-pointsandclose i
+{
+    padding-left:1rem;
+    padding-bottom:1rem;
+}
+.tt-80-amount-change
+{
+    display: flex;
+    gap:1rem;
+}
+.tt-80-nameandwishlist
+{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.tt-80-amount-change button
+{
+    padding: .5rem;
+    margin: .2rem;
+}
+
+.tt-80-amount
+{
+    background-color: yellow;
+    padding:.1rem .6rem .1rem .6rem;
+    position: absolute;
+    border-radius: 2rem;
+    color:black;
+    right: 0;
+}
+.tt-80-imgandquantity
+{
+    position:relative;
+}
