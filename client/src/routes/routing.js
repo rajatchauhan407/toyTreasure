@@ -30,7 +30,8 @@ return(
 
         </Route>
         <Route element={<ProtectedRoutes/>}>
-            <Route path="/login" element={<Login/>} />
+            {/* <Route path="/login" element={<Login/>} /> */}
+            <Route path="/home" element={<Home/>} />
         </Route>
         <Route element={<OrganizationRoutes/>}>
                 <Route path="/organization/dashboard" element={<OrgDashboard/>}/>
