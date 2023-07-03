@@ -1,13 +1,14 @@
-.rewardsprofile{
+.rewardsProfile{
     .rewardsProfileHeader{
-        h4{
-            display: inline;
-        }
-        p{
-            display: inline;
-        }
         display: flex;
-//  justify-content: space-between; 
+        justify-content: space-between; 
+p{
+ background-color: grey;
+ padding: 2%;
+ border-radius: 15px;
+ min-width: 150px;
+ text-align: center;
+}
     }  
 }
 

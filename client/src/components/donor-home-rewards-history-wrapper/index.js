@@ -16,7 +16,7 @@ function WrapperHistoryOfDonations() {
           
                 return <HistoryOfDonations
                           toyType={el.toyType}
-                          points={el.points}
+                          points={el.Points}
                           />
             })}
             </div>

@@ -8,7 +8,7 @@ export default function Home(){
          <div className='rewardsProfile'>
             <div className='rewardsProfileHeader'>
             <div>
-            <h4>Rewards Profile</h4>
+            <h2>Rewards Profile</h2>
             </div>
             <div>
             <p>Your Points: 400</p>
