@@ -1,5 +1,5 @@
 import './index.scss';
-import homeDashboardRewards from '../../components/donor-home-dashboard-rewards-card'
+import HomeDashboardRewardsCard from '../../components/donor-home-dashboard-rewards-card'
 
 
 export default function Home(){
@@ -10,6 +10,7 @@ export default function Home(){
          <div className='homeDashboardRewards'>
             <h1>Rewards</h1>
             
+        <HomeDashboardRewardsCard/>
 
          </div>
     </>);
