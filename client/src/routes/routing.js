@@ -32,12 +32,12 @@ return(
         <Route element={<ProtectedRoutes/>}>
             <Route path="/login" element={<Login/>} />
             <Route path="/login-signup" element={<LoginSignUp/>}/>
+            <Route path="/organization/verification" element={<OrgVerification/>}/>
         </Route>
         <Route element={<OrganizationRoutes/>}>
                 <Route path="/organization/dashboard" element={<OrgDashboard/>}/>
                 <Route path="/organization/profile" element={<OrgProfile/>}/>
                 <Route path="/organization/stories" element={<OrgStories/>}/>
-                <Route path="/organization/verification" element={<OrgVerification/>}/>
                 <Route path="/organization/verification/:id" element={<OrgVerificationRequest/>}/>  
                 <Route path="/organization/settings" element={<OrgSettings/>}/>
         </Route>
