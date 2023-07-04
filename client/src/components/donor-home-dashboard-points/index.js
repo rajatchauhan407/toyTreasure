@@ -3,10 +3,10 @@ import './index.scss';
 export default function DashboardPoints(points){
     return (
        <div className='DashboardPoints'>
-            <img src="" alt="" />
-            <h3>Your Points</h3>
-            <div className='Points'>
-                <p>{points}</p>
+            <div className="ContentPoints">
+                <img src="" alt="coins-img" />
+                <h3>Your Points</h3>
+                <h3 className="point">200</h3>
             </div>
        </div>
     );
