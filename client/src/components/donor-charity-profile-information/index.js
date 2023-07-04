@@ -11,7 +11,7 @@ export default function DonorCharityProfileInformation(){
         </div>
         
         <div className="Image">
-            <img src="" alt="main-image-charity" />
+            <img src="" alt="main-charity" />
         </div>
 
     </div>
