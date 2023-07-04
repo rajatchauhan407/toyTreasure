@@ -1,6 +1,7 @@
 import "./index.scss";
 
-export default function DonorCharityProfileInformation(props){
+export default function DonorCharityProfileInformation(){
+    return(
     <div className="CharityInformation">
         <div className="Information">
             <img src="" alt="logo-charity" />
@@ -14,5 +15,5 @@ export default function DonorCharityProfileInformation(props){
         </div>
 
     </div>
-
+    )
 }
