@@ -1,10 +1,10 @@
-.slider-container {
+.tt-71-slider-container {
   position:relative;
   width: 100%; /* Adjust the width as needed */
   overflow: hidden;
 }
 
-.slider {
+.tt-71-slider {
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
@@ -16,8 +16,8 @@
   background-color: #f9f9f9;
 }
 
-.prev-button,
-.next-button {
+.tt-71-prev-button,
+.tt-71-next-button {
   font-size: 14px;
   background-color: #007bff;
   padding: .3rem;
@@ -39,8 +39,8 @@
   transform: translateY(-50%);
 }
 
-.prev-button:disabled,
-.next-button:disabled {
+.tt-71-prev-button:disabled,
+.tt-71-next-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }

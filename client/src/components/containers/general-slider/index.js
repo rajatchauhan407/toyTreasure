@@ -22,21 +22,21 @@ const GeneralSlider = ({ cards }) => {
     slideContainerRef.current.scrollLeft = scrollLeft;
   };
   return (
-    <div className="slider">
-      <button className="slider-btn prev" onClick={goToPrevSlide}>
+    <div className="tt-71-gs-slider">
+      <button className="tt-71-gs-slider-btn tt-71-gs-prev" onClick={goToPrevSlide}>
         &lt;
       </button>
-      <div className="slide-container"  ref={slideContainerRef}>
+      <div className="tt-71-gs-slide-container"  ref={slideContainerRef}>
         {cards.map((card, index) => (
           <div
             key={index}
-            className={index === currentIndex ? 'slide active' : 'slide'}
+            className={index === currentIndex ? 'tt-71-gs-slide tt-71-gs-active' : 'tt-71-gs-slide'}
           >
             {card}
           </div>
         ))}
       </div>
-      <button className="slider-btn next" onClick={goToNextSlide}>
+      <button className="tt-71-gs-slider-btn tt-71-gs-next" onClick={goToNextSlide}>
         &gt;
       </button>
     </div>
