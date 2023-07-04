@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
-
-const GeneralMultipleSlider = ({cards}) => {
+import './index.scss';
+const GeneralMultipleSlider = (props) => {
   const [slideIndex, setSlideIndex] = useState(0);
-  
-  // Assuming you have an array of card data
-  
-
-  const handlePrevSlide = () => {
-    setSlideIndex(slideIndex - 1);
-  };
 
   const handleNextSlide = () => {
-    setSlideIndex(slideIndex + 1);
+    setSlideIndex((prevIndex) => prevIndex + 1);
+  };
+
+  const handlePrevSlide = () => {
+    setSlideIndex((prevIndex) => prevIndex - 1);
   };
 
   return (
-    <div className="slider">
-      <div className="slider-container">
-        {cards.map((card, index) => (
-          <div key={index} {...card}>
-            {card}
-          </div>
-        ))}
+    <div className="slider-container">
+      <div className="slider" style={{ transform: `translateX(-${slideIndex * 30}%)` }}>
+        {props.cards.map((el)=>{
+          return el;
+        })}
+        {/* Add more card components if needed */}
       </div>
-      <button onClick={handlePrevSlide}>Prev</button>
-      <button onClick={handleNextSlide}>Next</button>
+      <button className="prev-button" onClick={handlePrevSlide} disabled={slideIndex === 0}>
+        Prev
+      </button>
+      <button className="next-button" onClick={handleNextSlide} disabled={slideIndex === props.cards.length-3}>
+        Next
+      </button>
     </div>
   );
 };
