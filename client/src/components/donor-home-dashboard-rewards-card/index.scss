@@ -1,0 +1,24 @@
+.homeDashboardRewardsCardWrapper{
+    position: relative;
+    border: 5px solid grey;
+    padding: 3%;
+    border-radius: 15px;
+    margin: 3%;
+
+    
+.homeDashboardRewardsPoints{
+    text-align: center;
+    background-color: grey;
+    width: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+}
+button{
+    display: block;
+    width: 100%;
+}
+}
