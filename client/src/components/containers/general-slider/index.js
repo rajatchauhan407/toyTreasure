@@ -35,6 +35,7 @@ const GeneralSlider = ({ cards }) => {
             {card}
           </div>
         ))}
+        
       </div>
       <button className="tt-71-gs-slider-btn tt-71-gs-next" onClick={goToNextSlide}>
         &gt;
