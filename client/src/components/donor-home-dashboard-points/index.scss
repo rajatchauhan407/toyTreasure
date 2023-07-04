@@ -1,0 +1,16 @@
+.DashboardPoints{
+    width: 300px;
+    background-color: #FCB424;
+    padding: 0.5rem;
+}
+
+.ContentPoints{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.point {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
