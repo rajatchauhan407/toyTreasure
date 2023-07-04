@@ -1,0 +1,26 @@
+.donationCategoryCardWrapper{
+   
+    .donationCategoryCardImgWrapper{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        img{
+            width: 50%;
+        }
+    }
+   .donationCategoryCardPoints{
+
+   } 
+   .donationCategoryNumberInput{
+    display: flex;
+    border: 1px solid black;
+    input{
+        border: none;
+        text-align: center;
+    }
+    button{
+        border: none;
+        background-color: none;
+    }
+   }
+}
