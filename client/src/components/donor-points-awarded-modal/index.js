@@ -10,7 +10,7 @@ export default function DonorPointsModal(props){
                 <h3>200 points</h3>
                 <p>Thank you for your contribution to the community.</p>
             </div>
-                <button className="go-rewards">Go to Rewards</button>
+                <button className="go-rewards">Go to Rewards</button> <br />
                 <a href="#">Home</a>
         </div>
     )
