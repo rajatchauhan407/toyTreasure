@@ -32,7 +32,7 @@ function DonationWishListCardWrapper() {
   const donationWishListCardDatasList = donationWishListCardData.map((el) => (
     <DonationWishListCard imageUrl={el.imageUrl} points={el.points} toyName={el.toyName} toyType={el.toyType} />
   ));
-  return <div className='homeDashboardRewardsCardwrapper'>{donationWishListCardDatasList}</div>;
+  return <div className='donorWishListCardwrapper'>{donationWishListCardDatasList}</div>;
 }
 
 export default DonationWishListCardWrapper;
