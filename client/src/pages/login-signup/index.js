@@ -1,10 +1,9 @@
 import './index.scss';
-import { useRef, useState } from "react";
+import {useState } from "react";
 import LoginSignupForm from '../../components/loginsignupform';
 import CreateAccountDonor from '../../components/donor-create-account';
 import CreateAccountOrg from '../../components/org-create-account';
 export default function LoginSignUp() {
-  const loginSignUpRef = useRef(null);
  
   const [user,setUser] = useState(null);
     function handleSignUp(selectedUser){
