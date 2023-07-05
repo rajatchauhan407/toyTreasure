@@ -1,6 +1,6 @@
 import {Routes, Route} from "react-router-dom";
 import UserRoutes from './userRoutes';
-import LoginSignUp from '../pages/login-signup';
+// import LoginSignUp from '../pages/login-signup';
 import Home from "../pages/home";
 import Map from "../pages/map";
 import Rewards from "../pages/rewards";
@@ -22,17 +22,17 @@ return(
     <Routes>
         <Route element={<UserRoutes/>}>
             <Route path="/" element={<Home/>}/>
-            <Route path="/home" element={<Home/>}/>
             <Route path="/map" element={<Map/>}/>
             <Route path="/rewards" element={<Rewards/>}/>
             <Route path="/support" element={<Support/>}/>
+            <Route path="/home" element={<Home/>} />
+           
             
 
         </Route>
         <Route element={<ProtectedRoutes/>}>
+            <Route path="/login-signup" element={<LoginSignUp/>} />
             <Route path="/login" element={<Login/>} />
-            <Route path="/login-signup" element={<LoginSignUp/>}/>
-            
         </Route>
         <Route element={<OrganizationRoutes/>}>
                 <Route path="/organization/dashboard" element={<OrgDashboard/>}/>
