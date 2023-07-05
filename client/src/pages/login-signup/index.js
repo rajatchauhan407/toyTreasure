@@ -2,6 +2,7 @@ import './index.scss';
 import { useRef, useState } from "react";
 import LoginSignupForm from '../../components/loginsignupform';
 import CreateAccountDonor from '../../components/donor-create-account';
+import CreateAccountOrg from '../../components/org-create-account';
 export default function LoginSignUp() {
   const loginSignUpRef = useRef(null);
  
@@ -17,7 +18,7 @@ export default function LoginSignUp() {
           alt=''
         />
         {
-          !user?<LoginSignupForm getSignupInfo={handleSignUp} ref={loginSignUpRef}/>:user==="donor"?<CreateAccountDonor/>:""
+          !user?<LoginSignupForm getSignupInfo={handleSignUp}/>:user==="donor"?<CreateAccountDonor/>:user==="org"?<CreateAccountOrg/>:"No Data"
         }
       </div>
     );
