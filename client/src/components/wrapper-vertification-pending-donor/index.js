@@ -13,15 +13,15 @@ function WrapperCardOrgTT13() {
       <h2>Donation Requests</h2>
 
       <div className="TitleCardOrgTT13">
-          <h3>
               <ul>
                   <li>Order Number</li>
+                  <li>Name</li>
                   <li>Method</li>
                   <li>Date</li>
                   <li>Qty</li>
                   <li>Donation Status</li>
+                  <li>Action</li>
               </ul>
-          </h3>
       </div>
       
       {verification.map((el)=>{

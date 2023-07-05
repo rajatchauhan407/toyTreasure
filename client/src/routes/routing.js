@@ -1,5 +1,6 @@
 import {Routes, Route} from "react-router-dom";
 import UserRoutes from './userRoutes';
+// import LoginSignUp from '../pages/login-signup';
 import Home from "../pages/home";
 import Map from "../pages/map";
 import Rewards from "../pages/rewards";
@@ -13,6 +14,7 @@ import OrgDashboard from "../pages/organization/dashboard";
 import OrgStories from "../pages/organization/stories";
 import OrgSettings from "../pages/organization/settings";
 import OrgVerification from "../pages/organization/verification";
+import OrgVerificationRequest from "../pages/organization/verification/verification-request";
 export default function Routing(){
     
 return(
@@ -20,12 +22,16 @@ return(
     <Routes>
         <Route element={<UserRoutes/>}>
             <Route path="/" element={<Home/>}/>
-            <Route path="/home" element={<Home/>}/>
             <Route path="/map" element={<Map/>}/>
             <Route path="/rewards" element={<Rewards/>}/>
             <Route path="/support" element={<Support/>}/>
+            <Route path="/home" element={<Home/>} />
+           
+            
+
         </Route>
         <Route element={<ProtectedRoutes/>}>
+            {/* <Route path="/login" element={<Login/>} /> */}
             <Route path="/login" element={<Login/>} />
         </Route>
         <Route element={<OrganizationRoutes/>}>
@@ -33,6 +39,7 @@ return(
                 <Route path="/organization/profile" element={<OrgProfile/>}/>
                 <Route path="/organization/stories" element={<OrgStories/>}/>
                 <Route path="/organization/verification" element={<OrgVerification/>}/>
+                <Route path="/organization/verification/:id" element={<OrgVerificationRequest/>}/>  
                 <Route path="/organization/settings" element={<OrgSettings/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>} />

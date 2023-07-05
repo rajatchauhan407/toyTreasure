@@ -14,7 +14,7 @@
     position:absolute;
     justify-content: center;
     align-items:center;
-    width:50%;
+    width:auto;
     height:auto;
     background:white;
     z-index:5;
@@ -32,4 +32,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
+}
+.cancelIcon{
+    position: absolute;
+    right:20px;
+    top:20px;
 }

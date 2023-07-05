@@ -1,0 +1,25 @@
+.tt-47-donorFooterWrapper
+{  
+    padding:1rem;
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: flex-end;   
+}
+.tt-47-donor-image-wrapper,.tt-47-techTribe-logo
+{
+    display:flex;
+    align-items: flex-end;    
+}
+.tt-47-copyright
+{
+    text-align: center;        
+}
+.tt-47-address p
+{
+    padding-left: 1rem;  
+}
+.tt-47-techTribe-logo p
+{
+    padding-right: 1rem;
+}

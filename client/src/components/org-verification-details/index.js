@@ -3,6 +3,9 @@ import basket from "./basket.png";
 
 export default function OrgVerificationDetails(props)
 {
+    function handleAccept(){
+        props.onAccept(true);
+    }
     let sumOfAmt=0;
     let sumOfPoints=0;
     let wishListIcon="";
@@ -38,7 +41,7 @@ export default function OrgVerificationDetails(props)
                         </div>
                     </div>
                 </div>
-                <table>
+                <table className="org-verification-details-table">
                     <thead>
                     <tr>
                         <th className="crownIcon"></th>
@@ -82,9 +85,9 @@ export default function OrgVerificationDetails(props)
                     Donated toys has been thoroughly checked before 
                     proceeding for the donation.
                 </label>
-                <div className="buttons">
-                    <input type="Button" value="Cancel Donation"  id="cancelDonation"  className="buttonCancel"/>
-                    <input type="Button" value="Accept"  id="acceptDonation"  className="buttonAccept"/>
+                <div className="orgVerButtons">
+                    <input type="Button" value="Cancel Donation"  id="cancelDonation"  className="orgVerButtonCancel"/>
+                    <input type="Button" value="Accept"  id="acceptDonation"  className="orgVerButtonAccept" onClick={handleAccept}/>
                 </div>                
             </div>           
         </div>
