@@ -4,6 +4,7 @@ import { AiFillGoogleCircle } from 'react-icons/ai';
 import "./index.scss";
 import { useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
+import {Link} from "react-router-dom";
 function LoginForm({existingUser}){
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
@@ -96,7 +97,7 @@ async function handleLoginWithGoogle(){
                              Login With Google
                         </button>
                         </div>
-                        <p>Don't have an account?  <a href="/home">Join Now!</a></p>
+                        <p>Don't have an account?  <Link to="/login-signup">Join Now!</Link></p>
                     </div>
             </form>
             }
