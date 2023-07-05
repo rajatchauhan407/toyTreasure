@@ -22,24 +22,25 @@ return(
     <Routes>
         <Route element={<UserRoutes/>}>
             <Route path="/" element={<Home/>}/>
-            <Route path="/home" element={<Home/>}/>
             <Route path="/map" element={<Map/>}/>
             <Route path="/rewards" element={<Rewards/>}/>
             <Route path="/support" element={<Support/>}/>
+            <Route path="/home" element={<Home/>} />
+           
             
 
         </Route>
         <Route element={<ProtectedRoutes/>}>
+            <Route path="/login-signup" element={<LoginSignUp/>} />
             <Route path="/login" element={<Login/>} />
-            <Route path="/login-signup" element={<LoginSignUp/>}/>
         </Route>
         <Route element={<OrganizationRoutes/>}>
                 <Route path="/organization/dashboard" element={<OrgDashboard/>}/>
                 <Route path="/organization/profile" element={<OrgProfile/>}/>
                 <Route path="/organization/stories" element={<OrgStories/>}/>
-                <Route path="/organization/verification" element={<OrgVerification/>}/>
                 <Route path="/organization/verification/:id" element={<OrgVerificationRequest/>}/>  
                 <Route path="/organization/settings" element={<OrgSettings/>}/>
+                <Route path="/organization/verification" element={<OrgVerification/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>} />
     </Routes>

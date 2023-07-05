@@ -1,0 +1,46 @@
+.tt-71-slider-container {
+  position:relative;
+  width: 100%; /* Adjust the width as needed */
+  overflow: hidden;
+}
+
+.tt-71-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card {
+  flex: 0 0 100%; /* Each card takes 100% width */
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.tt-71-prev-button,
+.tt-71-next-button {
+  font-size: 14px;
+  background-color: #007bff;
+  padding: .3rem;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.tt-71-prev-button{
+  position:absolute;
+  top:50%;
+  left:0;
+  transform: translateY(-50%);
+}
+.tt-71-next-button{
+  position:absolute;
+  top:50%;
+  right:0;
+  transform: translateY(-50%);
+}
+
+.tt-71-prev-button:disabled,
+.tt-71-next-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
