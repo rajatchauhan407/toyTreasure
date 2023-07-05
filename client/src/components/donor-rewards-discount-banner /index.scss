@@ -1,0 +1,23 @@
+.discCard{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    background-color: #cbcbcb;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.imageBanner{
+    flex: 30%;
+}
+
+img .imageBanner{
+    object-fit: cover;
+}
+
+.infoBanner{
+    padding: 1rem;
+}
