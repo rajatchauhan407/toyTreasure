@@ -6,6 +6,7 @@
 {
     background-color: rgb(240, 237, 237);
     border-radius: 1rem;
+    padding:1rem;
 }
 .tt-80-toy-list-header
 {
@@ -15,10 +16,11 @@
 .tt-80-donationFormCardWrapper img
 {
    border-radius: 2rem;
+   margin:1rem;
 }
 .tt-80-toy-list tr
 {
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid black;
 }
 .tt-80-toy-list tr:last-child
 {

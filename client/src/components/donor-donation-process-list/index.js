@@ -6,7 +6,7 @@ export default function DonorDonationProcessList(props)
     let tt80data=0;
    //creation of increment function
 function increment() {
-    tt80data = document.getElementById("counting").value + 1;
+    tt80data = Number(document.getElementById("counting").value);
     alert(tt80data);
     document.getElementById("counting").innerText = tt80data;
 }
@@ -67,9 +67,9 @@ function decrement() {
                         {/* <td>{el.amount}</td>  */}
                         <td>
                             <div className="tt-80-amount-change">                              
-                                <button onClick={increment}>+</button>
-                                    <h2 id="counting">{el.amount}</h2>
                                 <button onClick={decrement}>-</button>
+                                <h2 id={index}>{el.amount}</h2>
+                                <button onClick={increment}>+</button>                                
                             </div>
                         </td>
                         <td>
