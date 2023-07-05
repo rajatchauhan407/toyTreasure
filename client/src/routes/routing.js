@@ -1,6 +1,6 @@
 import {Routes, Route} from "react-router-dom";
 import UserRoutes from './userRoutes';
-// import LoginSignUp from '../pages/login-signup';
+import LoginSignUp from '../pages/login-signup';
 import Home from "../pages/home";
 import Map from "../pages/map";
 import Rewards from "../pages/rewards";
@@ -38,9 +38,9 @@ return(
                 <Route path="/organization/dashboard" element={<OrgDashboard/>}/>
                 <Route path="/organization/profile" element={<OrgProfile/>}/>
                 <Route path="/organization/stories" element={<OrgStories/>}/>
-                <Route path="/organization/verification" element={<OrgVerification/>}/>
                 <Route path="/organization/verification/:id" element={<OrgVerificationRequest/>}/>  
                 <Route path="/organization/settings" element={<OrgSettings/>}/>
+                <Route path="/organization/verification" element={<OrgVerification/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>} />
     </Routes>
