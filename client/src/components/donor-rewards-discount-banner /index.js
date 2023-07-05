@@ -1,15 +1,15 @@
 import './index.scss';
 
-export default function discountCard(props){
+export default function DiscountCard(props){
     return(
-        <div className="discountCard">
+        <div className="discCard">
             <div className="imageBanner">
-                <img src="https://picsum.photos/200/200?random=567" alt="" />
+                <img src={props.url} alt="" />
             </div>
             <div className="infoBanner">
-                <h2>Get the best cuddle in the whole wide world for your kid</h2>
-                <h3 className="Discount">20% off </h3>
-                <p>on your first order</p>
+                <h2>{props.info}</h2>
+                <h3 className="Discount">{props.discount}</h3>
+                <p>{props.req}</p>
             </div>
         </div>
     )
