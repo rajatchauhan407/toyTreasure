@@ -1,9 +1,11 @@
 import "./index.scss";
 import logo from "./appLogo.svg"
+import { Link } from "react-router-dom";
 
-function LoginSignupForm() {
+function LoginSignupForm(props) {
+    
     return (
-<div className="loginsignupformWrapper">
+    <div className="loginsignupformWrapper" >
     <div className="loginLogo">
         <img className="site-logo" src={logo} alt={"siteLogo"}/>
     </div>
@@ -12,13 +14,13 @@ function LoginSignupForm() {
 
     <p>Take the first step toward making a difference by choosing how you want to join us.</p>
 
-    <button className="createAccountDonor"><h2>Create Account as Donor</h2>
+    <button className="createAccountDonor" onClick={handleSignup}><h2>Create Account as Donor</h2>
     <p>Start making a difference by donating toys to organizations.</p></button> 
 
-    <button className="createAccountOrganization"><h2>Create Account as Organization</h2>
+    <button className="createAccountOrganization" onClick={handleSignup}><h2>Create Account as Organization</h2>
     <p>Recieve toy donations and support your cause.</p></button>    
 
-<p>Already have an account? <a href="./login">Sign In!</a></p>
+<p>Already have an account? <Link to="/login">Sign In!</Link></p>
 </div>
 
         );
