@@ -4,10 +4,16 @@ import FireBaseFirestoreService from '../../services/Firebasefirestoreservice'
 
 export default function OrgProfileImpact(){
     const [yearFounded, setYearFounded] = useState('');
+    const [donorNumber, setDonorNumber] = useState('');
+    const [kidsNumber, setKidsNumber] = useState('');
+    const [toysNumber, setToysNumber] = useState('');
     const submitImpactButton = (e)=>{
         e.preventDefault();
         const impactDetails = {
-            founded_year: yearFounded
+            founded_year: yearFounded,
+            total_donors: donorNumber,
+            kids: kidsNumber,
+            toys: toysNumber
         }
         FireBaseFirestoreService.createDocument("organization_mission", impactDetails)
 
@@ -31,18 +37,44 @@ export default function OrgProfileImpact(){
                             required /> <br />
 
                             <label htmlFor="numDonors">Donors</label> <br />
-                            <input type="number" id="numDonors" name="numDonors" min="0" required /> <br />
+                            <input 
+                            type="number" 
+                            id="numDonors" 
+                            onChange={(e)=>{setDonorNumber(e.target.value)}} 
+                            name="numDonors" 
+                            min="0" 
+                            required /> 
+                            <br />
 
                             <label htmlFor="autoUpdate">Auto-update Numbers</label>
-                            <input type="checkbox" id="autoUpdate" name="autoUpdate" />
+                            <input 
+                            type="checkbox" 
+                            id="autoUpdate" 
+                            name="autoUpdate" 
+                             />
                         </div>
 
                         <div className="Section2">
                             <label htmlFor="numToysReceived">Toys Received</label><br />
-                            <input type="number" id="numToysReceived" name="numToysReceived" min="0" required /> <br />
+                            <input 
+                            type="number" 
+                            id="numToysReceived" 
+                            name="numToysReceived" 
+                            min="0" 
+                            onChange={(e)=>{setToysNumber(e.target.value)}} 
+                            required
+                             /> 
+                             <br />
 
                             <label htmlFor="numKidsSupported">Kids Being Supported</label><br />
-                            <input type="number" id="numKidsSupported" name="numKidsSupported" min="0" required /> <br />
+                            <input 
+                            type="number" 
+                            id="numKidsSupported" 
+                            name="numKidsSupported" 
+                            onChange={(e)=>{setKidsNumber(e.target.value)}}
+                            min="0" 
+                            required /> 
+                            <br />
                         </div>
                     </div>
                     <button type="submit">Submit</button>
