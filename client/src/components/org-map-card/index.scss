@@ -1,4 +1,19 @@
 .tt-62-org-card-container{
     display: grid;
     width: 100%;
+    box-shadow: 10px 5px 5px grey;
+    border-radius: 18px;
+    padding: 0 1rem;
+    border: 1px solid pink;
+    
+}
+.tt-62-timing div{
+    display:flex;
+
+}
+.tt-62-short-details-wrapper{
+    display:flex;
+    justify-content: space-between;
+    align-items: last baseline;
+    // height:50px;
 }
