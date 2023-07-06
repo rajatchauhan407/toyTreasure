@@ -2,27 +2,48 @@
 {
     display: flex;
 }
-.tt-80-toy-list
+.tt-80-donationProcessListForm h1
 {
-    background-color: rgb(240, 237, 237);
+   margin-left: 1rem;
+   width: 100%;
+}
+.tt-80-donationProcessListWrapper
+{
+    margin:1rem;
+    background-color: rgb(243, 240, 240);
     border-radius: 1rem;
-    padding:1rem;
+    padding:1rem; 
 }
 .tt-80-toy-list-header
 {
     display: flex;
     justify-content: space-between;
 }
-.tt-80-donationFormCardWrapper img
+
+#tt-80-table img
 {
    border-radius: 2rem;
-   margin:1rem;
+   margin:.5rem;
+   width: 100%;
+   height:auto;
+   
 }
-.tt-80-toy-list tr
+
+#tt-80-table 
 {
-    border-bottom: 1px solid black;
+   align-items: center;
+    border-collapse:collapse;
 }
-.tt-80-toy-list tr:last-child
+  
+#tt-80-table td
+{
+   margin:1rem;
+   padding:.5rem;
+    border-bottom: 1px solid black;
+    
+}
+
+#tt-80-table tr:last-child
 {
     border-bottom: none;
 }
@@ -32,17 +53,28 @@
 }
 .tt-80-pointsandclose i
 {
-    padding-left:1rem;
+    padding-left:2rem;
     padding-bottom:1rem;
 }
 .tt-80-amount-change
 {
+    
     display: flex;
-    gap:1rem;
+    align-items: center;
+    
+    border: 1px solid rgb(190, 187, 187);
+}
+.tt-80-amount-change button, .tt-80-amount-change input[type="text"]
+{
+   border:none;
+   outline: none;
+  
 }
 .tt-80-nameandwishlist
 {
     display: flex;
+    gap:1rem;
+    padding-left: 1rem;
     flex-direction: column;
     align-items: start;
 }
@@ -64,4 +96,12 @@
 .tt-80-imgandquantity
 {
     position:relative;
+}
+.tt-80-tt80totalpoints
+{
+    font-weight: bold;
+}
+#totalToystt80
+{
+    text-align: center;
 }
