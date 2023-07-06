@@ -1,6 +1,5 @@
 import { getFirestore } from 'firebase/firestore';
 import {initializeApp,getApps} from "firebase/app";
-
 // configuration for firebase app
 const config = {
   apiKey:process.env.REACT_APP_API_KEY,

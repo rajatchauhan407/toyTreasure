@@ -1,0 +1,18 @@
+.tt-62-container{
+    width:80%;
+    margin:auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+
+
+// css for side wrapper component
+.tt-62-side-wrapper{
+    padding:0 1rem;
+}
+.tt-62-wrapper-input{
+    display: flex;
+    gap:1rem;
+}
