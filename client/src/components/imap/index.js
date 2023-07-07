@@ -7,13 +7,12 @@ const InteractiveMap = ()=>{
         width: '100%',
         height: '100vh'
       };
-      
+
       const center = {
         lat: 49.224532182945325,
         lng: -123.10885904604532
       };
 
-   
     return <>
     <LoadScript
       googleMapsApiKey={process.env.REACT_APP_MAP_API_KEY}

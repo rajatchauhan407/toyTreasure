@@ -2,6 +2,7 @@ import './index.scss';
 import InteractiveMap from '../../components/imap';
 import OrgMapCard from '../../components/org-map-card';
 import { useRef } from 'react';
+import OrgMapDescCard from '../../components/org-map-desc-card';
 export default function Map(){
     const orgMapRefs = useRef([]);
 
@@ -92,6 +93,7 @@ export default function Map(){
                 </div>
                 <div className='tt-62-right-map'>
                     <InteractiveMap/>
+                    <OrgMapDescCard/>
                 </div>   
         </div>
 
