@@ -1,8 +1,8 @@
 import './index.scss';
-
-export default function OrgMapCard({orgName,address,days,time}){
+import { forwardRef, useRef } from 'react';
+const OrgMapCard = forwardRef(({orgName,address,days,time},ref)=>{
     return (
-        <div className="tt-62-org-card-container">
+        <div className="tt-62-org-card-container" ref={ref}>
             <h2>{orgName}</h2>
             <p>{address}</p>
             <div class="tt-62-short-details-wrapper">
@@ -14,4 +14,5 @@ export default function OrgMapCard({orgName,address,days,time}){
             </div>
         </div>
     )
-}
+});
+export default OrgMapCard;
