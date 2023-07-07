@@ -1,7 +1,25 @@
-import './index.scss'
+import './index.scss';
+import { useEffect, useState } from 'react';
 import CardOrgTT13 from '../card-vertification-pending-donor'
-
+import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 function WrapperCardOrgTT13() {
+  const [orgData, setOrgData] = useState([]); 
+  async function getData(){
+    const data = await FireBaseFirestoreService.getDocuments("organization_profile");
+    let array = [];
+    data.forEach(
+      (doc)=>{array.push(doc.id)}
+      );
+    setOrgData(data);
+      console.log(array);
+  }
+  useEffect(()=>{
+    getData();
+  },[]);
+  
+    
+ 
+
   const verification = [
     {orderNumber: 37890, name:"Greg Thomas", method: "drop-off", date: "05/05/2023", Qty: 6, donationStatus: "Pending"},
     {orderNumber: 37890, name:"Greg Thomas", method: "drop-off", date: "05/05/2023", Qty: 6, donationStatus: "Pending"},
@@ -34,7 +52,7 @@ function WrapperCardOrgTT13() {
               </ul>
       </div>
       
-      {verification.map((el)=>{
+      {orgData.for((el)=>{
           
                 return <CardOrgTT13 
                           orderNumber={el.orderNumber}

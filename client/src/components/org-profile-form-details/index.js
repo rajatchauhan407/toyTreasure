@@ -1,14 +1,26 @@
 import "./index.scss";
-
+import {useState} from "react";
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function OrgProfileDetails(){
-
+    const [orgName,setOrgName] = useState("Charity");
+    async function saveData(e){
+        e.preventDefault();
+        const formDetails = {
+            org_name:orgName
+        }
+        let refId = await FireBaseFirestoreService.createDocument("organization_profile",formDetails);
+        console.log(refId);
+    }
+    
     return(
         <div className="OrgProfileDetails">
-            <form className="Details">
+            <form className="Details" onSubmit={saveData}>
                 <label htmlFor="orgName">Organization Name</label><br />
                 <input 
                     type="text" 
-                    id="orgName" 
+                    id="orgName"
+                    value={orgName} 
+                    onChange={(e)=>{setOrgName(e.target.value);}}
                     required /><br />
     
                 <label htmlFor="orgDescription">Organization Description</label><br />
@@ -62,6 +74,7 @@ export default function OrgProfileDetails(){
                     <input type="text" id="countryCode" name="countryCode" value="+1" disabled />
                     <input type="number" id="phoneNumber" name="phoneNumber" required />
                 </div>
+                <button type="submit">Save Date</button>
             </form>
         </div>
 )
