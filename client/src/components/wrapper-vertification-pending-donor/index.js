@@ -7,10 +7,10 @@ function WrapperCardOrgTT13() {
   async function getData(){
     const data = await FireBaseFirestoreService.getDocuments("organization_profile");
     let array = [];
-    data.forEach(
-      (doc)=>{array.push(doc.id)}
+    array = data.docs.map(
+      (doc)=>{return doc.data()}
       );
-    setOrgData(data);
+    setOrgData(array);
       console.log(array);
   }
   useEffect(()=>{
@@ -52,15 +52,15 @@ function WrapperCardOrgTT13() {
               </ul>
       </div>
       
-      {orgData.for((el)=>{
+      {orgData.map((el)=>{
           
                 return <CardOrgTT13 
-                          orderNumber={el.orderNumber}
-                          name={el.name}
-                          method={el.method}
-                          date={el.date}
-                          Qty={el.Qty}
-                          donationStatus={el.donationStatus}
+                          orderNumber={el.org_name}
+                          name="el.name"
+                          method="el.method"
+                          date="el.date"
+                          Qty="el.Qty"
+                          donationStatus="el.donationStatus"
                           />
             })}
             </div>
