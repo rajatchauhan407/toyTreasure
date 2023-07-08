@@ -16,6 +16,7 @@ import OrgSettings from "../pages/organization/settings";
 import OrgVerification from "../pages/organization/verification";
 import OrgVerificationRequest from "../pages/organization/verification/verification-request";
 import DonorDonationToysPage from '../pages/donationToys';
+import DonorCharityProfilePage from "../pages/CharityProfile";
 export default function Routing(){
     
 return(
@@ -28,6 +29,8 @@ return(
             <Route path="/support" element={<Support/>}/>
             <Route path="/home" element={<Home/>} />
             <Route path="/donation/toys" element={<DonorDonationToysPage/>} />
+            <Route path="/charity/profile" element={<DonorCharityProfilePage/>}/>
+
            
             
 
