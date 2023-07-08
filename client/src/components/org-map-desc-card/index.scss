@@ -1,0 +1,26 @@
+.tt-62-map-charities-desc-container{
+    width:100%;
+    height:auto; 
+    position:absolute;
+    background:hotpink;
+    bottom: 0;
+    padding:.5rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+}
+.tt-62-map-charities-desc{
+    display:grid;
+    grid-template-columns: 20% 80%;
+}
+.tt-62-charity-desc{
+    
+}
+.tt-62-image-wrapper{
+    width: 100%;
+    
+}
+.tt-62-image-wrapper img{
+    width:100px;
+    border-radius: 1rem;
+    margin-top: .5rem;
+}
