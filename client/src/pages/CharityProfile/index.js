@@ -5,9 +5,9 @@ import DonorCharityProfileVideo from '../../components/donor-charity-profile-vid
 import DonorCharityProfileInformation from '../../components/donor-charity-profile-information';
 import DonorCharityProfileWishlistBanner from '../../components/donor-charity-profile-wishlist-banner';
 import CharityProfileCategoryCardWrapper from '../../components/donor-charity-profile-categories-wrapper';
-export default function DonorDonationToysPage(){
+export default function DonorCharityProfilePage(){
     return(<>
-    <div className='DonorDonationToysPageWrapper'>
+    <div className='DonorCharityProfileWrapper'>
         <DonorHeader/>
         <DonorCharityProfileInformation/>
         <DonorCharityProfileVideo/>
