@@ -1,12 +1,14 @@
 import './index.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef} from 'react';
 import CardOrgTT13 from '../card-vertification-pending-donor'
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 
 function WrapperCardOrgTT13() {
   const [orgData, setOrgData]=useState([]);
+  let btnRef=useRef(null);
   async function getData(){
     const data = await FireBaseFirestoreService.getDocuments("organization_profile");
+    
    
     let array =[];
     data.forEach(
@@ -17,6 +19,7 @@ function WrapperCardOrgTT13() {
   }
   useEffect(()=>{
     getData();
+    btnRef.current.style.backgroundColor= "hotpink";
   },[]);
   
 
@@ -32,7 +35,7 @@ function WrapperCardOrgTT13() {
       <div className="org-verification-donation-req">
        <h2>Donation Requests</h2>
        <div id="org-verification-sort-container">
-          <button id="org-vertification-sort-button">Sort By</button>
+          <button id="org-vertification-sort-button" ref={btnRef}>Sort By</button>
           {/* <ul id="org-verification-sort-options">
             <li data-sort="date">Date</li>
             <li data-sort="donationStatus">Donation Status</li>
@@ -53,7 +56,7 @@ function WrapperCardOrgTT13() {
               </ul>
       </div>
       
-      {orgData.forEach((el)=>{
+      {verification.forEach((el)=>{
           
                 return <CardOrgTT13 
                           orderNumber={el.id}
