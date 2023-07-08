@@ -4,15 +4,22 @@ import DonorFooter from '../../components/donor-footer';
 import DonorCharityProfileVideo from '../../components/donor-charity-profile-video';
 import DonorCharityProfileInformation from '../../components/donor-charity-profile-information';
 import DonorCharityProfileWishlistBanner from '../../components/donor-charity-profile-wishlist-banner';
-import DonationCategoryCardWrapper from '../../components/donor-donation-category-card-wrapper';
+import CharityProfileCategoryCardWrapper from '../../components/donor-charity-profile-categories-wrapper';
 export default function DonorDonationToysPage(){
     return(<>
+    <div className='DonorDonationToysPageWrapper'>
         <DonorHeader/>
         <DonorCharityProfileInformation/>
         <DonorCharityProfileVideo/>
-
+        <h1>!!!!!!!Impact
+            <br></br>
+            Can not Find the Task
+        </h1>
         <DonorCharityProfileWishlistBanner/>
-        <DonationCategoryCardWrapper/>
+        <CharityProfileCategoryCardWrapper/>
+        <h1>!!!!!!!!Home Dashboard Stories Place
+            <br></br> - TT-50</h1>
         <DonorFooter/>
+        </div>
     </>);
 };
