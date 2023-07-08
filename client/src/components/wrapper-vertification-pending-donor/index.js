@@ -1,28 +1,38 @@
 import './index.scss';
-import { useEffect, useState, useRef} from 'react';
+import { useEffect, useState, useRef } from 'react';
 import CardOrgTT13 from '../card-vertification-pending-donor'
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
-
 function WrapperCardOrgTT13() {
-  const [orgData, setOrgData]=useState([]);
+  const [orgData, setOrgData] = useState([]); 
+  const [count,setCount] = useState(0);
   let btnRef=useRef(null);
+
   async function getData(){
-    const data = await FireBaseFirestoreService.getDocuments("organization_profile");
-    
-   
-    let array =[];
-    data.forEach(
-      (doc)=>{array.push(doc.id)}
-      );
-      setOrgData(data);
-      console.log("array   "+array);
+    const data = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
+    let array = data;
+    // array = data.docs.map(
+    //   (doc)=>{return doc.data()}
+    //   );
+    setOrgData(array);
+      // console.log(array);
   }
+  // useEffect(()=>{
+
+  // });
   useEffect(()=>{
     getData();
-    btnRef.current.style.backgroundColor= "hotpink";
   },[]);
-  
-
+  // getData();
+    useEffect(()=>{
+      console.log("useEffect called");
+    },[count]);
+ 
+function handleCount(){
+  console.log("Hello");
+  setCount(count+1);
+  console.log(btnRef.current);
+  btnRef.current.style.backgroundColor="hotpink";
+}
   const verification = [
     {orderNumber: 37890, name:"Greg Thomas", method: "drop-off", date: "05/05/2023", Qty: 6, donationStatus: "Pending"},
     {orderNumber: 37890, name:"Greg Thomas", method: "drop-off", date: "05/05/2023", Qty: 6, donationStatus: "Pending"},
@@ -30,12 +40,12 @@ function WrapperCardOrgTT13() {
 ];
 
     return <div className="Verification">
-      {/* <p>{orgData.forEach((el)=>{console.log(el.id)})}</p> */}
+    <button onClick={handleCount} ref={btnRef}>Press it</button>
       <h1>Verification</h1>
       <div className="org-verification-donation-req">
        <h2>Donation Requests</h2>
        <div id="org-verification-sort-container">
-          <button id="org-vertification-sort-button" ref={btnRef}>Sort By</button>
+          <button id="org-vertification-sort-button">Sort By</button>
           {/* <ul id="org-verification-sort-options">
             <li data-sort="date">Date</li>
             <li data-sort="donationStatus">Donation Status</li>
@@ -56,17 +66,18 @@ function WrapperCardOrgTT13() {
               </ul>
       </div>
       
-      {verification.forEach((el)=>{
+      {orgData.map((el)=>{
           
                 return <CardOrgTT13 
-                          orderNumber={el.id}
-                          name={"el.name"}
-                          method={"el.method"}
-                          date={"el.date"}
-                          Qty={"el.Qty"}
-                          donationStatus={"el.donationStatu"}
+                          orderNumber={el.org_name}
+                          name="el.name"
+                          method="el.method"
+                          date="el.date"
+                          Qty="el.Qty"
+                          donationStatus="el.donationStatus"
                           />
             })}
             </div>
           }
+          
 export default WrapperCardOrgTT13;
