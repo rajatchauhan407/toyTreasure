@@ -1,5 +1,4 @@
 import './index.scss';
-import DonorFooter from '../../components/donor-footer';
 import DonorCharityProfileVideo from '../../components/donor-charity-profile-video';
 import DonorCharityProfileInformation from '../../components/donor-charity-profile-information';
 import DonorCharityProfileWishlistBanner from '../../components/donor-charity-profile-wishlist-banner';
@@ -17,7 +16,6 @@ export default function DonorCharityProfilePage(){
         <CharityProfileCategoryCardWrapper/>
         <h1>!!!!!!!!Home Dashboard Stories Place
             <br></br> - TT-50</h1>
-        <DonorFooter/>
         </div>
     </>);
 };
