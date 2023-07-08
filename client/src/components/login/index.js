@@ -5,6 +5,7 @@ import "./index.scss";
 import { useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
 import {Link} from "react-router-dom";
+import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 function LoginForm({existingUser}){
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
@@ -39,8 +40,20 @@ function LoginForm({existingUser}){
  // }
 async function handleLoginWithGoogle(){
     try {
-        await FireBaseAuthService.loginWithGoogle();
+        let result = await FireBaseAuthService.loginWithGoogle();
+        const {email,emailVerified, displayName, phoneNumber, photoURL, uid} = result.user;
+        const document = {
+            uid,
+            email,
+            emailVerified,
+            displayName,
+            phoneNumber,
+            photoURL
+        }
+        await FireBaseFirestoreService.settingDocument("user",null,document);
         sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('profile_pic', photoURL);
+        sessionStorage.setItem('displayName',displayName);
     } catch (error) {
         alert(error.message);
     }
