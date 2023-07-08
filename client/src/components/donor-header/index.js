@@ -10,9 +10,9 @@ export default function DonorHeader(props)
             </div>                  
             <nav className="tt-45-main-menu">
                 <ul>
-                    <li><Link to="#">Home</Link></li>
-                    <li><Link to="#">Find Charities</Link></li>               
-                    <li><Link to="#">Rewards</Link></li>
+                    <li><Link to="/home">Home</Link></li>
+                    <li><Link to="/map">Find Charities</Link></li>               
+                    <li><Link to="/rewards">Rewards</Link></li>
                     <li><Link to="#" className="tt-45-logout">Logout</Link></li>     
                 </ul>
             </nav>                      
