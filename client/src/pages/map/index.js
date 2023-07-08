@@ -9,10 +9,10 @@ export default function Map(){
     function handleRef(index){
         console.log(index);
         console.log(orgMapRefs.current);
-        if(orgMapRefs.current[index].style.backgroundColor==="blue"){
+        if(orgMapRefs.current[index].style.backgroundColor==="hotpink"){
             orgMapRefs.current[index].style.backgroundColor="unset";
         }else{
-            orgMapRefs.current[index].style.backgroundColor="blue";
+            orgMapRefs.current[index].style.backgroundColor="hotpink";
         }
     }
     let orgs = [

@@ -3,7 +3,7 @@ export default function OrgMapDescCard(){
     return <div className="tt-62-map-charities-desc-container">
                 <div className='tt-62-map-charities-desc'>
                     <div className='tt-62-image-wrapper'>
-                        <img src="https://picsum.photos/300/300?random=234" alt="charities-profile"/>
+                        <img src="https://picsum.photos/100/100?random=234" alt="charities-profile"/>
                     </div>
                     <div className="tt-62-charity-desc">
                         <h3>BC CHildren Hospital</h3>
