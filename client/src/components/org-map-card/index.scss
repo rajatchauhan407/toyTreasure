@@ -6,6 +6,7 @@
     padding: 0 1rem;
     border: 1px solid pink;
     box-sizing: border-box;
+    
 }
 .tt-62-timing div{
     display:flex;
@@ -15,5 +16,9 @@
     display:flex;
     justify-content: space-between;
     align-items: last baseline;
+    
     // height:50px;
+}
+.tt-62-vd-btn{
+    cursor: pointer;
 }

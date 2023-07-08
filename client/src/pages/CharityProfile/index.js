@@ -1,5 +1,4 @@
 import './index.scss';
-import DonorHeader from '../../components/donor-header';
 import DonorFooter from '../../components/donor-footer';
 import DonorCharityProfileVideo from '../../components/donor-charity-profile-video';
 import DonorCharityProfileInformation from '../../components/donor-charity-profile-information';
@@ -8,7 +7,6 @@ import CharityProfileCategoryCardWrapper from '../../components/donor-charity-pr
 export default function DonorCharityProfilePage(){
     return(<>
     <div className='DonorCharityProfileWrapper'>
-        <DonorHeader/>
         <DonorCharityProfileInformation/>
         <DonorCharityProfileVideo/>
         <h1>!!!!!!!Impact
