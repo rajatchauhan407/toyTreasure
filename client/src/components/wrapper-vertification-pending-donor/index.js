@@ -1,10 +1,12 @@
 import './index.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import CardOrgTT13 from '../card-vertification-pending-donor'
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 function WrapperCardOrgTT13() {
   const [orgData, setOrgData] = useState([]); 
   const [count,setCount] = useState(0);
+  let btnRef = useRef(null);
+  let liRef = useRef(null);
   async function getData(){
     const data = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
     let array = data;
@@ -28,6 +30,9 @@ function WrapperCardOrgTT13() {
 function handleCount(){
   console.log("Hello");
   setCount(count+1);
+  // console.dir(btnRef.current);
+    console.dir(liRef);
+  // btnRef.current.textContent = "hotpink";
 }
   const verification = [
     {orderNumber: 37890, name:"Greg Thomas", method: "drop-off", date: "05/05/2023", Qty: 6, donationStatus: "Pending"},
@@ -36,10 +41,12 @@ function handleCount(){
 ];
 
     return <div className="Verification">
-    <button onClick={handleCount}>Press it</button>
+    <button 
+    onClick={handleCount}
+    >Press it</button>
       <h1>Verification</h1>
       <div className="org-verification-donation-req">
-       <h2>Donation Requests</h2>
+       <h2 ref={btnRef}>Donation Requests</h2>
        <div id="org-verification-sort-container">
           <button id="org-vertification-sort-button">Sort By</button>
           {/* <ul id="org-verification-sort-options">
@@ -52,7 +59,7 @@ function handleCount(){
 
       <div className="TitleCardOrgTT13">
               <ul>
-                  <li>Order Number</li>
+                  <li ref={liRef}>Order Number</li>
                   <li>Name</li>
                   <li>Method</li>
                   <li>Date</li>

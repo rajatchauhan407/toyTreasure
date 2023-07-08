@@ -28,9 +28,6 @@ return(
             <Route path="/support" element={<Support/>}/>
             <Route path="/home" element={<Home/>} />
             <Route path="/charity/profile" element={<DonorCharityProfilePage/>}/>
-           
-            
-
         </Route>
         <Route element={<ProtectedRoutes/>}>
             <Route path="/login-signup" element={<LoginSignUp/>} />
