@@ -4,22 +4,31 @@ import CardOrgTT13 from '../card-vertification-pending-donor'
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 function WrapperCardOrgTT13() {
   const [orgData, setOrgData] = useState([]); 
+  const [count,setCount] = useState(0);
   async function getData(){
-    const data = await FireBaseFirestoreService.getDocuments("organization_profile");
-    let array = [];
-    array = data.docs.map(
-      (doc)=>{return doc.data()}
-      );
+    const data = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
+    let array = data;
+    // array = data.docs.map(
+    //   (doc)=>{return doc.data()}
+    //   );
     setOrgData(array);
-      console.log(array);
+      // console.log(array);
   }
+  // useEffect(()=>{
+
+  // });
   useEffect(()=>{
     getData();
   },[]);
-  
-    
+  // getData();
+    useEffect(()=>{
+      console.log("useEffect called");
+    },[count]);
  
-
+function handleCount(){
+  console.log("Hello");
+  setCount(count+1);
+}
   const verification = [
     {orderNumber: 37890, name:"Greg Thomas", method: "drop-off", date: "05/05/2023", Qty: 6, donationStatus: "Pending"},
     {orderNumber: 37890, name:"Greg Thomas", method: "drop-off", date: "05/05/2023", Qty: 6, donationStatus: "Pending"},
@@ -27,6 +36,7 @@ function WrapperCardOrgTT13() {
 ];
 
     return <div className="Verification">
+    <button onClick={handleCount}>Press it</button>
       <h1>Verification</h1>
       <div className="org-verification-donation-req">
        <h2>Donation Requests</h2>
@@ -65,4 +75,5 @@ function WrapperCardOrgTT13() {
             })}
             </div>
           }
+          
 export default WrapperCardOrgTT13;
