@@ -20,7 +20,7 @@ export const AuthContextProvider = (props)=>{
     const [email,setEmail] = useState(sessionStorage.getItem('email')||'');
     const [emailVerified, setEmailVerified] = useState(sessionStorage.getItem('emailVerified') || '');
     const [uid,setUid] = useState(sessionStorage.getItem('uid')|| '');
-    const [userType, setUserType] = useState(localStorage.getItem('userType')||'');
+    const [userType, setUserType] = useState(sessionStorage.getItem('userType')||'');
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(FireBaseAuthService.auth,
             (user)=>{
@@ -49,7 +49,7 @@ export const AuthContextProvider = (props)=>{
         return ()=>{
             unsubscribe();
         }
-    },[setIsLoggedIn]);
+    },[setIsLoggedIn,userType]);
     let contextValue={
         isLoggedIn:isLoggedIn,
         profilePic:profilePic,
