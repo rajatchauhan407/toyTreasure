@@ -1,9 +1,7 @@
 import "./index.scss";
 import { useState } from "react";
-import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 
-export default function OrgProfileDetails(){
-   
+export default function OrgProfileDetails(){   
      
     const [orgName,setOrgName]=useState("");
     const [orgDescription,setOrgDescription]=useState("");
