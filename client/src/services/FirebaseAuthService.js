@@ -22,7 +22,7 @@ const loginUser = (email,password)=>{
 }
 
 const logoutUser = ()=>{
-    return signOut();
+    return signOut(auth);
 };
 
 const PasswordResetEmail = (email)=>{

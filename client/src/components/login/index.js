@@ -2,14 +2,32 @@
 
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import "./index.scss";
-import { useState } from "react";
+import { useContext, useRef, useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
 import {Link} from "react-router-dom";
+import { query,where,collection,getDocs} from 'firebase/firestore';
+import {database} from "../../FirebaseConfig";
+import AuthContext from '../../services/auth-context';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 function LoginForm({existingUser}){
+    let authCtx = useContext(AuthContext);
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-
+    const [userType, setUserType] = useState("");
+    const donorRef = useRef(null);
+    const orgRef = useRef(null);
+// handling the userType
+    function handleUserType(e){
+        setUserType(e.target.value);
+        if(e.target.value === "donor"){
+            donorRef.current.style.background = "orange";
+            orgRef.current.style.background = "unset"
+        }
+        if(e.target.value === "organization"){
+            donorRef.current.style.background = "unset";
+            orgRef.current.style.background = "orange"
+        }
+    }
     async function handleSubmit(event){
         event.preventDefault();
         try {
@@ -42,7 +60,9 @@ async function handleLoginWithGoogle(){
     try {
         let result = await FireBaseAuthService.loginWithGoogle();
         const {email,emailVerified, displayName, phoneNumber, photoURL, uid} = result.user;
+        
         const document = {
+            user_type:userType,
             uid,
             email,
             emailVerified,
@@ -50,18 +70,41 @@ async function handleLoginWithGoogle(){
             phoneNumber,
             photoURL
         }
-        await FireBaseFirestoreService.settingDocument("user",null,document);
-        sessionStorage.setItem('isLoggedIn', 'true');
-        sessionStorage.setItem('profile_pic', photoURL);
-        sessionStorage.setItem('displayName',displayName);
+        console.log(document);
+        const q = query(collection(database, 'user'), where('uid','==',uid));
+        const data = await getDocs(q);
+        
+        if(data.docs.length === 0){
+            await FireBaseFirestoreService.createDocument("user",document);
+        }
+        // console.log(data);
+            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('profile_pic', photoURL);
+            sessionStorage.setItem('displayName',displayName);
+            sessionStorage.setItem('email',email);
+            sessionStorage.setItem('emailVerified',emailVerified);
+            sessionStorage.setItem('uid',uid);
+            sessionStorage.setItem('userType',userType);
+            authCtx.setUserType(userType);
+
     } catch (error) {
         alert(error.message);
     }
 }
     return (<>
         <div className="login-form-container">
-        <button className="loginDonorButton">Donor</button> 
-        <button className="loginOrgButton">Organization</button>
+        <button 
+            className="loginDonorButton" 
+            value="donor" 
+            onClick={handleUserType}
+            ref={donorRef}
+            >Donor</button> 
+        <button 
+            className="loginOrgButton" 
+            value="organization" 
+            onClick={handleUserType}
+            ref={orgRef}
+            >Organization</button>
             <h1>Welcome back!</h1>
             <hr className="borderBottom" />
             <p>Log in to unlock the powere of giving </p>
@@ -105,7 +148,7 @@ async function handleLoginWithGoogle(){
                         <hr className="or-line" />
                         </div>
                         <div className='google-Facebook-Button'>
-                        <button type="button" onClick={handleLoginWithGoogle}>
+                        <button type="button" disabled={!userType} onClick={handleLoginWithGoogle}>
                             <AiFillGoogleCircle className="google-icon" />
                              Login With Google
                         </button>
