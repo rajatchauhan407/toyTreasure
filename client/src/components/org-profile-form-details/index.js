@@ -34,9 +34,10 @@ export default function OrgProfileDetails(){
         org_country_code:countryCode,
         org_phone:phoneNumber 
     }
-    // for (let [key, value] of Object.entries(formObject)) {
-    //     console.log(key, value);
-    // }
+    console.log("Form Object");
+    for (let [key, value] of Object.entries(formObject)) {
+        console.log(key, value);
+    }
 }
   
     return(
@@ -84,7 +85,7 @@ export default function OrgProfileDetails(){
                         <input type="text" id="orgZip"  onChange={(e)=>{setOrgZip(e.target.value)}} name="orgZip" required /><br />
             
                         <label htmlFor="orgCountry">Country</label><br />
-                        <input type="text" id="orgCountry" name="orgCountry" value="Canada" disabled /><br />
+                        <input type="text" id="orgCountry" onChange={(e)=>{setOrgCountry(e.target.value)}} name="orgCountry" value="Canada" disabled /><br />
                     </div>
                 </div>
         
@@ -93,7 +94,7 @@ export default function OrgProfileDetails(){
     
                 <label htmlFor="contactNumber">Contact Number</label><br />
                 <div className="phone-input">
-                    <input type="text" id="countryCode" name="countryCode" value="+1" disabled />
+                    <input type="text" id="countryCode" onChange={(e)=>{setCountryCode(e.target.value)}} name="countryCode" value="+1" disabled />
                     <input type="number" id="phoneNumber" onChange={(e)=>{setPhoneNumber(e.target.value)}} name="phoneNumber" required />
                 </div>     
                 <button type="submit">Save</button>         
