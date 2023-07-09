@@ -1,4 +1,5 @@
 import './App.css';
+import DonorRewards from './components/donor-home-rewards';
 
 import Routing from "./routes/routing";
 function App() {
@@ -6,7 +7,8 @@ function App() {
 
   return (
     <div className="App">
-        <Routing/>
+        {/* <Routing/> */}
+        <DonorRewards/>
        
     </div>
     
