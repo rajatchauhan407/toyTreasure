@@ -54,6 +54,8 @@ async function handleLoginWithGoogle(){
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('profile_pic', photoURL);
         sessionStorage.setItem('displayName',displayName);
+        sessionStorage.setItem('email',email);
+        sessionStorage.setItem('emailVerified',emailVerified);
     } catch (error) {
         alert(error.message);
     }
