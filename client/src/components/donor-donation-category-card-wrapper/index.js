@@ -32,7 +32,13 @@ function DonationCategoryCardWrapper() {
   const donationCategoryCardDatasList = donationCategoryCardData.map((el) => (
     <DonationCategoryCard imageUrl={el.imageUrl} points={el.points} toyType={el.toyType} age={el.age} />
   ));
-  return <div className='donorDonationCategoryCardwrapper'>{donationCategoryCardDatasList}</div>;
+  return <div className='donorDonationCategoryCardWrapper'>
+    <h1>Categories</h1>
+    <p>Choose a category to donate if you can not find in wishlist.</p>
+    <div className='donorDonationCategoryCardWrap'>
+    {donationCategoryCardDatasList}
+    </div>
+    </div>;
 }
 
 export default DonationCategoryCardWrapper;
