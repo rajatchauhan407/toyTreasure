@@ -6,9 +6,8 @@ export default function ProtectedRoutes(){
     return(
         <>
         {
-            !authCtx.isLoggedIn? <Outlet/>
-            : 
-            <Navigate to="/organization/profile"/>
+            !authCtx.isLoggedIn? <Outlet/>: authCtx.isLoggedIn && authCtx.userType === "organization"?<Navigate to="/organization"/>:<Navigate to="/home"/>
+            
         }
         </>
         )

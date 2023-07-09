@@ -17,12 +17,15 @@ import OrgVerification from "../pages/organization/verification";
 import OrgVerificationRequest from "../pages/organization/verification/verification-request";
 import DonorDonationToysPage from '../pages/donationToys';
 import DonorCharityProfilePage from "../pages/CharityProfile";
+import { useContext } from "react";
+import AuthContext from "../services/auth-context";
 export default function Routing(){
-    
+    const authCtx = useContext(AuthContext);
+    console.log(authCtx);
 return(
     
     <Routes>
-        <Route element={<UserRoutes/>}>
+        {authCtx.userType==="donor"&&<Route element={<UserRoutes/>}>
             <Route path="/" element={<Home/>}/>
             <Route path="/map" element={<Map/>}/>
             <Route path="/rewards" element={<Rewards/>}/>
@@ -30,23 +33,20 @@ return(
             <Route path="/home" element={<Home/>} />
             <Route path="/donation/toys" element={<DonorDonationToysPage/>} />
             <Route path="/charity/profile" element={<DonorCharityProfilePage/>}/>
-
-           
-            
-
-        </Route>
-        <Route element={<ProtectedRoutes/>}>
+        </Route>}
+      {!authCtx.isLoggedIn && <Route element={<ProtectedRoutes/>}>
             <Route path="/login-signup" element={<LoginSignUp/>} />
             <Route path="/login" element={<Login/>} />
-        </Route>
-        <Route element={<OrganizationRoutes/>}>
+        </Route>}
+        {authCtx.userType === "organization" && <Route element={<OrganizationRoutes/>}>
+                <Route path="/organization" element={<OrgDashboard/>}/>
                 <Route path="/organization/dashboard" element={<OrgDashboard/>}/>
                 <Route path="/organization/profile" element={<OrgProfile/>}/>
                 <Route path="/organization/stories" element={<OrgStories/>}/>
                 <Route path="/organization/verification/:id" element={<OrgVerificationRequest/>}/>  
                 <Route path="/organization/settings" element={<OrgSettings/>}/>
                 <Route path="/organization/verification" element={<OrgVerification/>}/>
-        </Route>
+        </Route>}
         <Route path="*" element={<PageNotFound/>} />
     </Routes>
 )

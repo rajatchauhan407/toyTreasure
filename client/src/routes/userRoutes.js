@@ -5,7 +5,7 @@ import DonorHeader from '../components/donor-header';
 import DonorFooter from '../components/donor-footer';
 export default function UserRoutes(){
   let authCtx = useContext(AuthContext);
-  
+  console.log(authCtx);
     return(
         <>
         <div className='tt-102-donor-wrapper'>
@@ -14,9 +14,8 @@ export default function UserRoutes(){
         </div>
         
         {
-            !authCtx.isLoggedIn? <Navigate to="/login"/>
-            : 
             <Outlet/>
+            
         }
         <div className="tt-102-footer-wrapper">
           <DonorFooter/>
