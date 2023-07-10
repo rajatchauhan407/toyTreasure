@@ -1,13 +1,16 @@
 .discCard{
     display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
+    // align-content: center;
+    // align-items: center;
+    justify-content: start;
 
     border-radius: 10px;
-    background-color: #cbcbcb;
-    margin-left: 5rem;
-    margin-right: 5rem;
+    // background-color: #cbcbcb;
+    background-image: url("https://picsum.photos/400/400?rand=437");
+    background-size: cover;
+ 
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
 .imageBanner{
@@ -19,5 +22,6 @@ img .imageBanner{
 }
 
 .infoBanner{
-    padding: 1rem;
+    padding: 3rem;
+    font-weight: bold; 
 }

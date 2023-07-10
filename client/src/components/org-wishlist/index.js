@@ -13,50 +13,50 @@ export default function OrgWishlist(){
     useEffect(()=>{
         getOrgWishListData();
     },[]);
-    let orgWishlistData = [
-        {
-            org_toy_category:"Stuffed Animal",
-            org_qty_required:38,
-            org_qty_received:45,
-            org_toy_pending:8
-        },
-        {
-            org_toy_category:"Stuffed Animal",
-            org_qty_required:38,
-            org_qty_received:45,
-            org_toy_pending:8
-        },
-        {
-            org_toy_category:"Stuffed Animal",
-            org_qty_required:38,
-            org_qty_received:45,
-            org_toy_pending:8
-        },
-        {
-            org_toy_category:"Stuffed Animal",
-            org_qty_required:38,
-            org_qty_received:45,
-            org_toy_pending:8
-        },
-        {
-            org_toy_category:"Stuffed Animal",
-            org_qty_required:38,
-            org_qty_received:45,
-            org_toy_pending:8
-        },
-        {
-            org_toy_category:"Stuffed Animal",
-            org_qty_required:38,
-            org_qty_received:45,
-            org_toy_pending:8
-        },
-        {
-            org_toy_category:"Stuffed Animal",
-            org_qty_required:38,
-            org_qty_received:45,
-            org_toy_pending:8
-        }
-    ]
+    // let orgWishlistData = [
+    //     {
+    //         org_toy_category:"Stuffed Animal",
+    //         org_qty_required:38,
+    //         org_qty_received:45,
+    //         org_toy_pending:8
+    //     },
+    //     {
+    //         org_toy_category:"Stuffed Animal",
+    //         org_qty_required:38,
+    //         org_qty_received:45,
+    //         org_toy_pending:8
+    //     },
+    //     {
+    //         org_toy_category:"Stuffed Animal",
+    //         org_qty_required:38,
+    //         org_qty_received:45,
+    //         org_toy_pending:8
+    //     },
+    //     {
+    //         org_toy_category:"Stuffed Animal",
+    //         org_qty_required:38,
+    //         org_qty_received:45,
+    //         org_toy_pending:8
+    //     },
+    //     {
+    //         org_toy_category:"Stuffed Animal",
+    //         org_qty_required:38,
+    //         org_qty_received:45,
+    //         org_toy_pending:8
+    //     },
+    //     {
+    //         org_toy_category:"Stuffed Animal",
+    //         org_qty_required:38,
+    //         org_qty_received:45,
+    //         org_toy_pending:8
+    //     },
+    //     {
+    //         org_toy_category:"Stuffed Animal",
+    //         org_qty_required:38,
+    //         org_qty_received:45,
+    //         org_toy_pending:8
+    //     }
+    // ]
     return (<div className="table-container">
                 <table>
                     <thead>

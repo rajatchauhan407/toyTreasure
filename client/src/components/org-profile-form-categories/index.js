@@ -1,12 +1,23 @@
-import "./index.scss"
-
+import "./index.scss";
+import {useState} from "react";
+import {BiDownArrowAlt} from "react-icons/bi";
 export default function OrgProfileCategories(){
+    const [isOpen, setIsOpen] = useState(false);
+    const [isBabyOpen, setIsBabyOpen] = useState(false);
+    function handleIsOpen(){
+        setIsOpen(prev => !prev);
+    }
+    function handleBabyToy(){
+        setIsBabyOpen(prev => !prev);
+    }
     return(
     <div className="OrgProfileCategories">
         <form className="Categories">
                     <h2>Select the categories of toys you accept</h2>
                     <div className="Kids">
-                        <h3>Kids Toys</h3>
+                    
+                        <h3>Kids Toys <BiDownArrowAlt onClick={handleIsOpen}/></h3>
+                        {isOpen && <form action="">
                             <input type="checkbox" id="plushAnimals" name="category" value="Plush and Stuffed Animals"/>
                             <label for="plushAnimals">Plush and Stuffed Animals</label> <br />
 
@@ -36,10 +47,12 @@ export default function OrgProfileCategories(){
 
                             <input type="checkbox" id="books" name="category" value="Books and Reading Materials"/>
                             <label for="books">Books and Reading Materials</label> <br />
+                            </form>}
                     </div>
 
                     <div className="Baby">
-                        <h3>Baby Toys</h3>
+                        <h3>Baby Toys <BiDownArrowAlt onClick={handleBabyToy}/></h3>
+                        {isBabyOpen && <form action="">
                             <input type="checkbox" id="softPlushToys" name="category" value="Soft Plush Toys"/>
                             <label for="softPlushToys">Soft Plush Toys</label><br />
 
@@ -60,6 +73,7 @@ export default function OrgProfileCategories(){
 
                             <input type="checkbox" id="sensoryToys" name="category" value="Sensory Balls and Textured Toys"/>
                             <label for="sensoryToys">Sensory Balls and Textured Toys</label><br />
+                            </form>}
                     </div>
             </form>
         
