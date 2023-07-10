@@ -5,7 +5,7 @@ import {onAuthStateChanged} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 const AuthContext = new React.createContext({
     isLoggedIn:'',
-    profile_pic:'',
+    profilePic:'',
     displayName:'',
     email:'',
     emailVerified:'',
@@ -46,6 +46,7 @@ export const AuthContextProvider = (props)=>{
                     sessionStorage.removeItem('emailVerified');
                     sessionStorage.removeItem('uid');
                     sessionStorage.removeItem('userType');
+                    setUserType(null);
                     navigate('/login');
                 }
             }
