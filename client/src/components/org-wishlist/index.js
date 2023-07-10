@@ -1,6 +1,18 @@
 import "./index.scss";
+import { useState,useEffect } from 'react';
+import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 
 export default function OrgWishlist(){
+    const [orgWishList, setOrgWishList] = useState([]); 
+    async function getOrgWishListData()
+    {
+        const data = await FireBaseFirestoreService.getDocumentsInArray("organization_wishlist");
+        let array = data;       
+        setOrgWishList(array);       
+    }
+    useEffect(()=>{
+        getOrgWishListData();
+    },[]);
     let orgWishlistData = [
         {
             org_toy_category:"Stuffed Animal",
@@ -51,18 +63,19 @@ export default function OrgWishlist(){
                         <tr>
                             <td>Tag Category</td>
                             <td>Qty Required</td>
+                            {/* Yet to decide on data for Qty Received*/}
                             <td>Qty Received</td>
-                            <td>Pending</td>
-                            <td>Icon</td>
+                            {/* <td>Pending</td> */}
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
-                        {orgWishlistData.map((el)=>{
+                        {orgWishList.map((el)=>{
                             return <tr>
-                            <td>Stuffed Animals</td>
-                            <td>38</td>
-                            <td>26</td>
-                            <td>08</td>
+                            <td>{el.org_w_toy_name}</td>
+                            <td>{el.org_w_toys_required}</td>
+                            <td>26</td> 
+                            {/* <td>08</td> */}
                             <td><i className="fa-solid fa-trash"></i></td>
                         </tr>
                         })}

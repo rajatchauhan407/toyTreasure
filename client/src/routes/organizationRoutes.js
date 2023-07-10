@@ -15,9 +15,10 @@ export default function OrganizationRoutes(){
                 </div>
                 <div className='organization-dashboard-side-menu-container'>
                 <OrgHeader/>
-                {
-                    authCtx.isLoggedIn?<Outlet/>:<Navigate to="/login"/>
-                }
+                {/* {
+                    authCtx.isLoggedIn && authCtx.userType==="organization"?<Outlet/>:<Navigate to="/login"/>
+                } */}
+                <Outlet/>
                 </div>
         </div>
         
