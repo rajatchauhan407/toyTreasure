@@ -60,7 +60,7 @@ async function handleLoginWithGoogle(){
     try {
         let result = await FireBaseAuthService.loginWithGoogle();
         const {email,emailVerified, displayName, phoneNumber, photoURL, uid} = result.user;
-        
+        console.log(result);
         const document = {
             user_type:userType,
             uid,
