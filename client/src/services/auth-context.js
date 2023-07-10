@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 // import FireBaseAuthService from "./FirebaseAuthService";
 import FireBaseAuthService from "./FirebaseAuthService";
 import {onAuthStateChanged} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 const AuthContext = new React.createContext({
     isLoggedIn:'',
     profile_pic:'',
@@ -13,6 +14,7 @@ const AuthContext = new React.createContext({
 });
 
 export const AuthContextProvider = (props)=>{
+    let navigate = useNavigate()
     const initialIsLoggedIn = sessionStorage.getItem('isLoggedIn');
     const [isLoggedIn, setIsLoggedIn] = useState(initialIsLoggedIn);
     const [profilePic, setProfilePic] = useState(sessionStorage.getItem('profile_pic')||'');
@@ -43,6 +45,8 @@ export const AuthContextProvider = (props)=>{
                     sessionStorage.removeItem('email');
                     sessionStorage.removeItem('emailVerified');
                     sessionStorage.removeItem('uid');
+                    sessionStorage.removeItem('userType');
+                    navigate('/login');
                 }
             }
         );
