@@ -4,7 +4,8 @@ import {addDoc,
         getDocs,
         getDoc,
         doc,
-        updateDoc} from 'firebase/firestore';   
+        updateDoc,
+        setDoc} from 'firebase/firestore';   
 import "firebase/firestore";
 
 // add document in the firestore. Accepts collection name and document object as parametres and returns the execution of the function so that it can be used further.
@@ -61,12 +62,22 @@ function getDocumentById(collectionName, documentId){
             console.log("Error while updating Data", error);
         }
     }
+//Setting a document which overwrites or add in the previous data
+    async function settingDocument(collectionName,docId, document){
+            try{
+                let docRef = setDoc(doc(database,collectionName,docId),document);
+                console.log(docRef);    
+            }catch(error){
+                console.log("Error while Setting Data", error);
+            }
+    }
 const FireBaseFirestoreService = {
     createDocument,
     getDocumentsInArray,
     getDocuments,
     getDocumentById,
-    updateDocumentById
+    updateDocumentById,
+    settingDocument
 }
 
 
