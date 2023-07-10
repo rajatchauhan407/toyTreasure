@@ -17,8 +17,19 @@
     top: -20px;
     right: -20px;
 }
-button{
+.redeemRewards{
     display: block;
     width: 100%;
 }
+}
+
+#false
+{
+    pointer-events: none;
+    opacity: 0.4;    
+}
+
+#false .redeemRewards
+{
+    pointer-events: none;      
 }
