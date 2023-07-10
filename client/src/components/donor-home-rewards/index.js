@@ -28,7 +28,7 @@ export default function DonorRewards(props)
             <div className="tt-101-rewards-profile">
                 <div className="tt-101-rewards-profile-and-points">
                     <h1>Rewards Profile</h1>
-                    <h2>Your Points : 400</h2>
+                    <h2 className="tt-101-points">Your Points : 600</h2>
                 </div>
                 <HomeDashboardBadgeHistory/>         
             </div>

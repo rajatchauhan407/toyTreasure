@@ -13,7 +13,7 @@ export default function HomeDashboardRewards(props){
                         <img src={props.imageUrl} alt=""/>                       
                     </div>
                     {props.status}
-                    <button>Redeem now</button>
+                    <button className="redeemRewards">Redeem now</button>
             </div>
     )
 }
