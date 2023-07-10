@@ -1,0 +1,10 @@
+.tt-38-item-container{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    justify-content: left;   
+}
+.tt-38-extraDetails{
+ display: grid;
+ gap : 1rem;
+}
