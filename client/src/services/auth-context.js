@@ -54,7 +54,7 @@ export const AuthContextProvider = (props)=>{
         return ()=>{
             unsubscribe();
         }
-    },[setIsLoggedIn,userType]);
+    },[setIsLoggedIn,userType,navigate]);
     let contextValue={
         isLoggedIn:isLoggedIn,
         profilePic:profilePic,

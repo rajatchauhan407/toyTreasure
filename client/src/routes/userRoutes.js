@@ -14,8 +14,8 @@ export default function UserRoutes(){
         </div>
         
         
-            {/* !authCtx.isLoggedIn? <Navigate to="/login"/>
-            :  */}
+            !authCtx.isLoggedIn? <Navigate to="/login"/>
+            : 
             <Outlet/>
         
         <div className="tt-102-footer-wrapper">
