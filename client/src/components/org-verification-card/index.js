@@ -1,29 +1,44 @@
 import "./index.scss";
+import { useState,useEffect } from 'react';
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+
 export default function OrgVerificationCard(){
-    let orgVerificationData = [
+    const [orgVerificationList, setOrgVerificationList] = useState([]); 
+        async function getOrgVerificationListData()
         {
-            animalType:"Stuffed Animal",
-            date:"23-05-89",
-            name:"Greg Thomas"
-        },
-        {
-            animalType:"Stuffed Animal",
-            date:"23-05-89",
-            name:"Greg Thomas"
-        },
-        {
-            animalType:"Stuffed Animal",
-            date:"23-05-89",
-            name:"Greg Thomas"
-        },
-        {
-            animalType:"Stuffed Animal",
-            date:"23-05-89",
-            name:"Greg Thomas"
+            const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
+            let array = data;       
+            setOrgVerificationList(array);       
         }
-    ];
+        useEffect(()=>{
+            getOrgVerificationListData();
+        },[]);
+
+
+    // let orgVerificationData = [
+    //     {
+    //         animalType:"Stuffed Animal",
+    //         date:"23-05-89",
+    //         name:"Greg Thomas"
+    //     },
+    //     {
+    //         animalType:"Stuffed Animal",
+    //         date:"23-05-89",
+    //         name:"Greg Thomas"
+    //     },
+    //     {
+    //         animalType:"Stuffed Animal",
+    //         date:"23-05-89",
+    //         name:"Greg Thomas"
+    //     },
+    //     {
+    //         animalType:"Stuffed Animal",
+    //         date:"23-05-89",
+    //         name:"Greg Thomas"
+    //     }
+    // ];
     return (
-            orgVerificationData.map((el)=>{
+            orgVerificationList.map((el)=>{
                 return <div className="verification-card-wrapper">
                     <h4>{el.animalType}</h4>
                     <div className="verification-date-button">
