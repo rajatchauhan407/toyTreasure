@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './index.scss';
 export default function OrgMapDescCard(){
     return <div className="tt-62-map-charities-desc-container">
@@ -15,7 +16,7 @@ export default function OrgMapDescCard(){
                 <div className="tt-62-charity-timing">
                         <p>Received Donation Hours:</p>
                         <p>Monday-Sunday : 09:00-18:00</p>
-                        <button>Donate Now</button>
+                        <button><Link to="/donation/toys">Donate Now</Link></button>
                 </div>
             </div>
 }
