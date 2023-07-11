@@ -1,7 +1,7 @@
 import {useState} from "react";
 import "./index.scss";
 
-export default function ComponentDropdown({options,field}){
+export default function ComponentDropdown({options,field, onSelectedOptions}){
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     
@@ -10,7 +10,8 @@ export default function ComponentDropdown({options,field}){
     const handleCheckboxChange = (e,option)=>{
         console.log(e.target.value);
         const { checked } = e.target;
-        console.log(selectedOptions);
+        // console.log(selectedOptions);
+        onSelectedOptions(selectedOptions);
     // Update selectedOptions array based on checkbox state
     if (checked) {
       setSelectedOptions((prevOptions) => [...prevOptions, option]);
