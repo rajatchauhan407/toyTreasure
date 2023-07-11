@@ -17,6 +17,7 @@ import OrgVerification from "../pages/organization/verification";
 import OrgVerificationRequest from "../pages/organization/verification/verification-request";
 import DonorDonationToysPage from '../pages/donationToys';
 import DonorCharityProfilePage from "../pages/CharityProfile";
+import DonorDonationConfirmation from "../pages/donationConfirmation";
 import { useContext } from "react";
 import AuthContext from "../services/auth-context";
 export default function Routing(){
@@ -34,6 +35,7 @@ return(
             <Route path="/home" element={<Home/>} />
             <Route path="/donation/toys" element={<DonorDonationToysPage/>} />
             <Route path="/charity/profile" element={<DonorCharityProfilePage/>}/>
+            <Route path="/donation/confirmation" element={<DonorDonationConfirmation/>}/>
         </Route>)}
     
         
