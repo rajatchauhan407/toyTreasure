@@ -1,4 +1,6 @@
 import './App.css';
+import OrgAddWishlist from './components/org-addwishlist-modal';
+
 
 import Routing from "./routes/routing";
 function App() {
@@ -6,8 +8,8 @@ function App() {
 
   return (
     <div className="App">
-        <Routing/>
-       
+        {/* <Routing/> */}
+       <OrgAddWishlist/>
     </div>
     
   );
