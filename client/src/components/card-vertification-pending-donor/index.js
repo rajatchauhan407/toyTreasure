@@ -3,19 +3,30 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 
+const verificationData = [
+    {
+      orderNumber: 37890,
+      name: "Greg Thomas",
+      method: "drop-off",
+      date: "05/05/2023",
+      Qty: 6,
+      donationStatus: "Pending"
+    },
+  ];
+
 export default function CardOrgTT13() {
   const [orgVerificationList, setOrgVerificationList] = useState([]);
 
-  async function getOrgVerificationListData() {
-    try {
-      const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
-      setOrgVerificationList(data || []);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
-
   useEffect(() => {
+    async function getOrgVerificationListData() {
+      try {
+        const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
+        setOrgVerificationList(data || []);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
     getOrgVerificationListData();
   }, []);
 
@@ -29,7 +40,7 @@ export default function CardOrgTT13() {
 
   const deliveryMethodMapping = {
     drop_off: "Drop-off",
-    pickup: "Pick-Up",
+    pickup: "Pick-up",
   };
 
   const getStatusText = (statusObj) => {
@@ -60,22 +71,35 @@ export default function CardOrgTT13() {
   };
 
   return (
-    <tbody>
-      {orgVerificationList.map((data) => (
-        <tr key={data.id}>
-          <td>{data.orderNumber}</td>
-          <td>{data.name}</td>
-          <td>{getDeliveryMethodText(data.method)}</td>
-          <td>{formatDate(data.date)}</td>
-          <td>{data.Qty}</td>
-          <td>{getStatusText(data.donationStatus)}</td>
-          <td>
-            <button onClick={() => { navigate('/organization/verification/3') }}>
-              Verify
-            </button>
-          </td>
-        </tr>
-      ))}
-    </tbody>
+    <table className="TableCardOrgTT13">
+        <thead>
+          <tr>
+            <th>Order Number</th>
+            <th>Name</th>
+            <th>Method</th>
+            <th>Date</th>
+            <th>Qty</th>
+            <th>Donation Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {orgVerificationList.map((props) => (
+            <tr key={props.id}>
+            <td>{props?.order}</td>
+            <td>{props?.name}</td>
+            <td>{getDeliveryMethodText(props?.user_donation_delivery_method)}</td>
+            <td>{formatDate(props?.user_donation_date)}</td>
+            <td>{props?.user_donation_list ? props.user_donation_list.length : 0}</td>
+            <td>{getStatusText(props?.user_donation_status)}</td>
+            <td>
+                <button onClick={() => { navigate('/organization/verification/3') }}>
+                Verify
+                </button>
+            </td>
+            </tr>
+        ))}
+        </tbody>
+    </table>
   );
 }
