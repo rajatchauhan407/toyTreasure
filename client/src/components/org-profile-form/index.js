@@ -46,6 +46,9 @@ function getVideo(file){
     console.log(file);
     setVideo(file);
 }
+function getSelectedData(){
+    
+}
 return (
     <div className="OrgProfile">
         <div className="wrapper-left">
@@ -67,7 +70,9 @@ return (
                 onProfileSelected={getProfile}
                 onVideoSelected={getVideo}
             />
-            <OrgProfileExtraD/>
+            <OrgProfileExtraD
+                onSelectedData = {getSelectedData}
+            />
             <OrgProfileCategories/>
         </div>
     </div>

@@ -1,6 +1,8 @@
 import ComponentDropdown from "../component-dropdown-selection";
 import "./index.scss";
-export default function OrgProfileExtraD(){
+import {useState,useEffect} from "react";
+
+export default function OrgProfileExtraD({onSelectedData}){
     let test = [
         {id:1,day:"sunday"},{id:2,day:"Monday"},{id:3,day:"Tuesday"},{id:4,day:"Wednesday"},{id:5,day:"Thursday"},{id:6,day:"Friday"},{id:7,day:"Saturday"}
     ];
@@ -14,15 +16,25 @@ export default function OrgProfileExtraD(){
         {id:1, method:"pick-up"},
         {id:2, method:"drop-off"}
     ];
-    function getTiming(){
-
+    const [time,setTime] = useState();
+    const [deliveryM, setDelivery] = useState();
+    const [workingDays, setWorkingDays] = useState();
+    function getTiming(data){
+        setTime(data)
     }
-    function getDays(){
-
+    function getDays(data){
+        setDelivery(data);
     }
-    function getDeliveryMethod(){
-
+    function getDeliveryMethod(data){
+        setWorkingDays(data);
     }
+    // useEffect(()=>{
+    //     onSelectedData({
+    //         time,
+    //         deliveryM,
+    //         workingDays
+    //     });
+    // },[time,deliveryM, workingDays])
     return(
     <div className="OrgProfileExtraD">
         <form className="tt-38-extraDetails">
