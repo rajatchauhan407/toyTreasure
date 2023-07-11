@@ -14,6 +14,15 @@ export default function OrgProfileExtraD(){
         {id:1, method:"pick-up"},
         {id:2, method:"drop-off"}
     ];
+    function getTiming(){
+
+    }
+    function getDays(){
+
+    }
+    function getDeliveryMethod(){
+
+    }
     return(
     <div className="OrgProfileExtraD">
         <form className="tt-38-extraDetails">
@@ -23,6 +32,7 @@ export default function OrgProfileExtraD(){
                     <ComponentDropdown
                         options={deliveryMethod}
                         field="method"
+                        onSelectedOptions={getDeliveryMethod}
                     />
                 </div>
                 <div className="tt-38-item-container">
@@ -30,6 +40,7 @@ export default function OrgProfileExtraD(){
                     <ComponentDropdown
                         options={timing}
                         field="time"
+                        onSelectedOptions={getTiming}
                     />
                 </div>
                 <div className="tt-38-item-container">
@@ -37,6 +48,7 @@ export default function OrgProfileExtraD(){
                     <ComponentDropdown
                         options={test}
                         field="day"
+                        onSelectedOptions={getDays}
                     />
                 </div>
                 {/* <MultiSelector /> */}
