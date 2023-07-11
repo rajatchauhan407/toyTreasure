@@ -47,7 +47,7 @@ export const AuthContextProvider = (props)=>{
                     sessionStorage.removeItem('uid');
                     sessionStorage.removeItem('userType');
                     setUserType(null);
-                    navigate('/login');
+                    // navigate('/login');
                 }
             }
         );

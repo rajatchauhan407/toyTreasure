@@ -1,12 +1,13 @@
 import "./index.scss";
 import logo from "./appLogo.svg"
-import { Link} from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
 export default function OrgSideMenu(props)
 {
+    const navigate = useNavigate();
     async function handleLogout(){
         await FireBaseAuthService.logoutUser();
-
+        navigate('/login');
     }
     return(
         <div className="OrgSideMenuWrapper">
