@@ -1,13 +1,13 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
-import { useState, useContext } from "react";
+import { useState,useContext} from "react";
 import FireBaseAuthService from '../../services/FirebaseAuthService';
 import AuthContext from '../../services/auth-context';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 export default function CreateAccountOrg(){
 
 
-    const authContext = useContext(AuthContext);
+    const authCtx = useContext(AuthContext);
     const [fullName, setFullName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [email, setEmail] = useState('');
@@ -17,15 +17,6 @@ export default function CreateAccountOrg(){
 
     const handleCreateAccount = async (signup)=>{
         signup.preventDefault();
-        const { uid } = FireBaseAuthService.auth.currentUser;
-        const userInfo = {
-            displayName: fullName,
-            phoneNumber: phoneNumber,
-            email: email,
-            userId: uid
-        }
-        FireBaseFirestoreService.createDocument("user", userInfo)
-
         if(!fullName || !phoneNumber || !email || !password || !confirmPassword || !agreeTerms){
             console.log('Please fill in all fields.');
             return;
@@ -35,13 +26,35 @@ export default function CreateAccountOrg(){
             console.log( 'Passwords do not match.');
             return;
         }
-
         try{
-            await FireBaseAuthService.registerUser(email, password);
-            console.log('account created sucessfully.');
-        } catch (error){
-            console.error('Error creating account', error)
+            let result  = await FireBaseAuthService.registerUser(email,password);
+            const {uid} = result.user;
+            const userInfo = {
+                displayName: fullName,
+                phoneNumber: phoneNumber,
+                email: email,
+                uid: uid,
+                user_type:"organization"
+            }
+            
+            FireBaseFirestoreService.createDocument("user", userInfo);
+            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('displayName',userInfo.displayName);
+            sessionStorage.setItem('email',email);
+            sessionStorage.setItem('userType',userInfo.user_type);
+            authCtx.setUserType(userInfo.user_type);
+        }catch(error){
+            console.log(error);
         }
+        
+
+        
+        // try{
+        //     await FireBaseAuthService.registerUser(email, password);
+        //     console.log('account created sucessfully.');
+        // } catch (error){
+        //     console.error('Error creating account', error)
+        // }
     };
     return<>
     <div className='tt-84-container'>
