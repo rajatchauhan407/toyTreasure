@@ -1,31 +1,33 @@
-.Verification{
+.Verification {
     margin: 40px;
-    h1{
-        font-style: normal;
-        font-weight: 700;
-        font-size: 28px;
-        line-height: 35px;
-        margin-bottom: 80px;
-    }
     
-}
-.TitleCardOrgTT13{
-    ul{
-        font-weight: 600;
-        padding-left: 0%;
-        display: flex;
-        list-style-type: none;
-        justify-content: space-between;
-        li{
-            margin-left: 8px;
-        }
+    h1 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 35px;
+      margin-bottom: 80px;
     }
-
-}
-.org-verification-donation-req{
-    display: flex;
-    justify-content: space-between;
-    button{
-        margin-top: 10px;
-    }
-}
+  }
+  
+  .TableCardOrgTT13 {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .TableCardOrgTT13 th,
+  .TableCardOrgTT13 td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .TableCardOrgTT13 th {
+    background-color: white;
+    border-bottom: 1px solid black;
+  }
+  
+  .TableCardOrgTT13 tr {
+    background-color: rgb(225, 225, 225);
+    border-radius: 50px;
+  }
+  
