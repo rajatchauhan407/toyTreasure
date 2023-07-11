@@ -17,10 +17,12 @@ export default function CreateAccountOrg(){
 
     const handleCreateAccount = async (signup)=>{
         signup.preventDefault();
+        const { uid } = FireBaseAuthService.auth.currentUser;
         const userInfo = {
             displayName: fullName,
             phoneNumber: phoneNumber,
-            email: email
+            email: email,
+            userId: uid
         }
         FireBaseFirestoreService.createDocument("user", userInfo)
 
