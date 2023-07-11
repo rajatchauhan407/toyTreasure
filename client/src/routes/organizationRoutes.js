@@ -1,4 +1,4 @@
-import {Outlet,Navigate} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 import AuthContext from '../services/auth-context';
 import { useContext } from 'react';
 import OrgSideMenu from "../components/org-side-menu";
