@@ -18,6 +18,9 @@ export default function OrganizationRoutes(){
                 {/* {
                     authCtx.isLoggedIn && authCtx.userType==="organization"?<Outlet/>:<Navigate to="/login"/>
                 } */}
+                {/* {
+                    !authCtx.isLoggedIn ? <Navigate to="/login"/>:<Outlet/>
+                } */}
                 <Outlet/>
                 </div>
         </div>

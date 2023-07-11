@@ -47,14 +47,14 @@ export const AuthContextProvider = (props)=>{
                     sessionStorage.removeItem('uid');
                     sessionStorage.removeItem('userType');
                     setUserType(null);
-                    navigate('/login');
+                    // navigate('/login');
                 }
             }
         );
         return ()=>{
             unsubscribe();
         }
-    },[setIsLoggedIn,userType]);
+    },[setIsLoggedIn,userType,navigate]);
     let contextValue={
         isLoggedIn:isLoggedIn,
         profilePic:profilePic,
