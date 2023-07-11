@@ -14,7 +14,6 @@ export default function CreateAccountOrg(){
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [agreeTerms, setAgreeTerms] = useState(false);
-
     const handleCreateAccount = async (signup)=>{
         signup.preventDefault();
         if(!fullName || !phoneNumber || !email || !password || !confirmPassword || !agreeTerms){
