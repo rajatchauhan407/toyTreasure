@@ -10,8 +10,7 @@ const AuthContext = new React.createContext({
     email:'',
     emailVerified:'',
     user_type:'',
-    setUserType:()=>{},
-    createAccount: () => {}
+    setUserType:()=>{}
 });
 
 export const AuthContextProvider = (props)=>{
@@ -66,9 +65,7 @@ export const AuthContextProvider = (props)=>{
         userType:userType,
         setUserType
     }
-    const createAccount = async (email, password, fullName, phoneNumber) => {
-        await FireBaseAuthService.createAccount(email, password, fullName, phoneNumber);
-      };
+    
     
     return (<AuthContext.Provider value={contextValue}>
             {props.children}

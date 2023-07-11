@@ -1,6 +1,7 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
 import { useState, useContext } from "react";
+import FireBaseAuthService from '../../services/FirebaseAuthService';
 import AuthContext from '../../services/auth-context';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 export default function CreateAccountOrg(){
@@ -34,7 +35,7 @@ export default function CreateAccountOrg(){
         }
 
         try{
-            await authContext.createAccount(email, password, fullName, phoneNumber);
+            await FireBaseAuthService.registerUser(email, password);
             console.log('account created sucessfully.');
         } catch (error){
             console.error('Error creating account', error)
