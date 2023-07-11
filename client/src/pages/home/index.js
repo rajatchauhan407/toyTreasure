@@ -24,13 +24,19 @@ export default function Home(){
       ));
 
     return(<>
-        <div className="welcome">
+    <div className='home-page'>
+        <div className="home-welcome">
             <h1>Hi user, make your first donation</h1>
             <DashboardPoints/>
         </div>
 
-        <DonorHomeDashboardMap/>
-        <HomeDashBoardStories/>
+        <div className='home-map'>
+            <DonorHomeDashboardMap/>
+        </div>
+        
+        <div className='home-stories'>
+            <HomeDashBoardStories/>
+        </div>
 
         <div className="home-rewards">
                 <h1>Rewards</h1>
@@ -41,7 +47,7 @@ export default function Home(){
                 <h1>Special discount for you</h1>                
                 {discountList}
         </div>
-
+    </div>
     </>);
 };
 
