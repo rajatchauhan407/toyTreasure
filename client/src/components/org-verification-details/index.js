@@ -1,43 +1,52 @@
 import "./index.scss";
 import basket from "./basket.png";
+import { useEffect, useState, useRef } from 'react';
+import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
+
 
 export default function OrgVerificationDetails(props)
 {
+    const [verToyList, setVerToyList] = useState([]);
+    const [donorDetails, setDonorDetails] = useState([]);
+
+    async function getData(){
+    const toyListData = await FireBaseFirestoreService.getDocumentsInArray("donation_list");
+    let array = toyListData;
+    setVerToyList(array);
+
+    }
+    useEffect(()=> {
+        getData();
+    }, [verToyList]);
+
     function handleAccept(){
         props.onAccept(true);
     }
     let sumOfAmt=0;
     let sumOfPoints=0;
     let wishListIcon="";
-    const verToyList = [
-        {fromWishlist:"y",name:"Teddy Bear 1", amount:1,points:50},
-        {fromWishlist:"n",name:"Teddy Bear 2", amount:1,points:50},
-        {fromWishlist:"n",name:"Barbie Doll 1", amount:1,points:25}
-    ]
-    const donorDetails = [
-        {donationId:"#45634", donorName:"Greg Thomas",donorPhone:"+1 673 564 7823",dateAndTime:"May 30, 2023, 11:30pm"}       
-    ]
+
     return(      
         <div className="OrgVerDetailsCardWrapper">
             <div className="org-ver-details-card">
                 <div className="detailsHeader">
                     <h2>Verification Details</h2>
-                    <h3>Donation:  {donorDetails[0].donationId}</h3>
+                    <h3>Donation:  {donorDetails[0]?.donationId}</h3>
                 </div>
                 <div className="details">
                     <img className="basket" src={basket} alt={"basket"}/>
                     <div className="donorInfo">
                         <div className="displayDonorInfo">
                             <p className="dTitle">Donor Name</p>
-                            <p className="dInfo">{donorDetails[0].donorName}</p>
+                            <p className="dInfo">{donorDetails[0]?.donorName}</p>
                         </div>
                         <div className="displayDonorInfo">
                             <p className="dTitle">Donor Phone</p>
-                            <p className="dInfo">{donorDetails[0].donorPhone}</p>
+                            <p className="dInfo">{donorDetails[0]?.donorPhone}</p>
                         </div>
                         <div className="displayDonorInfo">
                             <p className="dTitle">Date and Time</p>
-                            <p className="dInfo">{donorDetails[0].dateAndTime} <i class="fa-sharp fa-light fa-triangle-exclamation dTitle"></i></p>
+                            <p className="dInfo">{donorDetails[0]?.dateAndTime} <i class="fa-sharp fa-light fa-triangle-exclamation dTitle"></i></p>
                         </div>
                     </div>
                 </div>
