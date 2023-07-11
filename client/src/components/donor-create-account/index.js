@@ -5,8 +5,11 @@ import AuthContext from '../../services/auth-context';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
 export default function CreateAccountDonor(){
-    const authContext = useContext(AuthContext);
+
+
+    const authCtx = useContext(AuthContext);
     const [fullName, setFullName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [email, setEmail] = useState('');
@@ -14,17 +17,11 @@ export default function CreateAccountDonor(){
     const [confirmPassword, setConfirmPassword] = useState('');
     const [agreeTerms, setAgreeTerms] = useState(false);
 
+    const navigate = useNavigate();
+
     const handleCreateAccount = async (signup)=>{
         signup.preventDefault();
-        const { uid } = FireBaseAuthService.auth.currentUser;
-        const userInfo = {
-            displayName: fullName,
-            phoneNumber: phoneNumber,
-            email: email,
-            uid: uid,
-            user_Type: "Donor",
-        }
-        FireBaseFirestoreService.createDocument("user", userInfo);
+
         if(!fullName || !phoneNumber || !email || !password || !confirmPassword || !agreeTerms){
             console.log('Please fill in all fields.');
             return;
@@ -34,11 +31,26 @@ export default function CreateAccountDonor(){
             console.log( 'Passwords do not match.');
             return;
         }
-
         try{
-            // await FireBaseAuthService.createUserWithEmailAndPassword(auth,email, password);
-            console.log('account created sucessfully.');
-        } catch (error){
+        let result  = await FireBaseAuthService.registerUser(email,password);
+            const {uid} = result.user;
+            const userInfo = {
+                displayName: fullName,
+                phoneNumber: phoneNumber,
+                email: email,
+                uid: uid,
+                user_type:"donor"
+            }
+            
+            FireBaseFirestoreService.createDocument("user", userInfo);
+            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('displayName',userInfo.displayName);
+            sessionStorage.setItem('email',email);
+            sessionStorage.setItem('userType',userInfo.user_type);
+            authCtx.setUserType(userInfo.user_type);
+
+            navigate('/login');
+        }catch(error){
             console.error('Error creating account', error)
         }
     };
