@@ -1,7 +1,7 @@
 import "./index.scss";
 export default function HomeDashboardRewards(props){   
         
-    let state = props.status.toString();
+    let state = props.status?.toString();
        
     return (
             <div className="homeDashboardRewardsCardWrapper" id={state}>

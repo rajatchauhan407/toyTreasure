@@ -60,6 +60,7 @@ async function handleLoginWithGoogle(){
     try {
         let result = await FireBaseAuthService.loginWithGoogle();
         const {email,emailVerified, displayName, phoneNumber, photoURL, uid} = result.user;
+
         console.log(result);
         const document = {
             user_type:userType,
@@ -77,6 +78,7 @@ async function handleLoginWithGoogle(){
         if(data.docs.length === 0){
             await FireBaseFirestoreService.createDocument("user",document);
         }
+        
         // console.log(data);
             sessionStorage.setItem('isLoggedIn', 'true');
             sessionStorage.setItem('profile_pic', photoURL);
