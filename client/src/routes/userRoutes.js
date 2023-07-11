@@ -1,4 +1,4 @@
-import {Navigate,Outlet} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 import {useContext} from "react";
 import AuthContext from '../services/auth-context';
 import DonorHeader from '../components/donor-header';
