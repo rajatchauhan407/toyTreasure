@@ -50,7 +50,7 @@ export default function OrgAddWishlist(){
                 <label htmlFor="toyName">Toy Name</label><br />
                 <input type="text" id="toyName" onChange={(e)=>{setToyName(e.target.value)}} name="toyName" required /><br />
 
-                <label htmlFor="categories">Select Categories</label><br />
+                <label htmlFor="categories~">Select Categories</label><br />
                         <select id="categories" onChange={(e)=>{setToyCategory(e.target.value)}} name="categories" required>
                         {orgToyCategories.map((el)=>{
                             toyCategoryDefault=el.org_categories[0];

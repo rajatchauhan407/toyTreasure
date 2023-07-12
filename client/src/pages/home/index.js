@@ -72,6 +72,7 @@ export default function Home(){
 
         <div className="home-rewards">
                 <h1>Rewards</h1>
+                
                 <HomeDashboardRewardsCard/>
         </div>
 

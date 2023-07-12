@@ -15,7 +15,7 @@ export default function Map(){
             console.log(res)
         }
         fetchData();
-    },[orgsData,setOrgsData])
+    },[setOrgsData])
     let orgs = [
         {orgName:"Sharing Smiles",
          address:"123 very long street name North Vancouver BC V5V 8H8",
@@ -52,21 +52,20 @@ export default function Map(){
     const SideHeader = ()=>{
         return <div className="tt-62-side-wrapper">
                 <h1>Search</h1>
-                <p>Search your nearby donor organization here</p>
+                
                 <div className="tt-62-wrapper-input">
-                {/* search icon is supposed to be below */}
-                    <input type="text" />  
-                    <select id="selectedMethod">
+                <p>Search nearby organization</p>
+                <select id="selectedMethod">
                     <option disabled selected>
                         Delivery Method
                     </option>
-                        <option value="drop">
-                            drop-off
-                        </option>
-                        <option value="pick-up">
-                            pick-up
-                        </option>
-                        <option>
+                    <option value="drop">
+                        drop-off
+                    </option>
+                    <option value="pick-up">
+                        pick-up
+                    </option>
+                    <option>
                         none
                     </option>
                     </select>
@@ -89,8 +88,7 @@ export default function Map(){
                         days={el?.extraDetails.workingDays}
                         time={el?.extraDetails.time}
                         key={index}
-                        
-                        
+                        id={el.id}
                     />
                     </div>
                     })
