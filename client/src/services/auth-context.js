@@ -5,6 +5,7 @@ import { query,where,collection,getDocs} from 'firebase/firestore';
 import FireBaseAuthService from "./FirebaseAuthService";
 import {onAuthStateChanged} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import FireBaseFirestoreService from "./Firebasefirestoreservice";
 const AuthContext = new React.createContext({
     isLoggedIn:'',
     profilePic:'',
@@ -34,13 +35,11 @@ export const AuthContextProvider = (props)=>{
         const unsubscribe = onAuthStateChanged(FireBaseAuthService.auth,
             async (user)=>{
                 if(user){
+                    console.log(user.uid);
                     console.log(user);
-                    const q = query(collection(database, 'user'), where('uid','==',user.uid));
-                    const data = await getDocs(q);
-                    
-                    data.forEach(el=>{ setUserType(el.data().user_type)
-                        setUserPoints(el.data().user_points);
-                    });
+                    let res = await FireBaseFirestoreService.getDocumentById('user',user.uid);
+                    console.log(res.data());
+                    const {user_type} = res.data();
                     setIsLoggedIn(true);
                     console.log(user);
                     setDisplayName(user.displayName);
@@ -49,8 +48,7 @@ export const AuthContextProvider = (props)=>{
                     setEmailVerified(user.emailVerified);
                     setUid(user.uid);
                     sessionStorage.setItem('isLoggedIn', 'true');
-                    sessionStorage.setItem('userType',userType);
-                    
+                    sessionStorage.setItem('userType',user_type);
                 }else{
                     setIsLoggedIn(false);   
                     sessionStorage.removeItem('isLoggedIn');
