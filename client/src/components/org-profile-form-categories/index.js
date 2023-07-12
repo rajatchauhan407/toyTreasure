@@ -124,7 +124,7 @@ export default function OrgProfileCategories({onGetCategories}){
                                     name="age5_category" 
                                     value={option.value}
                                     onChange={(e)=>{handleCheckboxChange_kids(e,option)}}
-                                    checked={selectedKids.some((selectedOption) => selectedOption.id === option.id)}
+                                    checked={selectedTeens.some((selectedOption) => selectedOption.id === option.id)}
                                     />
                                 <label for="softPlushToys">{option.value}</label>
                             </div>
