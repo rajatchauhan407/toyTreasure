@@ -4,8 +4,12 @@ import DonorHomeDashboardMap from '../../components/donor-home-dashboard-map';
 import HomeDashBoardStories from '../../components/home-dashboard-stories';
 import HomeDashboardRewardsCard from '../../components/donor-home-dashboard-rewards-card-wrapper';
 import DiscountCard from '../../components/donor-rewards-discount-banner';
+import AuthContext from '../../services/auth-context';
+import React, {useContext} from "react";
 
 export default function Home(){
+  const userNameAuth = useContext(AuthContext);
+  
     let discountData = [
         {
           url: 'https://picsum.photos/400/400?rand=431',
@@ -26,7 +30,7 @@ export default function Home(){
     return(<>
     <div className='home-page'>
         <div className="home-welcome">
-            <h1>Hi user, make your first donation</h1>
+            <h1>Hi {userNameAuth.displayName}, make your first donation</h1>
             <DashboardPoints/>
         </div>
 
