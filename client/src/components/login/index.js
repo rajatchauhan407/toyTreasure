@@ -60,24 +60,26 @@ async function handleLoginWithGoogle(){
     try {
         let result = await FireBaseAuthService.loginWithGoogle();
         const {email,emailVerified, displayName, phoneNumber, photoURL, uid} = result.user;
+
         console.log(result);
         const document = {
             user_type:userType,
-            uid,
             email,
             emailVerified,
             displayName,
             phoneNumber,
-            photoURL
+            photoURL,
+            user_points:0
         }
         console.log(document);
-        const q = query(collection(database, 'user'), where('uid','==',uid));
-        const data = await getDocs(q);
-        
-        if(data.docs.length === 0){
-            await FireBaseFirestoreService.createDocument("user",document);
-        }
-        // console.log(data);
+        // const q = query(collection(database, 'user'), where('uid','==',uid));
+        // const data = await getDocs(q);
+        let res = await FireBaseFirestoreService.getDocumentById('user',uid);
+        console.log(res);
+        if(res.exists()){
+            console.log("exists")
+            const data = res.data();
+            console.log(data);
             sessionStorage.setItem('isLoggedIn', 'true');
             sessionStorage.setItem('profile_pic', photoURL);
             sessionStorage.setItem('displayName',displayName);
@@ -86,6 +88,32 @@ async function handleLoginWithGoogle(){
             sessionStorage.setItem('uid',uid);
             sessionStorage.setItem('userType',userType);
             authCtx.setUserType(userType);
+        }else{
+            console.log("newOne");
+            let result = await FireBaseFirestoreService.settingDocument("user",uid,document); 
+            console.log(result);  
+            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('profile_pic', photoURL);
+            sessionStorage.setItem('displayName',displayName);
+            sessionStorage.setItem('email',email);
+            sessionStorage.setItem('emailVerified',emailVerified);
+            sessionStorage.setItem('uid',uid);
+            sessionStorage.setItem('userType',userType);
+            authCtx.setUserType(userType);
+        }
+        // if(res.docs.length === 0){
+        //     await FireBaseFirestoreService.createDocument("user",document);
+        // }
+        
+        // console.log(data);
+            // sessionStorage.setItem('isLoggedIn', 'true');
+            // sessionStorage.setItem('profile_pic', photoURL);
+            // sessionStorage.setItem('displayName',displayName);
+            // sessionStorage.setItem('email',email);
+            // sessionStorage.setItem('emailVerified',emailVerified);
+            // sessionStorage.setItem('uid',uid);
+            // sessionStorage.setItem('userType',userType);
+            // authCtx.setUserType(userType);
 
     } catch (error) {
         alert(error.message);

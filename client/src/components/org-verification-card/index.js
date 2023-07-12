@@ -1,5 +1,7 @@
 import "./index.scss";
+
 export default function OrgVerificationCard(){
+
     let orgVerificationData = [
         {
             animalType:"Stuffed Animal",
