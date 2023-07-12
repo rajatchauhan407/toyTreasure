@@ -1,3 +1,6 @@
+@import './buttons';
+@import './colors';
+
 @mixin roundedBorder($amt){
     border-radius:$amt;
 }
@@ -18,5 +21,23 @@
 
 @mixin borderBottom($pixel,$color){
     border-bottom: $pixel solid $color;
+}
+
+@mixin darkPurpleLargeButtun($largest-button, $accent_amethyst){
+    width: $largest-button;
+    height: 56px;
+    border-radius: 8px;
+    background-color: $accent_amethyst;
+}
+
+@mixin lightPurpleLargeButtun($largest-button, $accent_amethyst-light){
+    width: $largest-button;
+    height: 56px;
+    border-radius: 8px;
+    background-color: $accent_amethyst-light;
+}
+
+@mixin smallButton($small-button){
+
 }
 
