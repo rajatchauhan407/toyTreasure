@@ -5,7 +5,7 @@ export default function PageNotFound(){
             <h1>error 404</h1>
             <h3>Page is not found</h3>
             <p>the page doesn't exist or was deleted</p>
-            <button>Back to Home</button>
+            <button><Link to="/login">Back to Home</Link></button>
         </div>
         </>);
 }
