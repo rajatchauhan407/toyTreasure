@@ -29,10 +29,6 @@ export default function DonorCharityProfilePage(){
 
         />
         <DonorCharityProfileVideo/>
-
-        <CharityProfileCategoryCardWrapper
-            categories={orgData.categories}
-        />
         <div className="card-wrapper">
             <OrgDataCard/>
         </div>
