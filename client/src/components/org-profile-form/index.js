@@ -1,18 +1,20 @@
 // import MultiSelector from "../multi-selector";
 import "./index.scss";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import OrgProfileDetails from "../org-profile-form-details";
 import OrgProfileImpact from "../org-profile-form-impact";
 import OrgProfileMedia from "../org-profile-form-media";
 import OrgProfileExtraD from "../org-profile-form-extradetails";
 import OrgProfileCategories from "../org-profile-form-categories";
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import app from "../../FirebaseConfig";
+// import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+// import app from "../../FirebaseConfig";
 // import {useState, useEffect} from "react";
 // import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+import AuthContext from "../../services/auth-context";
+
 export default function OrgProfileForm() {
-    
+    let authCtx = useContext(AuthContext)
 
     const [profileDetails, setProfileDetails] = useState({});
     const [getData, setGetData] = useState(false);
@@ -30,17 +32,14 @@ export default function OrgProfileForm() {
         console.log(profile);
         console.log(video);
         console.log(extraDetails);
-        for(let obj in extraDetails){
-
-        }
-        // let cat = 
-        // const storage = getStorage(app);
+       
 
         let result = await FireBaseFirestoreService.createDocument('organization_profile',{
             profileDetails:profileDetails,
             impactDetails:impactDetails,
             categories:categories.map((el)=>{return el.value}),
-            extraDetails:extraDetails
+            extraDetails:extraDetails,
+            uid:authCtx.uid
         });
         if(result){
             console.log("data uploadeded");
