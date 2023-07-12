@@ -22,7 +22,7 @@ export default function DonorHomeDashboardMap(){
 
             <h2>Explore nearby charity centers and be the reason for someones happiness.</h2>
             
-            <button><Link to="/home">Donate now to the nearest charity</Link></button>
+            <button><Link to="/map">Donate now to the nearest charity</Link></button>
 
     </div>
     )
