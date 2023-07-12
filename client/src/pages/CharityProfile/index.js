@@ -30,13 +30,6 @@ export default function DonorCharityProfilePage(){
         />
         <DonorCharityProfileVideo/>
 
-        <h1>!!!!!!!Impact
-            <br></br>
-            Can not Find the Task
-        </h1>
-        <DonorCharityProfileWishlistBanner
-
-        />
         <CharityProfileCategoryCardWrapper
             categories={orgData.categories}
         />
