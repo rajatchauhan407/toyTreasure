@@ -15,7 +15,7 @@ export default function OrgProfileMedia({onLogoSelected,onProfileSelected, onVid
         // console.log(file);
     }
     function handleVideoChange(e){
-        let file = e.target.files[0];
+        let file = e.target.value;
         if(file){
             onVideoSelected(file);
         }
@@ -45,10 +45,9 @@ export default function OrgProfileMedia({onLogoSelected,onProfileSelected, onVid
                     required/>
                 <label htmlFor="videoUpload">Upload Video</label>
                 <input 
-                    type="file" 
+                    type="text" 
                     id="videoUpload" 
                     name="videoUpload" 
-                    accept="video/*" 
                     className="video-input" 
                     onChange={handleVideoChange}
                     required/>   
