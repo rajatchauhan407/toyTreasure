@@ -2,7 +2,7 @@ import './index.scss';
 import HomeDashboardRewards from '../donor-home-dashboard-rewards-card';
 import { useState,useEffect } from 'react';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
-
+import GeneralMultipleSlider from '../containers/general-multiple-slider';
 function HomeDashboardRewardsCard() {
   const [donorRewardsList, setDonorRewardsList] = useState([]); 
   async function getDonorRewardsList()
@@ -38,7 +38,8 @@ function HomeDashboardRewardsCard() {
     <HomeDashboardRewards imageUrl='https://thumbs.dreamstime.com/b/toy-shop-discount-concept-banner-cartoon-style-toy-shop-discount-concept-banner-cartoon-banner-toy-shop-discount-vector-concept-134533190.jpg' points={el.reward_points} status={el.reward_state} />
   ));
     console.log(rewardsList);
-  return <div className='homeDashboardRewardsCardwrapper'>{rewardsList}</div>;
+  // return <div className='homeDashboardRewardsCardwrapper'>{rewardsList}</div>;
+    return <GeneralMultipleSlider cards={rewardsList}/>
 }
 
 export default HomeDashboardRewardsCard;

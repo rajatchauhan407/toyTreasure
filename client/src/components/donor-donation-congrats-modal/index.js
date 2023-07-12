@@ -1,4 +1,5 @@
 import './index.scss';
+import { Link } from 'react-router-dom';
 
 export default function DonorDonationModal(props){
     return(
@@ -10,7 +11,7 @@ export default function DonorDonationModal(props){
                 <h3>Reward Instruction:</h3>
                 <p>After your donation is completed in site, scan the provided QR code given by the organization to earn the rewards points.</p>
             </div>
-                <button className="go-home">Return to Home</button>
+                <button className="go-home"><Link to="/home">Return to Home</Link></button>
         </div>
     )
 }
