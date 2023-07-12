@@ -1,12 +1,11 @@
-
 import './index.scss';
 import { forwardRef} from 'react';
 import { useNavigate } from 'react-router';
-const OrgMapCard = forwardRef(({orgName,address,days,time},ref)=>{
+const OrgMapCard = forwardRef(({orgName,address,days,time,id},ref)=>{
     const navigate = useNavigate();
   function handleViewDetails(e){
     console.log("handleViewDetails");
-    navigate('/charity/profile');
+    navigate(`/charity/profile/${id}`);
   }
 
     return (
