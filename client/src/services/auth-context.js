@@ -13,7 +13,8 @@ const AuthContext = new React.createContext({
     emailVerified:'',
     user_type:'',
     setUserType:()=>{},
-    uid:''
+    uid:'',
+    user_points: 0
 });
 
 export const AuthContextProvider = (props)=>{
@@ -26,6 +27,7 @@ export const AuthContextProvider = (props)=>{
     const [emailVerified, setEmailVerified] = useState(sessionStorage.getItem('emailVerified') || '');
     const [uid,setUid] = useState(sessionStorage.getItem('uid')|| '');
     const [userType, setUserType] = useState(sessionStorage.getItem('userType')||'');
+    const [userPoints, setUserPoints] = useState(0);
     
     
     useEffect(()=>{
@@ -36,7 +38,9 @@ export const AuthContextProvider = (props)=>{
                     const q = query(collection(database, 'user'), where('uid','==',user.uid));
                     const data = await getDocs(q);
                     
-                    data.forEach(el=>{ setUserType(el.data().user_type)});
+                    data.forEach(el=>{ setUserType(el.data().user_type)
+                        setUserPoints(el.data().user_points);
+                    });
                     setIsLoggedIn(true);
                     console.log(user);
                     setDisplayName(user.displayName);
@@ -46,6 +50,7 @@ export const AuthContextProvider = (props)=>{
                     setUid(user.uid);
                     sessionStorage.setItem('isLoggedIn', 'true');
                     sessionStorage.setItem('userType',userType);
+                    
                 }else{
                     setIsLoggedIn(false);   
                     sessionStorage.removeItem('isLoggedIn');
@@ -72,7 +77,8 @@ export const AuthContextProvider = (props)=>{
         emailVerified:emailVerified,
         uid:uid,
         userType:userType,
-        setUserType
+        setUserType,
+        user_points: userPoints
     }
     
     
