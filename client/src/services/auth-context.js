@@ -14,7 +14,8 @@ const AuthContext = new React.createContext({
     emailVerified:'',
     user_type:'',
     setUserType:()=>{},
-    uid:''
+    uid:'',
+    user_points: 0
 });
 
 export const AuthContextProvider = (props)=>{
@@ -27,6 +28,7 @@ export const AuthContextProvider = (props)=>{
     const [emailVerified, setEmailVerified] = useState(sessionStorage.getItem('emailVerified') || '');
     const [uid,setUid] = useState(sessionStorage.getItem('uid')|| '');
     const [userType, setUserType] = useState(sessionStorage.getItem('userType')||'');
+    const [userPoints, setUserPoints] = useState(0);
     
     
     useEffect(()=>{
@@ -38,7 +40,6 @@ export const AuthContextProvider = (props)=>{
                     let res = await FireBaseFirestoreService.getDocumentById('user',user.uid);
                     console.log(res.data());
                     const {user_type} = res.data();
-                    // data.forEach(el=>{ setUserType(el.data().user_type)});
                     setIsLoggedIn(true);
                     console.log(user);
                     setDisplayName(user.displayName);
@@ -74,7 +75,8 @@ export const AuthContextProvider = (props)=>{
         emailVerified:emailVerified,
         uid:uid,
         userType:userType,
-        setUserType
+        setUserType,
+        user_points: userPoints
     }
     
     
