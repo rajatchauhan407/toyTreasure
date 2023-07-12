@@ -16,25 +16,30 @@ export default function OrgProfileExtraD({onSelectedData}){
         {id:1, method:"pick-up"},
         {id:2, method:"drop-off"}
     ];
-    const [time,setTime] = useState();
-    const [deliveryM, setDelivery] = useState();
-    const [workingDays, setWorkingDays] = useState();
+    const [time,setTime] = useState([]);
+    const [deliveryM, setDelivery] = useState([]);
+    const [workingDays, setWorkingDays] = useState([]);
+    
     function getTiming(data){
         setTime(data)
     }
     function getDays(data){
-        setDelivery(data);
+        console.log(data); 
+        setWorkingDays(data); 
+        
     }
     function getDeliveryMethod(data){
-        setWorkingDays(data);
+        console.log(data);
+        setDelivery(data);
     }
-    // useEffect(()=>{
-    //     onSelectedData({
-    //         time,
-    //         deliveryM,
-    //         workingDays
-    //     });
-    // },[time,deliveryM, workingDays])
+    useEffect(()=>{
+        console.log("called");
+        onSelectedData({
+            time:time.map((el)=>{return el.time}),
+            deliveryM:deliveryM.map((el)=>{return el.method}),
+            workingDays:workingDays.map((el)=>{return el.day})
+        });
+    },[time,deliveryM, workingDays]);
     return(
     <div className="OrgProfileExtraD">
         <form className="tt-38-extraDetails">
