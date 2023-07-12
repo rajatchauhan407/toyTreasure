@@ -1,12 +1,14 @@
 import './index.scss';
-import CharityProfileCategoryCard from "../donor-charity-profile-categories";
+import ProfileCategoryCard from '../donor-charity-profile-categories';
 
 function CharityProfileCategoryCardWrapper() {
-  return (
-    <div className="charityProfileCategoryCardwrapper">
-      <CharityProfileCategoryCard/>
+  return <div className='donorDonationCategoryCardWrapper'>
+    <h1>Categories of Toys</h1>
+    <p>These categories of toys are accepted by the charity.</p>
+    <div className='donorDonationCategoryCardWrap'>
+      <ProfileCategoryCard/>
     </div>
-  );
+    </div>;
 }
 
 export default CharityProfileCategoryCardWrapper;
