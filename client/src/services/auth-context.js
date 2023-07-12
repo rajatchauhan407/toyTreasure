@@ -12,7 +12,8 @@ const AuthContext = new React.createContext({
     email:'',
     emailVerified:'',
     user_type:'',
-    setUserType:()=>{}
+    setUserType:()=>{},
+    uid:''
 });
 
 export const AuthContextProvider = (props)=>{
