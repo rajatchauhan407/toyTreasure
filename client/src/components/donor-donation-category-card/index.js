@@ -36,7 +36,7 @@ export default function DonationCategoryCard() {
 
   return (
     <div className="donationCategoryCardWrapper">
-      {donationCategory.map((el, index) => ( // Changed the variable name from 'donationWishList' to 'donationCategory'
+      {donationCategory.map((el, index) => ( 
         <div key={index}>
           <div className="donationCategoryCardImgWrapper">
             <img src={el.category_picture} alt="" />
@@ -44,7 +44,7 @@ export default function DonationCategoryCard() {
           </div>
           <div className="donationCategoryNumberInput">
             <button className="decrement" onClick={() => handleDecrement(index)}>-</button>
-            <input type="number" className="input-field" value={el.quantity} min="0" max="100" readOnly /> {/* Set the value to 'el.quantity' */}
+            <input type="number" className="input-field" value={el.quantity} min="0" max="100" readOnly /> 
             <button className="increment" onClick={() => handleIncrement(index)}>+</button>
           </div>
           <h4>{el.category_name}</h4>
