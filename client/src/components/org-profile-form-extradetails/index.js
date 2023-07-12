@@ -50,22 +50,25 @@ export default function OrgProfileExtraD({onSelectedData}){
                         options={deliveryMethod}
                         field="method"
                         onSelectedOptions={getDeliveryMethod}
+                        name="Select Method"
                     />
                 </div>
                 <div className="tt-38-item-container">
-                    <label htmlFor="avaliableTime">Avaliable Time</label>
+                    <label htmlFor="avaliableTime">Donation Time</label>
                     <ComponentDropdown
                         options={timing}
                         field="time"
                         onSelectedOptions={getTiming}
+                        name="Select Time"
                     />
                 </div>
                 <div className="tt-38-item-container">
-                    <label htmlFor="avaliableDays">Avaliable Days</label>
+                    <label htmlFor="avaliableDays">Donation Days</label>
                     <ComponentDropdown
                         options={test}
                         field="day"
                         onSelectedOptions={getDays}
+                        name="Select Day"
                     />
                 </div>
                 {/* <MultiSelector /> */}
