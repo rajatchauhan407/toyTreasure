@@ -4,18 +4,24 @@ import {BiDownArrowAlt} from "react-icons/bi";
 export default function OrgProfileCategories({onGetCategories}){
     const [isOpen, setIsOpen] = useState(false);
     const [isBabyOpen, setIsBabyOpen] = useState(false);
+    const [isTeenOpen, setIsTeenOpen] = useState(false);
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [selectedKids, setSelectedKids] = useState([]);
-    const toys_categories = [{id:1,value:"Plush and Stuffed Animals"},
-    {id:2,value:"Educational Toys"},
-    {id:3,value:"Board Games and Puzzles"},
-    {id:4,value:"Arts and Crafts"},
-    {id:5,value:"Sports Equipment"}];
-    const kids_categories = [{id:6,value:"Plush and Stuffed Ani"},
-    {id:7,value:"Educational"},
-    {id:8,value:"Board Games"},
-    {id:9,value:"Arts"},
-    {id:10,value:"Sports"}];
+    const [selectedTeens, setSelectedTeens] = useState([]);
+    const age0_categories = [{id:1,value:"Stuffed Animals"},
+    {id:2,value:"Shape sorters"},
+    {id:3,value:"Musical toys"},
+    {id:4,value:"Bath toys"}];
+    
+    const age5_categories = [{id:5,value:"Board games"},
+    {id:7,value:"Dollhouses"},
+    {id:8,value:"Science kits"},
+    {id:9,value:"Art supplies"}];
+
+    const age12_categories = [{id:10,value:"Sports gear"},
+    {id:11,value:"Outdoor equipment"},
+    {id:12,value:"Robotics kits"},
+    {id:13,value:"Books and novels"}];
 
     const handleCheckboxChange_toys = (e,option)=>{
         console.log(e.target.value);
@@ -58,19 +64,23 @@ export default function OrgProfileCategories({onGetCategories}){
     function handleBabyToy(){
         setIsBabyOpen(prev => !prev);
     }
+    function handleTeenToy(){
+        setIsTeenOpen(prev => !prev);
+    }
     return(
     <div className="OrgProfileCategories">
         <form className="Categories">
                     <h2>Select the categories of toys you accept</h2>
-                    <div className="Kids">
+                    <div className="0-4_age">
                     
-                        <h3>Kids Toys <BiDownArrowAlt onClick={handleIsOpen}/></h3>
+                        <h3>Baby Toys <BiDownArrowAlt onClick={handleIsOpen}/></h3>
+                        <p>Age 0 to 4 years</p>
                         {isOpen && <form action="">
-                            {toys_categories.map((option)=>{
+                            {age0_categories.map((option)=>{
                                return  <div key={option.id}><input 
                                type="checkbox" 
                                id={option.id} 
-                               name="toys_category" 
+                               name="age0_category" 
                                value={option.value}
                                onChange={(e)=>{handleCheckboxChange_toys(e,option)}}
                                checked={selectedOptions.some((selectedOption) => selectedOption.id === option.id)}
@@ -81,15 +91,37 @@ export default function OrgProfileCategories({onGetCategories}){
                             </form>}
                     </div>
 
-                    <div className="Baby">
-                        <h3>Baby Toys <BiDownArrowAlt onClick={handleBabyToy}/></h3>
+                    <div className="5-11_age">
+                        <h3>Kids Toys <BiDownArrowAlt onClick={handleBabyToy}/></h3>
+                        <p>Age 5 to 11 years</p>
                         {isBabyOpen && <form action="">
-                            {kids_categories.map((option)=>{
+                            {age5_categories.map((option)=>{
                                 return <div key={option.id}>
                                 <input 
                                     type="checkbox" 
                                     id={option.id}
-                                    name="lids_category" 
+                                    name="age5_category" 
+                                    value={option.value}
+                                    onChange={(e)=>{handleCheckboxChange_kids(e,option)}}
+                                    checked={selectedKids.some((selectedOption) => selectedOption.id === option.id)}
+                                    />
+                                <label for="softPlushToys">{option.value}</label>
+                            </div>
+                            })
+                            }
+                        </form>}
+                    </div>
+
+                    <div className="12-18_age">
+                        <h3>Teens Toys <BiDownArrowAlt onClick={handleTeenToy}/></h3>
+                        <p>Age 12 to 18 years</p>
+                        {isTeenOpen && <form action="">
+                            {age12_categories.map((option)=>{
+                                return <div key={option.id}>
+                                <input 
+                                    type="checkbox" 
+                                    id={option.id}
+                                    name="age5_category" 
                                     value={option.value}
                                     onChange={(e)=>{handleCheckboxChange_kids(e,option)}}
                                     checked={selectedKids.some((selectedOption) => selectedOption.id === option.id)}
