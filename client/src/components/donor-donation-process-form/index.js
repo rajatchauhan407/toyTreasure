@@ -56,7 +56,7 @@ export default function DonorDonationProcessForm(props)
                         </label>
                     </div>
                     <div className="tt-81-buttons">                   
-                        <input type="Button" value="Confirm to Donate"  id="tt-81-confirm"  className="tt-81-confirm"/>
+                        <input type="Button" onClick={()=>{props.onFormClicked(true)}} value="Confirm to Donate"  id="tt-81-confirm"  className="tt-81-confirm"/>
                     </div>                
                         
             </div>
