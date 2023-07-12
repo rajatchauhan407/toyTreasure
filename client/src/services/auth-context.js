@@ -5,6 +5,7 @@ import { query,where,collection,getDocs} from 'firebase/firestore';
 import FireBaseAuthService from "./FirebaseAuthService";
 import {onAuthStateChanged} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import FireBaseFirestoreService from "./Firebasefirestoreservice";
 const AuthContext = new React.createContext({
     isLoggedIn:'',
     profilePic:'',
@@ -13,7 +14,8 @@ const AuthContext = new React.createContext({
     emailVerified:'',
     user_type:'',
     setUserType:()=>{},
-    uid:''
+    uid:'',
+    user_points: 0
 });
 
 export const AuthContextProvider = (props)=>{
@@ -26,17 +28,18 @@ export const AuthContextProvider = (props)=>{
     const [emailVerified, setEmailVerified] = useState(sessionStorage.getItem('emailVerified') || '');
     const [uid,setUid] = useState(sessionStorage.getItem('uid')|| '');
     const [userType, setUserType] = useState(sessionStorage.getItem('userType')||'');
+    const [userPoints, setUserPoints] = useState(0);
     
     
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(FireBaseAuthService.auth,
             async (user)=>{
                 if(user){
+                    console.log(user.uid);
                     console.log(user);
-                    const q = query(collection(database, 'user'), where('uid','==',user.uid));
-                    const data = await getDocs(q);
-                    
-                    data.forEach(el=>{ setUserType(el.data().user_type)});
+                    let res = await FireBaseFirestoreService.getDocumentById('user',user.uid);
+                    console.log(res.data());
+                    const {user_type} = res.data();
                     setIsLoggedIn(true);
                     console.log(user);
                     setDisplayName(user.displayName);
@@ -45,7 +48,7 @@ export const AuthContextProvider = (props)=>{
                     setEmailVerified(user.emailVerified);
                     setUid(user.uid);
                     sessionStorage.setItem('isLoggedIn', 'true');
-                    sessionStorage.setItem('userType',userType);
+                    sessionStorage.setItem('userType',user_type);
                 }else{
                     setIsLoggedIn(false);   
                     sessionStorage.removeItem('isLoggedIn');
@@ -72,7 +75,8 @@ export const AuthContextProvider = (props)=>{
         emailVerified:emailVerified,
         uid:uid,
         userType:userType,
-        setUserType
+        setUserType,
+        user_points: userPoints
     }
     
     
