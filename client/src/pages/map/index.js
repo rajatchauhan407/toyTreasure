@@ -97,7 +97,12 @@ export default function Map(){
                 </div>
                 <div className='tt-62-right-map'>
                     <InteractiveMap/>
-                    {isOrgDescShown?<OrgMapDescCard/>:""}
+                    {isOrgDescShown?<OrgMapDescCard
+                        orgName={orgsData[0].profileDetails.org_name}
+                        address={orgsData[0].profileDetails.org_address}
+                        days={orgsData[0].extraDetails.workingDays}
+                        time={orgsData[0].extraDetails.time}
+                    />:""}
                     
                 </div>   
         </div>
