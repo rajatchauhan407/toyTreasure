@@ -1,64 +1,108 @@
 // import MultiSelector from "../multi-selector";
-import "./index.scss"
+import "./index.scss";
+import {useState} from "react";
 import OrgProfileDetails from "../org-profile-form-details";
 import OrgProfileImpact from "../org-profile-form-impact";
 import OrgProfileMedia from "../org-profile-form-media";
 import OrgProfileExtraD from "../org-profile-form-extradetails";
 import OrgProfileCategories from "../org-profile-form-categories";
-
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import app from "../../FirebaseConfig";
 // import {useState, useEffect} from "react";
 // import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function OrgProfileForm() {
-// // managing states for org profile form
-//     const [orgName, setOrgName] = useState("");
-// // send the document to firestore
-//     async function handleSubmit(event){
-//         event.preventDefault();
-//         let formValues = {
-//             org_name:orgName
-//         };
-//         const ref = await FireBaseFirestoreService.createDocument("organization_profile",formValues);
-//         console.log(ref);
-//         // return ref;
-//     }
+    
 
-// // retrieve the documents from an array
-//    async function retrieveDocuments(collectionName){
-//         const querySnapshot = await FireBaseFirestoreService.getDocumentsInArray(collectionName);
-//         console.log(querySnapshot);
-//     }
+    const [profileDetails, setProfileDetails] = useState({});
+    const [getData, setGetData] = useState(false);
+    const [impactDetails,setImpactDetails] = useState({});
+    const [logo,setLogo] = useState();
+    const [profile, setProfile] = useState();
+    const [video, setVideo] = useState();
+    const [categories,setCategories] = useState([]);
+    const [extraDetails, setExtraDetails] = useState([]);
 
-// // retrieve document by ID
-//     async function retrieveDocumentById(collectionName,docId){
-//         const doc = await FireBaseFirestoreService.getDocumentById(collectionName,docId);
-//         console.log(doc.data());
-//     }
 
-// // updateDocument via update 
-// // async function updateDocument(collectionName,docId, updatedData){
-// //     const docRef = await FireBaseFirestoreService.updateDocumentById(collectionName, docId, updatedData);
-// //     console.log(docRef);
-// // }
-// // retrieving form values, runs on first render
-//     useEffect(()=>{
-//         retrieveDocuments("organization_profile");
-//         retrieveDocumentById("organization_profile","7M8DPzm1JWeDPSJiSsOb");
-//     },[]);
+    async function handleSubmit(event){
+        event.preventDefault();
+        console.log(logo);
+        console.log(profile);
+        console.log(video);
+        console.log(extraDetails);
+        for(let obj in extraDetails){
 
+        }
+        // let cat = 
+        // const storage = getStorage(app);
+
+        let result = await FireBaseFirestoreService.createDocument('organization_profile',{
+            profileDetails:profileDetails,
+            impactDetails:impactDetails,
+            categories:categories.map((el)=>{return el.value}),
+            extraDetails:extraDetails
+        });
+        if(result){
+            console.log("data uploadeded");
+        }
+        // console.log(profileDetails);
+        // console.log(impactDetails);
+        
+        // console.log(categories);
+        // console.log(extraDetails);
+    }
+    function getCategories(cat){
+        setCategories(cat);
+    }
+function onProfileDetails(details){
+    setProfileDetails(details);
+}
+function getProfileImpact(details){
+    console.log(details);   
+    setImpactDetails(details);
+}
+function getLogo(file){
+    console.log(file);
+    setLogo(file);
+}
+function getProfile(file){
+    console.log(file);
+    setProfile(file);
+}
+function getVideo(file){
+    console.log(file);
+    setVideo(file);
+}
+function getSelectedData(data){
+    setExtraDetails(data);
+}
 return (
     <div className="OrgProfile">
         <div className="wrapper-left">
             <h1>Organization Profile</h1>
-            <OrgProfileDetails/>    
-            <OrgProfileImpact/>
-            <button type="submit">Save</button>
+            <OrgProfileDetails
+                getFormData = {onProfileDetails}
+                getDataState = {getData}
+            />    
+            <OrgProfileImpact
+                onProfileImpact = {getProfileImpact}
+            />
+            <button type="submit" onClick={(e)=>{ setGetData(true); handleSubmit(e);}}>Save</button>
             <button type="reset">Reset</button>
         </div>
 
         <div className="wrapper-right">
-            <OrgProfileMedia/>
-            <OrgProfileExtraD/>
-            <OrgProfileCategories/>
+            <OrgProfileMedia
+                onLogoSelected = {getLogo}
+                onProfileSelected={getProfile}
+                onVideoSelected={getVideo}
+            />
+            <OrgProfileExtraD
+                onSelectedData = {getSelectedData}
+            />
+            <OrgProfileCategories
+                onGetCategories={getCategories}
+            />
         </div>
     </div>
 );

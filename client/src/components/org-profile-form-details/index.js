@@ -1,7 +1,7 @@
 import "./index.scss";
-import { useState } from "react";
+import { useState,useEffect, useCallback } from "react";
 
-export default function OrgProfileDetails(){   
+export default function OrgProfileDetails({getFormData,getDataState}){   
      
     const [orgName,setOrgName]=useState("");
     const [orgDescription,setOrgDescription]=useState("");
@@ -15,32 +15,37 @@ export default function OrgProfileDetails(){
     const [orgEmail,setOrgEmail]=useState("");
     const [countryCode,setCountryCode]=useState("+1");
     const [phoneNumber,setPhoneNumber]=useState("");
-
-    function saveFormData(e){ 
-        e.preventDefault();   
-    const formObject ={
-        org_name:orgName,
-        org_description:orgDescription,
-        org_cra:orgCRA,
-        org_address:orgAddress1,
-        org_city:orgCity,
-        org_province:orgProvince,
-        org_address2:orgAddress2,
-        org_zip:orgZip,
-        org_country:orgCountry,
-        org_email:orgEmail,
-        org_country_code:countryCode,
-        org_phone:phoneNumber 
-    }
-    console.log("Form Object");
-    for (let [key, value] of Object.entries(formObject)) {
-        console.log(key, value);
-    }
-}
+    
+  
+    const getFormDataCallback = useCallback(getFormData,[getFormData]);
+        useEffect(()=>{
+            const formObject ={
+                org_name:orgName,
+                org_description:orgDescription,
+                org_cra:orgCRA,
+                org_address:orgAddress1,
+                org_city:orgCity,
+                org_province:orgProvince,
+                org_address2:orgAddress2,
+                org_zip:orgZip,
+                org_country:orgCountry,
+                org_email:orgEmail,
+                org_country_code:countryCode,
+                org_phone:phoneNumber 
+            }
+            console.log(formObject);
+            
+                getFormData(formObject);
+            
+                
+            
+        },[orgName,orgDescription,orgCRA,orgAddress1,orgCity,orgProvince,orgAddress2,orgZip,orgCountry, orgEmail,countryCode,phoneNumber]);
+   
+        
   
     return(
         <div className="OrgProfileDetails">
-            <form className="Details" onSubmit={saveFormData}>
+            <form className="Details">
                 <label htmlFor="orgName">Organization Name</label><br />               
                 <input type="text" id="orgName" onChange={(e)=>{setOrgName(e.target.value)}} required /><br />
               
@@ -94,8 +99,7 @@ export default function OrgProfileDetails(){
                 <div className="phone-input">
                     <input type="text" id="countryCode" onChange={(e)=>{setCountryCode(e.target.value)}} name="countryCode" value="+1" disabled />
                     <input type="number" id="phoneNumber" onChange={(e)=>{setPhoneNumber(e.target.value)}} name="phoneNumber" required />
-                </div>     
-                <button type="submit">Save</button>         
+                </div>             
             </form>
            
         </div>

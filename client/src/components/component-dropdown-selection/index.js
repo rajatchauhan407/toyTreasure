@@ -11,7 +11,7 @@ export default function ComponentDropdown({options,field, onSelectedOptions}){
         console.log(e.target.value);
         const { checked } = e.target;
         // console.log(selectedOptions);
-        onSelectedOptions(selectedOptions);
+        
     // Update selectedOptions array based on checkbox state
     if (checked) {
       setSelectedOptions((prevOptions) => [...prevOptions, option]);
@@ -20,10 +20,12 @@ export default function ComponentDropdown({options,field, onSelectedOptions}){
         prevOptions.filter((selectedOption) => selectedOption.id !== option.id)
       );
     }
+    
     }
     const toggleDropdown = (e) => {
         e.preventDefault();
         setDropdownOpen(!dropdownOpen);
+        onSelectedOptions(selectedOptions);
       };
    
  return (

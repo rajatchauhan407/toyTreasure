@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
+import { database } from "../FirebaseConfig";
 // import FireBaseAuthService from "./FirebaseAuthService";
+import { query,where,collection,getDocs} from 'firebase/firestore';
 import FireBaseAuthService from "./FirebaseAuthService";
 import {onAuthStateChanged} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +12,8 @@ const AuthContext = new React.createContext({
     email:'',
     emailVerified:'',
     user_type:'',
-    setUserType:()=>{}
+    setUserType:()=>{},
+    uid:''
 });
 
 export const AuthContextProvider = (props)=>{
@@ -23,11 +26,17 @@ export const AuthContextProvider = (props)=>{
     const [emailVerified, setEmailVerified] = useState(sessionStorage.getItem('emailVerified') || '');
     const [uid,setUid] = useState(sessionStorage.getItem('uid')|| '');
     const [userType, setUserType] = useState(sessionStorage.getItem('userType')||'');
+    
+    
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(FireBaseAuthService.auth,
-            (user)=>{
+            async (user)=>{
                 if(user){
-                    console.log(user)
+                    console.log(user);
+                    const q = query(collection(database, 'user'), where('uid','==',user.uid));
+                    const data = await getDocs(q);
+                    
+                    data.forEach(el=>{ setUserType(el.data().user_type)});
                     setIsLoggedIn(true);
                     console.log(user);
                     setDisplayName(user.displayName);
@@ -47,14 +56,14 @@ export const AuthContextProvider = (props)=>{
                     sessionStorage.removeItem('uid');
                     sessionStorage.removeItem('userType');
                     setUserType(null);
-                    // navigate('/login');
+                    navigate('/login');
                 }
             }
         );
         return ()=>{
             unsubscribe();
         }
-    },[setIsLoggedIn,userType,navigate]);
+    },[]);
     let contextValue={
         isLoggedIn:isLoggedIn,
         profilePic:profilePic,
@@ -65,6 +74,8 @@ export const AuthContextProvider = (props)=>{
         userType:userType,
         setUserType
     }
+    
+    
     return (<AuthContext.Provider value={contextValue}>
             {props.children}
     </AuthContext.Provider>);
