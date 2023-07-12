@@ -14,14 +14,14 @@ export default function OrgProfileCategories({onGetCategories}){
     {id:4,value:"Bath toys"}];
     
     const age5_categories = [{id:5,value:"Board games"},
-    {id:7,value:"Dollhouses"},
-    {id:8,value:"Science kits"},
-    {id:9,value:"Art supplies"}];
+    {id:6,value:"Dollhouses"},
+    {id:7,value:"Science kits"},
+    {id:8,value:"Art supplies"}];
 
-    const age12_categories = [{id:10,value:"Sports gear"},
-    {id:11,value:"Outdoor equipment"},
-    {id:12,value:"Robotics kits"},
-    {id:13,value:"Books and novels"}];
+    const age12_categories = [{id:9,value:"Sports gear"},
+    {id:10,value:"Outdoor equipment"},
+    {id:11,value:"Robotics kits"},
+    {id:12,value:"Books and novels"}];
 
     const handleCheckboxChange_toys = (e,option)=>{
         console.log(e.target.value);
@@ -48,6 +48,22 @@ export default function OrgProfileCategories({onGetCategories}){
       setSelectedKids((prevOptions) => [...prevOptions, option]);
     } else {
       setSelectedKids((prevOptions) =>
+        prevOptions.filter((selectedOption) => selectedOption.id !== option.id)
+      );
+    }
+
+    }
+
+    const handleCheckboxChange_teens = (e,option)=>{
+        console.log(e.target.value);
+        const { checked } = e.target;
+        // console.log(selectedOptions);
+        
+    // Update selectedOptions array based on checkbox state
+    if (checked) {
+      setSelectedTeens((prevOptions) => [...prevOptions, option]);
+    } else {
+      setSelectedTeens((prevOptions) =>
         prevOptions.filter((selectedOption) => selectedOption.id !== option.id)
       );
     }
@@ -123,7 +139,7 @@ export default function OrgProfileCategories({onGetCategories}){
                                     id={option.id}
                                     name="age5_category" 
                                     value={option.value}
-                                    onChange={(e)=>{handleCheckboxChange_kids(e,option)}}
+                                    onChange={(e)=>{handleCheckboxChange_teens(e,option)}}
                                     checked={selectedTeens.some((selectedOption) => selectedOption.id === option.id)}
                                     />
                                 <label for="softPlushToys">{option.value}</label>
