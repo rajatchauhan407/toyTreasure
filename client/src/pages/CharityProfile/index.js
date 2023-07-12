@@ -12,7 +12,9 @@ export default function DonorCharityProfilePage(){
     <div className='DonorCharityProfileWrapper'>
         <DonorCharityProfileInformation/>
         <DonorCharityProfileVideo/>
-        <OrgDataCard/>
+        <div className="card-wrapper">
+            <OrgDataCard/>
+        </div>
         <DonorCharityProfileWishlistBanner/>
         <CharityProfileCategoryCardWrapper/>
         <HomeDashBoardStories/>
