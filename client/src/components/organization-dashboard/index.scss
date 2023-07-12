@@ -40,7 +40,7 @@
         margin:0;
     }
     button{
-        @include customButton($secondary_midnight_blue);
+        @include customButton($primary_boy_blue);
         @include roundedBorder(9px);
     }
 }
