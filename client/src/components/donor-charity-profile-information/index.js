@@ -25,15 +25,15 @@ export default function DonorCharityProfileInformation(){
     <div className="CharityInformation">
         {orgCharityProfile.map(profile => (
             <div key={profile.id} className="Information">
-                <img src="" alt="logo-charity" />
-                <h2>{profile.org_name}</h2>
-                <p>Organization Description</p>
+                <img src="https://picsum.photos/52/52" alt="logo-charity" />
+                <h2>{profile.profileDetails.org_name}</h2>
+                <p>{profile.profileDetails.org_description}</p>
                 <button><Link to="/donation/toys">Donate Now</Link></button>
             </div>
         ))}
 
         <div className="Image">
-            <img src="" alt="main-charity" />
+            <img src="https://picsum.photos/500/300" alt="main-charity" />
         </div>
     </div>
     );
