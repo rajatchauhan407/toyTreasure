@@ -42,6 +42,7 @@ export default function CreateAccountOrg(){
             sessionStorage.setItem('email',email);
             sessionStorage.setItem('userType',userInfo.user_type);
             authCtx.setUserType(userInfo.user_type);
+            
         }catch(error){
             console.log(error);
         }
