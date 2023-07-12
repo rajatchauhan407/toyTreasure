@@ -1,7 +1,7 @@
 import './index.scss';
 import InteractiveMap from '../../components/imap';
 import OrgMapCard from '../../components/org-map-card';
-import { useRef,useState } from 'react';
+import {useState } from 'react';
 import OrgMapDescCard from '../../components/org-map-desc-card';
 export default function Map(){
     const [selectedIndex, setSelectedIndex] = useState(null);

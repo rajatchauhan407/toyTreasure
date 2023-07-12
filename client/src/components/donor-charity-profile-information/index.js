@@ -1,5 +1,5 @@
 import "./index.scss";
-
+import { Link } from "react-router-dom";
 export default function DonorCharityProfileInformation(){
     return(
     <div className="CharityInformation">
@@ -7,7 +7,7 @@ export default function DonorCharityProfileInformation(){
             <img src="" alt="logo-charity" />
             <h2>Organization Name</h2>
             <p>Organization Description</p>
-            <button>Donate Now</button>
+            <button><Link to="/donation/toys">Donate Now</Link></button>
         </div>
         
         <div className="Image">

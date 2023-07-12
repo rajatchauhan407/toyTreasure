@@ -1,8 +1,14 @@
 import "./index.scss";
 import logo from "./appLogo.svg"
-import { Link } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
+import FireBaseAuthService from "../../services/FirebaseAuthService";
 export default function OrgSideMenu(props)
 {
+    const navigate = useNavigate();
+    async function handleLogout(){
+        await FireBaseAuthService.logoutUser();
+        navigate('/login');
+    }
     return(
         <div className="OrgSideMenuWrapper">
             <div class="org-image-wrapper">
@@ -21,7 +27,7 @@ export default function OrgSideMenu(props)
             <nav className="contact-menu">
                 <ul>
                     {/* <li><Link to="#"><i className="fa fa-commenting-o" aria-hidden="true"></i> Contact Us</Link></li> */}
-                    <li><Link to="#"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</Link></li>               
+                    <li><Link onClick={handleLogout} to="#"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</Link></li>               
                 </ul>
             </nav>             
         </div>

@@ -1,4 +1,4 @@
-import {Outlet,Navigate} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 import AuthContext from '../services/auth-context';
 import { useContext } from 'react';
 import OrgSideMenu from "../components/org-side-menu";
@@ -15,9 +15,13 @@ export default function OrganizationRoutes(){
                 </div>
                 <div className='organization-dashboard-side-menu-container'>
                 <OrgHeader/>
-                {
-                    authCtx.isLoggedIn?<Outlet/>:<Navigate to="/login"/>
-                }
+                {/* {
+                    authCtx.isLoggedIn && authCtx.userType==="organization"?<Outlet/>:<Navigate to="/login"/>
+                } */}
+                {/* {
+                    !authCtx.isLoggedIn ? <Navigate to="/login"/>:<Outlet/>
+                } */}
+                <Outlet/>
                 </div>
         </div>
         

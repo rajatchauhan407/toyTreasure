@@ -1,9 +1,9 @@
 import './index.scss';
-import DonorFooter from '../../components/donor-footer';
 import DonorCharityProfileVideo from '../../components/donor-charity-profile-video';
 import DonorCharityProfileInformation from '../../components/donor-charity-profile-information';
 import DonorCharityProfileWishlistBanner from '../../components/donor-charity-profile-wishlist-banner';
 import CharityProfileCategoryCardWrapper from '../../components/donor-charity-profile-categories-wrapper';
+import HomeDashBoardStories from '../../components/home-dashboard-stories';
 export default function DonorCharityProfilePage(){
     return(<>
     <div className='DonorCharityProfileWrapper'>
@@ -15,9 +15,7 @@ export default function DonorCharityProfilePage(){
         </h1>
         <DonorCharityProfileWishlistBanner/>
         <CharityProfileCategoryCardWrapper/>
-        <h1>!!!!!!!!Home Dashboard Stories Place
-            <br></br> - TT-50</h1>
-        <DonorFooter/>
+        <HomeDashBoardStories/>
         </div>
     </>);
 };
