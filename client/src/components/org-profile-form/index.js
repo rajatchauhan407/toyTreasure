@@ -7,11 +7,12 @@ import OrgProfileMedia from "../org-profile-form-media";
 import OrgProfileExtraD from "../org-profile-form-extradetails";
 import OrgProfileCategories from "../org-profile-form-categories";
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
-// import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 // import app from "../../FirebaseConfig";
 // import {useState, useEffect} from "react";
 // import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 import AuthContext from "../../services/auth-context";
+import FirebaseStorageService from "../../services/FirebaseStorageService";
 
 export default function OrgProfileForm() {
     let authCtx = useContext(AuthContext)
@@ -32,14 +33,25 @@ export default function OrgProfileForm() {
         console.log(profile);
         console.log(video);
         console.log(extraDetails);
-       
-
+        let logoPath = 'org_logos/'+logo.name.split('.')[0];
+        let logoRef = ref(FirebaseStorageService.storage,logoPath)
+        console.log(logoRef);
+        let profilePath = "profile/"+profile.name.split('.')[0];
+        let profileRef = ref(FirebaseStorageService.storage,profilePath)
+        console.log(logoRef);
+        let logoUrl = await FirebaseStorageService.uploadFileAndGetUrl(logo,logoRef);
+        let profileUrl = await FirebaseStorageService.uploadFileAndGetUrl(logo,profileRef);
+        
+        console.log();
         let result = await FireBaseFirestoreService.createDocument('organization_profile',{
             profileDetails:profileDetails,
             impactDetails:impactDetails,
             categories:categories.map((el)=>{return el.value}),
             extraDetails:extraDetails,
-            uid:authCtx.uid
+            uid:authCtx.uid,
+            logoUrl,
+            profileUrl,
+            videoUrl:video
         });
         if(result){
             console.log("data uploadeded");

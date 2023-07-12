@@ -6,7 +6,8 @@ export default function OrgProfileCategories({onGetCategories}){
     const [isBabyOpen, setIsBabyOpen] = useState(false);
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [selectedKids, setSelectedKids] = useState([]);
-    const toys_categories = [{id:1,value:"Plush and Stuffed Animals"},
+    const toys_categories = [
+    {id:1,value:"Plush and Stuffed Animals"},
     {id:2,value:"Educational Toys"},
     {id:3,value:"Board Games and Puzzles"},
     {id:4,value:"Arts and Crafts"},
