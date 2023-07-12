@@ -1,4 +1,5 @@
 import './index.scss';
+import { Link } from 'react-router-dom';
 import DonationWishListCard from '../donor-donation-wishList-card';
 
 function DonationWishListCardWrapper() {
@@ -34,6 +35,8 @@ function DonationWishListCardWrapper() {
   // ));
   return <div className='donorWishListCardWrapper'>
     <h1>Wishlists</h1>
+
+    <button><Link to="/donation/confirmation">Proceed to Donate</Link></button>
     
     <div className='donorWishListCardWrap'>
       <DonationWishListCard/>
