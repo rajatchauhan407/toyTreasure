@@ -1,5 +1,17 @@
 
-.CharityInformation{
+.charityInformation{
     display: flex;
     flex-direction: row;
+}
+
+.profileInformation{
+    flex: 40%
+}
+.profileImage{
+    flex: 60%
+}
+
+.profileImage img{
+    width: 100%;
+    height: auto;
 }

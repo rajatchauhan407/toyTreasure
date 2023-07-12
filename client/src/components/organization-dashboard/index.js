@@ -18,9 +18,7 @@ export default function OrgDashBoard(){
             <OrgWishlist/>
         </div>
         <div className="side-container">
-            <div className="cards-wrapper">
-                <OrgDataCard/>      
-           </div> 
+            <OrgDataCard displayMode="two-columns" />
            <div className="org-pending-verification">
                 <div className="org-pending-verification-header">
                     <h3>Pending Verfication</h3>

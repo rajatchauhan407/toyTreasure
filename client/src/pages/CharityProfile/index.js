@@ -4,15 +4,17 @@ import DonorCharityProfileInformation from '../../components/donor-charity-profi
 import DonorCharityProfileWishlistBanner from '../../components/donor-charity-profile-wishlist-banner';
 import CharityProfileCategoryCardWrapper from '../../components/donor-charity-profile-categories-wrapper';
 import HomeDashBoardStories from '../../components/home-dashboard-stories';
+import OrgDataCard from '../../components/org-data-card';
+
+
 export default function DonorCharityProfilePage(){
     return(<>
     <div className='DonorCharityProfileWrapper'>
         <DonorCharityProfileInformation/>
         <DonorCharityProfileVideo/>
-        <h1>!!!!!!!Impact
-            <br></br>
-            Can not Find the Task
-        </h1>
+        <div className="card-wrapper">
+            <OrgDataCard/>
+        </div>
         <DonorCharityProfileWishlistBanner/>
         <CharityProfileCategoryCardWrapper/>
         <HomeDashBoardStories/>
