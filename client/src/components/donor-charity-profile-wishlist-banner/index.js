@@ -1,12 +1,13 @@
 import "./index.scss";
+import { Link } from "react-router-dom";
 
 
-export default function DonorCharityProfileWishlistBanner(props){
+export default function DonorCharityProfileWishlistBanner(){
     return(
         <div className="WishlistBanner">
             <div className="WishlistBannerContent">
                 <h2>Help us fulfill our wishlists</h2>
-                <button>Donate to our wishlist now</button>
+                <button><Link to="/donation/toys">Donate to our wishlist now</Link></button>
             </div>
         </div>
     )
