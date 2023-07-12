@@ -8,6 +8,9 @@ import HomeDashBoardStories from '../../components/home-dashboard-stories';
 import { useParams } from 'react-router-dom';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 
+import OrgDataCard from '../../components/org-data-card';
+
+
 export default function DonorCharityProfilePage(){
     const {id} = useParams();
     const [orgData, setOrgData] = useState({});
@@ -26,6 +29,7 @@ export default function DonorCharityProfilePage(){
 
         />
         <DonorCharityProfileVideo/>
+
         <h1>!!!!!!!Impact
             <br></br>
             Can not Find the Task
@@ -36,6 +40,12 @@ export default function DonorCharityProfilePage(){
         <CharityProfileCategoryCardWrapper
             categories={orgData.categories}
         />
+        <div className="card-wrapper">
+            <OrgDataCard/>
+        </div>
+        <DonorCharityProfileWishlistBanner/>
+        <CharityProfileCategoryCardWrapper/>
+
         <HomeDashBoardStories/>
         </div>
     </>);
