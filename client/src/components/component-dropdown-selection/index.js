@@ -1,7 +1,7 @@
 import {useState} from "react";
 import "./index.scss";
 
-export default function ComponentDropdown({options,field, onSelectedOptions}){
+export default function ComponentDropdown({options,field, onSelectedOptions,name}){
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     
@@ -31,7 +31,7 @@ export default function ComponentDropdown({options,field, onSelectedOptions}){
  return (
     <div>  
         <div className="dropdown">
-        <button onClick={toggleDropdown}>Toggle Dropdown</button>
+        <button onClick={toggleDropdown}>{name}</button>
         {dropdownOpen && (
           <div className="dropdown-content">
             {options.map((option) => (
@@ -42,7 +42,7 @@ export default function ComponentDropdown({options,field, onSelectedOptions}){
                   onChange={(e) => handleCheckboxChange(e, option)}
                   checked={selectedOptions.some((selectedOption) => selectedOption.id === option.id)}
                 value={option[field]}
-                
+                name=""
                 />
                 {option[field]}
               </label>

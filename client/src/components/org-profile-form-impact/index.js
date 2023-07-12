@@ -1,6 +1,6 @@
 import "./index.scss";
 import { useState,useEffect } from "react";
-import FireBaseFirestoreService from '../../services/Firebasefirestoreservice'
+// import FireBaseFirestoreService from '../../services/Firebasefirestoreservice'
 
 export default function OrgProfileImpact({onProfileImpact}){
     const [yearFounded, setYearFounded] = useState('');
@@ -54,13 +54,6 @@ useEffect(()=>{
                             min="0" 
                             required /> 
                             <br />
-
-                            <label htmlFor="autoUpdate">Auto-update Numbers</label>
-                            <input 
-                            type="checkbox" 
-                            id="autoUpdate" 
-                            name="autoUpdate" 
-                             />
                         </div>
 
                         <div className="Section2">
