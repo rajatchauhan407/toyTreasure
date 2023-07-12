@@ -2,7 +2,7 @@ import "./index.scss";
 import { Link } from "react-router-dom";
 
 
-export default function DonorCharityProfileWishlistBanner(props){
+export default function DonorCharityProfileWishlistBanner(){
     return(
         <div className="WishlistBanner">
             <div className="WishlistBannerContent">
