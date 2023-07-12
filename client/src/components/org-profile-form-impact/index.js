@@ -1,26 +1,35 @@
 import "./index.scss";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice'
 
-export default function OrgProfileImpact(){
+export default function OrgProfileImpact({onProfileImpact}){
     const [yearFounded, setYearFounded] = useState('');
     const [donorNumber, setDonorNumber] = useState('');
     const [kidsNumber, setKidsNumber] = useState('');
     const [toysNumber, setToysNumber] = useState('');
-    const submitImpactButton = (e)=>{
-        e.preventDefault();
-        const impactDetails = {
-            founded_year: yearFounded,
-            total_donors: donorNumber,
-            kids: kidsNumber,
-            toys: toysNumber
-        }
-        FireBaseFirestoreService.createDocument("organization_mission", impactDetails)
+//     const submitImpactButton = (e)=>{
+//         e.preventDefault();
+//         const impactDetails = {
+//             founded_year: yearFounded,
+//             total_donors: donorNumber,
+//             kids: kidsNumber,
+//             toys: toysNumber
+//         }
+//         // FireBaseFirestoreService.createDocument("organization_mission", impactDetails)
 
-}
+// }
+useEffect(()=>{
+    const impactDetails = {
+        founded_year: yearFounded,
+        total_donors: donorNumber,
+        kids: kidsNumber,
+        toys: toysNumber
+    }
+    onProfileImpact(impactDetails);
+},[yearFounded,donorNumber,kidsNumber,toysNumber])
     return(
     <div className="OrgProfileImpact">
-                <form className= "Impact" onSubmit={submitImpactButton}>
+                <form className= "Impact">
                     <h2>Impact of Organization</h2>
                     <p>Add the numbers of impact in your organization</p>
 
@@ -77,7 +86,7 @@ export default function OrgProfileImpact(){
                             <br />
                         </div>
                     </div>
-                    <button type="submit">Submit</button>
+                    
                 </form>
     </div>
 ) 

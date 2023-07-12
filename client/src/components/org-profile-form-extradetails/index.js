@@ -1,6 +1,8 @@
 import ComponentDropdown from "../component-dropdown-selection";
 import "./index.scss";
-export default function OrgProfileExtraD(){
+import {useState,useEffect} from "react";
+
+export default function OrgProfileExtraD({onSelectedData}){
     let test = [
         {id:1,day:"sunday"},{id:2,day:"Monday"},{id:3,day:"Tuesday"},{id:4,day:"Wednesday"},{id:5,day:"Thursday"},{id:6,day:"Friday"},{id:7,day:"Saturday"}
     ];
@@ -14,6 +16,30 @@ export default function OrgProfileExtraD(){
         {id:1, method:"pick-up"},
         {id:2, method:"drop-off"}
     ];
+    const [time,setTime] = useState([]);
+    const [deliveryM, setDelivery] = useState([]);
+    const [workingDays, setWorkingDays] = useState([]);
+    
+    function getTiming(data){
+        setTime(data)
+    }
+    function getDays(data){
+        console.log(data); 
+        setWorkingDays(data); 
+        
+    }
+    function getDeliveryMethod(data){
+        console.log(data);
+        setDelivery(data);
+    }
+    useEffect(()=>{
+        console.log("called");
+        onSelectedData({
+            time:time.map((el)=>{return el.time}),
+            deliveryM:deliveryM.map((el)=>{return el.method}),
+            workingDays:workingDays.map((el)=>{return el.day})
+        });
+    },[time,deliveryM, workingDays]);
     return(
     <div className="OrgProfileExtraD">
         <form className="tt-38-extraDetails">
@@ -23,6 +49,7 @@ export default function OrgProfileExtraD(){
                     <ComponentDropdown
                         options={deliveryMethod}
                         field="method"
+                        onSelectedOptions={getDeliveryMethod}
                     />
                 </div>
                 <div className="tt-38-item-container">
@@ -30,6 +57,7 @@ export default function OrgProfileExtraD(){
                     <ComponentDropdown
                         options={timing}
                         field="time"
+                        onSelectedOptions={getTiming}
                     />
                 </div>
                 <div className="tt-38-item-container">
@@ -37,6 +65,7 @@ export default function OrgProfileExtraD(){
                     <ComponentDropdown
                         options={test}
                         field="day"
+                        onSelectedOptions={getDays}
                     />
                 </div>
                 {/* <MultiSelector /> */}

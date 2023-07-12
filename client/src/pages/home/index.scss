@@ -1,1 +1,17 @@
+.home-welcome,
+.home-map,
+.home-stories,
+.home-rewards,
+.home-discount{
+    margin-top: 40px;
+    margin-top: 40px;
+}
+.home-welcome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
+.home-rewards{
+    background-color: rgb(218, 218, 218);
+}
