@@ -33,3 +33,5 @@ function CharityProfileCategoryCard() {
     </div>
   );
 }
+
+export default CharityProfileCategoryCard();
