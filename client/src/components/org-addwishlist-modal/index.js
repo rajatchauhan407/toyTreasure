@@ -1,15 +1,38 @@
 import "./index.scss";
-import { useState,useEffect, useCallback } from "react";
+import { useState,useEffect } from "react";
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 
 export default function OrgAddWishlist(){
-
-    const [toyName,setToyName]=useState("");
-    const [toyCategory,setToyCategory]=useState("");
-    const [toysRequired,setToysRequired]=useState("");
-    const [imageUrl,setImageUrl]=useState("");
-    function saveOrgWishListData()
+    let toyCategoryDefault="";
+    const [orgToyCategories, setOrgToyCategories] = useState([]); 
+    async function getOrgToyCategories()
     {
-        console.log("clicked")
+        const data = await FireBaseFirestoreService.getDocumentsInArray("organization_categories");
+        let array = data;       
+        setOrgToyCategories(array);        
+    }
+    useEffect(()=>{
+        getOrgToyCategories();
+    },[]);
+
+  
+
+    let [toyName,setToyName]=useState("");
+    let [toyCategory,setToyCategory]=useState("");
+    let [toysRequired,setToysRequired]=useState("");
+    let [imageUrl,setImageUrl]=useState("");
+
+    orgToyCategories.map((el)=>{       
+        toyCategoryDefault=el.org_categories[0];        
+       return toyCategoryDefault;
+    })
+    if(toyCategory==='')
+    {
+        toyCategory=toyCategoryDefault;
+    }       
+    async function saveOrgWishListData(e)
+    {
+        e.preventDefault();       
         const addWishlistFormObject ={
             org_w_toy_name:toyName,
             org_w_toy_category:toyCategory,
@@ -17,6 +40,8 @@ export default function OrgAddWishlist(){
             org_w_toy_picture:imageUrl
         }
         console.log(addWishlistFormObject);
+        let refId = await FireBaseFirestoreService.createDocument("organization_wishlist",addWishlistFormObject);
+        console.log("ref-id  "+refId);
     }
     return (
         <div className="modalWishlist">
@@ -27,9 +52,14 @@ export default function OrgAddWishlist(){
 
                 <label htmlFor="categories">Select Categories</label><br />
                         <select id="categories" onChange={(e)=>{setToyCategory(e.target.value)}} name="categories" required>
-                            <option value="cg1">Category 1</option>
-                            <option value="cg2">Category 2</option>
-                </select><br />
+                        {orgToyCategories.map((el)=>{
+                            toyCategoryDefault=el.org_categories[0];
+                           return el.org_categories.map((item)=>
+                            {                              
+                                return <option value={item}>{item}</option>
+                            })                             
+                        })}                           
+                        </select><br />
 
                 <label htmlFor="qty">Enter Qty of Toys Required</label><br />
                 <input type="number" id="qty" onChange={(e)=>{setToysRequired(e.target.value)}} name="qty" required /><br />
