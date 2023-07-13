@@ -13,7 +13,7 @@ import OrgDataCard from '../../components/org-data-card';
 
 export default function DonorCharityProfilePage(){
     const {id} = useParams();
-    const [orgData, setOrgData] = useState({});
+    const [orgData, setOrgData] = useState(null);
     useEffect(()=>{
         async function fetchData(){
             const res = await FireBaseFirestoreService.getDocumentById('organization_profile',id);
@@ -22,20 +22,24 @@ export default function DonorCharityProfilePage(){
         }
         fetchData();
     },[setOrgData,id]);
-    return(<>
+    return((orgData && <>
     <div className='DonorCharityProfileWrapper'>
         <DonorCharityProfileInformation
             info = {orgData.profileDetails}
-        url={orgData.logoUrl}
+            url={orgData.logoUrl}
         />
         <DonorCharityProfileVideo/>
         <div className="card-wrapper">
-            <OrgDataCard/>
+            <OrgDataCard
+                details = {orgData.impactDetails}
+            />
         </div>
         <DonorCharityProfileWishlistBanner/>
-        <CharityProfileCategoryCardWrapper/>
+        <CharityProfileCategoryCardWrapper
+            categories = {orgData.categories}
+        />
 
         <HomeDashBoardStories/>
         </div>
-    </>);
+    </>));
 };

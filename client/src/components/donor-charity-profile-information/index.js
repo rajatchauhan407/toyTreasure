@@ -4,33 +4,24 @@ import { useEffect, useState } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 
 export default function DonorCharityProfileInformation({info,url}){
+  console.log(info);
     const [orgCharityProfile, setOrgCharityProfile] = useState([]);
 
   useEffect(() => {
-    async function getOrgCharityProfileData() {
-      try {
-        const data = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
-        setOrgCharityProfile(data || []);
-        console.log(data)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    getOrgCharityProfileData();
-  }, []);
+    setOrgCharityProfile(info);
+  }, [info]);
 
 
   return (
     <div className="charityInformation">
         
-            <div key={info.id} className="profileinformation">
+            <div key={orgCharityProfile.id} className="profileinformation">
                 <img src={url} alt="logo-charity" />
-                <h2>{info.org_name}</h2>
-                <p>{info.org_description}</p>
+                <h2>{orgCharityProfile.org_name}</h2>
+                <p>{orgCharityProfile.org_description}</p>
                 <button><Link to="/donation/toys">Donate Now</Link></button>
             </div>
-        )
+        
 
         <div className="profileImage">
             <img src="https://picsum.photos/1500/800" alt="main-charity" />
