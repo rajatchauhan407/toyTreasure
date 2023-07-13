@@ -14,6 +14,11 @@ input, select{
     display: flex;
     flex-direction: row;
 }
+.cancelIcon{
+    position: absolute;
+    right:20px;
+    top:20px;
+}
 
 // button{
 //     margin: 10px;
