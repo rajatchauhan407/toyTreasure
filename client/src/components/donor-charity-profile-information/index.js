@@ -3,37 +3,28 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 
-export default function DonorCharityProfileInformation(){
+export default function DonorCharityProfileInformation({info,logo, main}){
+  console.log(info);
     const [orgCharityProfile, setOrgCharityProfile] = useState([]);
 
   useEffect(() => {
-    async function getOrgCharityProfileData() {
-      try {
-        const data = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
-        setOrgCharityProfile(data || []);
-        console.log(data)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    getOrgCharityProfileData();
-  }, []);
+    setOrgCharityProfile(info);
+  }, [info]);
 
 
   return (
     <div className="charityInformation">
-        {orgCharityProfile.map(profile => (
-            <div key={profile.id} className="profileinformation">
-                <img src="https://picsum.photos/52/52" alt="logo-charity" />
-                <h2>{profile.profileDetails.org_name}</h2>
-                <p>{profile.profileDetails.org_description}</p>
+        
+            <div key={orgCharityProfile.id} className="profileinformation">
+                <img src={logo} alt="logo-charity" />
+                <h2>{orgCharityProfile.org_name}</h2>
+                <p>{orgCharityProfile.org_description}</p>
                 <button><Link to="/donation/toys">Donate Now</Link></button>
             </div>
-        ))}
+        
 
         <div className="profileImage">
-            <img src="https://picsum.photos/1500/800" alt="main-charity" />
+            <img src={main} alt="main-charity" />
         </div>
 
     </div>

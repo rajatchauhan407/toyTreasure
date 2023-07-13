@@ -46,7 +46,7 @@ export default function OrgProfileForm() {
         let result = await FireBaseFirestoreService.createDocument('organization_profile',{
             profileDetails:profileDetails,
             impactDetails:impactDetails,
-            categories:categories.map((el)=>{return el.value}),
+            categories:categories,
             extraDetails:extraDetails,
             uid:authCtx.uid,
             logoUrl,

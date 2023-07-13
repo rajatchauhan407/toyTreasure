@@ -4,13 +4,14 @@ import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 
 export default function OrgWishlist(){
     const [orgWishList, setOrgWishList] = useState([]); 
-    async function getOrgWishListData()
-    {
-        const data = await FireBaseFirestoreService.getDocumentsInArray("organization_wishlist");
-        let array = data;       
-        setOrgWishList(array);       
-    }
-    useEffect(()=>{
+    
+    useEffect(()=>{        
+        async function getOrgWishListData()
+        {
+            const data = await FireBaseFirestoreService.getDocumentsInArray("organization_wishlist");
+            let array = data;       
+            setOrgWishList(array);       
+        }
         getOrgWishListData();
     },[]);
     // let orgWishlistData = [
@@ -57,6 +58,16 @@ export default function OrgWishlist(){
     //         org_toy_pending:8
     //     }
     // ]
+    async function deleteToyFromWishlist(id){
+        try{
+            await FireBaseFirestoreService.deleteDocumentById('organization_wishlist',id);
+            console.log("Deleted From WishList");
+
+        }catch(error){
+            console.log(error);
+        }
+       
+    }
     return (<div className="table-container">
                 <table>
                     <thead>
@@ -76,7 +87,7 @@ export default function OrgWishlist(){
                             <td>{el.org_w_toys_required}</td>
                             <td>26</td> 
                             {/* <td>08</td> */}
-                            <td><i className="fa-solid fa-trash"></i></td>
+                            <td onClick={()=>{deleteToyFromWishlist(el.id)}}><i className="fa-solid fa-trash"></i></td>
                         </tr>
                         })}
                     </tbody>
