@@ -10,6 +10,7 @@ export default function OrgAddWishlist({onClickCancel, onClickCancelButton, onAd
     // const navigate = useNavigate();
     const authCtx = useContext(AuthContext);
     const [orgToyCategories, setOrgToyCategories] = useState([]); 
+    const [profileId, setProfileId] = useState(null);
     async function getOrgToyCategories()
     {
         const data = await FireBaseFirestoreService.getDocumentsInArray("organization_profile"); 
@@ -17,7 +18,7 @@ export default function OrgAddWishlist({onClickCancel, onClickCancelButton, onAd
             console.log(el.uid);
             console.log(authCtx.uid);
             if(el.uid === authCtx.uid){
-                
+                setProfileId(el.id);
                 setOrgToyCategories(el.categories); 
                 console.log(el.categories);
             }
@@ -55,7 +56,7 @@ export default function OrgAddWishlist({onClickCancel, onClickCancelButton, onAd
             org_w_toys_required:toysRequired,
             org_w_toy_picture:toyUrl,
             org_w_toy_points:50,
-            uid:authCtx.uid
+            profile_id:profileId
         }
         console.log(addWishlistFormObject);
         await FireBaseFirestoreService.createDocument("organization_wishlist",addWishlistFormObject);

@@ -1,26 +1,26 @@
 import "./index.scss";
 import { useState, useEffect, useContext } from 'react';
-import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
+import { useParams } from "react-router-dom";
+// import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
-import AuthContext from "../../services/auth-context";
 import { database } from "../../FirebaseConfig";
 export default function DonationWishListCard() {
   const [donationWishList, setDonationWishList] = useState([]);
-  const authCtx = useContext(AuthContext);
 
+  const {id} = useParams();
   async function getDonationWishListData() {
     const wishlistCollection = collection(database,"organization_wishlist");
-    let q = query(wishlistCollection, where("uid","==",authCtx.uid));
+    let q = query(wishlistCollection, where("profile_id","==",id));
     // const donationWishListData = await FireBaseFirestoreService.getDocumentsInArray("organization_wishlist");
     let donationWishListData = await getDocs(q);
-    console.log(donationWishListData);
+    console.log(donationWishListData.docs);
     // let array = donationWishListData.map((item) => ({
     //   ...item.data(),
     //   quantity: 0 
     // }));
     // setDonationWishList(array);
     donationWishListData.forEach((e)=>{
-      console.log(e.data())
+      console.log(e.data());
       setDonationWishList((prev)=>{return [...prev,e.data()]})
     });
   }

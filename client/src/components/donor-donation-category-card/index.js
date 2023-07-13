@@ -1,17 +1,23 @@
 import "./index.scss";
 import { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 
 export default function DonationCategoryCard() {
   const [donationCategory, setDonationCategory] = useState([]);
-
+  const{id}=useParams();
   async function getDonationCategoryData() {
-    const donationCategoryData = await FireBaseFirestoreService.getDocumentsInArray("toys_categories");
-    let array = donationCategoryData.map((item) => ({
-      ...item,
-      quantity: 0
-    }));
-    setDonationCategory(array);
+    try{
+    const donationCategoryData = await FireBaseFirestoreService.getDocumentById("organization_profile",id);
+    // let array = donationCategoryData.map((item) => ({
+    //   ...item,
+    //   quantity: 0
+    // }));
+    setDonationCategory(donationCategoryData.data().categories);
+    // console.log(donationCategoryData.data().categories);
+  }catch(error){
+      console.log(error);
+    }
   }
 
   const handleDecrement = (index) => {
