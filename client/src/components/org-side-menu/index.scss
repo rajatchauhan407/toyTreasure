@@ -1,5 +1,14 @@
+
+@import '../../sass/main.scss';
+
 .OrgSideMenuWrapper
-{      
+{    
+    position:fixed;
+    font-family: $font-heading;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: 26px;  
     display:flex;
     flex-flow: column nowrap;
     align-items: flex-start; 
@@ -44,6 +53,10 @@
     text-decoration: none;
     /* padding:1rem; */
     color:black;
+}
+.OrgSideMenuWrapper nav ul li a:focus
+{    
+    color:$secondary_teal_green;
 }
 .OrgSideMenuWrapper nav ul li
 {

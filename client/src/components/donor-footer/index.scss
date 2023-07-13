@@ -1,18 +1,51 @@
+@import '../../sass/main.scss';
 .tt-47-donorFooterWrapper
 {  
-    padding:1rem;
+    color:$text_just_gray;
+    font-family: $font-body;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: $fw-normal;
+    line-height: 20px; 
+    background-color: $secondary_footer_soft_blue;
+    margin-top:1rem;
+    padding:2rem 1.5rem;
     display:flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: flex-end;   
+    justify-content: space-between;
+    align-items: center;  
+    p 
+    {
+        padding:0;
+        margin:0;
+    }
+    .tt-47-site-logo 
+   {
+        width: 77.576px;
+        height: 40px;
+        flex-shrink: 0;
+   }
+    .tt-47-team-logo 
+    {
+        width: 54px;
+        height: 24px;
+        flex-shrink: 0;
+    }
 }
-.tt-47-donor-image-wrapper,.tt-47-techTribe-logo
+.tt-47-donor-image-wrapper
 {
-    display:flex;
-    align-items: flex-end;    
+    display:flex;   
+    align-items: center; 
+}
+.tt-47-techTribe-logo
+{
+    display:flex;   
+    align-items: flex-end; 
 }
 .tt-47-copyright
 {
+    display:flex;
+    flex-direction: column;
     text-align: center;        
 }
 .tt-47-address p
