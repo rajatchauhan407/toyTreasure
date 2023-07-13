@@ -1,8 +1,9 @@
 .loginWrapper{
-    display: flex;
-
+   display: grid;
+   grid-template-columns: 1fr 2fr;
+   height: 100vh;
 .loginFormWrapper {
-    margin: 0 auto;
+margin: 0 auto;
 display: flex;
 justify-content: space-between;
 align-items: center;
