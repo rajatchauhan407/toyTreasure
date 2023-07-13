@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-const Player = () => {
+const Player = (video) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const videoRef = useRef(null);
 
@@ -21,7 +21,7 @@ const Player = () => {
                 height="100%"
                 controls
             >
-                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                <source src={video} type="video/mp4" />
             </video>
         </div>
     )
