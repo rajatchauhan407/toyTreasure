@@ -106,11 +106,11 @@ export default function OrgProfileCategories({onGetCategories}){
                                type="checkbox" 
                                id={option.id} 
                                name="age0_category" 
-                               value={option.category_name}
+                               value={option}
                                onChange={(e)=>{handleCheckboxChange_toys(e,option)}}
                                checked={selectedOptions.some((selectedOption) => selectedOption.id === option.id)}
                                />
-                                <label for="plushAnimals">{option.value}</label></div>
+                                <label for="plushAnimals">{option.category_name}</label></div>
                             })       
                             }
                             </form>}
@@ -126,11 +126,11 @@ export default function OrgProfileCategories({onGetCategories}){
                                     type="checkbox" 
                                     id={option.id}
                                     name="age5_category" 
-                                    value={option.category_name}
+                                    value={option}
                                     onChange={(e)=>{handleCheckboxChange_kids(e,option)}}
                                     checked={selectedKids.some((selectedOption) => selectedOption.id === option.id)}
                                     />
-                                <label for="softPlushToys">{option.value}</label>
+                                <label for="softPlushToys">{option.category_name}</label>
                             </div>
                             })
                             }
@@ -147,11 +147,11 @@ export default function OrgProfileCategories({onGetCategories}){
                                     type="checkbox" 
                                     id={option.id}
                                     name="age5_category" 
-                                    value={option.category_name}
+                                    value={option}
                                     onChange={(e)=>{handleCheckboxChange_teens(e,option)}}
                                     checked={selectedTeens.some((selectedOption) => selectedOption.id === option.id)}
                                     />
-                                <label for="softPlushToys">{option.value}</label>
+                                <label for="softPlushToys">{option.category_name}</label>
                             </div>
                             })
                             }
