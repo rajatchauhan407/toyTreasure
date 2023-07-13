@@ -54,7 +54,8 @@ export default function OrgAddWishlist({onClickCancel, onClickCancelButton, onAd
             org_w_toy_category:toyCategory,
             org_w_toys_required:toysRequired,
             org_w_toy_picture:toyUrl,
-            org_w_toy_points:50
+            org_w_toy_points:50,
+            uid:authCtx.uid
         }
         console.log(addWishlistFormObject);
         await FireBaseFirestoreService.createDocument("organization_wishlist",addWishlistFormObject);

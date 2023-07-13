@@ -37,7 +37,8 @@ export default function DonorCharityProfilePage(){
                 details = {orgData.impactDetails}
             />
         </div>
-        <DonorCharityProfileWishlistBanner/>
+        <DonorCharityProfileWishlistBanner
+        />
         <CharityProfileCategoryCardWrapper
             categories = {orgData.categories}
         />
