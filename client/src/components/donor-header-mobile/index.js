@@ -11,9 +11,9 @@ export default function DonorHeaderMobile(props)
             </div>                  
             <nav className="tt-22-main-menu">
                 <ul>
-                    <li><Link to="#"><i class="far fa-home-lg-alt"></i> Home</Link></li>
-                    <li><Link to="#"><i class="fas fa-compass"></i> Find Charities</Link></li>               
-                    <li><Link to="#"><i class="far fa-star"></i> Rewards</Link></li>
+                    <li><Link to="#"><i className="fa fa-home"></i> Home</Link></li>
+                    <li><Link to="#"><i className="fas fa-compass"></i> Find Charities</Link></li>               
+                    <li><Link to="#"><i className="far fa-star"></i> Rewards</Link></li>
                     <li><Link to="#" className="tt-22-logout"><i class="fas fa-sign-out"></i> Logout</Link></li>     
                 </ul>
             </nav>                      

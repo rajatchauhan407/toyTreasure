@@ -1,3 +1,4 @@
+@import '../../sass/main.scss';
 .tt-22-donorHeaderWrapper
 {      
     display:flex;
@@ -21,25 +22,43 @@
 }
 .tt-22-main-menu li:hover
 {
-    background-color: #b4b4b4;
+    background-color:$primary_boy_blue;
+    color:$text_pure_white;
+}
+.tt-22-main-menu li:hover a
+{   
+    color:$text_pure_white;
 }
 .tt-22-main-menu li a
 { 
     text-decoration: none;
-    color:black;
-    padding: 0 0 0 1rem;
+    color:$text_midnight_blue;
+    padding: 0 0 0 4rem;
     margin:0;
+    font-family: $font-heading;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: normal;
 }
 .tt-22-main-menu li a:hover
 {
    font-weight: bold;
 }
-
+.fa-times-circle
+{
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    color: $accent_amethyst;
+    
+}
 .tt-22-main-menu ul
 {    
     display: flex;
     flex-direction:column;
     padding:0;
     margin:0;
-    background-color: rgb(241, 238, 238);
+    background-color: rgb(246, 242, 242);
+   
 }
