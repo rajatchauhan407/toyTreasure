@@ -1,8 +1,35 @@
 import './index.scss';
-import { Link } from 'react-router-dom';
+import { Link,Navigate, useNavigate } from 'react-router-dom';
 import DonationWishListCard from '../donor-donation-wishList-card';
+import { useEffect, useState, useContext } from 'react';
+import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
+import AuthContext from '../../services/auth-context';
 
-function DonationWishListCardWrapper() {
+
+function DonationWishListCardWrapper({requiredCategories}) {
+  const navigate = useNavigate();
+  const authCtx = useContext(AuthContext);
+  const[finalCat, setFinalCat] = useState([]);
+  const[finalWishlist, setFinalWishlist] = useState([]);
+
+  useEffect(()=>{
+    setFinalCat(requiredCategories);
+  },[requiredCategories]);
+
+  function getDonationListData(data){
+    setFinalWishlist(data);
+   }
+   async function storeDataInCart(data){
+    // <Link to="/donation/confirmation">
+    let document = {
+      wishlist:finalWishlist,
+      categories:finalCat,
+      status:"pending",
+      uid:authCtx.uid
+    }
+    // await FireBaseFirestoreService.createDocument('donations',document);
+    navigate('/donation/confirmation?data='+JSON.stringify(document));
+   }
   // let donationWishListCardData = [
   //   {
   //     imageUrl: 'https://picsum.photos/400/400?rand=431',
@@ -33,13 +60,17 @@ function DonationWishListCardWrapper() {
   // const donationWishListCardDatasList = donationWishListCardData.map((el) => (
   //   <DonationWishListCard imageUrl={el.imageUrl} points={el.points} toyName={el.toyName} toyType={el.toyType} />
   // ));
+ 
+
   return <div className='donorWishListCardWrapper'>
     <h1>Wishlists</h1>
 
-    <button><Link to="/donation/confirmation">Proceed to Donate</Link></button>
+    <button onClick={storeDataInCart}>Proceed to Donate</button>
     
     <div className='donorWishListCardWrap'>
-      <DonationWishListCard/>
+      <DonationWishListCard
+        onDonationWishlist={getDonationListData}
+      />
     </div>
     </div>;
 }

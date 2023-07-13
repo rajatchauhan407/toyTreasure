@@ -6,6 +6,7 @@ import DonorDonationModal from '../../components/donor-donation-congrats-modal';
 import GeneralModalWrapper from '../../components/general-modal-wrapper';
 export default function DonationConfirmation(){
     const [openModal, setOpenModal] = useState(false);
+
     function getClick(data){
             setOpenModal(data);
     }

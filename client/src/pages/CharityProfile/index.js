@@ -22,6 +22,10 @@ export default function DonorCharityProfilePage(){
         }
         fetchData();
     },[setOrgData,id]);
+
+    function getSelectedCategories(data){
+        console.log(data);
+    }
     return((orgData && <>
     <div className='DonorCharityProfileWrapper'>
         <DonorCharityProfileInformation

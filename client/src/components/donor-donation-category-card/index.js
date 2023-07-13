@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 
-export default function DonationCategoryCard() {
+export default function DonationCategoryCard({onGetCategories}) {
   const [donationCategory, setDonationCategory] = useState([]);
   const [donations,setDonations] = useState([]);
   const{id}=useParams();
@@ -28,7 +28,8 @@ export default function DonationCategoryCard() {
       console.log(newList);
       return newList;
     });
-    setDonations(donationCategory);
+    // setDonations(donationCategory);
+    // onGetCategories(donations);
   };
 
   const handleIncrement = (index) => {
@@ -38,8 +39,14 @@ export default function DonationCategoryCard() {
       console.log(newList);
       return newList;
     });
-    setDonations(donationCategory);
+    // setDonations(donationCategory);
+    // onGetCategories(donations);
   };
+
+  useEffect(() => {
+    setDonations(donationCategory); // Update donations when donationCategory changes
+    onGetCategories(donationCategory); // Call onGetCategories with the updated donationCategory
+  }, [donationCategory,setDonations]); 
 
   useEffect(() => {
     getDonationCategoryData();

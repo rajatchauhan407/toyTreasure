@@ -4,7 +4,9 @@ import { useParams } from "react-router-dom";
 // import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
-export default function DonationWishListCard() {
+
+
+export default function DonationWishListCard({onDonationWishlist}) {
   const [donationWishList, setDonationWishList] = useState([]);
   const [donations, setDonations] = useState([])
   const {id} = useParams();
@@ -51,6 +53,7 @@ export default function DonationWishListCard() {
   useEffect(() => {
     getDonationWishListData();
   }, []);
+  onDonationWishlist(donationWishList);
 
   return (
     <div className="wrapperBugFinder">
