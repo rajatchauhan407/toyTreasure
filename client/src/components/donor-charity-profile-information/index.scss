@@ -2,13 +2,14 @@
 .charityInformation{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .profileInformation{
-    flex: 40%
+    flex-basis: 40%;
 }
 .profileImage{
-    flex: 60%
+    flex-basis: 60%;
 }
 
 .profileImage img{

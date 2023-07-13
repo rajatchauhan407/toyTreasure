@@ -26,9 +26,12 @@ export default function DonorCharityProfilePage(){
     <div className='DonorCharityProfileWrapper'>
         <DonorCharityProfileInformation
             info = {orgData.profileDetails}
-            url={orgData.logoUrl}
+            logo={orgData.logoUrl}
+            main={orgData.profileUrl}
         />
-        <DonorCharityProfileVideo/>
+        <DonorCharityProfileVideo
+            video={orgData.videoUrl}
+        />
         <div className="card-wrapper">
             <OrgDataCard
                 details = {orgData.impactDetails}

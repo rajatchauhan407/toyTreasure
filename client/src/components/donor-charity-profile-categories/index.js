@@ -20,17 +20,18 @@ export default function ProfileCategoryCard({categories}) {
   // }, []);
   let cards = categories.map((el, index) => ( // Changed the variable name from 'donationWishList' to 'donationCategory'
   <div key={index}>
-    <div className="donationCategoryCardImgWrapper">
+    <div className="charityProfileCategoryCardImgWrapper">
       <img src={el.category_picture} alt="" />
-      <p className="donationCategoryCardPoints">{el.category_points}</p>
+      <p className="charityProfileCardPoints">{el.category_points}</p>
     </div>
     <h4>{el.category_name}</h4>
     <p>{el.category_age}</p>
   </div>
 ));
   return (
-    <div className="donationCategoryCardWrapper">
-      <GeneralMultipleSlider cards={cards}/>
+    <div className="charityProfileCategoryCardwrapper">
+      {/* <GeneralMultipleSlider cards={cards}/> */}
+      {cards}
     </div>
   );
 }
