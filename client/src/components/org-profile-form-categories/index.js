@@ -8,20 +8,29 @@ export default function OrgProfileCategories({onGetCategories}){
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [selectedKids, setSelectedKids] = useState([]);
     const [selectedTeens, setSelectedTeens] = useState([]);
-    const age0_categories = [{id:1,value:"Stuffed Animals"},
-    {id:2,value:"Shape sorters"},
-    {id:3,value:"Musical toys"},
-    {id:4,value:"Bath toys"}];
+    const age0_categories = 
+    [
+    {id:1,category_name:"Stuffed Animals",
+    category_age:"0-4 years",
+    category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-1.svg?alt=media&token=cdd79797-2f24-4818-9def-64dd4286756f",category_points:"20"},
+    {id:2,category_name:"Shape Sorters",category_age:"0-4 years",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-1.svg?alt=media&token=cdd79797-2f24-4818-9def-64dd4286756f",category_points:"20"},
+    {id:3,category_name:"Musical Toys",category_age:"0-4 years",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-1.svg?alt=media&token=cdd79797-2f24-4818-9def-64dd4286756f",category_points:"20"},
+    {id:4,category_name:"Bath Toys",category_age:"0-4 years",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-1.svg?alt=media&token=cdd79797-2f24-4818-9def-64dd4286756f",category_points:"20"}
+    ];
     
-    const age5_categories = [{id:5,value:"Board games"},
-    {id:6,value:"Dollhouses"},
-    {id:7,value:"Science kits"},
-    {id:8,value:"Art supplies"}];
+    const age5_categories = [
+        {id:5,category_name:"Board Games",category_age:"5-11 years",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-11.svg?alt=media&token=c53903ca-1ca7-4aed-aa64-f7e19545d715",category_points:"20"},
+        {id:6,category_name:"Dollhouses",category_age:"5-11 years",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-11.svg?alt=media&token=c53903ca-1ca7-4aed-aa64-f7e19545d715",category_points:"20"},
+        {id:7,category_name:"Science Kits",category_age:"5-11 years",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-11.svg?alt=media&token=c53903ca-1ca7-4aed-aa64-f7e19545d715",category_points:"20"},
+        {id:8,category_name:"Art Supplies",category_age:"5-11 years",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-11.svg?alt=media&token=c53903ca-1ca7-4aed-aa64-f7e19545d715",category_points:"20"}
+    ];
 
-    const age12_categories = [{id:9,value:"Sports gear"},
-    {id:10,value:"Outdoor equipment"},
-    {id:11,value:"Robotics kits"},
-    {id:12,value:"Books and novels"}];
+    const age12_categories = [
+        {id:9,category_name:"Sport Gear",category_age:"12-18",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-2.svg?alt=media&token=0d161630-ceda-43f6-9a1f-9f7f38dbb403",category_points:"20"},
+        {id:10,category_name:"Outdoor Equipment",category_age:"12-18",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-2.svg?alt=media&token=0d161630-ceda-43f6-9a1f-9f7f38dbb403",category_points:"20"},
+        {id:11,category_name:"Robotics Kits",category_age:"12-18",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-2.svg?alt=media&token=0d161630-ceda-43f6-9a1f-9f7f38dbb403",category_points:"20"},
+        {id:12,category_name:"Books and Novels",category_age:"12-18",category_picture:"https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/category_images%2Fcategory-2.svg?alt=media&token=0d161630-ceda-43f6-9a1f-9f7f38dbb403",category_points:"20"}
+    ];
 
     const handleCheckboxChange_toys = (e,option)=>{
         console.log(e.target.value);
@@ -97,7 +106,7 @@ export default function OrgProfileCategories({onGetCategories}){
                                type="checkbox" 
                                id={option.id} 
                                name="age0_category" 
-                               value={option.value}
+                               value={option.category_name}
                                onChange={(e)=>{handleCheckboxChange_toys(e,option)}}
                                checked={selectedOptions.some((selectedOption) => selectedOption.id === option.id)}
                                />
@@ -117,7 +126,7 @@ export default function OrgProfileCategories({onGetCategories}){
                                     type="checkbox" 
                                     id={option.id}
                                     name="age5_category" 
-                                    value={option.value}
+                                    value={option.category_name}
                                     onChange={(e)=>{handleCheckboxChange_kids(e,option)}}
                                     checked={selectedKids.some((selectedOption) => selectedOption.id === option.id)}
                                     />
@@ -138,7 +147,7 @@ export default function OrgProfileCategories({onGetCategories}){
                                     type="checkbox" 
                                     id={option.id}
                                     name="age5_category" 
-                                    value={option.value}
+                                    value={option.category_name}
                                     onChange={(e)=>{handleCheckboxChange_teens(e,option)}}
                                     checked={selectedTeens.some((selectedOption) => selectedOption.id === option.id)}
                                     />
