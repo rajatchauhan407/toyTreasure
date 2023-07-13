@@ -6,7 +6,7 @@ import { getFirestore, collection, query, where, getDocs } from "firebase/firest
 import { database } from "../../FirebaseConfig";
 export default function DonationWishListCard() {
   const [donationWishList, setDonationWishList] = useState([]);
-
+  const [donations, setDonations] = useState([])
   const {id} = useParams();
   async function getDonationWishListData() {
     const wishlistCollection = collection(database,"organization_wishlist");
@@ -21,24 +21,31 @@ export default function DonationWishListCard() {
     // setDonationWishList(array);
     donationWishListData.forEach((e)=>{
       console.log(e.data());
-      setDonationWishList((prev)=>{return [...prev,e.data()]})
+      const obj ={...e.data(), quantity:0}
+      setDonationWishList((prev)=>{return [...prev,obj]});
+      console.log(obj);   
     });
+    
   }
 
   const handleDecrement = (index) => {
     setDonationWishList((prevList) => {
       const newList = [...prevList];
       newList[index].quantity = Math.max(newList[index].quantity - 1, 0);
+      console.log(newList);
       return newList;
     });
+    setDonations(donationWishList);
   };
 
   const handleIncrement = (index) => {
     setDonationWishList((prevList) => {
       const newList = [...prevList];
       newList[index].quantity = Math.min(newList[index].quantity + 1, newList[index].org_w_toys_required);
+      console.log(newList);
       return newList;
     });
+    setDonations(donationWishList);
   };
 
   useEffect(() => {
