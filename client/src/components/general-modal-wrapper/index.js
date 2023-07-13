@@ -1,5 +1,5 @@
 import './index.scss';
-import { MdCancel } from 'react-icons/md';
+
 
 export default function GeneralModalWrapper(props){
 
@@ -7,7 +7,7 @@ export default function GeneralModalWrapper(props){
         <>
             <div id="backdrop" onClick={()=>{props.onCloseModal(false)}}></div>
             <div className="container">
-                <MdCancel className='cancelIcon'/>
+                
             {props.children}</div> 
                 
         </>

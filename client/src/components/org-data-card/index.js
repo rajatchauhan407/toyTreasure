@@ -13,7 +13,7 @@ export default function OrgDataCard({ displayMode,details }){
   const orgCardsWrapperClass = displayMode === 'two-columns' ? 'org-cards-wrapper two-columns' : 'org-cards-wrapper';
 
     return (
-        <div className="charityImpact">
+        (orgImpact && <div className="charityImpact">
         
             <div className={orgCardsWrapperClass}>
                 <div className="card-1">
@@ -51,5 +51,5 @@ export default function OrgDataCard({ displayMode,details }){
        
 
     </div>
-    )
+    ))
 }
