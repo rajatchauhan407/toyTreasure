@@ -1,9 +1,18 @@
 @import '../../sass/main.scss';
-.card-wrapper{
+.org-cards-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.card-1,
+.card-2,
+.card-3,
+.card-4{
     flex-basis:40%;
     flex-grow: 1;
     padding:.5rem;
-    border:1px solid $primary_t_gray;
+    border:1px solid $text_not_just_gray;
     .img-wrapper{
         width:30%;
         img{

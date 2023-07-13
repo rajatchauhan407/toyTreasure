@@ -1,42 +1,45 @@
 import './index.scss';
+import { Link } from 'react-router-dom';
 import DonationWishListCard from '../donor-donation-wishList-card';
 
 function DonationWishListCardWrapper() {
-  let donationWishListCardData = [
-    {
-      imageUrl: 'https://picsum.photos/400/400?rand=431',
-      points: 50,
-      toyName: "Teddy Bear",
-      toyType: "stuffed Animal",
-    },
-    {
-      imageUrl: 'https://picsum.photos/400/400?rand=432',
-      points: 30,
-      toyName: "Teddy Bear",
-      toyType: "stuffed Animal",
-    },
-    {
-      imageUrl: 'https://picsum.photos/400/400?rand=433',
-      points: 40,
-      toyName: "Teddy Bear",
-      toyType: "stuffed Animal",
-    },
-    {
-      imageUrl: 'https://picsum.photos/400/400?rand=434',
-      points: 60,
-      toyName: "Teddy Bear",
-      toyType: "stuffed Animal",
-    },
-  ];
+  // let donationWishListCardData = [
+  //   {
+  //     imageUrl: 'https://picsum.photos/400/400?rand=431',
+  //     points: 50,
+  //     toyName: "Teddy Bear",
+  //     toyType: "stuffed Animal",
+  //   },
+  //   {
+  //     imageUrl: 'https://picsum.photos/400/400?rand=432',
+  //     points: 30,
+  //     toyName: "Teddy Bear",
+  //     toyType: "stuffed Animal",
+  //   },
+  //   {
+  //     imageUrl: 'https://picsum.photos/400/400?rand=433',
+  //     points: 40,
+  //     toyName: "Teddy Bear",
+  //     toyType: "stuffed Animal",
+  //   },
+  //   {
+  //     imageUrl: 'https://picsum.photos/400/400?rand=434',
+  //     points: 60,
+  //     toyName: "Teddy Bear",
+  //     toyType: "stuffed Animal",
+  //   },
+  // ];
 
-  const donationWishListCardDatasList = donationWishListCardData.map((el) => (
-    <DonationWishListCard imageUrl={el.imageUrl} points={el.points} toyName={el.toyName} toyType={el.toyType} />
-  ));
+  // const donationWishListCardDatasList = donationWishListCardData.map((el) => (
+  //   <DonationWishListCard imageUrl={el.imageUrl} points={el.points} toyName={el.toyName} toyType={el.toyType} />
+  // ));
   return <div className='donorWishListCardWrapper'>
     <h1>Wishlists</h1>
+
+    <button><Link to="/donation/confirmation">Proceed to Donate</Link></button>
     
     <div className='donorWishListCardWrap'>
-     {donationWishListCardDatasList}
+      <DonationWishListCard/>
     </div>
     </div>;
 }

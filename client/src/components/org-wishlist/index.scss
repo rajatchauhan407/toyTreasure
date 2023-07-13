@@ -10,7 +10,7 @@
         }
         td{
             text-align: center;
-            @include borderBottom(1px, $secondary_not_just_gray);
+            @include borderBottom(1px, $primary_boy_blue);
             padding:.5rem;
         }
         tr:nth-last-of-type() td{
@@ -20,7 +20,7 @@
             td{
                 font-style: bold;
                 font-family: $font_heading;
-                color: $secondary_midnight_blue;
+                color: $primary_boy_blue;
             }
         }
     }

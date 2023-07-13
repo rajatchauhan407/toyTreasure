@@ -1,19 +1,31 @@
-import React from "react";
-import YouTube from "react-youtube";
-import "./index.scss";
+import React, { useState, useRef } from 'react';
 
-export default function DonorCharityProfileVideo() {
-  const videoId = "4T7HwLGNiuw";
+const Player = (video) => {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = useRef(null);
 
-  return (
-    <div className="CharityVideo">
-      <YouTube videoId={videoId} 
-      opts={{ 
-        width: "320", 
-        height: "240", 
-        playerVars: { autoplay: 1, muted: 1 } 
-        }} />
-    </div>
-  );
+    const togglePlay = () => {
+        if (isPlaying) {
+            videoRef.current.pause();
+        } else {
+            videoRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
+
+    return (
+        <div>
+            <video
+                ref={videoRef}
+                width="100%"
+                height="100%"
+                controls
+            >
+                <source src={video} type="video/mp4" />
+            </video>
+        </div>
+    )
 }
+
+export default Player;
    

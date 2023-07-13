@@ -1,7 +1,7 @@
 import {useState} from "react";
 import "./index.scss";
 
-export default function ComponentDropdown({options,field, onSelectedOptions}){
+export default function ComponentDropdown({options,field, onSelectedOptions,name}){
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     
@@ -11,7 +11,7 @@ export default function ComponentDropdown({options,field, onSelectedOptions}){
         console.log(e.target.value);
         const { checked } = e.target;
         // console.log(selectedOptions);
-        onSelectedOptions(selectedOptions);
+        
     // Update selectedOptions array based on checkbox state
     if (checked) {
       setSelectedOptions((prevOptions) => [...prevOptions, option]);
@@ -20,16 +20,18 @@ export default function ComponentDropdown({options,field, onSelectedOptions}){
         prevOptions.filter((selectedOption) => selectedOption.id !== option.id)
       );
     }
+    
     }
     const toggleDropdown = (e) => {
         e.preventDefault();
         setDropdownOpen(!dropdownOpen);
+        onSelectedOptions(selectedOptions);
       };
    
  return (
     <div>  
         <div className="dropdown">
-        <button onClick={toggleDropdown}>Toggle Dropdown</button>
+        <button onClick={toggleDropdown}>{name}</button>
         {dropdownOpen && (
           <div className="dropdown-content">
             {options.map((option) => (
@@ -40,7 +42,7 @@ export default function ComponentDropdown({options,field, onSelectedOptions}){
                   onChange={(e) => handleCheckboxChange(e, option)}
                   checked={selectedOptions.some((selectedOption) => selectedOption.id === option.id)}
                 value={option[field]}
-                
+                name=""
                 />
                 {option[field]}
               </label>
