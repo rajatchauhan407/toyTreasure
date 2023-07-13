@@ -1,5 +1,8 @@
 .donationCategoryCardWrapper{
-   
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 1rem;
     .donationCategoryCardImgWrapper{
         display: flex;
         justify-content: space-between;

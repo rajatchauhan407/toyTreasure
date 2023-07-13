@@ -4,13 +4,13 @@ import OrgWishlist from '../org-wishlist';
 import './index.scss';
 import {Link} from "react-router-dom";
 
-export default function OrgDashBoard(){
+export default function OrgDashBoard({onWishlistClicked}){
     return (
         <div className='org-wrapper'>
             <div className="org-list-wrapper">
             <div className="org-list-header">
                 <h2>DashBoard</h2>
-                <button>
+                <button onClick={()=>{onWishlistClicked(true)}}>
                     <i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add to Wishlist
                 </button>
             </div>
@@ -18,9 +18,7 @@ export default function OrgDashBoard(){
             <OrgWishlist/>
         </div>
         <div className="side-container">
-            <div className="cards-wrapper">
-                <OrgDataCard/>      
-           </div> 
+            <OrgDataCard displayMode="two-columns" />
            <div className="org-pending-verification">
                 <div className="org-pending-verification-header">
                     <h3>Pending Verfication</h3>

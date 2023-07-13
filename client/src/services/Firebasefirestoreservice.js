@@ -5,7 +5,8 @@ import {addDoc,
         getDoc,
         doc,
         updateDoc,
-        setDoc} from 'firebase/firestore';   
+        setDoc,
+    deleteDoc} from 'firebase/firestore';   
 import "firebase/firestore";
 
 // add document in the firestore. Accepts collection name and document object as parametres and returns the execution of the function so that it can be used further.
@@ -71,13 +72,19 @@ function getDocumentById(collectionName, documentId){
                 console.log("Error while Setting Data", error);
             }
     }
+    // Deleting a function from Firebase
+    async function deleteDocumentById(collectName,docId){
+        const docRef= doc(database,collectName,docId);
+        return deleteDoc(docRef);
+    }
 const FireBaseFirestoreService = {
     createDocument,
     getDocumentsInArray,
     getDocuments,
     getDocumentById,
     updateDocumentById,
-    settingDocument
+    settingDocument,
+    deleteDocumentById
 }
 
 

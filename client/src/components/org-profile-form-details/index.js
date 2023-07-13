@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./index.scss";
-import { useState,useEffect, useCallback } from "react";
-
+import { useState,useEffect, useCallback,useContext } from "react";
+import AuthContext from "../../services/auth-context";
 export default function OrgProfileDetails({getFormData,getDataState}){   
-     
+     let authCtx = useContext(AuthContext);
     const [orgName,setOrgName]=useState("");
     const [orgDescription,setOrgDescription]=useState("");
     const [orgCRA,setOrgCRA]=useState("");
@@ -30,7 +30,7 @@ export default function OrgProfileDetails({getFormData,getDataState}){
                 org_address2:orgAddress2,
                 org_zip:orgZip,
                 org_country:orgCountry,
-                org_email:orgEmail,
+                org_email:authCtx.email,
                 org_country_code:countryCode,
                 org_phone:phoneNumber 
             }
@@ -51,7 +51,7 @@ export default function OrgProfileDetails({getFormData,getDataState}){
                 <input type="text" id="orgName" onChange={(e)=>{setOrgName(e.target.value)}} required /><br />
               
                 <label htmlFor="orgDescription">Organization Description </label><br />
-                <textarea id="orgDescription" onChange={(e)=>{setOrgDescription(e.target.value)}} name="orgDescription" rows="4" cols="50" maxLength="250" required></textarea><br />
+                <textarea id="orgDescription" onChange={(e)=>{setOrgDescription(e.target.value)}} name="orgDescription" rows="4" cols="50" maxLength="500" required></textarea><br />
                
                 <label htmlFor="orgCRA">CRA Registered Charity</label><br />
                 <input type="text" id="orgCRA" onChange={(e)=>{setOrgCRA(e.target.value)}} name="orgCRA" pattern="[a-zA-Z0-9]{1,15}" required /><br />
@@ -94,7 +94,7 @@ export default function OrgProfileDetails({getFormData,getDataState}){
                 </div>
         
                 <label htmlFor="orgEmail">Email</label><br />
-                <input type="email" id="orgEmail" onChange={(e)=>{setOrgEmail(e.target.value)}} name="orgEmail" required /><br />
+                <input type="email" id="orgEmail" onChange={(e)=>{setOrgEmail(e.target.value)}} name="orgEmail" disabled ={true} value={authCtx.email} required /><br />
     
                 <label htmlFor="contactNumber">Contact Number</label><br />
                 <div className="phone-input">

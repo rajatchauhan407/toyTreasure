@@ -1,4 +1,4 @@
-import logo from "./appLogo.svg"
+import logo from "./Vector.png"
 import "./index.scss";
 
 function LoginSidebar() {

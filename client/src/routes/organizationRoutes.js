@@ -11,7 +11,7 @@ export default function OrganizationRoutes(){
         <>
         <div className="organization">
                 <div className='side-menu-wrapper'>
-                    <OrgSideMenu/>
+                    <OrgSideMenu />
                 </div>
                 <div className='organization-dashboard-side-menu-container'>
                 <OrgHeader/>
