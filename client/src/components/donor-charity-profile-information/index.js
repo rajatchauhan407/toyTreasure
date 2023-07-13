@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 
-export default function DonorCharityProfileInformation(){
+export default function DonorCharityProfileInformation({info,url}){
     const [orgCharityProfile, setOrgCharityProfile] = useState([]);
 
   useEffect(() => {
@@ -23,14 +23,14 @@ export default function DonorCharityProfileInformation(){
 
   return (
     <div className="charityInformation">
-        {orgCharityProfile.map(profile => (
-            <div key={profile.id} className="profileinformation">
-                <img src="https://picsum.photos/52/52" alt="logo-charity" />
-                <h2>{profile.profileDetails.org_name}</h2>
-                <p>{profile.profileDetails.org_description}</p>
+        
+            <div key={info.id} className="profileinformation">
+                <img src={url} alt="logo-charity" />
+                <h2>{info.org_name}</h2>
+                <p>{info.org_description}</p>
                 <button><Link to="/donation/toys">Donate Now</Link></button>
             </div>
-        ))}
+        )
 
         <div className="profileImage">
             <img src="https://picsum.photos/1500/800" alt="main-charity" />
