@@ -1,5 +1,6 @@
 import "./index.scss";
-import basket from "./basket.png";
+import gift from "./gift.svg";
+import crown from "./crown.svg";
 
 export default function OrgVerificationDetails(props)
 {
@@ -22,10 +23,10 @@ export default function OrgVerificationDetails(props)
             <div className="org-ver-details-card">
                 <div className="detailsHeader">
                     <h2>Verification Details</h2>
-                    <h3>Donation:  {donorDetails[0].donationId}</h3>
+                    <h5>Donation:  {donorDetails[0].donationId}</h5>
                 </div>
                 <div className="details">
-                    <img className="basket" src={basket} alt={"basket"}/>
+                    <img className="gift" src={gift} alt={"gift"}/>
                     <div className="donorInfo">
                         <div className="displayDonorInfo">
                             <p className="dTitle">Donor Name</p>
@@ -37,7 +38,9 @@ export default function OrgVerificationDetails(props)
                         </div>
                         <div className="displayDonorInfo">
                             <p className="dTitle">Date and Time</p>
-                            <p className="dInfo">{donorDetails[0].dateAndTime} <i class="fa-sharp fa-light fa-triangle-exclamation dTitle"></i></p>
+                            <p className="dInfo">{donorDetails[0].dateAndTime} 
+                            {/* <i class="fa-sharp fa-light fa-triangle-exclamation dTitle"></i> */}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -56,8 +59,8 @@ export default function OrgVerificationDetails(props)
                         sumOfAmt=sumOfAmt+el.amount;
                         sumOfPoints=sumOfPoints+el.points;                
                         if(el.fromWishlist==="y")
-                        {
-                            wishListIcon=<i class="fa-solid fa-crown"></i>;                   
+                        {                                  
+                            wishListIcon=<img className="org-ver-details-crownIcon" src={crown} alt={"crown"}/>           
                         }
                         else
                         {
@@ -86,7 +89,7 @@ export default function OrgVerificationDetails(props)
                     proceeding for the donation.
                 </label>
                 <div className="orgVerButtons">
-                    <input type="Button" value="Cancel Donation"  id="cancelDonation"  className="orgVerButtonCancel"/>
+                    <input type="Button" value="Cancel"  id="cancelDonation"  className="orgVerButtonCancel"/>
                     <input type="Button" value="Accept"  id="acceptDonation"  className="orgVerButtonAccept" onClick={handleAccept}/>
                 </div>                
             </div>           
