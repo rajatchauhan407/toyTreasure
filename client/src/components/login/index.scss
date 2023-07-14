@@ -1,7 +1,7 @@
 @import '../../sass/main.scss';
 .email-input-text{
   display: block;
-  width: $largest-button;
+  width: 28.75rem;
   height: 64px;
 }
 .loginDonorButton:hover, 
@@ -12,8 +12,9 @@
 }
 .input-text{
   display: block;
-  width: $largest-button;
+  width: 28.75rem;
   height: 64px;
+  margin-left: 0%;
 }
 .loginDonorButton:active, 
 .loginOrgButton:active{
@@ -31,13 +32,13 @@
   box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.04);
 }
 .login-form-container{
-    width:calc($largest-button+15px) ;
+    width:calc(28.75rem + 15px) ;
 }
 .login-form{
   margin-top: 20px;
 }
 .borderBottom{
-    width: 207px;
+    width: 28.75rem;
     margin: 0%;
 }
 p{
@@ -50,11 +51,11 @@ p{
     margin: 20px 0;
   }
   form .primary-button{
-    @include Buttuns($largest-button, $accent_amethyst-light);
+    @include Buttuns(28.75rem, $accent_amethyst-light);
     margin-right: 0%;
   }
   .google-Facebook-Button button{
-    @include Buttuns($largest-button, $text_pure_white);
+    @include Buttuns(28.75rem, $text_pure_white);
     border: 1px solid black;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.08);
     margin-right: 0%;
