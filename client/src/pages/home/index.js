@@ -1,4 +1,5 @@
 import './index.scss';
+import redeemIcon from './Redeem.png'
 import AuthContext from '../../services/auth-context';
 import React, {useContext} from "react";
 
@@ -70,8 +71,10 @@ export default function Home(){
         </div>
 
         <div className="home-rewards">
+          <div className='rewards-info'>
+            <img src={redeemIcon} alt='redeemIcon'/>
             <h2 className='custom-h1'>Rewards</h2>
-            <img></img>
+          </div>
             <HomeDashboardRewardsCard/>
         </div>
 
