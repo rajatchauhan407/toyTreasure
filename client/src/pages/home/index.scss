@@ -7,12 +7,20 @@
     padding: 0 4rem
 }
 
-.home-map,
-.home-stories,
+.home-map{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
 .home-rewards,
 .home-discount{
-    margin-top: 3.5rem;
-    margin-bottom: 3.5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.home-stories{
+    margin-top: 6rem;
+    margin-bottom: 6rem;
 }
 
 .home-welcome{
@@ -21,12 +29,11 @@
     justify-content: space-between;
 
     margin-top: 2.5rem;
-    margin-bottom: 3.5rem;
 }
 
 .home-rewards{
     background-color: #F5F0FA;
-    padding: 2rem 4rem;
+    padding: 4rem 4rem;
 }
 
 .rewards-info{
