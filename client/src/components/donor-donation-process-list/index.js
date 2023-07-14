@@ -5,8 +5,8 @@ import AuthContext from "../../services/auth-context";
 export default function DonorDonationProcessList(props)
 {    
     let authCtx = useContext(AuthContext);
-    const [categories, setCategories] = authCtx.userCartData.categories;
-    console.log()
+    const [categories, setCategories] = authCtx.userCartData;
+    console.log(categories)
     let tt80data=0;  
     let tt80totalpoints=0;
     let tt80pId="";

@@ -51,7 +51,7 @@ export const AuthContextProvider = (props)=>{
                     setEmailVerified(user.emailVerified);
                     setUid(user.uid);
                     sessionStorage.setItem('isLoggedIn', 'true');
-                    // sessionStorage.setItem('userType',user_type);
+                    sessionStorage.setItem('userType',user_type);
                 }else{
                     setIsLoggedIn(false);   
                     sessionStorage.removeItem('isLoggedIn');
