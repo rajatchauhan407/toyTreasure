@@ -27,11 +27,13 @@
 @mixin Buttuns($width, $color){
     width: $width;
     height: 56px;
-    border-radius: 8px;
+    border-radius: $b-radius;
     background-color: $color;
     border: none;
+    box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.04);
 }
 
+<<<<<<< HEAD
 @mixin mediumButton($width, $color){
     width: $width;
     height: 56px;
@@ -43,3 +45,15 @@
     font-family: $font-body;
 }
 
+=======
+@mixin FootnoteRegular($color){
+font-family: $font-body;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: $fw-normal;
+line-height: 1.375rem;
+color: $color;
+}
+
+
+>>>>>>> 0cecc14f38da89c9175e23378d4689cfcec2ef35

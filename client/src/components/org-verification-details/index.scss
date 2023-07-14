@@ -1,9 +1,15 @@
+@import '../../sass/main.scss';
 .OrgVerDetailsCardWrapper
 {
     margin:1rem;
     display:flex;
     align-items: flex-start;
     justify-content: space-evenly;
+
+    tbody tr
+    {
+        color:$text_just_gray;
+    }
 }
 .OrgVerDetailsCardWrapper p
 {
@@ -12,13 +18,22 @@
 }
 .dInfo 
 {
-    color: #5B5B5B;
-    font-weight: 500;
+    font-family: $font_body;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: 22px;
+    color: $secondary_teal_green;
 }
 .dTitle 
 {
-    color: #9E9E9E;
-    font-weight: 500;
+    font-family: $font_body;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: $fw-normal;
+    line-height: 22px;
+    color: $text_just_gray;
+    
 }
 .OrgVerDetailsCardWrapper i 
 {
@@ -43,11 +58,10 @@
 {
     display: flex;
     flex-direction: column;
-    box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
-    -webkit-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
-    -moz-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.25);
     border-radius: 2px;
     background-color: #fdfdfd;
+    border-radius: 1rem;
 }
 .detailsHeader
 {
@@ -55,12 +69,12 @@
     align-items: center;
     justify-content: space-around;
     h2{
-        color:#404040;
+        color:$secondary_teal_green;
     }
-    h3{
-        background-color: #E9E9E9;
-        padding: 0 1rem 0 1rem;
-        border-radius: 1rem;
+    h5{
+        background-color: $secondary_footer_soft_blue;
+        padding: .5rem 2rem;
+        border-radius: 5px;
     }
 }
 .OrgVerDetailsCardWrapper table
@@ -85,11 +99,28 @@
 .totalPoints
 {
     border-top: 1px solid #817F7F;
+    font-weight: $fw-bold;
+    color:$text_just_gray; ;
+}
+.OrgVerDetailsCardWrapper
+{
+    font-family: $font_heading;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: 22px;    
+    color:$text_just_gray; 
 }
 .OrgVerDetailsCardWrapper th
 {
-    background-color: #E9E9E9;       
-    padding:1rem;         
+    font-family: $font_heading;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: 22px;
+    background-color: $secondary_footer_soft_blue;       
+    padding:1rem;        
+    color:$text_just_gray; 
 }
 .OrgVerDetailsCardWrapper th:nth-child(1) 
 {
@@ -113,5 +144,12 @@
 }
 .orgVerButtonAccept
 {
-    background-color: #ABABAB;
+    
+    background-color: $text_not_just_gray;
+    color:$text_pure_white;
+}
+.org-ver-details-crownIcon
+{
+    width:100%;
+    height:15%;
 }

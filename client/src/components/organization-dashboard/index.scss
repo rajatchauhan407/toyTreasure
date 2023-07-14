@@ -4,8 +4,10 @@
     height:auto;
     display: flex;
     gap:1rem;
-    padding:.5rem;
+    padding:2rem;
     box-sizing: border-box;
+    border-left: 1px solid $text_just_gray;
+   
 }
 .org-list-wrapper{
     @include displayfc;
@@ -13,6 +15,7 @@
     table{
         width:100%;
     }
+    margin-right: 1rem;
 }
 
 .side-container{
@@ -31,17 +34,28 @@
         justify-content: space-between;
     }
 }
-
+.org-wrapper
+{
+    h5{
+        color:$secondary_teal_green;
+        padding:0;
+        margin:0;
+    }
+}
 .org-list-header{
+  
     display: flex;
     justify-content: space-between;
 
     h2{
         margin:0;
+        color:$secondary_teal_green;
     }
+   
     button{
         @include customButton($primary_boy_blue);
         @include roundedBorder(9px);
+        color:$text_midnight_blue;
     }
 }
 
@@ -50,4 +64,24 @@
     grid-template-columns: 1fr 1fr;
 }
 
+.crown 
+{
+    width: 15%;
+    height: 15%;
+    padding:0;
+    margin:0;
+}
+.org-wishlist-crown 
+{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin:0;
+    padding:0;
+}
+.org-pending-verification a
+{
+    text-decoration: none;
+    color:$primary_boy_blue;
+}
 
