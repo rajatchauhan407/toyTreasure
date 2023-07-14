@@ -1,3 +1,14 @@
+@import '../../sass/main.scss';
+
+.home-page{
+    padding: 1rem;
+}
+
+.home-welcome h1{
+    color: $text_midnight_blue;
+}
+
+
 .home-welcome,
 .home-map,
 .home-stories,
