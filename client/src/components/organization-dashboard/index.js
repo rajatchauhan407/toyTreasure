@@ -1,28 +1,51 @@
 import OrgVerificationCard from '../org-verification-card';
 import OrgDataCard from '../org-data-card';
 import OrgWishlist from '../org-wishlist';
+import crown from "./crown.svg"
 import './index.scss';
 import {Link} from "react-router-dom";
+// import { useEffect,useState } from 'react';
+// import { useParams } from 'react-router-dom';
+// import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
+// import { useContext } from 'react';
+// import AuthContext from '../../services/auth-context';
 
 export default function OrgDashBoard({onWishlistClicked}){
+    // let authContext=useContext(AuthContext);
+    // console.log("authContext>>>   "+authContext);
+    // const {id} = useParams();
+    // const [orgData, setOrgData] = useState(null);
+    // useEffect(()=>{
+    //     async function fetchData(){
+    //         const res = await FireBaseFirestoreService.getDocumentById('organization_profile',id);
+    //         console.log(res.data());
+    //         setOrgData(res.data());
+    //     }
+    //     fetchData();
+    // },[setOrgData,id]);
+
+    // console.log("orgdata >>>>>>>>>> "+id);
     return (
         <div className='org-wrapper'>
             <div className="org-list-wrapper">
             <div className="org-list-header">
                 <h2>DashBoard</h2>
-                <button onClick={()=>{onWishlistClicked(true)}}>
-                    <i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add to Wishlist
+                <button onClick={()=>{onWishlistClicked(true)}}>                
+                    <i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Toy to Wishlist
                 </button>
             </div>
-            <h3>Wishlist</h3>
+            <div className="org-wishlist-crown">
+                <h5>Wishlist <img className="crown" src={crown} alt={"crownicon"}/></h5>                
+            </div>
+           
             <OrgWishlist/>
         </div>
         <div className="side-container">
-            <OrgDataCard displayMode="two-columns" />
+            <OrgDataCard displayMode="two-columns"  />
            <div className="org-pending-verification">
                 <div className="org-pending-verification-header">
-                    <h3>Pending Verfication</h3>
-                    <h3><Link to="#">See All</Link></h3>
+                    <h4>Pending Verification</h4>
+                    <h6><Link to="#">See All</Link></h6>
                 </div>
                 <OrgVerificationCard/>  
            </div>
