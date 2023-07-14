@@ -1,12 +1,40 @@
-.tt-50-container{
-    width:100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    // padding: 1rem;
-    gap:1rem;
+@import '../../sass/main.scss';
+
+h1{
+    color: $text_midnight_blue;
 }
+
+h5{
+    color: $text_midnight_blue;
+    margin: 0;
+}
+
+.tt-50-container p{
+    color: $text_midnight_blue;
+    font-family: $font-body;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: $fw-normal;
+    line-height: 1.312rem;
+}
+
+
+.tt-50-container{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.tt-50-main{
+    flex-basis: 60%;
+}
+
 .tt-50-container-item{
-    border: 1px solid black;
-    border-radius: 10px;
-    padding:1rem;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+    height: fit-content;
+    border-radius: 1rem;
+    padding:1.5rem;
+    background-color: rgba($color: $secondary_soft_pink, $alpha: 0.4);
 }

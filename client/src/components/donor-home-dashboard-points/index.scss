@@ -1,7 +1,11 @@
+@import '../../sass/main.scss';
+
 .DashboardPoints{
-    width: 300px;
-    background-color: rgb(222, 222, 222);
+    width: 15rem;
+    height: fit-content;
+    background-color: $primary_crown_yellow_W40;
     padding: 0.5rem;
+    border-radius: 0.5rem;
 }
 
 .ContentPoints{
@@ -15,7 +19,12 @@
     height: 52px;
 }
 
+.body1{
+    font-size: 2.125rem;
+    font-weight: 700;
+    color: $text_midnight_blue;
+}
+
 .point {
-    font-size: 2.5rem;
-    font-weight: 600;
+    color: $text_midnight_blue;
 }

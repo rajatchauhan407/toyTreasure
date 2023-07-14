@@ -10,10 +10,10 @@ export default function DonorHeader(props)
     }
     return(
         <div className="tt-45-donorHeaderWrapper">
-            <div class="tt-45-donor-image-wrapper">
-                <img className="tt-45-site-logo" src={logo} alt={"siteLogo"}/>
+            <div className="tt-45-donor-image-wrapper">
+                <Link to="/home"><img className="tt-45-site-logo" src={logo} alt={"siteLogo"}/></Link>
             </div> 
-            <div class="tt-45-menu-button-wrapper">              
+            <div className="tt-45-menu-button-wrapper">              
             <nav className="tt-45-main-menu">
                 <ul>
                     <li><Link to="/home">Home</Link></li>

@@ -1,4 +1,5 @@
 import './index.scss';
+import redeemIcon from './Redeem.png'
 import AuthContext from '../../services/auth-context';
 import React, {useContext} from "react";
 
@@ -11,7 +12,6 @@ import HomeDashBoardStories from '../../components/home-dashboard-stories';
 import HomeDashboardRewardsCard from '../../components/donor-home-dashboard-rewards-card-wrapper';
 import DiscountCard from '../../components/donor-rewards-discount-banner';
 import DashboardPendingDonation from '../../components/donor-home-dashboard-pending-donation';
-
 
 
 export default function Home(){
@@ -34,10 +34,10 @@ export default function Home(){
 
     let discountData = [
         {
-          url: 'https://picsum.photos/400/400?rand=431',
-          discount: "20% off",
-          info: "Super Sale",
-          req:"Father's Day Offer"
+          // url: {banner},
+          discount: "20% off ",
+          info: "Get the best cuddle in the whole wide world for your kid",
+          req:"on your first order"
         },
        
       ];
@@ -71,13 +71,15 @@ export default function Home(){
         </div>
 
         <div className="home-rewards">
-                <h1>Rewards</h1>
-                
-                <HomeDashboardRewardsCard/>
+          <div className='rewards-info'>
+            <img src={redeemIcon} alt='redeemIcon'/>
+            <h2 className='custom-h1'>Rewards</h2>
+          </div>
+            <HomeDashboardRewardsCard/>
         </div>
 
         <div className="home-discount">
-                <h1>Special discount for you</h1>                
+                <h2 className='custom-h1'>Special discounts for you</h2>                
                 {discountList}
         </div>
     </div>

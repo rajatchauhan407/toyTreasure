@@ -1,15 +1,17 @@
 
 .loginSidebar{
     padding: 4%;
-    width: 500px;
-    height: 700px;
-    background-color: rgb(0, 0, 0);
     background-image: url('./Screenshot.png') ;
     background-size: cover; 
     display: flex;
     flex-flow: column;
     justify-content: space-between;
     
+    .sidebarText{
+        padding: 4%;
+        width: fit-content;
+        margin-bottom: 30%;
+    }
     .loginLogo,
     .sidebarItemWrapper{
         // margin-left: 100px;

@@ -1,17 +1,62 @@
+@import '../../sass/main.scss';
+
 .home-welcome,
 .home-map,
 .home-stories,
+.home-discount{
+    padding: 0 4rem
+}
+
+.home-map{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
 .home-rewards,
 .home-discount{
-    margin-top: 40px;
-    margin-top: 40px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
+
+.home-stories{
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
 .home-welcome{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    margin-top: 2.5rem;
 }
 
 .home-rewards{
-    background-color: rgb(218, 218, 218);
+    background-color: #F5F0FA;
+    padding: 4rem 4rem;
+}
+
+.rewards-info{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+
+    img{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 1rem;
+    }
+}
+
+.home-welcome h1{
+    color: $text_midnight_blue;
+}
+
+.home-rewards .custom-h1{
+    color: $accent_amethyst;
+    margin: 0;
+}
+
+.custom-h1{
+    color: $text_midnight_blue;
 }
