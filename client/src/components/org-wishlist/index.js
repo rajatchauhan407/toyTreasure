@@ -72,10 +72,10 @@ export default function OrgWishlist(){
                 <table>
                     <thead>
                         <tr>
-                            <td>Tag Category</td>
-                            <td>Qty Required</td>
+                            <td>Category</td>
+                            <td>Required</td>
                             {/* Yet to decide on data for Qty Received*/}
-                            <td>Qty Received</td>
+                            <td>Received</td>
                             {/* <td>Pending</td> */}
                             <td></td>
                         </tr>

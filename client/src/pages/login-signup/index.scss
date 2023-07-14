@@ -1,9 +1,15 @@
 .loginsignupwrapper{
+display: grid;
+grid-template-columns: 2fr 6fr;
+height: 100vh;
 
-display: flex;
-gap: 40px;
 .loginsignupimage{
-    width: 300px;
-    height: auto;
+    background-image: url('./posterImage.png') ;
+    background-size: cover; 
+}
+.loginSignupformInnerWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 }
