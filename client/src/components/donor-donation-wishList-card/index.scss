@@ -1,7 +1,11 @@
+@import '../../sass/main.scss';
 .wrapperBugFinder{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1rem;
+    h3{
+        margin-bottom: 1rem;
+    }
 }
 .donationWishListCardWrapper{
     position: relative;
@@ -10,23 +14,41 @@
         height: auto;
     }
    .donationWishListCardPoints{
+    span{
+        font-weight: $fw-bold;
+        font-size: 1.5rem;
+    }
+    color: $text_midnight_blue;
+    text-align: center;
     position: absolute;
-    top: -10px;
+    top: -35px;
     right: 0;
-    background-color: hotpink;
-    padding: 8%;
+    background-color: $primary_crown_yellow;
+    padding: 6%;
     border-radius: 50%;
    } 
    .donationWishListNumberInput{
     display: flex;
-    border: 1px solid black;
+    border: 1px solid $text_not_just_gray;
+    height: 2.5rem;
+    align-items: center;
     input{
         border: none;
         text-align: center;
+        margin: 0%;
     }
     button{
         border: none;
-        background-color: none;
+        background-color: $text_pure_white;
+        margin: 0 15%;
+        color: $text_not_just_gray;
     }
    }
+}
+.donorWishListToyCategory{
+    background-color: #EEE;
+    border-radius: 1.3rem;
+    padding: 2% 8%;
+    text-align: center;
+    display: inline;
 }

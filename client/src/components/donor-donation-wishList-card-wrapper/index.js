@@ -4,7 +4,7 @@ import DonationWishListCard from '../donor-donation-wishList-card';
 import { useEffect, useState, useContext } from 'react';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import AuthContext from '../../services/auth-context';
-
+import vectore from './Vector-wishlist.png'
 
 function DonationWishListCardWrapper({requiredCategories}) {
   const navigate = useNavigate();
@@ -64,9 +64,13 @@ function DonationWishListCardWrapper({requiredCategories}) {
  
 
   return <div className='donorWishListCardWrapper'>
+    <div className='proceedToDonateTagLine'>
+    <div className='wishListTitle'>
     <h1>Wishlists</h1>
-
+    <img src={vectore} alt='WishList sign'/>
+    </div>
     <button onClick={storeDataInCart}>Proceed to Donate</button>
+    </div>
     
     <div className='donorWishListCardWrap'>
       <DonationWishListCard
