@@ -31,6 +31,7 @@ export const AuthContextProvider = (props)=>{
     const [uid,setUid] = useState(sessionStorage.getItem('uid')|| '');
     const [userType, setUserType] = useState(sessionStorage.getItem('userType')||'');
     const [userPoints, setUserPoints] = useState(0);
+    const [toysQuantity, setToysQuantity] = useState(0);
     const [userCartData, setUserCartData] = useState({});
     
     
@@ -80,8 +81,11 @@ export const AuthContextProvider = (props)=>{
         userType:userType,
         setUserType,
         user_points: userPoints,
+        setUserPoints,
         userCartData:userCartData,
-        setUserCartData
+        setUserCartData,
+        toysQuantity:toysQuantity,
+        setToysQuantity
     }
     
     
