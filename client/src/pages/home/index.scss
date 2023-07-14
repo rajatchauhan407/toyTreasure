@@ -8,14 +8,17 @@
     color: $text_midnight_blue;
 }
 
+.home-welcome{
+    margin-top: 2.5rem;
+    margin-bottom: 3.5rem;
+}
 
-.home-welcome,
 .home-map,
 .home-stories,
 .home-rewards,
 .home-discount{
-    margin-top: 40px;
-    margin-top: 40px;
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
 }
 .home-welcome{
     display: flex;
