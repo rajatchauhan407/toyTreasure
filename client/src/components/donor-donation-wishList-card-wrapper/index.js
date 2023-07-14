@@ -1,5 +1,5 @@
 import './index.scss';
-import { Link,Navigate, useNavigate } from 'react-router-dom';
+import { Link,Navigate, useNavigate, useParams } from 'react-router-dom';
 import DonationWishListCard from '../donor-donation-wishList-card';
 import { useEffect, useState, useContext } from 'react';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
@@ -11,7 +11,7 @@ function DonationWishListCardWrapper({requiredCategories}) {
   const authCtx = useContext(AuthContext);
   const[finalCat, setFinalCat] = useState([]);
   const[finalWishlist, setFinalWishlist] = useState([]);
-
+  const{id} = useParams()
   useEffect(()=>{
     setFinalCat(requiredCategories);
   },[requiredCategories]);
@@ -20,7 +20,6 @@ function DonationWishListCardWrapper({requiredCategories}) {
     setFinalWishlist(data);
    }
    async function storeDataInCart(data){
-    // <Link to="/donation/confirmation">
     let document = {
       wishlist:finalWishlist,
       categories:finalCat,
@@ -29,7 +28,7 @@ function DonationWishListCardWrapper({requiredCategories}) {
     }
     authCtx.setUserCartData(document);
     // await FireBaseFirestoreService.createDocument('donations',document);
-    navigate('/donation/confirmation/'+authCtx.uid);
+    navigate('/donation/confirmation/'+id);
    }
   // let donationWishListCardData = [
   //   {

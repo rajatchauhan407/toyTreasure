@@ -1,12 +1,17 @@
+@import '../../sass/main.scss';
+
 .tt-62-map-charities-desc-container{
     width:100%;
-    height:auto; 
+    height:fit-content; 
     position:absolute;
-    background:hotpink;
+    background: $accent_amethyst;
     bottom: 0;
     padding:.5rem;
     box-sizing: border-box;
     border-radius: 1rem;
+
+    color: $text_pure_white;
+    margin: 0.5rem;
 }
 .tt-62-map-charities-desc{
     display:grid;

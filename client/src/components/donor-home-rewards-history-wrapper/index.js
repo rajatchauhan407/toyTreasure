@@ -10,7 +10,7 @@ function WrapperHistoryOfDonations() {
 ];
 
     return <div className="WrapperDonationHistory">
-      <h4>History of Donations</h4>
+      <h3>History of Donations</h3>
       
       {donationHistory.map((el)=>{
           
