@@ -4,8 +4,8 @@ export default function HistoryOfDonations(props){
         return(
                 <div className="historyOfDonations">
                     <ul> 
-                        <li>{props.toyType}</li>
-                        <li>{props.points}</li>
+                        <li><h4>{props.toyType}</h4></li>
+                        <li><h4>{props.points}</h4></li>
                     </ul>
                 </div>
         )}
