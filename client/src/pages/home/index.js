@@ -13,7 +13,6 @@ import DiscountCard from '../../components/donor-rewards-discount-banner';
 import DashboardPendingDonation from '../../components/donor-home-dashboard-pending-donation';
 
 
-
 export default function Home(){
   const userNameAuth = useContext(AuthContext);
   const [hasPendingDonation, setHasPendingDonation] = useState(false);
@@ -34,10 +33,10 @@ export default function Home(){
 
     let discountData = [
         {
-          url: 'https://picsum.photos/400/400?rand=431',
-          discount: "20% off",
-          info: "Super Sale",
-          req:"Father's Day Offer"
+          // url: {banner},
+          discount: "20% off ",
+          info: "Get the best cuddle in the whole wide world for your kid",
+          req:"on your first order"
         },
        
       ];
@@ -77,7 +76,7 @@ export default function Home(){
         </div>
 
         <div className="home-discount">
-                <h1>Special discount for you</h1>                
+                <h1>Special discounts for you</h1>                
                 {discountList}
         </div>
     </div>
