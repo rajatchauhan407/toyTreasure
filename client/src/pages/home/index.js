@@ -70,11 +70,13 @@ export default function Home(){
         </div>
 
         <div className="home-rewards">
-                <HomeDashboardRewardsCard/>
+            <h2 className='custom-h1'>Rewards</h2>
+            <img></img>
+            <HomeDashboardRewardsCard/>
         </div>
 
         <div className="home-discount">
-                <h1>Special discounts for you</h1>                
+                <h2 className='custom-h1'>Special discounts for you</h2>                
                 {discountList}
         </div>
     </div>

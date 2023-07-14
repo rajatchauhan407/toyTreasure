@@ -32,3 +32,14 @@
     border: none;
 }
 
+@mixin mediumButton($width, $color){
+    width: $width;
+    height: 56px;
+    border-radius: 8px;
+    background-color: $color;
+    border: none;
+
+    color: $text_midnight_blue;
+    font-family: $font-body;
+}
+

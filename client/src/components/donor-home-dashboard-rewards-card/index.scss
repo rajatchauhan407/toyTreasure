@@ -1,26 +1,31 @@
+@import '../../sass/main.scss';
+
 .homeDashboardRewardsCardWrapper{
     position: relative;
-    border: 5px solid grey;
-    padding: 3%;
-    border-radius: 15px;
-    margin: 3%;
+    background-color: $accent_amethyst;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    margin: 1rem;
 
-    
-.homeDashboardRewardsPoints{
-    text-align: center;
-    background-color: grey;
-    width: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 50%;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-}
-.redeemRewards{
-    display: block;
-    width: 100%;
-}
+    .homeDashboardRewardsCardImgWrapper img{
+        border-radius: 0.5rem;
+    }
+
+    .homeDashboardRewardsPoints{
+        text-align: center;
+        background-color: $primary_girly_pink;
+        color: white;
+        width: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 50%;
+        position: absolute;
+        top: -20px;
+        right: -20px;
+    }
+    .redeemRewards{
+        @include mediumButton(9rem,$button_soft_purple_CTA)
+    }
 }
 
 #false
