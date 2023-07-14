@@ -4,7 +4,7 @@
 .home-map,
 .home-stories,
 .home-discount{
-    padding: 0 4rem
+    @include globalPadding;
 }
 
 .home-map{
