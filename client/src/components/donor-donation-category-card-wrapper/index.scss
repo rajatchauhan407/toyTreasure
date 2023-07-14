@@ -1,5 +1,5 @@
-.donorDonationCategoryCardWrap{
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
+@import '../../sass/main.scss';
+.donorDonationCategoryCardWrapper{
+    padding: 5%;
+    background-color: $secondary_footer_soft_blue;
 }
