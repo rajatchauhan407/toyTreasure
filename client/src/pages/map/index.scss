@@ -1,17 +1,21 @@
+@import '../../sass/main.scss';
+
 .tt-62-container{
-    width:90%;
-    margin:auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;  
     gap:2rem;
+    height: 100vh;
+
+    background-color: $button_soft_purple_CTA;
+    margin: 0 4rem;
+    border-radius: 1rem;
 }
-// css for side wrapper component
+
 .tt-62-side-wrapper{
     display:flex;
     flex-direction: column;
     gap:1rem;
-    padding:0 1rem;
-    padding-right:1rem;
+    padding: 1rem;
 }
 .tt-62-wrapper-input{
     display: flex;
@@ -27,9 +31,9 @@
     cursor: pointer;
 }
 .tt-62-right-map{
-    position:relative;
+    position: relative;
 }
 .background{
-    background-color: hotpink;
+    background-color: $text_pure_white;
     border-radius: 1rem;
 }
