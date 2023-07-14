@@ -1,4 +1,5 @@
 import './index.scss';
+import coin from './coin-1.png'
 import React, { useContext } from "react";
 import AuthContext from '../../services/auth-context';
 
@@ -8,9 +9,9 @@ export default function DashboardPoints() {
   return (
     <div className="DashboardPoints">
       <div className="ContentPoints">
-        <img src="https://picsum.photos/300" alt="coins-img" />
-        <h3>Your Points</h3>
-        <h3 className="point">{user_points}</h3>
+        <img src={coin} alt="coins-img" />
+        <h3 className='body1'>your points:</h3>
+        <h2 className="point">{user_points}</h2>
       </div>
     </div>
   );
