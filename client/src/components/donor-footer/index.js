@@ -6,7 +6,7 @@ export default function DonorFooter(props)
 {
     return(
         <div className="tt-47-donorFooterWrapper">
-            <div class="tt-47-donor-image-wrapper">
+            <div className="tt-47-donor-image-wrapper">
                 <img className="tt-47-site-logo" src={logo} alt={"siteLogo"}/>
                 <div className="tt-47-address">
                     <p>

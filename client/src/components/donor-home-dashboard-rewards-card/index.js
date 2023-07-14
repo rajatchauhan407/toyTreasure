@@ -1,5 +1,6 @@
 import "./index.scss";
 export default function HomeDashboardRewards(props){   
+    console.log(props)
         
     let state = props.status?.toString();
        
@@ -10,7 +11,7 @@ export default function HomeDashboardRewards(props){
                        {props.points}
                     </p>
                     <div className="homeDashboardRewardsCardImgWrapper">
-                        <img src={props.imageUrl} alt=""/>                       
+                        <img src={props.imageUrl} alt=""/>                  
                     </div>
                     {props.status}
                     <button className="redeemRewards">Redeem now</button>

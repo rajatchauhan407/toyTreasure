@@ -5,6 +5,7 @@ import AuthContext from '../../services/auth-context';
 
 export default function DashboardPoints() {
   const { user_points } = useContext(AuthContext); // Access the user_points value from AuthContext
+  console.log(user_points)
 
   return (
     <div className="DashboardPoints">
