@@ -39,6 +39,7 @@
     .redeemRewards{
         @include mediumButton(8rem,$button_soft_purple_CTA);
         margin: 1rem 0;
+        cursor: pointer;
     }
 }
 
