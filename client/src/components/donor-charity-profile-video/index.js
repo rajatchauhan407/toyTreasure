@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-const Player = (video) => {
+const Player = ({video}) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const videoRef = useRef(null);
 

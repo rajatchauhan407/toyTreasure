@@ -1,9 +1,12 @@
 import "./index.scss";
 import { Link } from "react-router-dom";
-import React, { setState } from 'react';
-
+import React, { setState,useContext } from 'react';
+import AuthContext from "../../services/auth-context";
 export default function DonorDonationProcessList(props)
 {    
+    let authCtx = useContext(AuthContext);
+    const [categories, setCategories] = authCtx.userCartData;
+    console.log(categories)
     let tt80data=0;  
     let tt80totalpoints=0;
     let tt80pId="";
@@ -79,7 +82,7 @@ export default function DonorDonationProcessList(props)
                     <table id="tt-80-table">
                     {/* <tbody> */}
                     {              
-                        tt80donationList.map((el,index)=>{                
+                        categories.map((el,index)=>{                
                         tt80sumOfAmt=tt80sumOfAmt+el.amount;
                         tt80sumOfPoints=tt80sumOfPoints+el.points; 
                         tt80pId=`tt-80-amount${index}`;                             

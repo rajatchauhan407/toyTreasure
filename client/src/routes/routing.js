@@ -38,7 +38,7 @@ return(
             <Route path="/home" element={<Home/>} />
             <Route path="/donation/toys/:id" element={<DonorDonationToysPage/>} />
             <Route path="/charity/profile/:id" element={<DonorCharityProfilePage/>}/>
-            <Route path="/donation/confirmation" element={<DonorDonationConfirmation/>}/>
+            <Route path="/donation/confirmation/:id" element={<DonorDonationConfirmation/>}/>
         </Route>)}
     
         
