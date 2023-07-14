@@ -1,16 +1,10 @@
 @import '../../sass/main.scss';
 
-.home-page{
-    padding: 0 1rem;
-}
-
-.home-welcome h1{
-    color: $text_midnight_blue;
-}
-
-.home-welcome{
-    margin-top: 2.5rem;
-    margin-bottom: 3.5rem;
+.home-welcome,
+.home-map,
+.home-stories,
+.home-discount{
+    padding: 0 4rem
 }
 
 .home-map,
@@ -20,12 +14,21 @@
     margin-top: 3.5rem;
     margin-bottom: 3.5rem;
 }
+
 .home-welcome{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    margin-top: 2.5rem;
+    margin-bottom: 3.5rem;
 }
 
 .home-rewards{
-    background-color: rgb(218, 218, 218);
+    background-color: #F5F0FA;
+    padding: 2rem 4rem;
+}
+
+.home-welcome h1{
+    color: $text_midnight_blue;
 }
