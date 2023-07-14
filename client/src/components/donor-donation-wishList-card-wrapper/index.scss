@@ -1,5 +1,23 @@
-.donorWishListCardWrap{
-    // display: grid;
-    // grid-template-columns: 1fr 1fr 1fr 1fr;
-    // grid-gap: 1rem;
+@import '../../sass/main.scss';
+.donorWishListCardWrapper{
+    padding: 5%;
+}
+.proceedToDonateTagLine{
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+margin-bottom: 3rem;
+button{
+    @include Buttuns($largest-button, $button_soft_purple_CTA);
+}
+}
+
+.wishListTitle{
+    display: flex;
+    align-items: center;
+    img{
+        width: 2.25rem;
+        height: 100%;
+        margin: 2%;
+    }
 }
