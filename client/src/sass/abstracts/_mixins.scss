@@ -53,3 +53,10 @@ color: $color;
     color: $text_midnight_blue;
     font-family: $font-body;
 }
+
+@mixin globalPadding ($ptop:0, $pright:4rem, $pbottom:0, $pleft:4rem ){
+    padding-top: $ptop;
+    padding-right: $pright;
+    padding-bottom: $pbottom;
+    padding-left: $pleft;
+}
