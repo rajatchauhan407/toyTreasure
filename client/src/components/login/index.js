@@ -148,7 +148,7 @@ async function handleLoginWithGoogle(){
                             required
                             value={userName}
                             onChange={(e)=>{setUserName(e.target.value)}}
-                            className="input-text"
+                            className="email-input-text"
                         />
                     </label>
                     <label className="input-label login-label">
