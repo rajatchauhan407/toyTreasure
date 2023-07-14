@@ -27,8 +27,9 @@ function DonationWishListCardWrapper({requiredCategories}) {
       status:"pending",
       uid:authCtx.uid
     }
+    authCtx.setUserCartData(document);
     // await FireBaseFirestoreService.createDocument('donations',document);
-    navigate('/donation/confirmation?data='+JSON.stringify(document));
+    navigate('/donation/confirmation/'+authCtx.uid);
    }
   // let donationWishListCardData = [
   //   {
