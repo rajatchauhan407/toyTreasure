@@ -1,22 +1,61 @@
+@import '../../sass/main.scss';
 
 .donorHomeDashboardMap{
-    height: 38rem;
-    background-image: url(./mapScreenShot.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding: 3%;
+  height: 38rem;
+  padding: 3%;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
 
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    border-radius: 1rem;
+  text-align: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url(./mapScreenShot.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: blur(3px);
+        z-index: -1;
+    }
+    
     img{
         width: 8rem;
         height: auto;
 
         &:hover{
-            transform: scale(1.2);
+            transform: scale(1.1);
             transition: all 0.4s;
+        }
+    }
+
+    h2{
+        color: $text_midnight_blue;
+        font-weight: $fw-bold;
+        margin: 0 4rem;
+        font-size: 2.2rem;
+    }
+
+    button{
+        @include Buttuns(20rem, $accent_amethyst);
+        color:$text_pure_white;
+        text-decoration: none;
+        font-family: $font-body;
+        margin: 2rem 0;
+
+        &:hover{
+            background-color: $primary_boy_blue;
+            color: $text_midnight_blue;
         }
     }
 }
