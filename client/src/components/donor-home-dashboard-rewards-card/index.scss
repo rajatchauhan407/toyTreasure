@@ -3,35 +3,50 @@
 .homeDashboardRewardsCardWrapper{
     position: relative;
     background-color: $accent_amethyst;
-    padding: 0.8rem;
+    padding: 0.5rem;
     border-radius: 1rem;
     margin: 1rem;
+    width: 11rem;
+    text-align: center;
 
     .homeDashboardRewardsCardImgWrapper img{
         border-radius: 0.5rem;
+        width: 100%;
     }
 
     .homeDashboardRewardsPoints{
         text-align: center;
         background-color: $primary_girly_pink;
         color: white;
-        width: 40px;
+        width: 60px;
         padding-top: 10px;
         padding-bottom: 10px;
-        border-radius: 50%;
+        border-radius: 100%;
         position: absolute;
-        top: -20px;
+        top: -15px;
         right: -20px;
     }
+
+    .rewardsPoints{
+        font-weight: $fw-bold;
+        margin: 0
+    }
+
+    p{
+        margin: 0
+    }
+
     .redeemRewards{
-        @include mediumButton(9rem,$button_soft_purple_CTA)
+        @include mediumButton(8rem,$button_soft_purple_CTA);
+        margin: 1rem 0;
     }
 }
 
 #false
 {
     pointer-events: none;
-    opacity: 0.4;    
+    opacity: 0.4;  
+    filter: grayscale(100%);  
 }
 
 #false .redeemRewards

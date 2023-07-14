@@ -6,15 +6,17 @@ export default function HomeDashboardRewards(props){
        
     return (
             <div className="homeDashboardRewardsCardWrapper" id={state}>
-              
-                <p className="homeDashboardRewardsPoints">
-                       {props.points}
-                    </p>
-                    <div className="homeDashboardRewardsCardImgWrapper">
-                        <img src={props.imageUrl} alt=""/>                  
-                    </div>
-                    {props.status}
-                    <button className="redeemRewards">Redeem now</button>
+                
+                <div className="homeDashboardRewardsPoints">
+                    <p className="rewardsPoints">{props.points}</p>
+                    <p>points</p>
+                </div>
+                <div className="homeDashboardRewardsCardImgWrapper">
+                    <img src={props.imageUrl} alt=""/>                  
+                </div>
+                
+                {props.status}
+                <button className="redeemRewards">Redeem now</button>
             </div>
     )
 }
