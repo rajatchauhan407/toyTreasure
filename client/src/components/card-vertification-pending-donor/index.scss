@@ -1,30 +1,43 @@
-.listInfoCardOrgTT13{
-    ul{
-        padding-left: 0%;
-        display: flex;
-        list-style-type: none;
-        justify-content: space-between;
-        background-color: #F3F3F3;
+@import '../../sass/main.scss';
+
+// .listInfoCardOrgTT13{
+//     ul{
+//         padding-left: 0%;
+//         display: flex;
+//         list-style-type: none;
+//         justify-content: space-between;
+//         background-color: #F3F3F3;
         
-        border-radius: 9px;
-        li{
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 21px;
-            padding: 15px;
-            color: #8B8B8B;
+//         border-radius: 9px;
+//         li{
+//             font-style: normal;
+//             font-weight: 400;
+//             font-size: 16px;
+//             line-height: 21px;
+//             padding: 15px;
+//             color: #8B8B8B;
+//         }
+//         li:first-child{
+//             background: #E7E7E7;
+//             border-radius: 9px 0px 0px 9px;
+//             padding-left: 35px;
+//             padding-right: 35px;
+//             color: #404040;
+//             font-style: normal;
+//             font-weight: 700;
+//             font-size: 18px;
+//             line-height: 22px;
+//         }
+//     }
+// }
+.verifyButtonPendingDonation{
+    @include Buttuns($medium-button, $button_blue_CTA);
         }
-        li:first-child{
-            background: #E7E7E7;
-            border-radius: 9px 0px 0px 9px;
-            padding-left: 35px;
-            padding-right: 35px;
-            color: #404040;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 22px;
+    .TableCardOrgTT13 tbody{
+        background-color:$secondary_footer_soft_blue; 
         }
-    }
+.tbodyOrgVerificationPendingDonor{
+    background-color:$secondary_footer_soft_blue; 
+    // background-color: hotpink;
 }
+    
