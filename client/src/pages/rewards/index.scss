@@ -1,6 +1,7 @@
+@import '../../sass/main.scss';
 .tt-101-DonorRewardsWrapper
 {
-    margin: 2rem 1rem;
+    margin: 0;
 }
 
 .tt-101-rewards-profile-and-points
@@ -20,7 +21,14 @@
     margin:1rem 3rem;
 }
 
-.tt-101-redeem-rewards h1, .tt-101-special-discount h1
+.tt-101-special-discount h1
 {
   margin-left:3rem;
+}
+.tt-101-redeem-rewards{
+    background-color: #F5F0FA;
+    padding: 5%;
+h1{
+    color: $button_purple_CTA;
+}
 }
