@@ -1,13 +1,22 @@
 
 .donorHomeDashboardMap{
-    padding: 3%;
+    height: 38rem;
     background-image: url(./mapScreenShot.png);
-    background-color: rgba(0, 0, 0, 0.151);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 3%;
+
     text-align: center;
+
+    border-radius: 1rem;
     img{
-        width: 60px;
+        width: 8rem;
         height: auto;
-        border: 5px solid hotpink;
-        margin: 40px;
+
+        &:hover{
+            transform: scale(1.2);
+            transition: all 0.4s;
+        }
     }
 }

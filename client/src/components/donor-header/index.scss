@@ -26,6 +26,7 @@
 .tt-45-main-menu li a:hover
 {
    font-weight: bold;
+   color: $text_midnight_blue;
 }
 .tt-45-main-menu li a:focus 
 {
@@ -34,8 +35,16 @@
 .tt-45-logout
 {    
     @include Buttuns($small-button, $button_blue_CTA);
-    color:$text_midnight_blue;      
+    color:$text_midnight_blue;  
+
+    &:hover{
+        @include Buttuns($small-button, $text_midnight_blue);
+        color:$text_pure_white;
+        cursor: pointer;
+
+    }
 }
+
 .tt-45-main-menu ul
 {
     display: flex;
