@@ -5,14 +5,14 @@ export default function OrgProfileMedia({onLogoSelected,onProfileSelected, onVid
         if(file){
             onLogoSelected(file);
         }
-        // console.log(file);
+        console.log(file);
     }   
     function handleProfileChange(e){
         let file = e.target.files[0];
         if(file){
             onProfileSelected(file);
         }
-        // console.log(file);
+        console.log(file);
     }
     function handleVideoChange(e){
         let file = e.target.value;
