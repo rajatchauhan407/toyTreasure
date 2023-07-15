@@ -92,6 +92,7 @@ export default function Map(){
                         className={selectedIndex === index?'background':''}
                         >
                         <OrgMapCard
+                        orgPicture={el.profileUrl}
                         orgName={el.profileDetails.org_name}
                         desc={el.profileDetails.org_description}
                         address={el?.profileDetails.org_address}
@@ -108,20 +109,14 @@ export default function Map(){
                 <div className='tt-62-right-map'>
                     <InteractiveMap/>
                     {isOrgDescShown?<OrgMapDescCard
-<<<<<<< HEAD
-                        orgName={orgsData[0].profileDetails.org_name}
-                        desc={orgsData[0].profileDetails.org_description}
-                        address={orgsData[0].profileDetails.org_address}
-                        days={orgsData[0].extraDetails.workingDays}
-                        time={orgsData[0].extraDetails.time}
-=======
+                        orgPicture={orgsData[selectedIndex].profileUrl}
                         orgName={orgsData[selectedIndex].profileDetails.org_name}
+                        desc={orgsData[selectedIndex].profileDetails.org_description}
                         address={orgsData[selectedIndex].profileDetails.org_address}
                         days={orgsData[selectedIndex].extraDetails.workingDays}
                         time={orgsData[selectedIndex].extraDetails.time}
                         id={orgsData[selectedIndex].id}
 
->>>>>>> 833e710f7e709b2059eb4e1a1a28e8d084f03a52
                     />:""}
                     
                 </div>   

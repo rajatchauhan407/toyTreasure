@@ -22,20 +22,31 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
+
+    h3{
+        margin-left: 1rem;
+    }
 }
 .tt-62-image-wrapper img{
     width:80px;
+    height: 80px;
+    object-fit: contain;
     border-radius: 100%;
     padding: 0.5rem;
     margin-top: .5rem;
+    background-color: $text_pure_white;
 }
 
 .tt-62-charity-timing{
+    p{
+        margin: 0.5rem 0;
+    }
 
     button{
-        @include Buttuns ($small-button, $button_soft_purple_CTA);
+        @include Buttuns ($medium-button, $button_soft_purple_CTA);
         text-decoration: none;
         color: $text_midnight_blue;
+        text-align: center;
     }
 
 }

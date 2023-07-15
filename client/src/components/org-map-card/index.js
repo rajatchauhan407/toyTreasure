@@ -1,7 +1,7 @@
 import './index.scss';
 import { forwardRef} from 'react';
 import { useNavigate } from 'react-router';
-const OrgMapCard = forwardRef(({orgName,desc,address,days,time,id},ref)=>{
+const OrgMapCard = forwardRef(({orgPicture,orgName,desc,address,days,time,id},ref)=>{
     const navigate = useNavigate();
   function handleViewDetails(e){
     console.log("handleViewDetails");

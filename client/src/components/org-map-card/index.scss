@@ -8,6 +8,19 @@
     border-radius: 1rem;
     background-color: $text_pure_white;
 
+    &:hover{
+        background-color: $accent_amethyst;
+        color: $text_pure_white;
+
+        h2{
+            color: $text_pure_white;
+        }
+
+        button{
+            background-color: $text_pure_white;
+        }
+    }
+
     h2{
         color: $text_midnight_blue;
         font-weight: $fw-bold;
@@ -41,6 +54,10 @@
         cursor: pointer;
         @include Buttuns ($small-button, $button_soft_purple_CTA);
         color: $text_midnight_blue;
+
+        &:hover{
+            background: $text_pure_white;
+        }
     }
 
 }
