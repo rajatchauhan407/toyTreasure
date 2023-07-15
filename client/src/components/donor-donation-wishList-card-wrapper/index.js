@@ -11,10 +11,30 @@ function DonationWishListCardWrapper({requiredCategories}) {
   const authCtx = useContext(AuthContext);
   const[finalCat, setFinalCat] = useState([]);
   const[finalWishlist, setFinalWishlist] = useState([]);
+  const[totalToys, setTotalToys] = useState(0);
   const{id} = useParams()
   useEffect(()=>{
     setFinalCat(requiredCategories);
   },[requiredCategories]);
+
+  // getting the total toys in wishlist
+  function getTotalToys(finalCat, finalWishlist){
+    let count = 0;
+    finalCat.forEach((el)=>{
+      count = count + el.quantity;
+    });
+
+    finalWishlist.forEach((el)=>{
+      count = count + el.quantity;
+    })
+    setTotalToys(count);
+  }
+
+  // calling it when changed
+  useEffect(()=>{
+    getTotalToys(finalCat, finalWishlist);
+  },[finalCat, finalWishlist]) 
+
 
   function getDonationListData(data){
     setFinalWishlist(data);
@@ -68,7 +88,7 @@ function DonationWishListCardWrapper({requiredCategories}) {
     <h1>Wishlists</h1>
     <img src={vectore} alt='WishList sign'/>
     </div>
-    <button onClick={storeDataInCart}>Proceed to Donate</button>
+    <button onClick={storeDataInCart}><span className="proceedBefore">{totalToys}</span>Proceed to Donate</button>
     </div>
     
     <div className='donorWishListCardWrap'>

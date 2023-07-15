@@ -70,7 +70,7 @@ export default function DonationWishListCard({onDonationWishlist}) {
             <button className="increment" onClick={() => handleIncrement(index)}>+</button>
           </div>
           <h3>{el.org_w_toy_name}</h3>
-          <p className="donorWishListToyCategory">Stuffed Animal{el.org_w_toy_category}</p>
+          <p className="donorWishListToyCategory">{el.org_w_toy_category}</p>
         </div>
       ))}
     </div>
