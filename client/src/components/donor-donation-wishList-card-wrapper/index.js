@@ -40,8 +40,11 @@ function DonationWishListCardWrapper({requiredCategories}) {
     setFinalWishlist(data);
    }
    async function storeDataInCart(data){
+    let filteredWishlist = [];
+    finalWishlist.forEach((el)=>{if(el.quantity >0) filteredWishlist.push(el)})
+    console.log(filteredWishlist);
     let document = {
-      wishlist:finalWishlist,
+      wishlist:filteredWishlist,
       categories:finalCat,
       status:"pending",
       uid:authCtx.uid
