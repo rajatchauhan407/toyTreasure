@@ -60,7 +60,7 @@ export default function DonationWishListCard({onDonationWishlist}) {
       {donationWishList.map((el, index) => (
         <div className="donationWishListCardWrapper">
           <div className="donationWishListCardImgWrapper">
-            <p className="donationWishListCardPoints"><span>{el.org_w_toys_points}</span> <br></br>points</p>
+            <p className="donationWishListCardPoints"><span>{el.org_w_toy_points}</span> <br></br>points</p>
             <img src={el.org_w_toy_picture} alt="" />
             <p>This is the reference image.</p>
           </div>
