@@ -1,31 +1,41 @@
 @import '../../sass/main.scss';
 
 .tt-62-map-charities-desc-container{
-    width:100%;
+    width:90%;
     height:fit-content; 
     position:absolute;
     background: $accent_amethyst;
     bottom: 0;
-    padding:.5rem;
+    padding:1rem;
     box-sizing: border-box;
     border-radius: 1rem;
 
     color: $text_pure_white;
-    margin: 0.5rem;
+    margin: 1rem;
 }
 .tt-62-map-charities-desc{
-    display:grid;
-    grid-template-columns: 20% 80%;
-}
-.tt-62-charity-desc{
-    
+    display: flex;
+    flex-direction: column;
 }
 .tt-62-image-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
-    
 }
 .tt-62-image-wrapper img{
-    width:100px;
-    border-radius: 1rem;
+    width:80px;
+    border-radius: 100%;
+    padding: 0.5rem;
     margin-top: .5rem;
+}
+
+.tt-62-charity-timing{
+
+    button{
+        @include Buttuns ($small-button, $button_soft_purple_CTA);
+        text-decoration: none;
+        color: $text_midnight_blue;
+    }
+
 }
