@@ -28,7 +28,8 @@ export default function DonorDonationProcessForm(props)
             donorName: authCtx.displayName,
             toysQuantity:authCtx.toysQuantity,
             user_points: authCtx.user_points,
-            orgId:id
+            orgId:id,
+            donationStatus:"pending"
         }
         console.log(donation);
         await FireBaseFirestoreService.createDocument('user_donations',donation);

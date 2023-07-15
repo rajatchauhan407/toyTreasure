@@ -40,7 +40,7 @@ export default function OrgProfileForm() {
         let profileRef = ref(FirebaseStorageService.storage,profilePath)
         console.log(logoRef);
         let logoUrl = await FirebaseStorageService.uploadFileAndGetUrl(logo,logoRef);
-        let profileUrl = await FirebaseStorageService.uploadFileAndGetUrl(logo,profileRef);
+        let profileUrl = await FirebaseStorageService.uploadFileAndGetUrl(profile,profileRef);
         
         console.log();
         let result = await FireBaseFirestoreService.createDocument('organization_profile',{
