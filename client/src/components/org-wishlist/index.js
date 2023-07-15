@@ -1,15 +1,22 @@
 import "./index.scss";
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useContext } from 'react';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
-
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { database } from "../../FirebaseConfig";
+import AuthContext from "../../services/auth-context";
 export default function OrgWishlist(){
+    const authCtx = useContext(AuthContext);
     const [orgWishList, setOrgWishList] = useState([]); 
     const [toysReceived] = useState(0);
     useEffect(()=>{        
         async function getOrgWishListData()
-        {
-            const data = await FireBaseFirestoreService.getDocumentsInArray("organization_wishlist");
-            let array = data;       
+        {    const usersCollectionRef = collection(database, "organization_wishlist");
+             const q = query(usersCollectionRef, where("profile_id", ">", authCtx.uid));
+             const data = await getDocs(q);
+             console.log(data.docs)
+        let array = data.docs.map((el)=>{return el.data()});
+        console.log(array)
+            //  let array = data;       
             setOrgWishList(array);       
         }
         getOrgWishListData();
