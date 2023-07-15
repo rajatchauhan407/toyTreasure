@@ -47,6 +47,10 @@
         text-decoration: none;
         color: $text_midnight_blue;
         text-align: center;
+
+        &:hover{
+            background-color: $text_pure_white;
+        }
     }
 
 }
