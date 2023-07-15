@@ -22,7 +22,7 @@ export default function DonorDonationProcessList(props)
         wishlist.forEach((el)=>{
             count += el.quantity; 
         });
-        category.map((el)=>{
+        category.forEach((el)=>{
             count += el.quantity
         });
         setTotalQuantity(count);
@@ -36,10 +36,10 @@ export default function DonorDonationProcessList(props)
    function calculatePoints(wishlist, categories){
     let totalPoints = 0;   
     wishlist.forEach((el)=>{
-        totalPoints+= +el.org_w_toy_points;
+        totalPoints+= +el.org_w_toy_points * el.quantity;
     });
     categories.forEach((el)=>{
-        totalPoints += +el.category_points;
+        totalPoints += +el.category_points * el.quantity;
     });
     setTotalPoints(totalPoints);
     authCtx.setUserPoints(totalPoints);
@@ -145,7 +145,7 @@ export default function DonorDonationProcessList(props)
                         </td>
                         <td>
                             <div className="tt-80-pointsandclose">
-                            <p className="tt-80-points" id={tt80pId2}>{el.category_points}</p><p>pts</p>                              
+                            <p className="tt-80-points" id={tt80pId2}>{el.category_points * el.quantity}</p><p>pts</p>                              
                                 <Link onClick={(e) => removeRow(el.category_name,index,e)}> <i className="fa fa-times" aria-hidden="true"></i></Link>                               
                             </div>                        
                         </td>                            
@@ -188,7 +188,7 @@ export default function DonorDonationProcessList(props)
                         </td>
                         <td>
                             <div className="tt-80-pointsandclose">
-                            <p className="tt-80-points" id={tt80pId2}>{el.org_w_toy_points}</p><p>pts</p>                              
+                            <p className="tt-80-points" id={tt80pId2}>{el.org_w_toy_points * el.quantity}</p><p>pts</p>                              
                                 <Link onClick={(e) => removeRow(el.org_w_toy_name,index,e)}> <i className="fa fa-times" aria-hidden="true"></i></Link>                               
                             </div>                        
                         </td>                            
