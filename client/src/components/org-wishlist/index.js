@@ -4,7 +4,7 @@ import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 
 export default function OrgWishlist(){
     const [orgWishList, setOrgWishList] = useState([]); 
-    
+    const [toysReceived] = useState(0);
     useEffect(()=>{        
         async function getOrgWishListData()
         {
@@ -85,7 +85,7 @@ export default function OrgWishlist(){
                             return <tr>
                             <td>{el.org_w_toy_name}</td>
                             <td>{el.org_w_toys_required}</td>
-                            <td>26</td> 
+                            <td>{toysReceived}</td> 
                             {/* <td>08</td> */}
                             <td onClick={()=>{deleteToyFromWishlist(el.id)}}><i className="fa-solid fa-trash"></i></td>
                         </tr>
