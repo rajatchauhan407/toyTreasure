@@ -1,9 +1,13 @@
 import './index.scss';
+import arrowBack from './back_arrow.png';
+import { Link } from 'react-router-dom';
+
 import InteractiveMap from '../../components/imap';
 import OrgMapCard from '../../components/org-map-card';
 import {useState,useEffect } from 'react';
 import OrgMapDescCard from '../../components/org-map-desc-card';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
+
 export default function Map(){
     const [selectedIndex, setSelectedIndex] = useState(null);
     const [isOrgDescShown, setIsOrgDescShown] = useState(false);
@@ -16,60 +20,65 @@ export default function Map(){
         }
         fetchData();
     },[setOrgsData])
-    let orgs = [
-        {orgName:"Sharing Smiles",
-         address:"123 very long street name North Vancouver BC V5V 8H8",
-         days:"Monday-Friday",
-         time:"9:00 - 18:00"
-        },
-        {orgName:"Sharing Smiles",
-         address:"123 very long street name North Vancouver BC V5V 8H8",
-         days:"Monday-Friday",
-         time:"9:00 - 18:00"
-        },
-        {orgName:"Sharing Smiles",
-         address:"123 very long street name North Vancouver BC V5V 8H8",
-         days:"Monday-Friday",
-         time:"9:00 - 18:00"
-        },
-        {orgName:"Sharing Smiles",
-         address:"123 very long street name North Vancouver BC V5V 8H8",
-         days:"Monday-Friday",
-         time:"9:00 - 18:00"
-        },
-        {orgName:"Sharing Smiles",
-         address:"123 very long street name North Vancouver BC V5V 8H8",
-         days:"Monday-Friday",
-         time:"9:00 - 18:00"
-        },
-        {orgName:"Sharing Smiles",
-         address:"123 very long street name North Vancouver BC V5V 8H8",
-         days:"Monday-Friday",
-         time:"9:00 - 18:00"
-        }
-    ];
+    // let orgs = [
+    //     {orgName:"Sharing Smiles",
+    //      address:"123 very long street name North Vancouver BC V5V 8H8",
+    //      days:"Monday-Friday",
+    //      time:"9:00 - 18:00"
+    //     },
+    //     {orgName:"Sharing Smiles",
+    //      address:"123 very long street name North Vancouver BC V5V 8H8",
+    //      days:"Monday-Friday",
+    //      time:"9:00 - 18:00"
+    //     },
+    //     {orgName:"Sharing Smiles",
+    //      address:"123 very long street name North Vancouver BC V5V 8H8",
+    //      days:"Monday-Friday",
+    //      time:"9:00 - 18:00"
+    //     },
+    //     {orgName:"Sharing Smiles",
+    //      address:"123 very long street name North Vancouver BC V5V 8H8",
+    //      days:"Monday-Friday",
+    //      time:"9:00 - 18:00"
+    //     },
+    //     {orgName:"Sharing Smiles",
+    //      address:"123 very long street name North Vancouver BC V5V 8H8",
+    //      days:"Monday-Friday",
+    //      time:"9:00 - 18:00"
+    //     },
+    //     {orgName:"Sharing Smiles",
+    //      address:"123 very long street name North Vancouver BC V5V 8H8",
+    //      days:"Monday-Friday",
+    //      time:"9:00 - 18:00"
+    //     }
+    // ];
 
     const SideHeader = ()=>{
         return <div className="tt-62-side-wrapper">
-                <h1>Search</h1>
-                
-                <div className="tt-62-wrapper-input">
-                <p>Search nearby organization</p>
-                <select id="selectedMethod">
-                    <option disabled selected>
-                        Delivery Method
-                    </option>
-                    <option value="drop">
-                        drop-off
-                    </option>
-                    <option value="pick-up">
-                        pick-up
-                    </option>
-                    <option>
-                        none
-                    </option>
-                    </select>
+
+                <div className='mapHeader'>
+                    <div className='mapSearch'>
+                        <Link to="/home"><button><img src={arrowBack} alt="back-arrow"/></button></Link>
+                        <h1>Find Charities</h1>  
+                    </div>  
+
+                    <div className="tt-62-wrapper-input">
+                        <p className='body1'>Search the nearest charity to donate your toys</p>
+                        <select id="selectedMethod">
+                            <option disabled selected>
+                            Toys Delivery Method
+                            </option>
+                            <option value="drop">
+                                Drop-off
+                            </option>
+                            <option value="pick-up">
+                                Pick-up
+                            </option>
+                        </select>
+                </div>           
+
                 </div>
+                    
             </div>
     }
     return(<div className='tt-62-container'>
@@ -83,7 +92,9 @@ export default function Map(){
                         className={selectedIndex === index?'background':''}
                         >
                         <OrgMapCard
+                        orgPicture={el.profileUrl}
                         orgName={el.profileDetails.org_name}
+                        desc={el.profileDetails.org_description}
                         address={el?.profileDetails.org_address}
                         days={el?.extraDetails.workingDays}
                         time={el?.extraDetails.time}
@@ -98,7 +109,9 @@ export default function Map(){
                 <div className='tt-62-right-map'>
                     <InteractiveMap/>
                     {isOrgDescShown?<OrgMapDescCard
+                        orgPicture={orgsData[selectedIndex].profileUrl}
                         orgName={orgsData[selectedIndex].profileDetails.org_name}
+                        desc={orgsData[selectedIndex].profileDetails.org_description}
                         address={orgsData[selectedIndex].profileDetails.org_address}
                         days={orgsData[selectedIndex].extraDetails.workingDays}
                         time={orgsData[selectedIndex].extraDetails.time}
