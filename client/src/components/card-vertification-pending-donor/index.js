@@ -1,7 +1,10 @@
 import "./index.scss";
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { database } from "../../FirebaseConfig";
+import AuthContext from "../../services/auth-context";
 
 const verificationData = [
     {
@@ -16,19 +19,32 @@ const verificationData = [
 
 export default function CardOrgTT13() {
   const [orgVerificationList, setOrgVerificationList] = useState([]);
-
-  useEffect(() => {
-    async function getOrgVerificationListData() {
-      try {
-        const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
-        setOrgVerificationList(data || []);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+  const authCtx = useContext(AuthContext);
+  async function getOrgVerificationListData() {
+    try {
+      console.log(authCtx);
+      let orgRef = collection(database,'organization_profile');
+      let qOrg = query(orgRef, where("uid","==",authCtx.uid));
+      // console.log("is it being called")
+      const data = await getDocs(qOrg);
+      let orgId = data?.docs[0].id;
+      // console.log(orgId)
+      let userDonationRef = collection(database,'user_donations');
+      let qUser = query(userDonationRef, where("orgId","==",orgId));
+      let donationData = await getDocs(qUser);
+      // console.log(donationData.docs[0].data())
+      setOrgVerificationList(donationData.docs || []);
+      // donationData.forEach((el)=>{
+      //   console.log(el.data())
+      // })
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
+  }
+  useEffect(() => {
 
     getOrgVerificationListData();
-  }, []);
+  }, [setOrgVerificationList]);
 
   const navigate = useNavigate();
 
@@ -75,7 +91,7 @@ export default function CardOrgTT13() {
         <thead>
           <tr>
             <th>Order Number</th>
-            <th>Name</th>
+            <th>Donor Name</th>
             <th>Method</th>
             <th>Date</th>
             <th>Qty</th>
@@ -84,16 +100,16 @@ export default function CardOrgTT13() {
           </tr>
         </thead>
         <tbody>
-        {orgVerificationList.map((props) => (
-            <tr key={props.id}>
-            <td>{props?.order}</td>
-            <td>{props?.name}</td>
-            <td>{getDeliveryMethodText(props?.user_donation_delivery_method)}</td>
-            <td>{formatDate(props?.user_donation_date)}</td>
-            <td>{props?.user_donation_list ? props.user_donation_list.length : 0}</td>
-            <td>{getStatusText(props?.user_donation_status)}</td>
+        {orgVerificationList.map((props,index) => (
+            <tr key={index}>
+            <td>{index+1}</td>
+            <td>{props?.data().donorName}</td>
+            <td>{props?.data().deliveryMethod}</td>
+            <td>{props?.data().date}</td>
+            <td>{props?.data().toysQuantity}</td>
+            <td>{props?.data().donationStatus}</td>
             <td>
-                <button onClick={() => { navigate('/organization/verification/3') }}>
+                <button disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
                 Verify
                 </button>
             </td>

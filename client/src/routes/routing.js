@@ -51,7 +51,7 @@ return(
                 <Route path="/organization/dashboard" element={<OrgDashboard/>}/>
                 <Route path="/organization/profile" element={<OrgProfile/>}/>
                 <Route path="/organization/stories" element={<OrgStories/>}/>
-                <Route path="/organization/verification/:id" element={<OrgVerificationRequest/>}/>  
+                <Route path="/organization/verification/:donationId" element={<OrgVerificationRequest/>}/>  
                 <Route path="/organization/settings" element={<OrgSettings/>}/>
                 <Route path="/organization/verification" element={<OrgVerification/>}/>
         </Route>  )}                                                                                                                                                                                                                                        
