@@ -1,10 +1,26 @@
 import './index.scss';
-import { GoogleMap, LoadScript,MarkerF} from '@react-google-maps/api';
+import { GoogleMap, LoadScript,Marker} from '@react-google-maps/api';
 import { useEffect,useState } from 'react';
 const InteractiveMap = ()=>{
-  
-  
+    const[mapsApiKey, setMapsApiKey] = useState({});
+    const [loading, setLoading] = useState(true);
     const [location,setLocation] = useState(null);
+    useEffect(() => {
+      async function getApi(){
+        try{
+          const data = await fetch('https://us-central1-toystreasure-50c4d.cloudfunctions.net/getMapsAPIKey');
+          const result = await data.json()
+          console.log(result);
+          setMapsApiKey(result);
+          setLoading(false);
+        }catch(error){
+          console.log("Erro fetching api",error);
+          setLoading(false);
+        }
+        
+      }
+      getApi();
+    }, [setMapsApiKey]);
     const mapStyles = [
       {
         featureType: 'all',
@@ -16,7 +32,7 @@ const InteractiveMap = ()=>{
         ]
       },
       {
-        featureType: 'poi.business',
+        featureType: 'poi',
         elementType: 'labels',
         stylers: [
           {
@@ -25,79 +41,25 @@ const InteractiveMap = ()=>{
         ]
       },
       {
-        featureType: 'poi.park',
+        featureType: 'road',
         elementType: 'geometry',
         stylers: [
           {
-            color: '#d9e8c1'
+            color: '#c6c6c6'
           }
         ]
       },
       {
         featureType: 'road',
-        elementType: 'geometry',
-        stylers: [
-          {
-            color: '#ffffff'
-          }
-        ]
-      },
-      {
-        featureType: 'road',
-        elementType: 'labels.icon',
-        stylers: [
-          {
-            visibility: 'off'
-          }
-        ]
-      },
-      {
-        featureType: 'road.highway',
-        elementType: 'geometry',
-        stylers: [
-          {
-            color: '#ffffff'
-          }
-        ]
-      },
-      {
-        featureType: 'road.highway',
         elementType: 'labels',
         stylers: [
           {
             visibility: 'off'
-          }
-        ]
-      },
-      {
-        featureType: 'road.arterial',
-        elementType: 'geometry',
-        stylers: [
-          {
-            color: '#ffffff'
-          }
-        ]
-      },
-      {
-        featureType: 'road.local',
-        elementType: 'geometry',
-        stylers: [
-          {
-            color: '#ffffff'
           }
         ]
       },
       {
         featureType: 'transit',
-        elementType: 'geometry',
-        stylers: [
-          {
-            color: '#f2f2f2'
-          }
-        ]
-      },
-      {
-        featureType: 'transit.station',
         elementType: 'labels',
         stylers: [
           {
@@ -167,10 +129,12 @@ const InteractiveMap = ()=>{
         lat: location?.latitude ,
         lng: location?.longitude
       };
-
+      if (loading) {
+        return <div>Loading...</div>;
+      }
     return <>
-    <LoadScript
-      googleMapsApiKey={process.env.REACT_APP_MAP_API_KEY}
+    {mapsApiKey && (<LoadScript
+      googleMapsApiKey={mapsApiKey.api}
     >       
     <GoogleMap
         options={{ styles: mapStyles }}
@@ -179,19 +143,28 @@ const InteractiveMap = ()=>{
         zoom={10}
     >
         { /* Child components, such as markers, info windows, etc. */ }
-       <MarkerF 
+       <Marker 
         position={center} 
         title='Your Location'
+        icon={{
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Ficon.png?alt=media&token=72d0b9e8-e775-47a9-81d7-095e9d7dca15',
+              // scaledSize: new window.google.maps.Size(30, 30)
+            }}
         // icon={markerIcon}
         />
-        <MarkerF
+        <Marker
+          title='Charity'
           position={{
             lat:49.281992646679946, 
             lng:-123.08303057488982
           }}
+          icon={{
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Ficon-home.png?alt=media&token=9d8f8904-4274-4e84-b4d7-ee3c0f39d311'
+              // scaledSize: new window.google.maps.Size(30, 30)
+            }}
         />
       </GoogleMap>
-    </LoadScript>
+    </LoadScript>)}
     </>
 };
 export default InteractiveMap;
