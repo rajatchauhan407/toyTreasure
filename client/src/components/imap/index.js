@@ -32,11 +32,20 @@ const InteractiveMap = ()=>{
         ]
       },
       {
-        featureType: 'poi',
+        featureType: 'poi.business',
         elementType: 'labels',
         stylers: [
           {
             visibility: 'off'
+          }
+        ]
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'geometry',
+        stylers: [
+          {
+            color: '#d9e8c1'
           }
         ]
       },
@@ -45,12 +54,30 @@ const InteractiveMap = ()=>{
         elementType: 'geometry',
         stylers: [
           {
-            color: '#c6c6c6'
+            color: '#ffffff'
           }
         ]
       },
       {
         featureType: 'road',
+        elementType: 'labels.icon',
+        stylers: [
+          {
+            visibility: 'off'
+          }
+        ]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry',
+        stylers: [
+          {
+            color: '#ffffff'
+          }
+        ]
+      },
+      {
+        featureType: 'road.highway',
         elementType: 'labels',
         stylers: [
           {
@@ -59,7 +86,34 @@ const InteractiveMap = ()=>{
         ]
       },
       {
+        featureType: 'road.arterial',
+        elementType: 'geometry',
+        stylers: [
+          {
+            color: '#ffffff'
+          }
+        ]
+      },
+      {
+        featureType: 'road.local',
+        elementType: 'geometry',
+        stylers: [
+          {
+            color: '#ffffff'
+          }
+        ]
+      },
+      {
         featureType: 'transit',
+        elementType: 'geometry',
+        stylers: [
+          {
+            color: '#f2f2f2'
+          }
+        ]
+      },
+      {
+        featureType: 'transit.station',
         elementType: 'labels',
         stylers: [
           {
