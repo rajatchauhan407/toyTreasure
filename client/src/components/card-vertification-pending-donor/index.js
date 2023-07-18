@@ -1,21 +1,12 @@
 import "./index.scss";
 import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
-import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+// import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
 import AuthContext from "../../services/auth-context";
 
-const verificationData = [
-    {
-      orderNumber: 37890,
-      name: "Greg Thomas",
-      method: "drop-off",
-      date: "05/05/2023",
-      Qty: 6,
-      donationStatus: "Pending"
-    },
-  ];
+
 
 export default function CardOrgTT13() {
   const [orgVerificationList, setOrgVerificationList] = useState([]);
