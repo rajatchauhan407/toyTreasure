@@ -201,7 +201,7 @@ const InteractiveMap = ()=>{
         position={center} 
         title='Your Location'
         icon={{
-              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Ficon.png?alt=media&token=72d0b9e8-e775-47a9-81d7-095e9d7dca15',
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Ficon-teddy-large.png?alt=media&token=e6aed984-2178-46af-8e41-10941656f6bb',
               // scaledSize: new window.google.maps.Size(30, 30)
             }}
         // icon={markerIcon}
@@ -213,7 +213,7 @@ const InteractiveMap = ()=>{
             lng:-123.08303057488982
           }}
           icon={{
-              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Ficon-home.png?alt=media&token=9d8f8904-4274-4e84-b4d7-ee3c0f39d311'
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Ficon%20ball.png?alt=media&token=715f867f-6c9c-4b1d-a11a-8b52d7265756'
               // scaledSize: new window.google.maps.Size(30, 30)
             }}
         />
