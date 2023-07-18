@@ -1,16 +1,26 @@
-.tt-80-imgandquantity
-{
-    display: flex;
-}
+@import '../../sass/main.scss';
+// .tt-80-imgandquantity
+// {
+//     display: flex;
+// }
 .tt-80-donationProcessListForm h1
 {
    margin-left: 1rem;
    width: 100%;
 }
+.crownIcon-tt-80
+{
+   width: 20%;
+}
+.tt-80-removebtn,.tt-80-addbtn
+{
+    background-color: $accent_amethyst-light;
+}
 .tt-80-donationProcessListWrapper
 {
     margin:1rem;
-    background-color: rgb(243, 240, 240);
+    background-color: $accent_amethyst-light;
+    color:$text_midnight_blue;
     border-radius: 1rem;
     padding:1rem; 
 }
@@ -18,6 +28,11 @@
 {
     display: flex;
     justify-content: space-between;
+    h4 a 
+    {
+        text-decoration: none;
+        color:$text_midnight_blue;
+    }
 }
 
 #tt-80-table img
@@ -43,7 +58,7 @@
     
 }
 
-#tt-80-table tr:last-child
+#tt-80-table tr:last-child td
 {
     border-bottom: none;
 }
@@ -57,11 +72,9 @@
     padding-bottom:1rem;
 }
 .tt-80-amount-change
-{
-    
+{   
     display: flex;
-    align-items: center;
-    
+    align-items: center;    
     border: 1px solid rgb(190, 187, 187);
 }
 .tt-80-amount-change button, .tt-80-amount-change input[type="text"]
@@ -71,7 +84,7 @@
   
 }
 .tt-80-nameandwishlist
-{
+{    
     display: flex;
     gap:1rem;
     padding-left: 1rem;
@@ -84,19 +97,21 @@
     margin: .2rem;
 }
 
-.tt-80-amount
-{
-    background-color: yellow;
-    padding:.1rem .6rem .1rem .6rem;
-    position: absolute;
-    border-radius: 2rem;
-    color:black;
-    right: 0;
-}
-.tt-80-imgandquantity
-{
-    position:relative;
-}
+
+// .tt-80-amount
+// {
+//     background-color: yellow;
+//     padding:.1rem .6rem .1rem .6rem;
+//     position: absolute;
+//     border-radius: 2rem;
+//     color:black;
+//     right: 0;
+// }
+// .tt-80-imgandquantity
+// {
+//     position:relative;
+//     background-color: $accent_amethyst-light;
+// }
 .tt-80-tt80totalpoints
 {
     font-weight: bold;

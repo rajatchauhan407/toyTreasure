@@ -1,15 +1,37 @@
+@import '../../sass/main.scss';
+
 .tt-81-donationForm
 {
     padding:1rem;
     margin:1rem;
+    color:$text_just_gray;
+    font-family: $font-body;
+}
+
+.tt-81-donationForm
+{
+    h1,h2,h3,h4,h5,h6 
+    {
+        color:$text_midnight_blue;
+        font-family: $font-heading;
+    }
+    h3 
+    {
+        font-size: 20px;
+    }
+    p 
+    {        
+        margin-top:5px;
+    }
 }
 .tt-81-donor-details
 {
     display: flex;
     flex-direction: column;   
-    background-color: lightgray;
+    background-color: $accent_amethyst-light;
     padding:1rem 1rem 1rem 1rem;
     border-radius: 1rem;
+    color:$text_midnight_blue;
 }
 .tt-81-donor-details a
 {
@@ -22,6 +44,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;   
+    h4 
+    {
+        margin-bottom: .7rem;
+    }
 }
 .tt-81-donor-details-header >*
 {
@@ -47,9 +73,9 @@
 {
     padding: 1rem 0 1rem 0;
 }
-.tt-81-donation-instruction p
+.tt-81-donation-instruction h3
 {
-    padding-bottom: .5rem;
+  padding-bottom:.7rem;
 }
 .tt-81-checkboxes
 {
@@ -61,8 +87,17 @@
 {
     display: flex;    
     justify-content: center;
+    
 }
 .tt-81-confirm
 {
     border-radius: 5px;
+    padding:.5rem 2rem;
+    background-color: $button_soft_purple_CTA;
+    color: $text_midnight_blue;
+    font-weight: bold;
+}
+.tt-81-remind-me-label, .tt-81-confirm-details-label
+{
+    color:$text_midnight_blue;
 }
