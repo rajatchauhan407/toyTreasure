@@ -1,5 +1,6 @@
 import "./index.scss";
 import { Link } from "react-router-dom";
+import crown from "./crown.svg";
 import React, { useState,useContext, useEffect } from 'react';
 import AuthContext from "../../services/auth-context";
 export default function DonorDonationProcessList(props)
@@ -107,7 +108,7 @@ export default function DonorDonationProcessList(props)
                     <div className="tt-80-toy-list"> 
                         <div className="tt-80-toy-list-header">
                             <h3>Toy List</h3>   
-                            <Link onClick={refresh}>Reset</Link>                          
+                            <h4><Link onClick={refresh}>Reset</Link></h4>                          
                         </div>                                      
                     <table id="tt-80-table">
                     {/* <tbody> */}
@@ -123,7 +124,7 @@ export default function DonorDonationProcessList(props)
                         <td>
                             <div className="tt-80-imgandquantity">
                                 <img src={el.category_picture} alt={el.category_name}></img>                               
-                                <p className="tt-80-amount" id={tt80pId}>{el.quantity}</p>
+                                {/* <p className="tt-80-amount" id={tt80pId}>{el.quantity}</p> */}
                             </div>
                         </td>     
                        
@@ -159,31 +160,31 @@ export default function DonorDonationProcessList(props)
                         tt80pId=`tt-80-amount${index}`;                             
                         tt80pId2=`tt-80-points${index}`;                              
                         
-                            tt80wishListIcon=<i className="fa-solid fa-crown"></i>;                   
+                            tt80wishListIcon=<img className="donor-donation-processlist-crownIcon" src={crown} alt={"crown"}/> ;                   
                         
               
                         return <tr className={index} id={el.name}>    
                         <td>
                             <div className="tt-80-imgandquantity">
                                 <img src={el.org_w_toy_picture} alt={el.org_w_toy_name}></img>                               
-                                <p className="tt-80-amount" id={tt80pId}>{el.quantity}</p>
+                                {/* <p className="tt-80-amount" id={tt80pId}>{el.quantity}</p> */}
                             </div>
                         </td>     
                        
 
                         <td>
                             <div class="tt-80-nameandwishlist">  
-                                <div>                        
-                                    {el.org_w_toy_name}  {tt80wishListIcon}
+                                <div className="tt-80-wishlisticon">                        
+                                    {el.org_w_toy_name}  <div className="crownIcon-tt-80">{tt80wishListIcon}</div>
                                 </div> 
                                 {/* {el.donateTo} */}
                             </div>
                         </td>                      
                         <td>
                             <div className="tt-80-amount-change">                              
-                                <button onClick={(e) => addRemove(index,e,"remove",el.org_w_toy_points)}>-</button>
+                                <button className="tt-80-removebtn" onClick={(e) => addRemove(index,e,"remove",el.org_w_toy_points)}>-</button>
                                 <input type="text" id={index} value={el.quantity} disabled></input>                                                          
-                                <button onClick={(e) => addRemove(index,e,"add",el.org_w_toy_points)}>+</button>                                
+                                <button className="tt-80-addbtn" onClick={(e) => addRemove(index,e,"add",el.org_w_toy_points)}>+</button>                                
                             </div>
                         </td>
                         <td>
