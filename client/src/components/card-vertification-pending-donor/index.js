@@ -84,10 +84,11 @@ export default function CardOrgTT13() {
           </tr>
         </thead>
 
-
+      
         <tbody className="tbodyOrgVerificationPendingDonor">
         {orgVerificationList.map((props) => (
             <tr key={props.id}>
+              
             <td>{props?.order}</td>
             <td>{props?.name}</td>
             <td>{getDeliveryMethodText(props?.user_donation_delivery_method)}</td>
@@ -99,7 +100,9 @@ export default function CardOrgTT13() {
                 Verify
                 </button>
             </td>
+            
             </tr>
+           
         ))}
         </tbody>
     </table>

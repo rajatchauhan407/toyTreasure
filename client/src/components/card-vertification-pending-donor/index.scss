@@ -30,14 +30,29 @@
 //         }
 //     }
 // }
+table{
+    color: $text_just_gray;
+}
+.TableCardOrgTT13 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-spacing: 0 8px; 
+ td {
+    
+    background-color:$secondary_footer_soft_blue;
+    // padding: 10px;
+    margin: 10px
+  }
+}
+  
 .verifyButtonPendingDonation{
     @include Buttuns($medium-button, $button_blue_CTA);
+    cursor: pointer;
         }
-    .TableCardOrgTT13 tbody{
-        background-color:$secondary_footer_soft_blue; 
-        }
-.tbodyOrgVerificationPendingDonor{
-    background-color:$secondary_footer_soft_blue; 
-    // background-color: hotpink;
+td:nth-child(1){
+    background-color:$secondary_teal_green;
+    color: $text_pure_white;
 }
+
     
