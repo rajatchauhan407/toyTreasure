@@ -22,14 +22,14 @@ const AuthContext = new React.createContext({
 
 export const AuthContextProvider = (props)=>{
     let navigate = useNavigate()
-    const initialIsLoggedIn = sessionStorage.getItem('isLoggedIn');
+    const initialIsLoggedIn = localStorage.getItem('isLoggedIn');
     const [isLoggedIn, setIsLoggedIn] = useState(initialIsLoggedIn);
-    const [profilePic, setProfilePic] = useState(sessionStorage.getItem('profile_pic')||'');
-    const [displayName, setDisplayName] = useState(sessionStorage.getItem('displayName')||'');
-    const [email,setEmail] = useState(sessionStorage.getItem('email')||'');
-    const [emailVerified, setEmailVerified] = useState(sessionStorage.getItem('emailVerified') || '');
-    const [uid,setUid] = useState(sessionStorage.getItem('uid')|| '');
-    const [userType, setUserType] = useState(sessionStorage.getItem('userType')||'');
+    const [profilePic, setProfilePic] = useState(localStorage.getItem('profile_pic')||'');
+    const [displayName, setDisplayName] = useState(localStorage.getItem('displayName')||'');
+    const [email,setEmail] = useState(localStorage.getItem('email')||'');
+    const [emailVerified, setEmailVerified] = useState(localStorage.getItem('emailVerified') || '');
+    const [uid,setUid] = useState(localStorage.getItem('uid')|| '');
+    const [userType, setUserType] = useState(localStorage.getItem('userType')||'');
     const [userPoints, setUserPoints] = useState(0);
     const [toysQuantity, setToysQuantity] = useState(0);
     const [userCartData, setUserCartData] = useState({});
@@ -43,7 +43,7 @@ export const AuthContextProvider = (props)=>{
                     console.log(user);
                     let res = await FireBaseFirestoreService.getDocumentById('user',user.uid);
                     console.log(res.data());
-                    const {user_type} = res.data();
+                    const user_type = localStorage.getItem('userType');
                     setIsLoggedIn(true);
                     console.log(user);
                     setDisplayName(user.displayName);
@@ -51,17 +51,17 @@ export const AuthContextProvider = (props)=>{
                     setProfilePic(user.photoURL);
                     setEmailVerified(user.emailVerified);
                     setUid(user.uid);
-                    sessionStorage.setItem('isLoggedIn', 'true');
-                    sessionStorage.setItem('userType',user_type);
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('userType',user_type);
                 }else{
                     setIsLoggedIn(false);   
-                    sessionStorage.removeItem('isLoggedIn');
-                    sessionStorage.removeItem('profile_pic');
-                    sessionStorage.removeItem('displayName');
-                    sessionStorage.removeItem('email');
-                    sessionStorage.removeItem('emailVerified');
-                    sessionStorage.removeItem('uid');
-                    sessionStorage.removeItem('userType');
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('profile_pic');
+                    localStorage.removeItem('displayName');
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('emailVerified');
+                    localStorage.removeItem('uid');
+                    localStorage.removeItem('userType');
                     setUserType(null);
                     navigate('/login');
                 }
