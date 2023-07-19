@@ -201,7 +201,7 @@ const InteractiveMap = ()=>{
         position={center} 
         title='Your Location'
         icon={{
-              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Ficon-teddy-large.png?alt=media&token=e6aed984-2178-46af-8e41-10941656f6bb',
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Fmap-pin-default.svg?alt=media&token=39dab852-da50-4090-819b-cb35c20df43e',
               // scaledSize: new window.google.maps.Size(30, 30)
             }}
         // icon={markerIcon}
@@ -213,7 +213,18 @@ const InteractiveMap = ()=>{
             lng:-123.08303057488982
           }}
           icon={{
-              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Ficon%20ball.png?alt=media&token=715f867f-6c9c-4b1d-a11a-8b52d7265756'
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Fmap-pin-user.svg?alt=media&token=4cc120c4-9f9b-4fbf-85e1-05b014986f0d'
+              // scaledSize: new window.google.maps.Size(30, 30)
+            }}
+        />
+        <Marker
+          title='Charity'
+          position={{
+            lat:49.23639116081492,
+            lng: -123.04438619999999
+          }}
+          icon={{
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Fmap-pin-user.svg?alt=media&token=4cc120c4-9f9b-4fbf-85e1-05b014986f0d'
               // scaledSize: new window.google.maps.Size(30, 30)
             }}
         />

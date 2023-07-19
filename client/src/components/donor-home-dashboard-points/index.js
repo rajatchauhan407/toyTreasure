@@ -6,7 +6,7 @@ import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function DashboardPoints(props) {
   const authCtx = useContext(AuthContext);
   const [user_points, setUser_points] = useState(0);
-  console.log("status:"+props.donations.verificationStatus)
+  // console.log("status:"+props.donations.verificationStatus)
   useEffect(()=>{
     async function getUserPoints(){
       try{
