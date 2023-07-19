@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { useContext,useState} from "react";
 import AuthContext from "../../services/auth-context";
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+import {nanoid} from "nanoid";
+
 export default function DonorDonationProcessForm(props)
 {
     // function handleAccept(){
@@ -17,7 +19,9 @@ export default function DonorDonationProcessForm(props)
     const [confirm2,setConfirm2] = useState(false);
 
     async function storeDonationInDatabase(){
-        props.onFormClicked(true)
+        props.onFormClicked(true);
+        const autoId = nanoid();
+        console.log("New ID is here:"+autoId);
         const donation = {
             wishlist: authCtx.userCartData.wishlist,
             categories: authCtx.userCartData.categories,
@@ -29,7 +33,9 @@ export default function DonorDonationProcessForm(props)
             toysQuantity:authCtx.toysQuantity,
             user_points: authCtx.user_points,
             orgId:id,
-            donationStatus:"pending"
+            donationStatus:"pending",
+            verificationStatus:false,
+            verificationId:autoId,
         }
         console.log(donation);
         await FireBaseFirestoreService.createDocument('user_donations',donation);

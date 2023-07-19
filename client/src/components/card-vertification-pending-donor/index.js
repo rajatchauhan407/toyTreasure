@@ -1,21 +1,12 @@
 import "./index.scss";
 import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
-import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+// import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
 import AuthContext from "../../services/auth-context";
 
-const verificationData = [
-    {
-      orderNumber: 37890,
-      name: "Greg Thomas",
-      method: "drop-off",
-      date: "05/05/2023",
-      Qty: 6,
-      donationStatus: "Pending"
-    },
-  ];
+
 
 export default function CardOrgTT13() {
   const [orgVerificationList, setOrgVerificationList] = useState([]);
@@ -32,7 +23,7 @@ export default function CardOrgTT13() {
       let userDonationRef = collection(database,'user_donations');
       let qUser = query(userDonationRef, where("orgId","==",orgId));
       let donationData = await getDocs(qUser);
-      // console.log(donationData.docs[0].data())
+      console.log(donationData.docs);
       setOrgVerificationList(donationData.docs || []);
       // donationData.forEach((el)=>{
       //   console.log(el.data())
@@ -113,7 +104,7 @@ export default function CardOrgTT13() {
             <td>{props?.user_donation_list ? props.user_donation_list.length : 0}</td>
             <td>{getStatusText(props?.user_donation_status)}</td>
             <td>
-                <button className="verifyButtonPendingDonation" onClick={() => { navigate('/organization/verification/3') }}>
+                <button disabled={props?.data().verificationStatus === true} onClick={() => { navigate('/organization/verification/'+props.id) }}>
 
                 Verify
                 </button>
