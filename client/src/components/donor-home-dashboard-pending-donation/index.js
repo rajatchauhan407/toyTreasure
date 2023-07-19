@@ -110,32 +110,38 @@ const ResultContainerPlugin = (props) => {
 
 export default function DashboardPendingDonation(props) {
   const [donorPendingDonation, setPendingDonation] = useState([]);
-  const [isCameraOpen, setIsCameraOpen] = useState(false);
-  const videoRef = useRef(null);
 
   const authCtx = useContext(AuthContext);
   const [decodedResults, setDecodedResults] = useState([]);
+  const [verificationId, setVerificationId] = useState("");
     const onNewScanResult = (decodedText, decodedResult) => {
-        console.log("App [result]", decodedResult);
-        setDecodedResults(prev => [...prev, decodedResult]);
+        
+        setDecodedResults(decodedText);
     };
 
   useEffect(() => {
-    console.log(props.donations);
-    // async function getPendingDonationData() {
-    //   try {
-    //     const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
-    //     const pendingDonations = data.filter((donation) => donation.donorUID === authCtx.uid);
-    //     setPendingDonation(pendingDonations || []);
-    //     console.log(pendingDonations);
-    //   } catch (error) {
-    //     console.error("Error fetching data:", error);
-    //   }
-    // }
+    
+    setVerificationId(decodedResults);
+    
+  }, [decodedResults]);
 
-    // getPendingDonationData();
-  }, []);
-
+  useEffect(()=>{
+    async function checkVerification(){
+      console.log("id: "+verificationId);
+      console.log("props: "+props.donations.verificationId);
+      if(verificationId === props.donations.verificationId){
+        console.log("verified");
+        try{
+          await FireBaseFirestoreService.updateDocumentById("user_donations",props.donations.id,{verificationStatus:true});
+        }catch(error){
+          console.log("Error: "+error);
+        }
+        
+      }
+    }
+    checkVerification();
+    
+  },[verificationId])
   // const formatDate = (timestamp) => {
   //   const dateObj = timestamp.toDate();
   //   const options = { month: 'long', day: 'numeric', year: 'numeric' };
