@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import crown from "./crown.svg";
 import React, { useState,useContext, useEffect } from 'react';
 import AuthContext from "../../services/auth-context";
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function DonorDonationProcessList(props)
 {    
     let authCtx = useContext(AuthContext);
@@ -34,7 +35,7 @@ export default function DonorDonationProcessList(props)
     calculatePoints(wishlist,categories);
    },[])
    
-   function calculatePoints(wishlist, categories){
+   async function calculatePoints(wishlist, categories){
     let totalPoints = 0;   
     wishlist.forEach((el)=>{
         totalPoints+= +el.org_w_toy_points * el.quantity;
@@ -43,7 +44,12 @@ export default function DonorDonationProcessList(props)
         totalPoints += +el.category_points * el.quantity;
     });
     setTotalPoints(totalPoints);
-    authCtx.setUserPoints(totalPoints);
+    try{
+        await FireBaseFirestoreService.updateDocumentById('user',authCtx.uid,{user_points:totalPoints});
+    }catch(error){
+        console.log(error);
+    }
+    // authCtx.setUserPoints(totalPoints);
    }
     function refresh()
     {     

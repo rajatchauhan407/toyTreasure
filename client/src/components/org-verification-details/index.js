@@ -11,7 +11,7 @@ export default function OrgVerificationDetails(props)
     const {donationId} = useParams();
     const[wishlist, setWishlist] = useState([]);
     const [categories, setCategories] = useState([]);
-
+    const [verificationId, setVerificationId] = useState("verificationId");
     console.log(donationId);
     useEffect(()=>{
         async function getDonationData(){
@@ -20,10 +20,11 @@ export default function OrgVerificationDetails(props)
                 setDonationData(data.data());
                 console.log(data.data().wishlist)
                 const donorData = await FireBaseFirestoreService.getDocumentById('user',data.data().donorUID)
-                // console.log(donorData.data())
+                
                 setDonorEmail(donorData.data().email);
                 setWishlist(data.data().wishlist);
                 setCategories(data.data().categories);
+                setVerificationId(data.data().verificationId);
             }catch(error){
                 console.log(error)
             }
@@ -35,7 +36,7 @@ export default function OrgVerificationDetails(props)
         try{
             await FireBaseFirestoreService.updateDocumentById('user_donations',donationId,{donationStatus:"completed"});
         
-            props.onAccept(true);
+            props.onAccept(verificationId);
         }catch(error){
             console.log(error);
         }
@@ -110,7 +111,7 @@ export default function OrgVerificationDetails(props)
                         
               
                         return <tr>        
-                        <td className="crownIcon">{wishListIcon}</td>       
+                        <td className="crownIcon"></td>       
                         <td>{el.category_name}</td>
                         <td>{el.quantity}</td> 
                         <td>{el.category_points * el.quantity}</td>
