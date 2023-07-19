@@ -1,3 +1,4 @@
+@import '../../sass/main.scss';
 .tt-38-item-container{
     display: grid;
 
@@ -7,4 +8,16 @@
 .tt-38-extraDetails{
  display: grid;
  gap : 1rem;
+}
+.OrgProfileExtraD
+{
+    margin-bottom: 1rem;
+    color:$text_just_gray;
+    h1, h2,h3,h4,h5,h6 
+    {
+        color:$text_just_gray;
+        font-size: 1rem;
+        font-family: $font-heading;
+    }
+   
 }
