@@ -103,7 +103,7 @@ export default function DonorDonationProcessList(props)
     
     return( 
         <form className="tt-80-donationProcessListForm"> 
-          <h1>Donation Details</h1>     
+          <h1>Confirm your Donation</h1>     
             <div className="tt-80-donationProcessListWrapper">                            
                     <div className="tt-80-toy-list"> 
                         <div className="tt-80-toy-list-header">
