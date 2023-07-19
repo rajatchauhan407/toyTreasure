@@ -81,25 +81,25 @@ async function handleLoginWithGoogle(){
             console.log("exists")
             const data = res.data();
             console.log(data);
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('profile_pic', photoURL);
-            sessionStorage.setItem('displayName',displayName);
-            sessionStorage.setItem('email',email);
-            sessionStorage.setItem('emailVerified',emailVerified);
-            sessionStorage.setItem('uid',uid);
-            sessionStorage.setItem('userType',userType);
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('profile_pic', photoURL);
+            localStorage.setItem('displayName',displayName);
+            localStorage.setItem('email',email);
+            localStorage.setItem('emailVerified',emailVerified);
+            localStorage.setItem('uid',uid);
+            localStorage.setItem('userType',userType);
             authCtx.setUserType(userType);
         }else{
             console.log("newOne");
             let result = await FireBaseFirestoreService.settingDocument("user",uid,document); 
             console.log(result);  
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('profile_pic', photoURL);
-            sessionStorage.setItem('displayName',displayName);
-            sessionStorage.setItem('email',email);
-            sessionStorage.setItem('emailVerified',emailVerified);
-            sessionStorage.setItem('uid',uid);
-            sessionStorage.setItem('userType',userType);
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('profile_pic', photoURL);
+            localStorage.setItem('displayName',displayName);
+            localStorage.setItem('email',email);
+            localStorage.setItem('emailVerified',emailVerified);
+            localStorage.setItem('uid',uid);
+            localStorage.setItem('userType',userType);
             authCtx.setUserType(userType);
         }
         // if(res.docs.length === 0){
