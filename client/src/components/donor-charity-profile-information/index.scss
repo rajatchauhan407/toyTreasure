@@ -15,7 +15,20 @@
     display: flex;
     flex-basis: 50%;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
+
+    .back{
+        text-align: start;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        cursor: pointer;
+
+            img{
+                width: 2.5rem;
+            }
+        }
     }
 
     .profileImage{
