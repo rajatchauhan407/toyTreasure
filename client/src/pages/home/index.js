@@ -22,6 +22,7 @@ export default function Home(){
     async function checkPendingDonation() {
       try {
         const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
+
         const hasPending = data.filter((donation) => ((donation.donorUID === userNameAuth.uid) && (donation.verificationStatus===false)));
         // console.log(hasPending);
         if(hasPending.length > 0){

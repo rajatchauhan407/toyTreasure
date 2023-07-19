@@ -1,9 +1,14 @@
 @import '../../sass/main.scss';
+.tt-81-donationFormCardWrapper{
+    background-color: #F5F0FA;
+    padding: 1.5rem;
+    border-radius: 1rem;
+
+}
+
 
 .tt-81-donationForm
 {
-    padding:1rem;
-    margin:1rem;
     color:$text_just_gray;
     font-family: $font-body;
 }

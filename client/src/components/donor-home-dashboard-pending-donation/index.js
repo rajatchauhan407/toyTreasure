@@ -120,7 +120,15 @@ export default function DashboardPendingDonation(props) {
     };
 
   useEffect(() => {
-    
+    async function getPendingDonationData() {
+      try {
+        const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
+        const pendingDonations = data.filter((donation) => donation.user_donations.donationStatus.pending === true);
+        setPendingDonation(pendingDonations || []);
+        console.log(pendingDonations);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+   
     setVerificationId(decodedResults);
     
   }, [decodedResults]);
@@ -137,6 +145,7 @@ export default function DashboardPendingDonation(props) {
           console.log("Error: "+error);
         }
         
+
       }
     }
     checkVerification();

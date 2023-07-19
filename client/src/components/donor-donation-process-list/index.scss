@@ -5,7 +5,6 @@
 // }
 .tt-80-donationProcessListForm h1
 {
-   margin-left: 1rem;
    width: 100%;
 }
 .crownIcon-tt-80
@@ -18,7 +17,6 @@
 }
 .tt-80-donationProcessListWrapper
 {
-    margin:1rem;
     background-color: $accent_amethyst-light;
     color:$text_midnight_blue;
     border-radius: 1rem;
@@ -37,8 +35,7 @@
 
 #tt-80-table img
 {
-   border-radius: 2rem;
-   margin:.5rem;
+   border-radius: 1rem;
    width: 100%;
    height:auto;
    
@@ -55,6 +52,7 @@
    margin:1rem;
    padding:.5rem;
     border-bottom: 1px solid black;
+    background-color: transparent;
     
 }
 
