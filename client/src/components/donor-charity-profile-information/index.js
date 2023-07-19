@@ -17,7 +17,7 @@ export default function DonorCharityProfileInformation({info,logo, main}){
     <div className="charityInformation">
         
             <div key={orgCharityProfile.id} className="profileinformation">
-                <img src={logo} alt="logo-charity" />
+                <img className="charity-logo" src={logo} alt="logo-charity" />
                 <h2>{orgCharityProfile.org_name}</h2>
                 <p>{orgCharityProfile.org_description}</p>
                 <button><Link to={`/donation/toys/${id}`}>Donate Now</Link></button>
