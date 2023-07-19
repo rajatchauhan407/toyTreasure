@@ -1,7 +1,7 @@
 @import '../../sass/main.scss';
 .loginsignupwrapper{
 display: grid;
-grid-template-columns: 2fr 6fr;
+grid-template-columns: 2fr 5fr;
 height: 100vh;
 
 .loginsignupimage{
@@ -19,4 +19,10 @@ height: 100vh;
     align-items: center;
     justify-content: center;
     background-color: $accent_amethyst-light;
+}
+.login-form button,
+.login-form input{
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgb(122, 120, 120);
 }
