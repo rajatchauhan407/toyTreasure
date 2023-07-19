@@ -12,7 +12,10 @@
    }
 
    .profileinformation{
+    display: flex;
     flex-basis: 50%;
+    flex-direction: column;
+    justify-content: flex-end;
     }
 
     .profileImage{

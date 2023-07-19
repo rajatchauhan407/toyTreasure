@@ -1,14 +1,33 @@
+@import '../../sass/main.scss';
+
 .WishlistBanner {
     position: relative;
     text-align: center;
-    background-image: url(https://s.yimg.com/uu/api/res/1.2/od6GA2JDzpJqIa5yfmhD6w--~B/aD0xMjAwO3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2022-07/371f68e0-0391-11ed-b73f-4b112390d280.cf.jpg);
+    background-image: url(./wishlist_banner-min.jpg);
     background-size: cover;
     background-position: center;
     color: white;
-    height: 300px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+      button{
+        @include Buttuns ($largest-button, $accent_amethyst);
+
+          a{
+            color: $text_pure_white;
+            text-decoration: none;
+          }
+
+          &:hover{
+            background-color: $primary_boy_blue;
+            a{
+              color: $text_midnight_blue;
+            }
+          }
+
+      }
   }
   
   .WishlistBanner::before {
