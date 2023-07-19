@@ -1,11 +1,22 @@
 import './index.scss';
 import coin from './coin-1.png'
-import React, { useContext } from "react";
+import React, { useContext,useEffect, useState } from "react";
 import AuthContext from '../../services/auth-context';
-
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function DashboardPoints() {
-  const { user_points } = useContext(AuthContext); // Access the user_points value from AuthContext
-  console.log(user_points)
+  const authCtx = useContext(AuthContext);
+  const [user_points, setUser_points] = useState(0);
+  useEffect(()=>{
+    async function getUserPoints(){
+      try{
+          const data = await FireBaseFirestoreService.getDocumentById('user',authCtx.uid);
+          setUser_points(data.data().user_points);
+      }catch(error){
+        console.log(error)
+      }
+    }
+    getUserPoints();
+  },[] )
 
   return (
     <div className="DashboardPoints">

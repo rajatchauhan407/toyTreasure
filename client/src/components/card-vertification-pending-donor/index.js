@@ -94,18 +94,16 @@ export default function CardOrgTT13() {
 
       
         <tbody className="tbodyOrgVerificationPendingDonor">
-        {orgVerificationList.map((props) => (
-            <tr key={props.id}>
-              
-            <td>{props?.order}</td>
-            <td>{props?.name}</td>
-            <td>{getDeliveryMethodText(props?.user_donation_delivery_method)}</td>
-            <td>{formatDate(props?.user_donation_date)}</td>
-            <td>{props?.user_donation_list ? props.user_donation_list.length : 0}</td>
-            <td>{getStatusText(props?.user_donation_status)}</td>
+        {orgVerificationList.map((props,index) => (
+          <tr key={index}>
+            <td>{index+1}</td>
+            <td>{props?.data().donorName}</td>
+            <td>{props?.data().deliveryMethod}</td>
+            <td>{props?.data().date}</td>
+            <td>{props?.data().toysQuantity}</td>
+            <td>{props?.data().donationStatus}</td>
             <td>
-                <button disabled={props?.data().verificationStatus === true} onClick={() => { navigate('/organization/verification/'+props.id) }}>
-
+            <button disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
                 Verify
                 </button>
             </td>

@@ -58,7 +58,9 @@ export default function Home(){
     <div className='home-page'>
         <div className="home-welcome">
             <h1>Hi {userNameAuth.displayName}, make your first donation</h1>
-            <DashboardPoints/>
+            <DashboardPoints
+              
+            />
         </div>
 
         {!loading && (
