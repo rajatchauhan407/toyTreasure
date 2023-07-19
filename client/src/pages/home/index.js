@@ -17,20 +17,26 @@ import DashboardPendingDonation from '../../components/donor-home-dashboard-pend
 export default function Home(){
   const userNameAuth = useContext(AuthContext);
   const [hasPendingDonation, setHasPendingDonation] = useState(false);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function checkPendingDonation() {
       try {
         const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
-        const hasPending = data.some((donation) => donation.user_donations_donationStatus.pending === true);
-        setHasPendingDonation(hasPending);
+
+        const hasPending = data.filter((donation) => ((donation.donorUID === userNameAuth.uid) && (donation.verificationStatus===false)));
+        // console.log(hasPending);
+        if(hasPending.length > 0){
+          setLoading(false);
+          setHasPendingDonation(hasPending[0] || "");
+          
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
 
     checkPendingDonation();
-  }, []);
+  }, [setHasPendingDonation,setLoading,userNameAuth.uid]);
 
     let discountData = [
         {
@@ -53,12 +59,16 @@ export default function Home(){
     <div className='home-page'>
         <div className="home-welcome">
             <h1>Hi {userNameAuth.displayName}, make your first donation</h1>
-            <DashboardPoints/>
+            <DashboardPoints
+              
+            />
         </div>
 
-        {hasPendingDonation && (
+        {!loading && (
           <div className='pending-donation'>
-            <DashboardPendingDonation/>
+            <DashboardPendingDonation
+              donations={hasPendingDonation}
+            />
           </div>
         )}
 

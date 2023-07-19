@@ -22,4 +22,9 @@
     padding:1rem;
     border-radius: .5rem;
     margin-bottom:1rem;
+
+    &:hover{
+        background-color: $text_midnight_blue;
+        color: $text_pure_white;
+    }
 }

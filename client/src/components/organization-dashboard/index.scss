@@ -56,6 +56,12 @@
         @include customButton($primary_boy_blue);
         @include roundedBorder(9px);
         color:$text_midnight_blue;
+        cursor: pointer;
+        
+        &:hover{
+            background-color: $secondary_teal_green;
+            color: $text_pure_white;
+        }
     }
 }
 
