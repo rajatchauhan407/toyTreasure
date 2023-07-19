@@ -1,21 +1,12 @@
 import "./index.scss";
 import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
-import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+// import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
 import AuthContext from "../../services/auth-context";
 
-const verificationData = [
-    {
-      orderNumber: 37890,
-      name: "Greg Thomas",
-      method: "drop-off",
-      date: "05/05/2023",
-      Qty: 6,
-      donationStatus: "Pending"
-    },
-  ];
+
 
 export default function CardOrgTT13() {
   const [orgVerificationList, setOrgVerificationList] = useState([]);
@@ -32,7 +23,7 @@ export default function CardOrgTT13() {
       let userDonationRef = collection(database,'user_donations');
       let qUser = query(userDonationRef, where("orgId","==",orgId));
       let donationData = await getDocs(qUser);
-      // console.log(donationData.docs[0].data())
+      console.log(donationData.docs);
       setOrgVerificationList(donationData.docs || []);
       // donationData.forEach((el)=>{
       //   console.log(el.data())
@@ -99,9 +90,12 @@ export default function CardOrgTT13() {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+
+
+      
+        <tbody className="tbodyOrgVerificationPendingDonor">
         {orgVerificationList.map((props,index) => (
-            <tr key={index}>
+          <tr key={index}>
             <td>{index+1}</td>
             <td>{props?.data().donorName}</td>
             <td>{props?.data().deliveryMethod}</td>
@@ -109,11 +103,13 @@ export default function CardOrgTT13() {
             <td>{props?.data().toysQuantity}</td>
             <td>{props?.data().donationStatus}</td>
             <td>
-                <button disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
+            <button disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
                 Verify
                 </button>
             </td>
+            
             </tr>
+           
         ))}
         </tbody>
     </table>

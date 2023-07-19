@@ -38,8 +38,8 @@ function DonationCategoryCardWrapper({onGetCat}) {
     onGetCat(data);
   }
   return <div className='donorDonationCategoryCardWrapper'>
-    <h1>Categories</h1>
-    <p>Choose a category to donate if you can not find in wishlist.</p>
+    <h1>Choose a Category to Donate</h1>
+    <p>Make a valuable contribution by selecting a toy category and quantity to donate, even if it's not in the wishlist! </p>
     <div className='donorDonationCategoryCardWrap'>
       <DonationCategoryCard
         onGetCategories={saveCategories}

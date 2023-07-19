@@ -1,5 +1,18 @@
+@import '../../sass/main.scss';
+
 .charityProfileCategoryCardwrapper{
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 3rem;
+    margin-bottom: 1rem;
+    
+    h5{
+        color: $text_midnight_blue;
+        margin-bottom: 0%;
+        margin-top: 1rem;
+    }
+}
+.charityProfileCategoryCard{
+background-color: $secondary_footer_soft_blue ;
+padding: 5%;
 }

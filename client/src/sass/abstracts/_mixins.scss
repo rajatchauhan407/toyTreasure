@@ -55,6 +55,16 @@ color: $color;
     font-family: $font-body;
 }
 
+@mixin FootnoteRegular($color){
+font-family: $font-body;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: $fw-normal;
+line-height: 1.375rem;
+color: $color;
+}
+
+
 @mixin globalPadding ($ptop:0, $pright:4rem, $pbottom:0, $pleft:4rem ){
     padding-top: $ptop;
     padding-right: $pright;

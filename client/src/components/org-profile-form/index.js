@@ -98,8 +98,10 @@ return (
             <OrgProfileImpact
                 onProfileImpact = {getProfileImpact}
             />
-            <button type="submit" onClick={(e)=>{ setGetData(true); handleSubmit(e);}}>Save</button>
-            <button type="reset">Reset</button>
+            <div class="profile-form-buttons">               
+                <button className="profile-form-reset" type="reset">Reset</button>
+                <button className="profile-form-submit" type="submit" onClick={(e)=>{ setGetData(true); handleSubmit(e);}}>Save</button>
+            </div>
         </div>
 
         <div className="wrapper-right">

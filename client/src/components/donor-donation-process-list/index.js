@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import crown from "./crown.svg";
 import React, { useState,useContext, useEffect } from 'react';
 import AuthContext from "../../services/auth-context";
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function DonorDonationProcessList(props)
 {    
     let authCtx = useContext(AuthContext);
@@ -34,7 +35,7 @@ export default function DonorDonationProcessList(props)
     calculatePoints(wishlist,categories);
    },[])
    
-   function calculatePoints(wishlist, categories){
+   async function calculatePoints(wishlist, categories){
     let totalPoints = 0;   
     wishlist.forEach((el)=>{
         totalPoints+= +el.org_w_toy_points * el.quantity;
@@ -43,7 +44,12 @@ export default function DonorDonationProcessList(props)
         totalPoints += +el.category_points * el.quantity;
     });
     setTotalPoints(totalPoints);
-    authCtx.setUserPoints(totalPoints);
+    try{
+        await FireBaseFirestoreService.updateDocumentById('user',authCtx.uid,{user_points:totalPoints});
+    }catch(error){
+        console.log(error);
+    }
+    // authCtx.setUserPoints(totalPoints);
    }
     function refresh()
     {     
@@ -103,7 +109,7 @@ export default function DonorDonationProcessList(props)
     
     return( 
         <form className="tt-80-donationProcessListForm"> 
-          <h1>Donation Details</h1>     
+          <h1>Confirm your Donation</h1>     
             <div className="tt-80-donationProcessListWrapper">                            
                     <div className="tt-80-toy-list"> 
                         <div className="tt-80-toy-list-header">
@@ -121,7 +127,7 @@ export default function DonorDonationProcessList(props)
                         tt80pId2=`tt-80-points${index}`;                              
                       
                         return <tr className={index} id={el.category_name}>    
-                        <td>
+                        <td class="donation-table">
                             <div className="tt-80-imgandquantity">
                                 <img src={el.category_picture} alt={el.category_name}></img>                               
                                 {/* <p className="tt-80-amount" id={tt80pId}>{el.quantity}</p> */}

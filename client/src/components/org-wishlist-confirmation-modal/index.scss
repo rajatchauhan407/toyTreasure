@@ -1,3 +1,4 @@
+@import '../../sass/main.scss';
 .modalConfirmatioWrapper{
     position: relative;
     width:100%;
@@ -6,4 +7,24 @@
     justify-content: center;
     align-items: center;
     gap:1rem;
+    font-family: $font-body;
+}
+.modalConfirmatioWrapper h2 
+{
+    font-family: $font-heading;
+    color:$text_just_gray;
+}
+.go-dashboard
+{
+    background-color: $primary_boy_blue;
+    color:$text_midnight_blue;
+    border:none;
+    padding:1rem;
+    border-radius: .5rem;
+    margin-bottom:1rem;
+
+    &:hover{
+        background-color: $text_midnight_blue;
+        color: $text_pure_white;
+    }
 }

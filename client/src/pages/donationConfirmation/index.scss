@@ -1,12 +1,16 @@
+@import '../../sass/main.scss';
+
 .donationConfirmation-page{
     display: flex;
     flex-direction: row;
+    gap: 1rem;
+    @include globalPadding;
 }
 
 .donation-confirmation-list{
-    flex: 40%
+    flex: 45%;
 }
 
 .donation-confirmation-form{
-    flex:60%
+    flex:55%;
 }

@@ -1,6 +1,7 @@
 // This component is sample login page for checking purpose.. It shall be deleted phir.
 
 import { AiFillGoogleCircle } from 'react-icons/ai';
+// import googleIcon from './GoogleLogo.com.png'
 import "./index.scss";
 import { useContext, useRef, useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
@@ -161,9 +162,11 @@ async function handleLoginWithGoogle(){
                             className="input-text"
                         />
                         </label>
+
                         <div className="loginRememberMe">
-                        <label >
-                         <input type="checkbox" className='loginRememberMeCheckbox' />
+                        <label className='loginRememberMeCheckboxWrapper'>
+                         <input type="checkbox" 
+                         className='loginRememberMeCheckbox' />
                          Keep signed in
                          </label>
                          </div>
