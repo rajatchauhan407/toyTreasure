@@ -51,7 +51,7 @@ export default function OrgProfileExtraD({onSelectedData}){
                 <h2>Additional Details</h2>
                 <div className="tt-38-item-container">
                     <label htmlFor="deliveryMethod">Donation Delivery Method</label>
-                    <ComponentDropdown
+                    <ComponentDropdown 
                         options={deliveryMethod}
                         field="method"
                         onSelectedOptions={getDeliveryMethod}
@@ -60,7 +60,7 @@ export default function OrgProfileExtraD({onSelectedData}){
                 </div>
                 <div className="tt-38-item-container">
                     <label htmlFor="avaliableTime">Donation Time</label>
-                    <ComponentDropdown
+                    <ComponentDropdown 
                         options={timing}
                         field="time"
                         onSelectedOptions={getTiming}
@@ -69,7 +69,7 @@ export default function OrgProfileExtraD({onSelectedData}){
                 </div>
                 <div className="tt-38-item-container">
                     <label htmlFor="avaliableDays">Donation Days</label>
-                    <ComponentDropdown
+                    <ComponentDropdown 
                         options={test}
                         field="day"
                         onSelectedOptions={getDays}

@@ -8,7 +8,8 @@ import { database } from "../../FirebaseConfig";
 
 export default function DonationWishListCard({onDonationWishlist}) {
   const [donationWishList, setDonationWishList] = useState([]);
-  const [donations, setDonations] = useState([])
+  const [donations, setDonations] = useState([]);
+  const [selectedWishlist, setSelectedWishlist] = useState([]);
   const {id} = useParams();
   async function getDonationWishListData() {
     const wishlistCollection = collection(database,"organization_wishlist");
@@ -39,7 +40,9 @@ export default function DonationWishListCard({onDonationWishlist}) {
     });
     setDonations(donationWishList);
   };
+  // sending wishList to the cart
 
+  
   const handleIncrement = (index) => {
     setDonationWishList((prevList) => {
       const newList = [...prevList];
@@ -52,7 +55,9 @@ export default function DonationWishListCard({onDonationWishlist}) {
 
   useEffect(() => {
     getDonationWishListData();
+   
   }, []);
+
   onDonationWishlist(donationWishList);
 
   return (
@@ -60,7 +65,7 @@ export default function DonationWishListCard({onDonationWishlist}) {
       {donationWishList.map((el, index) => (
         <div className="donationWishListCardWrapper">
           <div className="donationWishListCardImgWrapper">
-            <p className="donationWishListCardPoints">{el.org_w_toys_points}</p>
+            <p className="donationWishListCardPoints"><span>{el.org_w_toy_points}</span> <br></br>points</p>
             <img src={el.org_w_toy_picture} alt="" />
             <p>This is the reference image.</p>
           </div>
@@ -69,8 +74,8 @@ export default function DonationWishListCard({onDonationWishlist}) {
             <input type="number" className="input-field" value={el.quantity} min="0" max={el.org_w_toys_required} readOnly />
             <button className="increment" onClick={() => handleIncrement(index)}>+</button>
           </div>
-          <h4>{el.org_w_toy_name}</h4>
-          <p>{el.org_w_toy_category}</p>
+          <h3>{el.org_w_toy_name}</h3>
+          <p className="donorWishListToyCategory">{el.org_w_toy_category}</p>
         </div>
       ))}
     </div>

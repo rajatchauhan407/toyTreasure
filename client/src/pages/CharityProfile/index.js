@@ -28,27 +28,38 @@ export default function DonorCharityProfilePage(){
     }
     return((orgData && <>
     <div className='DonorCharityProfileWrapper'>
-        <DonorCharityProfileInformation
-            info = {orgData.profileDetails}
-            logo={orgData.logoUrl}
-            main={orgData.profileUrl}
-        />
-        <DonorCharityProfileVideo
-            video={orgData.videoUrl}
-        />
+        <div className='charity_profile'>
+            <DonorCharityProfileInformation
+                info = {orgData.profileDetails}
+                logo={orgData.logoUrl}
+                main={orgData.profileUrl}
+            />
+        </div>
+        <div className='charity_video'>
+            <DonorCharityProfileVideo
+                video={orgData.videoUrl}
+            />
+        </div>
         <div className="card-wrapper">
+            <h1>Impacts</h1>
             <OrgDataCard
                 details = {orgData.impactDetails}
             />
         </div>
-        <DonorCharityProfileWishlistBanner
-        id={id}
-        />
-        <CharityProfileCategoryCardWrapper
-            categories = {orgData.categories}
-        />
-
-        <HomeDashBoardStories/>
+        <div className='charity_wishlist'>
+            <DonorCharityProfileWishlistBanner
+            id={id}
+            />
         </div>
+        <div className='charity_categories'>
+            <CharityProfileCategoryCardWrapper
+                categories = {orgData.categories}
+            />
+        </div>
+
+        <div className="charity_stories">
+            <HomeDashBoardStories/>
+            </div>
+    </div>
     </>));
 };

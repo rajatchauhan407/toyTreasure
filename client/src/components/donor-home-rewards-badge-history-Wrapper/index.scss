@@ -1,11 +1,24 @@
+@import '../../sass/main.scss';
 .homeDashboardBadgeHistoryWrapper{
+    margin-top: 2rem;
 
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 1rem;
+   
     .homeDashboardBage{
+        padding: 5%;
+        align-items: center;
         text-align: center;
-        background-color: rgba(128, 128, 128, 0.267);
+        background-color: rgba(153, 102, 204, 1);
         border-radius: 15px;
+        color: white;
+        h4{
+            margin-bottom: 0%;
+        }
     }
+}
+.homeDashboardRewardsCardImgWrapper{
+    background-color: $button_soft_purple_CTA;
+    border-radius: $b-radius;
 }
