@@ -8,17 +8,21 @@ export default function LoginSignUp() {
  
   const [user,setUser] = useState(null);
   const [classUsed, setClassUsed] = useState("loginsignupimage");
+  const [classUsedforbgc, setClassUsedforbgc] = useState("loginSignupformInnerWrapper");
 
     function handleSignUp(selectedUser){
         setUser(selectedUser); 
         if(selectedUser === "donor"){
           setClassUsed('loginsignupimageDonor');
+          setClassUsedforbgc('loginSignupformInnerWrapperCreateAccount');
         }
         else if(selectedUser === "org"){
           setClassUsed('loginsignupimageOrg');
+          setClassUsedforbgc('loginSignupformInnerWrapperCreateAccount');
         }
         else{
           setClassUsed('loginsignupimage');
+          setClassUsed('loginSignupformInnerWrapper');
         }
     }
     return (
@@ -34,7 +38,7 @@ export default function LoginSignUp() {
 
         </div>
 
-        <div className='loginSignupformInnerWrapper'>
+        <div className={classUsedforbgc}>
         {
           !user?<LoginSignupForm getSignupInfo={handleSignUp}/>:user==="donor"?<CreateAccountDonor/>:user==="org"?<CreateAccountOrg/>:"No Data"
         }

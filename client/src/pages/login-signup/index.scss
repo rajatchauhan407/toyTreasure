@@ -1,3 +1,4 @@
+@import '../../sass/main.scss';
 .loginsignupwrapper{
 display: grid;
 grid-template-columns: 2fr 6fr;
@@ -12,4 +13,10 @@ height: 100vh;
     align-items: center;
     justify-content: center;
 }
+}
+.loginSignupformInnerWrapperCreateAccount{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $accent_amethyst-light;
 }
