@@ -12,6 +12,7 @@ export default function OrgDataCard({ displayMode,details }){
     const [orgImpact, setOrgImpact] = useState([]);
 
   useEffect(() => {
+    console.log("Details Provided:"+details)
     setOrgImpact(details);
   }, [details]);
 
@@ -21,7 +22,7 @@ export default function OrgDataCard({ displayMode,details }){
         (orgImpact && <div className="charityImpact">
         
             <div className={orgCardsWrapperClass}>
-                <div className="card-1">
+                <div className="card-1 forOrgDataCard">
                     <div className="img-wrapper">
                         <img src={org_icon1} alt="founded-year-icon"/>
                     </div>
@@ -29,7 +30,7 @@ export default function OrgDataCard({ displayMode,details }){
                     <h5>Founded Year</h5>
                 </div>
 
-                <div className="card-2">
+                <div className="card-2 forOrgDataCard">
                     <div className="img-wrapper">
                         <img src={org_icon2} alt="donors-icon"/>
                     </div>
@@ -37,7 +38,7 @@ export default function OrgDataCard({ displayMode,details }){
                     <h5>Total Donors</h5>
                 </div>
 
-                <div className="card-3">
+                <div className="card-3 forOrgDataCard">
                     <div className="img-wrapper">
                         <img src={org_icon3} alt="kids-icon"/>
                     </div>
@@ -45,7 +46,7 @@ export default function OrgDataCard({ displayMode,details }){
                     <h5>Kids</h5>
                 </div>
 
-                <div className="card-4">
+                <div className="card-4 forOrgDataCard">
                     <div className="img-wrapper">
                         <img src={org_icon4} alt="toys-donated-icons"/>
                     </div>
