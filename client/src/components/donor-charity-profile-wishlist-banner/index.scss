@@ -11,6 +11,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+      h2{
+        color: $text_pure_white;
+        font-size: 3rem;
+        margin: 2rem;
+      }
 
       button{
         @include Buttuns ($largest-button, $accent_amethyst);
