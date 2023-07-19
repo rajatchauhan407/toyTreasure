@@ -26,7 +26,9 @@ export default function OrgDashboard(props){
         <OrgDashBoard
             onWishlistClicked = {handleWishlist}
         />
-        
+        <div className="tt-org-dashboard-wrapper">
+            
+        </div>
         { isShown && <GeneralModalWrapper onCloseModal = {handleWishlist}>
             <OrgAddWishlist
                 onClickCancel={handleWishlist}
