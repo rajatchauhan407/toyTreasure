@@ -51,11 +51,14 @@ p{
     margin: 20px 0;
   }
   form .primary-button{
-    @include Buttuns(28.75rem, $accent_amethyst-light);
+    @include Buttuns(475px, $accent_amethyst-light);
     margin-right: 0%;
   }
+  form .primary-button:hover{
+    background-color: $accent_amethyst
+  }
   .google-Facebook-Button button{
-    @include Buttuns(28.75rem, $text_pure_white);
+    @include Buttuns(475px, $text_pure_white);
     border: 1px solid black;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.08);
     margin-right: 0%;
@@ -75,7 +78,19 @@ p{
     justify-content: space-between;
     margin-right: 0%;
 }
-.loginRememberMe{
-    border-radius: 2px;
-    display: flex;
+// .loginRememberMeCheckbox{
+//   margin: 0%;
+//   width: min-content;
+//   display: flex;
+//   justify-content: space-between;
+// }
+// .loginRememberMeCheckboxWrapper{
+//   margin: 0%;
+//   width: min-content;
+//   display: flex;
+//   justify-content: space-between;
+//   margin-right: 0%;
+// }
+.loginRememberMeCheckboxWrapper input{
+  width: 20px;
 }
