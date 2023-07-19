@@ -41,6 +41,7 @@ export default function DonorCharityProfilePage(){
             />
         </div>
         <div className="card-wrapper">
+            <h1>Impacts</h1>
             <OrgDataCard
                 details = {orgData.impactDetails}
             />
