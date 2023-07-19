@@ -11,7 +11,7 @@ export default function DashboardPendingDonation() {
     async function getPendingDonationData() {
       try {
         const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
-        const pendingDonations = data.filter((donation) => donation.user_donation_status.pending === true);
+        const pendingDonations = data.filter((donation) => donation.user_donations.donationStatus.pending === true);
         setPendingDonation(pendingDonations || []);
         console.log(pendingDonations);
       } catch (error) {
