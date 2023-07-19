@@ -12,6 +12,7 @@ export default function OrgWishlist(){
         async function getOrgWishListData()
         {    
             const profiles = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
+            if(profiles.length>0){
             const orgId = profiles.find((profile) => profile.uid === authCtx.uid).id;
             const usersCollectionRef = collection(database, "organization_wishlist");
              const q = query(usersCollectionRef, where("profile_id", "==", orgId));
@@ -20,7 +21,7 @@ export default function OrgWishlist(){
         let array = data.docs.map((el)=>{return el.data()});
         console.log(array)
             //  let array = data;       
-            setOrgWishList(array);       
+            setOrgWishList(array); }      
         }
         getOrgWishListData();
     },[]);
