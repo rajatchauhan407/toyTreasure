@@ -10,8 +10,11 @@ export default function OrgWishlist(){
     const [toysReceived] = useState(0);
     useEffect(()=>{        
         async function getOrgWishListData()
-        {    const usersCollectionRef = collection(database, "organization_wishlist");
-             const q = query(usersCollectionRef, where("profile_id", ">", authCtx.uid));
+        {    
+            const profiles = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
+            const orgId = profiles.find((profile) => profile.uid === authCtx.uid).id;
+            const usersCollectionRef = collection(database, "organization_wishlist");
+             const q = query(usersCollectionRef, where("profile_id", "==", orgId));
              const data = await getDocs(q);
              console.log(data.docs)
         let array = data.docs.map((el)=>{return el.data()});
