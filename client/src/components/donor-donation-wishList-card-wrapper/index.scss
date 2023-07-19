@@ -10,6 +10,15 @@ margin-bottom: 3rem;
 button{
     @include Buttuns($largest-button, $button_soft_purple_CTA);
 }
+.proceedButton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h5{
+        border-left: 1px solid $text_midnight_blue;
+        padding: 0 10%;
+    }
+}
 }
 .proceedBefore{
     padding:1rem;
