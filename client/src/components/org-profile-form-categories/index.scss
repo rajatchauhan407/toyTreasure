@@ -1,0 +1,10 @@
+@import '../../sass/main.scss';
+.OrgProfileCategories 
+{
+    h1, h2,h3,h4,h5,h6 
+    {
+        color:$text_just_gray;
+        font-size: 1rem;
+        font-family: $font-heading;
+    }
+}

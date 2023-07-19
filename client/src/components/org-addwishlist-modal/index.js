@@ -69,13 +69,13 @@ export default function OrgAddWishlist({onClickCancel, onClickCancelButton, onAd
     }
     return (
         <div className="modalWishlist">
-            <h2>Add a New Toy to Wishlist</h2>
+            <h2>Add Toy to Wishlist</h2>
             <MdCancel className='cancelIcon' onClick={()=>{onClickCancelButton(false)}}/>
             <form>
-                <label htmlFor="toyName">Toy Name</label><br />
+                <label htmlFor="toyName">Toy Name</label>
                 <input type="text" id="toyName" onChange={(e)=>{setToyName(e.target.value)}} name="toyName" required /><br />
 
-                <label htmlFor="categories~">Select Categories</label><br />
+                <label htmlFor="categories~">Select Category</label>
                         <select id="categories" onChange={(e)=>{setToyCategory(e.target.value)}} name="categories" required>
                         {orgToyCategories && orgToyCategories.map((el)=>{                          
                                 return <option value={el.category_name}>{el.category_name}</option>
@@ -83,11 +83,13 @@ export default function OrgAddWishlist({onClickCancel, onClickCancelButton, onAd
                         })}                           
                         </select><br />
 
-                <label htmlFor="qty">Enter Qty of Toys Required</label><br />
+                <label htmlFor="qty">Enter Quantity</label>
                 <input type="number" id="qty" onChange={(e)=>{setToysRequired(e.target.value)}} name="qty" required /><br />
 
-                <label htmlFor="toyUpload">Upload Image</label><br />
-                <input type="file" id="toyUpload" onChange={(e)=>{setImage(e.target.files[0])}} name="toyUpload" accept="image/*" className="toy-input" required/><br />       
+               
+                <label htmlFor="toyUpload">Upload Image</label>
+                <input type="file" id="toyUpload" onChange={(e)=>{setImage(e.target.files[0])}} name="toyUpload" accept="image/*" className="toy-input" required/>    
+                
             </form>
             <div className="btn">
                 <button className="cancel" onClick={()=>{console.log("Hey");onClickCancel(false)}}>Cancel</button>

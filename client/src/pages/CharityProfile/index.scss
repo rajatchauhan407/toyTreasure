@@ -1,7 +1,27 @@
+@import '../../sass/main.scss';
+
+.card-wrapper,
+.charity_categories,
+.charity_stories{
+    @include globalPadding;
+}
+
 .card-wrapper{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 20px;
     width: 100%;
-    margin: 30px;
+    padding: 6rem 0 6rem 0;
+
+    background-color: $secondary_soft_blue;
+}
+
+.charity_categories,
+.charity_stories{
+    margin: 6rem 0 6rem 0;
+}
+.charity_categories{
+    margin: 0%;
+    padding: 0%;
 }

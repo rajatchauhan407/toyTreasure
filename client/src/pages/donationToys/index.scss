@@ -1,3 +1,23 @@
 .donorDonationToysPageWrapper{
     margin: 0%;
 }
+.backButton{
+        display: flex;
+        align-items: center;
+        
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: transparent;
+            border: none;
+            margin-left: 100%;
+            padding: 0;
+            cursor: pointer;
+
+            img{
+                width: 2.5rem;
+            }
+        }
+}
