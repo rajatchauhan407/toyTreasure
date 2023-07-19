@@ -16,7 +16,7 @@ import DashboardPendingDonation from '../../components/donor-home-dashboard-pend
 
 export default function Home(){
   const userNameAuth = useContext(AuthContext);
-  const [hasPendingDonation, setHasPendingDonation] = useState(false);
+  const [hasPendingDonation, setHasPendingDonation] = useState("");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function checkPendingDonation() {
@@ -28,15 +28,15 @@ export default function Home(){
         if(hasPending.length > 0){
           setLoading(false);
           setHasPendingDonation(hasPending[0] || "");
-          
         }
+        
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
 
     checkPendingDonation();
-  }, [setHasPendingDonation,setLoading,userNameAuth.uid]);
+  }, [setHasPendingDonation,setLoading,userNameAuth.uid,loading]);
 
     let discountData = [
         {
@@ -60,7 +60,7 @@ export default function Home(){
         <div className="home-welcome">
             <h1>Hi {userNameAuth.displayName}, make your first donation</h1>
             <DashboardPoints
-              
+              donations = {hasPendingDonation}
             />
         </div>
 

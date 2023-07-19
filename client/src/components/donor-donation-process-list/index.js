@@ -49,7 +49,7 @@ export default function DonorDonationProcessList(props)
     }catch(error){
         console.log(error);
     }
-    // authCtx.setUserPoints(totalPoints);
+    authCtx.setUserPoints(totalPoints);
    }
     function refresh()
     {     
