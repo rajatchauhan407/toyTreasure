@@ -3,6 +3,7 @@
 .donationConfirmation-page{
     display: flex;
     flex-direction: row;
+    gap: 1rem;
     @include globalPadding;
 }
 

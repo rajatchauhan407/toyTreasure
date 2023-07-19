@@ -121,7 +121,7 @@ export default function DonorDonationProcessList(props)
                         tt80pId2=`tt-80-points${index}`;                              
                       
                         return <tr className={index} id={el.category_name}>    
-                        <td>
+                        <td class="donation-table">
                             <div className="tt-80-imgandquantity">
                                 <img src={el.category_picture} alt={el.category_name}></img>                               
                                 {/* <p className="tt-80-amount" id={tt80pId}>{el.quantity}</p> */}
