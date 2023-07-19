@@ -35,7 +35,6 @@ export default function OrgVerificationDetails(props)
     async function handleAccept(){
         try{
             await FireBaseFirestoreService.updateDocumentById('user_donations',donationId,{donationStatus:"completed"});
-        
             props.onAccept(verificationId);
         }catch(error){
             console.log(error);

@@ -133,7 +133,8 @@ export default function DashboardPendingDonation(props) {
         console.log("verified");
         try{
           await FireBaseFirestoreService.updateDocumentById("user_donations",props.donations.id,{verificationStatus:true});
-        }catch(error){
+        }
+        catch(error){
           console.log("Error: "+error);
         }
         
