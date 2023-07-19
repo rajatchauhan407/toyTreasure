@@ -1,10 +1,46 @@
 import "./index.scss";
-import basket from "./basket.png";
-
+import gift from "./gift.svg";
+import crown from "./crown.svg";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function OrgVerificationDetails(props)
 {
-    function handleAccept(){
-        props.onAccept(true);
+    const [donationData, setDonationData] = useState({});
+    const [donorEmail, setDonorEmail] = useState("");
+    const {donationId} = useParams();
+    const[wishlist, setWishlist] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [verificationId, setVerificationId] = useState("verificationId");
+    console.log(donationId);
+    useEffect(()=>{
+        async function getDonationData(){
+            try{
+                const data = await FireBaseFirestoreService.getDocumentById('user_donations',donationId);
+                setDonationData(data.data());
+                console.log(data.data().wishlist)
+                const donorData = await FireBaseFirestoreService.getDocumentById('user',data.data().donorUID)
+                
+                setDonorEmail(donorData.data().email);
+                setWishlist(data.data().wishlist);
+                setCategories(data.data().categories);
+                setVerificationId(data.data().verificationId);
+            }catch(error){
+                console.log(error)
+            }
+        }
+        getDonationData();
+        // console.log(donationData.wishlist.map((el)=>{console.log(el);}));
+    },[])
+    async function handleAccept(){
+        try{
+            await FireBaseFirestoreService.updateDocumentById('user_donations',donationId,{donationStatus:"completed"});
+            props.onAccept(verificationId);
+        }catch(error){
+            console.log(error);
+        }
+        
+
     }
     let sumOfAmt=0;
     let sumOfPoints=0;
@@ -22,22 +58,24 @@ export default function OrgVerificationDetails(props)
             <div className="org-ver-details-card">
                 <div className="detailsHeader">
                     <h2>Verification Details</h2>
-                    <h3>Donation:  {donorDetails[0].donationId}</h3>
+                    <h5>Donation:  {donationId}</h5>
                 </div>
                 <div className="details">
-                    <img className="basket" src={basket} alt={"basket"}/>
+                    <img className="gift" src={gift} alt={"gift"}/>
                     <div className="donorInfo">
                         <div className="displayDonorInfo">
                             <p className="dTitle">Donor Name</p>
-                            <p className="dInfo">{donorDetails[0].donorName}</p>
+                            <p className="dInfo">{donationData.donorName}</p>
                         </div>
                         <div className="displayDonorInfo">
-                            <p className="dTitle">Donor Phone</p>
-                            <p className="dInfo">{donorDetails[0].donorPhone}</p>
+                            <p className="dTitle">Donor Email</p>
+                            <p className="dInfo">{donorEmail}</p>
                         </div>
                         <div className="displayDonorInfo">
-                            <p className="dTitle">Date and Time</p>
-                            <p className="dInfo">{donorDetails[0].dateAndTime} <i class="fa-sharp fa-light fa-triangle-exclamation dTitle"></i></p>
+                            <p className="dTitle">Date</p>
+                            <p className="dInfo">{donationData.date} 
+                            {/* <i class="fa-sharp fa-light fa-triangle-exclamation dTitle"></i> */}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -51,32 +89,39 @@ export default function OrgVerificationDetails(props)
                     </tr>
                     </thead>
                     <tbody>
-                    {              
-                        verToyList.map((el,index)=>{                
-                        sumOfAmt=sumOfAmt+el.amount;
-                        sumOfPoints=sumOfPoints+el.points;                
-                        if(el.fromWishlist==="y")
-                        {
-                            wishListIcon=<i class="fa-solid fa-crown"></i>;                   
-                        }
-                        else
-                        {
-                            wishListIcon="";
-                        }
+                    {
+                        wishlist.map((el,index)=>{                                               
+                            wishListIcon=<img className="org-ver-details-crownIcon" src={crown} alt={"crown"}/>           
+                        
+                        
               
                         return <tr>        
                         <td className="crownIcon">{wishListIcon}</td>       
-                        <td>{el.name}</td>
-                        <td>{el.amount}</td> 
-                        <td>{el.points}</td>
+                        <td>{el.org_w_toy_name}</td>
+                        <td>{el.quantity}</td> 
+                        <td>{el.org_w_toy_points * el.quantity}</td>
+                        </tr>
+                        }) 
+                    }
+                    {
+                        categories.map((el,index)=>{                                               
+                            wishListIcon=<img className="org-ver-details-crownIcon" src={crown} alt={"crown"}/>           
+                        
+                        
+              
+                        return <tr>        
+                        <td className="crownIcon"></td>       
+                        <td>{el.category_name}</td>
+                        <td>{el.quantity}</td> 
+                        <td>{el.category_points * el.quantity}</td>
                         </tr>
                         }) 
                     }
                         <tr className="totalPoints">
                         <td className="crownIcon"></td>
                         <td>Total Points</td>
-                        <td>{sumOfAmt}</td>
-                        <td>{sumOfPoints}</td>
+                        <td>{donationData.toysQuantity}</td>
+                        <td>{donationData.user_points}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -86,7 +131,7 @@ export default function OrgVerificationDetails(props)
                     proceeding for the donation.
                 </label>
                 <div className="orgVerButtons">
-                    <input type="Button" value="Cancel Donation"  id="cancelDonation"  className="orgVerButtonCancel"/>
+                    <input type="Button" value="Cancel"  id="cancelDonation"  className="orgVerButtonCancel"/>
                     <input type="Button" value="Accept"  id="acceptDonation"  className="orgVerButtonAccept" onClick={handleAccept}/>
                 </div>                
             </div>           

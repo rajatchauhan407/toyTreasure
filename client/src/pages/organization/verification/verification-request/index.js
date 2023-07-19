@@ -6,14 +6,15 @@ import OrgVerificationDetails from '../../../../components/org-verification-deta
 import OrgVerificationQRActive from "../../../../components/org-verification-qr-active";
 export default function OrgVerificationRequest(props){
     const [flag, setFlag] = useState(false);
+    const [verificationId, setVerificationId] = useState("verificationId");
     return(
         <div className='org-verification-request-container'>
         <div className="org-verification-container">
-        <OrgVerificationDetails onAccept={()=>{setFlag(true)}}/>
+        <OrgVerificationDetails onAccept={(data)=>{setFlag(true); setVerificationId(data)}}/>
         </div>
         <div className="org-verify-card-container">
         {
-            !flag?<OrgVerificationQRCard/>:<OrgVerificationQRActive/>
+            !flag?<OrgVerificationQRCard/>:<OrgVerificationQRActive qrCode={verificationId}/>
         }
         </div>
         </div>

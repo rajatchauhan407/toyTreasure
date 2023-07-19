@@ -1,6 +1,7 @@
 // This component is sample login page for checking purpose.. It shall be deleted phir.
 
 import { AiFillGoogleCircle } from 'react-icons/ai';
+// import googleIcon from './GoogleLogo.com.png'
 import "./index.scss";
 import { useContext, useRef, useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
@@ -80,25 +81,25 @@ async function handleLoginWithGoogle(){
             console.log("exists")
             const data = res.data();
             console.log(data);
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('profile_pic', photoURL);
-            sessionStorage.setItem('displayName',displayName);
-            sessionStorage.setItem('email',email);
-            sessionStorage.setItem('emailVerified',emailVerified);
-            sessionStorage.setItem('uid',uid);
-            sessionStorage.setItem('userType',userType);
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('profile_pic', photoURL);
+            localStorage.setItem('displayName',displayName);
+            localStorage.setItem('email',email);
+            localStorage.setItem('emailVerified',emailVerified);
+            localStorage.setItem('uid',uid);
+            localStorage.setItem('userType',userType);
             authCtx.setUserType(userType);
         }else{
             console.log("newOne");
             let result = await FireBaseFirestoreService.settingDocument("user",uid,document); 
             console.log(result);  
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('profile_pic', photoURL);
-            sessionStorage.setItem('displayName',displayName);
-            sessionStorage.setItem('email',email);
-            sessionStorage.setItem('emailVerified',emailVerified);
-            sessionStorage.setItem('uid',uid);
-            sessionStorage.setItem('userType',userType);
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('profile_pic', photoURL);
+            localStorage.setItem('displayName',displayName);
+            localStorage.setItem('email',email);
+            localStorage.setItem('emailVerified',emailVerified);
+            localStorage.setItem('uid',uid);
+            localStorage.setItem('userType',userType);
             authCtx.setUserType(userType);
         }
         // if(res.docs.length === 0){
@@ -148,7 +149,7 @@ async function handleLoginWithGoogle(){
                             required
                             value={userName}
                             onChange={(e)=>{setUserName(e.target.value)}}
-                            className="input-text"
+                            className="email-input-text"
                         />
                     </label>
                     <label className="input-label login-label">
@@ -161,9 +162,11 @@ async function handleLoginWithGoogle(){
                             className="input-text"
                         />
                         </label>
+
                         <div className="loginRememberMe">
-                        <label >
-                         <input type="checkbox" className='loginRememberMeCheckbox' />
+                        <label className='loginRememberMeCheckboxWrapper'>
+                         <input type="checkbox" 
+                         className='loginRememberMeCheckbox' />
                          Keep signed in
                          </label>
                          </div>

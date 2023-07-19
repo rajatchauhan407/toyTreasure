@@ -1,16 +1,28 @@
 import "./index.scss";
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useContext } from 'react';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
-
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { database } from "../../FirebaseConfig";
+import AuthContext from "../../services/auth-context";
 export default function OrgWishlist(){
+    const authCtx = useContext(AuthContext);
     const [orgWishList, setOrgWishList] = useState([]); 
-    async function getOrgWishListData()
-    {
-        const data = await FireBaseFirestoreService.getDocumentsInArray("organization_wishlist");
-        let array = data;       
-        setOrgWishList(array);       
-    }
-    useEffect(()=>{
+    const [toysReceived] = useState(0);
+    useEffect(()=>{        
+        async function getOrgWishListData()
+        {    
+            const profiles = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
+            if(profiles.length>0){
+            const orgId = profiles.find((profile) => profile.uid === authCtx.uid).id;
+            const usersCollectionRef = collection(database, "organization_wishlist");
+             const q = query(usersCollectionRef, where("profile_id", "==", orgId));
+             const data = await getDocs(q);
+             console.log(data.docs)
+        let array = data.docs.map((el)=>{return el.data()});
+        console.log(array)
+            //  let array = data;       
+            setOrgWishList(array); }      
+        }
         getOrgWishListData();
     },[]);
     // let orgWishlistData = [
@@ -57,14 +69,24 @@ export default function OrgWishlist(){
     //         org_toy_pending:8
     //     }
     // ]
+    async function deleteToyFromWishlist(id){
+        try{
+            await FireBaseFirestoreService.deleteDocumentById('organization_wishlist',id);
+            console.log("Deleted From WishList");
+
+        }catch(error){
+            console.log(error);
+        }
+       
+    }
     return (<div className="table-container">
                 <table>
                     <thead>
                         <tr>
-                            <td>Tag Category</td>
-                            <td>Qty Required</td>
+                            <td>Category</td>
+                            <td>Required</td>
                             {/* Yet to decide on data for Qty Received*/}
-                            <td>Qty Received</td>
+                            <td>Received</td>
                             {/* <td>Pending</td> */}
                             <td></td>
                         </tr>
@@ -74,9 +96,9 @@ export default function OrgWishlist(){
                             return <tr>
                             <td>{el.org_w_toy_name}</td>
                             <td>{el.org_w_toys_required}</td>
-                            <td>26</td> 
+                            <td>{toysReceived}</td> 
                             {/* <td>08</td> */}
-                            <td><i className="fa-solid fa-trash"></i></td>
+                            <td onClick={()=>{deleteToyFromWishlist(el.id)}}><i className="fa-solid fa-trash"></i></td>
                         </tr>
                         })}
                     </tbody>

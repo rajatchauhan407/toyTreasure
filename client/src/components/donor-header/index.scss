@@ -1,6 +1,13 @@
+@import '../../sass/main.scss';
+
 .tt-45-donorHeaderWrapper
 {  
-    padding:1rem;
+    font-family: $font-heading;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: 26px; 
+    padding: 2rem 4rem;
     display:flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -14,20 +21,42 @@
 .tt-45-main-menu li a
 {
     text-decoration: none;
-    color:black;
+    color:$text_not_just_gray;
     padding: .2rem .5rem .2rem .5rem;
 }
 .tt-45-main-menu li a:hover
 {
    font-weight: bold;
+   color: $text_midnight_blue;
+}
+.tt-45-main-menu li a:focus 
+{
+   color:$text_midnight_blue;
 }
 .tt-45-logout
-{
-    border: 1px solid black;
-    border-radius: 5px;
+{    
+    @include Buttuns($small-button, $button_blue_CTA);
+    color:$text_midnight_blue;  
+
+    &:hover{
+        @include Buttuns($small-button, $text_midnight_blue);
+        color:$text_pure_white;
+        cursor: pointer;
+
+    }
 }
+
 .tt-45-main-menu ul
 {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.tt-45-menu-button-wrapper
+{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }

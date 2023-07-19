@@ -36,9 +36,9 @@ return(
             <Route path="/rewards" element={<Rewards/>}/>
             <Route path="/support" element={<Support/>}/>
             <Route path="/home" element={<Home/>} />
-            <Route path="/donation/toys" element={<DonorDonationToysPage/>} />
+            <Route path="/donation/toys/:id" element={<DonorDonationToysPage/>} />
             <Route path="/charity/profile/:id" element={<DonorCharityProfilePage/>}/>
-            <Route path="/donation/confirmation" element={<DonorDonationConfirmation/>}/>
+            <Route path="/donation/confirmation/:id" element={<DonorDonationConfirmation/>}/>
         </Route>)}
     
         
@@ -51,7 +51,7 @@ return(
                 <Route path="/organization/dashboard" element={<OrgDashboard/>}/>
                 <Route path="/organization/profile" element={<OrgProfile/>}/>
                 <Route path="/organization/stories" element={<OrgStories/>}/>
-                <Route path="/organization/verification/:id" element={<OrgVerificationRequest/>}/>  
+                <Route path="/organization/verification/:donationId" element={<OrgVerificationRequest/>}/>  
                 <Route path="/organization/settings" element={<OrgSettings/>}/>
                 <Route path="/organization/verification" element={<OrgVerification/>}/>
         </Route>  )}                                                                                                                                                                                                                                        

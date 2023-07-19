@@ -1,39 +1,38 @@
 import "./index.scss";
-import { Link } from "react-router-dom";
+import arrowBack from './../../pages/map/back_arrow.png';
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 
-export default function DonorCharityProfileInformation(){
+export default function DonorCharityProfileInformation({info,logo, main}){
+  console.log(info);
+  const {id} = useParams()
     const [orgCharityProfile, setOrgCharityProfile] = useState([]);
 
   useEffect(() => {
-    async function getOrgCharityProfileData() {
-      try {
-        const data = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
-        setOrgCharityProfile(data || []);
-        console.log(data)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    getOrgCharityProfileData();
-  }, []);
+    setOrgCharityProfile(info);
+  }, [info]);
 
 
   return (
     <div className="charityInformation">
-        {orgCharityProfile.map(profile => (
-            <div key={profile.id} className="profileinformation">
-                <img src="https://picsum.photos/52/52" alt="logo-charity" />
-                <h2>{profile.profileDetails.org_name}</h2>
-                <p>{profile.profileDetails.org_description}</p>
-                <button><Link to="/donation/toys">Donate Now</Link></button>
+        
+            <div key={orgCharityProfile.id} className="profileinformation">
+              <div className="link">
+                <Link to="/map"><button className="back"><img src={arrowBack} alt="back-arrow"/></button></Link>
+              </div>
+
+              <div className="information">
+                <img className="charity-logo" src={logo} alt="logo-charity" />
+                <h2>{orgCharityProfile.org_name}</h2>
+                <p>{orgCharityProfile.org_description}</p>
+                <button><Link to={`/donation/toys/${id}`}>Donate Now</Link></button>
+              </div>
             </div>
-        ))}
+        
 
         <div className="profileImage">
-            <img src="https://picsum.photos/1500/800" alt="main-charity" />
+            <img src={main} alt="main-charity" />
         </div>
 
     </div>

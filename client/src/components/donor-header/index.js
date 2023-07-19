@@ -10,17 +10,19 @@ export default function DonorHeader(props)
     }
     return(
         <div className="tt-45-donorHeaderWrapper">
-            <div class="tt-45-donor-image-wrapper">
-                <img className="tt-45-site-logo" src={logo} alt={"siteLogo"}/>
-            </div>                  
+            <div className="tt-45-donor-image-wrapper">
+                <Link to="/home"><img className="tt-45-site-logo" src={logo} alt={"siteLogo"}/></Link>
+            </div> 
+            <div className="tt-45-menu-button-wrapper">              
             <nav className="tt-45-main-menu">
                 <ul>
                     <li><Link to="/home">Home</Link></li>
                     <li><Link to="/map">Find Charities</Link></li>               
-                    <li><Link to="/rewards">Rewards</Link></li>
-                    <li><Link to="#" onClick={handleLogout} className="tt-45-logout">Logout</Link></li>     
-                </ul>
-            </nav>                      
+                    <li><Link to="/rewards">Rewards</Link></li>                                       
+                </ul>              
+            </nav>    
+            <button className="tt-45-logout" onClick={handleLogout}>Logout</button> 
+            </div>                   
         </div>
     )
 }

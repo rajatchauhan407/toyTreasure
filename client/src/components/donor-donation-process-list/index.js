@@ -1,16 +1,56 @@
 import "./index.scss";
 import { Link } from "react-router-dom";
-import React, { setState } from 'react';
-
+import crown from "./crown.svg";
+import React, { useState,useContext, useEffect } from 'react';
+import AuthContext from "../../services/auth-context";
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function DonorDonationProcessList(props)
 {    
+    let authCtx = useContext(AuthContext);
+    const [categories, setCategories] = useState(authCtx.userCartData.categories);
+    const [wishlist, setWishlist] = useState(authCtx.userCartData.wishlist);
+    const [totalPoints, setTotalPoints] = useState(0);
+    const [totalQuantity, setTotalQuantity] = useState(0);
+    const [tt80sumOfPoints, setTT80SumOfPoints] = useState(0);
+    console.log(wishlist)
     let tt80data=0;  
     let tt80totalpoints=0;
     let tt80pId="";
     let tt80pId2="";   
     let tt80sumOfAmt=0;
-    let tt80sumOfPoints=0;
+    
+   function calucateQuantity(wishlist,category){
+        let count = 0;
+        wishlist.forEach((el)=>{
+            count += el.quantity; 
+        });
+        category.forEach((el)=>{
+            count += el.quantity
+        });
+        setTotalQuantity(count);
+        authCtx.setToysQuantity(count);
+   }
+   useEffect(()=>{
+    calucateQuantity(wishlist,categories);
+    calculatePoints(wishlist,categories);
+   },[])
    
+   async function calculatePoints(wishlist, categories){
+    let totalPoints = 0;   
+    wishlist.forEach((el)=>{
+        totalPoints+= +el.org_w_toy_points * el.quantity;
+    });
+    categories.forEach((el)=>{
+        totalPoints += +el.category_points * el.quantity;
+    });
+    setTotalPoints(totalPoints);
+    try{
+        await FireBaseFirestoreService.updateDocumentById('user',authCtx.uid,{user_points:totalPoints});
+    }catch(error){
+        console.log(error);
+    }
+    authCtx.setUserPoints(totalPoints);
+   }
     function refresh()
     {     
         window.location.reload();     
@@ -61,65 +101,102 @@ export default function DonorDonationProcessList(props)
     }
    
     let tt80wishListIcon="";  
-    const tt80donationList = [
-        {fromWishlist:"y",imageUrl:"https://i5.walmartimages.com/asr/5d5541cd-d9cc-4b47-b7de-ebc107b74d82_1.9f14f307142cfd730852e875760b90bc.jpeg", name:"Teddy Bear", donateTo:"Children Hospital", amount:1,points:50},
-        {fromWishlist:"n",imageUrl:"https://i5.walmartimages.com/asr/c7ac4a19-da16-4974-93a6-68ae43b358cd.7255957a3ac34d02b9cc9719ddbf361d.jpeg", name:"Stuffed Animals", donateTo:"Children Hospital", amount:1,points:50},
-        {fromWishlist:"n",imageUrl:"https://images-na.ssl-images-amazon.com/images/I/81R3A90l4iS._SL1500_.jpg", name:"Construction Toys", donateTo:"Children Hospital", amount:1,points:25}
-    ]  
+    // const tt80donationList = [
+    //     {fromWishlist:"y",imageUrl:"https://i5.walmartimages.com/asr/5d5541cd-d9cc-4b47-b7de-ebc107b74d82_1.9f14f307142cfd730852e875760b90bc.jpeg", name:"Teddy Bear", donateTo:"Children Hospital", amount:1,points:50},
+    //     {fromWishlist:"n",imageUrl:"https://i5.walmartimages.com/asr/c7ac4a19-da16-4974-93a6-68ae43b358cd.7255957a3ac34d02b9cc9719ddbf361d.jpeg", name:"Stuffed Animals", donateTo:"Children Hospital", amount:1,points:50},
+    //     {fromWishlist:"n",imageUrl:"https://images-na.ssl-images-amazon.com/images/I/81R3A90l4iS._SL1500_.jpg", name:"Construction Toys", donateTo:"Children Hospital", amount:1,points:25}
+    // ]  
     
     return( 
         <form className="tt-80-donationProcessListForm"> 
-          <h1>Donation Details</h1>     
+          <h1>Confirm your Donation</h1>     
             <div className="tt-80-donationProcessListWrapper">                            
                     <div className="tt-80-toy-list"> 
                         <div className="tt-80-toy-list-header">
                             <h3>Toy List</h3>   
-                            <Link onClick={refresh}>Reset</Link>                          
+                            <h4><Link onClick={refresh}>Reset</Link></h4>                          
                         </div>                                      
                     <table id="tt-80-table">
                     {/* <tbody> */}
                     {              
-                        tt80donationList.map((el,index)=>{                
+                        categories.map((el,index)=>{                
                         tt80sumOfAmt=tt80sumOfAmt+el.amount;
-                        tt80sumOfPoints=tt80sumOfPoints+el.points; 
+                        {/* setTT80SumOfPoints(tt80sumOfPoints+el.category_points);  */}
+                        {/* tt80sumOfPoints = tt80sumOfPoints + */}
                         tt80pId=`tt-80-amount${index}`;                             
                         tt80pId2=`tt-80-points${index}`;                              
-                        if(el.fromWishlist==="y")
-                        {
-                            tt80wishListIcon=<i className="fa-solid fa-crown"></i>;                   
-                        }
-                        else
-                        {
-                            tt80wishListIcon="";
-                        }
-              
-                        return <tr className={index} id={el.name}>    
-                        <td>
+                      
+                        return <tr className={index} id={el.category_name}>    
+                        <td class="donation-table">
                             <div className="tt-80-imgandquantity">
-                                <img src={el.imageUrl} alt={el.name}></img>                               
-                                <p className="tt-80-amount" id={tt80pId}>{el.amount}</p>
+                                <img src={el.category_picture} alt={el.category_name}></img>                               
+                                {/* <p className="tt-80-amount" id={tt80pId}>{el.quantity}</p> */}
                             </div>
                         </td>     
                        
+
                         <td>
                             <div class="tt-80-nameandwishlist">  
                                 <div>                        
-                                    {el.name}  {tt80wishListIcon}
+                                    <p>{el.category_name}</p>
                                 </div> 
-                                {el.donateTo}
+                                {/* {el.donateTo} */}
                             </div>
                         </td>                      
                         <td>
                             <div className="tt-80-amount-change">                              
-                                <button onClick={(e) => addRemove(index,e,"remove",el.points)}>-</button>
-                                <input type="text" id={index} value={el.amount} disabled></input>                                                          
-                                <button onClick={(e) => addRemove(index,e,"add",el.points)}>+</button>                                
+                                <button onClick={(e) => addRemove(index,e,"remove",el.category_points)}>-</button>
+                                <input type="text" id={index} value={el.quantity} ></input>                                                          
+                                <button onClick={(e) => addRemove(index,e,"add",el.category_points)}>+</button>                                
                             </div>
                         </td>
                         <td>
                             <div className="tt-80-pointsandclose">
-                            <p className="tt-80-points" id={tt80pId2}>{el.points}</p><p>pts</p>                              
-                                <Link onClick={(e) => removeRow(el.name,index,e)}> <i className="fa fa-times" aria-hidden="true"></i></Link>                               
+                            <p className="tt-80-points" id={tt80pId2}>{el.category_points * el.quantity}</p><p>pts</p>                              
+                                <Link onClick={(e) => removeRow(el.category_name,index,e)}> <i className="fa fa-times" aria-hidden="true"></i></Link>                               
+                            </div>                        
+                        </td>                            
+                        </tr>                    
+                        })                       
+                    } 
+                    {              
+                        wishlist.map((el,index)=>{                
+                        tt80sumOfAmt=tt80sumOfAmt+el.amount;
+                        {/* setTT80SumOfPoints(tt80sumOfPoints+el.org_w_toy_points);  */}
+                        tt80pId=`tt-80-amount${index}`;                             
+                        tt80pId2=`tt-80-points${index}`;                              
+                        
+                            tt80wishListIcon=<img className="donor-donation-processlist-crownIcon" src={crown} alt={"crown"}/> ;                   
+                        
+              
+                        return <tr className={index} id={el.name}>    
+                        <td>
+                            <div className="tt-80-imgandquantity">
+                                <img src={el.org_w_toy_picture} alt={el.org_w_toy_name}></img>                               
+                                {/* <p className="tt-80-amount" id={tt80pId}>{el.quantity}</p> */}
+                            </div>
+                        </td>     
+                       
+
+                        <td>
+                            <div class="tt-80-nameandwishlist">  
+                                <div className="tt-80-wishlisticon">                        
+                                    {el.org_w_toy_name}  <div className="crownIcon-tt-80">{tt80wishListIcon}</div>
+                                </div> 
+                                {/* {el.donateTo} */}
+                            </div>
+                        </td>                      
+                        <td>
+                            <div className="tt-80-amount-change">                              
+                                <button className="tt-80-removebtn" onClick={(e) => addRemove(index,e,"remove",el.org_w_toy_points)}>-</button>
+                                <input type="text" id={index} value={el.quantity} disabled></input>                                                          
+                                <button className="tt-80-addbtn" onClick={(e) => addRemove(index,e,"add",el.org_w_toy_points)}>+</button>                                
+                            </div>
+                        </td>
+                        <td>
+                            <div className="tt-80-pointsandclose">
+                            <p className="tt-80-points" id={tt80pId2}>{el.org_w_toy_points * el.quantity}</p><p>pts</p>                              
+                                <Link onClick={(e) => removeRow(el.org_w_toy_name,index,e)}> <i className="fa fa-times" aria-hidden="true"></i></Link>                               
                             </div>                        
                         </td>                            
                         </tr>                    
@@ -128,8 +205,8 @@ export default function DonorDonationProcessList(props)
                         <tr className="tt-80-tt80totalpoints" >
                         <td className="tt-80-crownIcon"></td>
                         <td>Total</td>
-                        <td id="totalToystt80">{tt80sumOfAmt}</td>
-                        <td id="totalPointstt80">{tt80sumOfPoints}pts</td>
+                        <td id="totalToystt80">{totalQuantity}</td>
+                        <td id="totalPointstt80">{totalPoints}pts</td>
                         </tr>
                     {/* </tbody> */}
                 </table>

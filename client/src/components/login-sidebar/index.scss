@@ -1,14 +1,21 @@
+
 .loginSidebar{
-    // width: 517px;
-    background-color: gray;
-    background-image: url(https://picsum.photos/) ;
+    padding: 4%;
+    background-image: url('./Screenshot.png') ;
+    background-size: cover; 
     display: flex;
     flex-flow: column;
     justify-content: space-between;
     
+    .sidebarText{
+        padding: 4%;
+        width: fit-content;
+        margin-bottom: 30%;
+    }
     .loginLogo,
     .sidebarItemWrapper{
         // margin-left: 100px;
+        color: white;
     }
     .loginLogo{
         // margin-top: 50px;

@@ -1,7 +1,8 @@
 import './index.scss';
 import DonationCategoryCard from '../donor-donation-category-card';
 
-function DonationCategoryCardWrapper() {
+function DonationCategoryCardWrapper({onGetCat}) {
+
   // let donationCategoryCardData = [
   //   {
   //     imageUrl: 'https://picsum.photos/400/400?rand=431',
@@ -32,11 +33,17 @@ function DonationCategoryCardWrapper() {
   // const donationCategoryCardDatasList = donationCategoryCardData.map((el) => (
   //   <DonationCategoryCard imageUrl={el.imageUrl} points={el.points} toyType={el.toyType} age={el.age} />
   // ));
+  function saveCategories(data){
+    console.log(data);
+    onGetCat(data);
+  }
   return <div className='donorDonationCategoryCardWrapper'>
-    <h1>Categories</h1>
-    <p>Choose a category to donate if you can not find in wishlist.</p>
+    <h1>Choose a Category to Donate</h1>
+    <p>Make a valuable contribution by selecting a toy category and quantity to donate, even if it's not in the wishlist! </p>
     <div className='donorDonationCategoryCardWrap'>
-      <DonationCategoryCard/>
+      <DonationCategoryCard
+        onGetCategories={saveCategories}
+      />
     </div>
     </div>;
 }

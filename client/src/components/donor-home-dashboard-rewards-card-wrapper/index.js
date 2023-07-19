@@ -1,45 +1,42 @@
 import './index.scss';
 import HomeDashboardRewards from '../donor-home-dashboard-rewards-card';
+
 import { useState,useEffect } from 'react';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
-import GeneralMultipleSlider from '../containers/general-multiple-slider';
-function HomeDashboardRewardsCard() {
-  const [donorRewardsList, setDonorRewardsList] = useState([]); 
-  async function getDonorRewardsList()
-    {
-        const data = await FireBaseFirestoreService.getDocumentsInArray("user_rewards");
-        let array = data;       
-        setDonorRewardsList(array);  
-        
-    }
-    useEffect(()=>{
-      getDonorRewardsList();
-    },[]);
-  // let rewardsData = [
-  //   {
-  //     imageUrl: 'https://picsum.photos/400/400?rand=431',
-  //     points: 200,
-  //   },
-  //   {
-  //     imageUrl: 'https://picsum.photos/400/400?rand=432',
-  //     points: 300,
-  //   },
-  //   {
-  //     imageUrl: 'https://picsum.photos/400/400?rand=433',
-  //     points: 400,
-  //   },
-  //   {
-  //     imageUrl: 'https://picsum.photos/400/400?rand=434',
-  //     points: 600,
-  //   },
-  // ];
+import React, { useContext } from "react";
+import AuthContext from '../../services/auth-context';
 
-  const rewardsList = donorRewardsList.map((el) => (       
-    <HomeDashboardRewards imageUrl='https://thumbs.dreamstime.com/b/toy-shop-discount-concept-banner-cartoon-style-toy-shop-discount-concept-banner-cartoon-banner-toy-shop-discount-vector-concept-134533190.jpg' points={el.reward_points} status={el.reward_state} />
-  ));
-    console.log(rewardsList);
-  // return <div className='homeDashboardRewardsCardwrapper'>{rewardsList}</div>;
-    return <GeneralMultipleSlider cards={rewardsList}/>
+import GeneralMultipleSlider from '../containers/general-multiple-slider';
+
+function HomeDashboardRewardsCard() {
+  const [donorRewardsList, setDonorRewardsList] = useState([]);
+  const { user_points } = useContext(AuthContext); // Access the user_points value from AuthContext
+
+  async function getDonorRewardsList() {
+    const data = await FireBaseFirestoreService.getDocumentsInArray('user_rewards');
+    let array = data;
+    setDonorRewardsList(array);
+  }
+
+  useEffect(() => {
+    getDonorRewardsList();
+  }, []);
+
+  // Sort the rewardsList array based on the reward_points
+  const sortedRewardsList = donorRewardsList.sort((a, b) => a.reward_points - b.reward_points);
+
+  const rewardsList = sortedRewardsList.map((el) => {
+
+    return (
+      <HomeDashboardRewards
+        imageUrl={el.reward_image}
+        points={el.reward_points}
+        status={el.reward_state}
+      />
+    );
+  });
+
+  return <GeneralMultipleSlider cards={rewardsList} />;
 }
 
 export default HomeDashboardRewardsCard;

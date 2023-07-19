@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-const Player = () => {
+const Player = ({video}) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const videoRef = useRef(null);
 
@@ -15,14 +15,17 @@ const Player = () => {
 
     return (
         <div>
-            <video
+            <iframe
                 ref={videoRef}
                 width="100%"
-                height="100%"
+                height="500px"
                 controls
-            >
-                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-            </video>
+                title='charity video'
+                // src="https://www.youtube.com/embed/7sDY4m8KNLc"
+                src={video}
+
+            />
+                {/* <source src={video} type="video/mp4" /> */}
         </div>
     )
 }

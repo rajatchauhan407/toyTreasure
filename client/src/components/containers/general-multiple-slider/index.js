@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './index.scss';
+import arrowLeft from './arrow_left.png';
+import arrowRight from './arrow_right.png';
+
 const GeneralMultipleSlider = (props) => {
   const [slideIndex, setSlideIndex] = useState(0);
 
@@ -20,10 +23,10 @@ const GeneralMultipleSlider = (props) => {
         {/* Add more card components if needed */}
       </div>
       <button className="tt-71-prev-button" onClick={handlePrevSlide} disabled={slideIndex === 0}>
-        Prev
+          <img src={arrowLeft}/>
       </button>
       <button className="tt-71-next-button" onClick={handleNextSlide} disabled={slideIndex === props.cards.length-3}>
-        Next
+          <img src={arrowRight}/>
       </button>
     </div>
   );
