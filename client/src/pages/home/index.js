@@ -22,7 +22,7 @@ export default function Home(){
     async function checkPendingDonation() {
       try {
         const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
-        const hasPending = data.some((donation) => donation.user_donation_donationStatus.pending === true);
+        const hasPending = data.some((donation) => donation.user_donations_donationStatus.pending === true);
         setHasPendingDonation(hasPending);
       } catch (error) {
         console.error("Error fetching data:", error);
