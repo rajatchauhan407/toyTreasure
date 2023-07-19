@@ -57,7 +57,7 @@ export default function CreateAccountDonor(){
     return<>
     <div className='tt-84-container'>
     <h1>Join as Donor</h1>
-    <p>sign up here to join us for great change</p>
+    <p className='body1'>sign up here to join us for great change</p>
     <form onSubmit={handleCreateAccount}>
     <label htmlFor="fullName">Your Fullname</label>
         <input
@@ -104,16 +104,19 @@ export default function CreateAccountDonor(){
         onChange={(signup)=>setConfirmPassword(signup.target.value)}
         />
 
+        <div className='agreeTermsWrapper'>
         <input 
         type="checkbox" 
         id='agreeTerms'
         checked={agreeTerms}
         onChange={(signup)=> setAgreeTerms(signup.target.checked)}
         />
-        <label htmlFor='agreeTerms'>Agree to Terms and conditions.</label>
+        <label htmlFor='agreeTerms'> Agree to Terms and conditions. </label>
+        </div>
 
         <button type="submit">Create account</button>
-        <p>Already have an account?</p><Link to="/login">Sign In</Link>
+    
+        <p>Already have an account?<span><Link to="/login">Sign In</Link></span></p>
     </form>
     </div>
     

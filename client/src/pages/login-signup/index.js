@@ -7,14 +7,25 @@ import CreateAccountOrg from '../../components/org-create-account';
 export default function LoginSignUp() {
  
   const [user,setUser] = useState(null);
+  const [classUsed, setClassUsed] = useState("loginsignupimage");
+
     function handleSignUp(selectedUser){
         setUser(selectedUser); 
+        if(selectedUser === "donor"){
+          setClassUsed('loginsignupimageDonor');
+        }
+        else if(selectedUser === "org"){
+          setClassUsed('loginsignupimageOrg');
+        }
+        else{
+          setClassUsed('loginsignupimage');
+        }
     }
     return (
       <div className='loginsignupwrapper'>
         
-        <div className='loginsignupimage'>
-
+        <div className={classUsed}>
+{/* <p>{classUsed}</p> */}
               {/* <img
              className='loginsignupimage'
              src={posterImage}
