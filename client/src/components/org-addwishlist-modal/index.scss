@@ -45,7 +45,6 @@ input, select{
 
 .modalWishlist button
 {   
-   
     border:none;
     border-radius: .5rem;
     padding:.5rem 1rem;  
@@ -56,11 +55,21 @@ input, select{
 .modalWishlist .save
 {    
     background-color: $primary_boy_blue;
-    color:$text_midnight_blue;     
+    color:$text_midnight_blue; 
+    
+    &:hover{
+        background-color: $text_midnight_blue;
+        color: $text_pure_white;
+    }
 }
 .modalWishlist .cancel
 {    
-    color:$text_midnight_blue;     
+    color:$text_midnight_blue; 
+    
+    &:hover{
+        background-color: $text_midnight_blue;
+        color: $text_pure_white;
+    }
 }
 .modalWishlist input[type=file]::file-selector-button {
     
