@@ -23,7 +23,7 @@ export default function CardOrgTT13() {
       let userDonationRef = collection(database,'user_donations');
       let qUser = query(userDonationRef, where("orgId","==",orgId));
       let donationData = await getDocs(qUser);
-      // console.log(donationData.docs[0].data())
+      console.log(donationData.docs);
       setOrgVerificationList(donationData.docs || []);
       // donationData.forEach((el)=>{
       //   console.log(el.data())
@@ -100,7 +100,7 @@ export default function CardOrgTT13() {
             <td>{props?.data().toysQuantity}</td>
             <td>{props?.data().donationStatus}</td>
             <td>
-                <button disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
+                <button disabled={props?.data().verificationStatus === true} onClick={() => { navigate('/organization/verification/'+props.id) }}>
                 Verify
                 </button>
             </td>

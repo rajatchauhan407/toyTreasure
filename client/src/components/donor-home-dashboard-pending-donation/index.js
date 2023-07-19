@@ -1,55 +1,58 @@
 import './index.scss';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
-
-export default function DashboardPendingDonation() {
+import AuthContext from '../../services/auth-context';
+import { BarcodeReader } from '@zxing/library';
+export default function DashboardPendingDonation(props) {
   const [donorPendingDonation, setPendingDonation] = useState([]);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const videoRef = useRef(null);
+  const authCtx = useContext(AuthContext);
+  const [scannedData, setScannedData] = useState('');
 
   useEffect(() => {
-    async function getPendingDonationData() {
-      try {
-        const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
-        const pendingDonations = data.filter((donation) => donation.user_donation_status.pending === true);
-        setPendingDonation(pendingDonations || []);
-        console.log(pendingDonations);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
+    console.log(props.donations);
+    // async function getPendingDonationData() {
+    //   try {
+    //     const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
+    //     const pendingDonations = data.filter((donation) => donation.donorUID === authCtx.uid);
+    //     setPendingDonation(pendingDonations || []);
+    //     console.log(pendingDonations);
+    //   } catch (error) {
+    //     console.error("Error fetching data:", error);
+    //   }
+    // }
 
-    getPendingDonationData();
+    // getPendingDonationData();
   }, []);
 
-  const formatDate = (timestamp) => {
-    const dateObj = timestamp.toDate();
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    return dateObj.toLocaleDateString(undefined, options);
-  };
+  // const formatDate = (timestamp) => {
+  //   const dateObj = timestamp.toDate();
+  //   const options = { month: 'long', day: 'numeric', year: 'numeric' };
+  //   return dateObj.toLocaleDateString(undefined, options);
+  // };
 
-  const handleScanQRCode = () => {
-    setIsCameraOpen(true);
+  // const handleScanQRCode = async () => {
+  //   // setIsCameraOpen(true);
+  //   const codeReader = new BarcodeReader();
+   
+  // };
 
-    // Access the camera using getUserMedia
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then((stream) => {
-        videoRef.current.srcObject = stream;
-        videoRef.current.play();
-      })
-      .catch((error) => {
-        console.error("Error accessing camera:", error);
-        setIsCameraOpen(false);
-      });
-  };
-
-  const handleStopCamera = () => {
-    const stream = videoRef.current.srcObject;
-    const tracks = stream && stream.getTracks();
-    if (tracks) {
-      tracks.forEach((track) => track.stop());
+  const handleScanQRCode = async () => {
+    try{
+      const codeReader = new BarcodeReader();
+      const videoElement = videoRef.current;
+      const constraints = {video:{facingMode:"environment"}};
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      videoElement.srcObject = stream;
+      const result = await codeReader.decodeOnceFromVideoDevice(undefined, videoElement)
+      setScannedData(result.getText())
+        
+    } catch (err) {
+      console.error('Error accessing camera:', err);
     }
-    setIsCameraOpen(false);
+    
+
   };
 
   return (
@@ -59,9 +62,10 @@ export default function DashboardPendingDonation() {
         {donorPendingDonation.map((donation, index) => (
           <div key={index}>
             <h3>{donation.org_name}</h3>
-            <p>{formatDate(donation.user_donation_date)}</p>
+            {/* <p>{formatDate(donation.user_donation_date)}</p> */}
           </div>
         ))}
+        <video ref={videoRef} width="640" height="480" />
         <input
           type="button"
           value="Scan QR Code"
@@ -69,12 +73,15 @@ export default function DashboardPendingDonation() {
           className="tt72scanQR"
           onClick={handleScanQRCode}
         />
-        {isCameraOpen && (
+        <div>
+          <p>{scannedData}</p>
+    </div>
+        {/* {isCameraOpen && (
           <div>
             <video ref={videoRef} autoPlay />
             <button onClick={handleStopCamera}>Stop Camera</button>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

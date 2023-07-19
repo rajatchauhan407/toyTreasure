@@ -22,7 +22,7 @@ export default function Home(){
     async function checkPendingDonation() {
       try {
         const data = await FireBaseFirestoreService.getDocumentsInArray("user_donations");
-        const hasPending = data.some((donation) => donation.user_donation_status.pending === true);
+        const hasPending = data.some((donation) => donation.donorUID === userNameAuth.uid);
         setHasPendingDonation(hasPending);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -58,7 +58,9 @@ export default function Home(){
 
         {hasPendingDonation && (
           <div className='pending-donation'>
-            <DashboardPendingDonation/>
+            <DashboardPendingDonation
+              donations={hasPendingDonation}
+            />
           </div>
         )}
 
