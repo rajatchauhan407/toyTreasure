@@ -1,4 +1,7 @@
+@import '../../sass/main.scss';
+
 .CharityProfileCategoryCardWrapper{
+
     .CharityProfileCategoryCardImgWrapper{
         display: flex;
         justify-content: space-between;
@@ -8,4 +11,46 @@
         }
     }
 }
+
+// .donationCategoryCardWrappBorder{
+//     background-color: $text_pure_white;
+//     padding: 8%;
+//     border-radius: 8px;
+// }
+//     .donationCategoryCardImgWrapper{
+//         display: flex;
+//         justify-content: space-between;
+//         margin-bottom: 1rem;
+        
+//         img{
+//             width: 50%;
+//             border: 1px solid $text_midnight_blue;
+//             border-radius: 8px;
+//         }
+//     }
+//    .donationCategoryCardPoints{
+//     color: $text_midnight_blue;
+//     text-align: right;
+//     span{
+//         font-size: 1.5rem ;
+//         font-weight: $fw-bold;
+//     }
+
+//    } 
+//    .donationCategoryNumberInput{
+//     display: flex;
+//     border: 1px solid $text_not_just_gray;
+//     height: 2.5rem;
+//     input{
+//         border: none;
+//         text-align: center;
+        
+//     }
+//     button{
+//         border: none;
+//         background-color: $text_pure_white;
+//         margin: 0 15%;
+//         color: $text_not_just_gray;
+//     }
+// }
 
