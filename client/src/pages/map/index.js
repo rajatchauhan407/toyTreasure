@@ -92,7 +92,7 @@ export default function Map(){
                         className={selectedIndex === index?'background':''}
                         >
                         <OrgMapCard
-                        orgPicture={el.profileUrl}
+                        orgLogo={el.logoUrl}
                         orgName={el.profileDetails.org_name}
                         desc={el.profileDetails.org_description}
                         address={el?.profileDetails.org_address}
@@ -109,7 +109,7 @@ export default function Map(){
                 <div className='tt-62-right-map'>
                     <InteractiveMap/>
                     {isOrgDescShown?<OrgMapDescCard
-                        orgPicture={orgsData[selectedIndex].profileUrl}
+                        orgLogo={orgsData[selectedIndex].logoUrl}
                         orgName={orgsData[selectedIndex].profileDetails.org_name}
                         desc={orgsData[selectedIndex].profileDetails.org_description}
                         address={orgsData[selectedIndex].profileDetails.org_address}
