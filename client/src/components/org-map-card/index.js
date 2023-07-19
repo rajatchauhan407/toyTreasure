@@ -1,7 +1,7 @@
 import './index.scss';
 import { forwardRef} from 'react';
 import { useNavigate } from 'react-router';
-const OrgMapCard = forwardRef(({orgName,address,days,time,id},ref)=>{
+const OrgMapCard = forwardRef(({orgPicture,orgName,desc,address,days,time,id},ref)=>{
     const navigate = useNavigate();
   function handleViewDetails(e){
     console.log("handleViewDetails");
@@ -14,8 +14,11 @@ const OrgMapCard = forwardRef(({orgName,address,days,time,id},ref)=>{
             <p>{address}</p>
             <div class="tt-62-short-details-wrapper">
                 <div className='tt-62-timing'>
-                    <p>Received Donation Hours</p>
-                    <div><p>{days}</p><p>{time}</p></div>
+                    <p><b>Received Donation Hours</b></p>
+                    <div className='donationSchedule'>
+                        <p>{days}</p>
+                        <p>{time}</p>
+                    </div>
                 </div>
                 <button 
                  className='tt-62-vd-btn'

@@ -119,8 +119,8 @@ export default function CreateAccountOrg(){
         <button 
         type="submit">Create account</button>
 
-        <p>Already have an account?</p>
-        <Link to="/login">Sign In</Link>
+        <p>Already have an account? <Link to="/login">Sign In</Link></p>
+        
     </form>
     </div>
     

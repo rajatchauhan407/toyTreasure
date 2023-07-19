@@ -40,7 +40,7 @@ export default function OrgProfileForm() {
         let profileRef = ref(FirebaseStorageService.storage,profilePath)
         console.log(logoRef);
         let logoUrl = await FirebaseStorageService.uploadFileAndGetUrl(logo,logoRef);
-        let profileUrl = await FirebaseStorageService.uploadFileAndGetUrl(logo,profileRef);
+        let profileUrl = await FirebaseStorageService.uploadFileAndGetUrl(profile,profileRef);
         
         console.log();
         let result = await FireBaseFirestoreService.createDocument('organization_profile',{
@@ -98,8 +98,10 @@ return (
             <OrgProfileImpact
                 onProfileImpact = {getProfileImpact}
             />
-            <button type="submit" onClick={(e)=>{ setGetData(true); handleSubmit(e);}}>Save</button>
-            <button type="reset">Reset</button>
+            <div class="profile-form-buttons">               
+                <button className="profile-form-reset" type="reset">Reset</button>
+                <button className="profile-form-submit" type="submit" onClick={(e)=>{ setGetData(true); handleSubmit(e);}}>Save</button>
+            </div>
         </div>
 
         <div className="wrapper-right">

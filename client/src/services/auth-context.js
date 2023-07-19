@@ -15,7 +15,9 @@ const AuthContext = new React.createContext({
     user_type:'',
     setUserType:()=>{},
     uid:'',
-    user_points: 0
+    user_points: 0,
+    userCartData:{},
+    serUserCartData:()=>{}
 });
 
 export const AuthContextProvider = (props)=>{
@@ -29,6 +31,8 @@ export const AuthContextProvider = (props)=>{
     const [uid,setUid] = useState(sessionStorage.getItem('uid')|| '');
     const [userType, setUserType] = useState(sessionStorage.getItem('userType')||'');
     const [userPoints, setUserPoints] = useState(0);
+    const [toysQuantity, setToysQuantity] = useState(0);
+    const [userCartData, setUserCartData] = useState({});
     
     
     useEffect(()=>{
@@ -76,7 +80,12 @@ export const AuthContextProvider = (props)=>{
         uid:uid,
         userType:userType,
         setUserType,
-        user_points: userPoints
+        user_points: userPoints,
+        setUserPoints,
+        userCartData:userCartData,
+        setUserCartData,
+        toysQuantity:toysQuantity,
+        setToysQuantity
     }
     
     

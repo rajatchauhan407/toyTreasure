@@ -1,10 +1,26 @@
 import './index.scss';
-import { GoogleMap, LoadScript,MarkerF} from '@react-google-maps/api';
+import { GoogleMap, LoadScript,Marker} from '@react-google-maps/api';
 import { useEffect,useState } from 'react';
 const InteractiveMap = ()=>{
-  
-  
+    const[mapsApiKey, setMapsApiKey] = useState({});
+    const [loading, setLoading] = useState(true);
     const [location,setLocation] = useState(null);
+    useEffect(() => {
+      async function getApi(){
+        try{
+          const data = await fetch('https://us-central1-toystreasure-50c4d.cloudfunctions.net/getMapsAPIKey');
+          const result = await data.json()
+          console.log(result);
+          setMapsApiKey(result);
+          setLoading(false);
+        }catch(error){
+          console.log("Erro fetching api",error);
+          setLoading(false);
+        }
+        
+      }
+      getApi();
+    }, [setMapsApiKey]);
     const mapStyles = [
       {
         featureType: 'all',
@@ -147,6 +163,7 @@ const InteractiveMap = ()=>{
         console.log(navigator.geolocation)
         navigator.geolocation.getCurrentPosition(
                   (position)=>{
+                    console.log(position);
                     setLocation({
                       latitude:position.coords.latitude,
                       longitude:position.coords.longitude
@@ -166,10 +183,12 @@ const InteractiveMap = ()=>{
         lat: location?.latitude ,
         lng: location?.longitude
       };
-
+      if (loading) {
+        return <div>Loading...</div>;
+      }
     return <>
-    <LoadScript
-      googleMapsApiKey={process.env.REACT_APP_MAP_API_KEY}
+    {mapsApiKey && (<LoadScript
+      googleMapsApiKey={mapsApiKey.api}
     >       
     <GoogleMap
         options={{ styles: mapStyles }}
@@ -178,19 +197,28 @@ const InteractiveMap = ()=>{
         zoom={10}
     >
         { /* Child components, such as markers, info windows, etc. */ }
-       <MarkerF 
+       <Marker 
         position={center} 
         title='Your Location'
+        icon={{
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Ficon-teddy-large.png?alt=media&token=e6aed984-2178-46af-8e41-10941656f6bb',
+              // scaledSize: new window.google.maps.Size(30, 30)
+            }}
         // icon={markerIcon}
         />
-        <MarkerF
+        <Marker
+          title='Charity'
           position={{
             lat:49.281992646679946, 
             lng:-123.08303057488982
           }}
+          icon={{
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Ficon%20ball.png?alt=media&token=715f867f-6c9c-4b1d-a11a-8b52d7265756'
+              // scaledSize: new window.google.maps.Size(30, 30)
+            }}
         />
       </GoogleMap>
-    </LoadScript>
+    </LoadScript>)}
     </>
 };
 export default InteractiveMap;

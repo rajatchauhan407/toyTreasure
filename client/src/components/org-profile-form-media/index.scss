@@ -1,7 +1,21 @@
+@import '../../sass/main.scss';
 .tt-90-upload{
+    margin-top:4rem;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    border:1px solid black;
+    border:1px solid $primary_boy_blue;
     padding:1rem;
+    color:$text_just_gray;
 }
+
+.tt-90-upload input[type=file]::file-selector-button {
+    
+    border:none;
+    border-radius: .5rem;
+    padding:.5rem 1rem;     
+    font-size: 12px;
+    background-color: $primary_boy_blue;
+    color:$text_midnight_blue;  
+    font-weight: bold;
+  }
