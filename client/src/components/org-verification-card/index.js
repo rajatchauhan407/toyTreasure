@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 // import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function OrgVerificationCard(){
 
-    const [orgVerificationList, setOrgVerificationList] = useState([]);
+  const [orgVerificationList, setOrgVerificationList] = useState([]);
   const authCtx = useContext(AuthContext);
   async function getOrgVerificationListData() {
     try {
