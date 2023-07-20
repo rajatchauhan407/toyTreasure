@@ -8,10 +8,11 @@
     // align-items: center;
     // flex-direction: column;
     text-align: left;
+   
     p{
         color: $text_not_just_gray;
         padding-bottom: 1.5rem;
-        border-bottom: 1px solid $text_pure_white;
+        border-bottom: 2px solid $text_not_just_gray;
     }
     form label{
         color: $text_not_just_gray;
@@ -39,6 +40,10 @@
         @include Buttuns($largest-button, $button_purple_CTA);
         color: white;
         width: 100%;
+        font-weight: $fw-semi-bold;
+    }
+    .signupHaveAccountText{
+        text-align: center;
     }
     a{
         text-decoration: none;

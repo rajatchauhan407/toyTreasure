@@ -116,7 +116,7 @@ export default function CreateAccountDonor(){
 
         <button type="submit">Create account</button>
     
-        <p>Already have an account?<span><Link to="/login">Sign In</Link></span></p>
+        <p className='signupHaveAccountText'>Already have an account?<span><Link to="/login">Sign In</Link></span></p>
     </form>
     </div>
     
