@@ -1,6 +1,6 @@
 import './index.scss';
-import { Html5QrcodeScanner } from 'html5-qrcode'
-import { useEffect, useState, useRef, useContext } from 'react';
+import { Html5QrcodeScanner} from 'html5-qrcode'
+import { useEffect, useState,useContext } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 import AuthContext from '../../services/auth-context';
 
@@ -29,6 +29,7 @@ const Html5QrcodePlugin = (props) => {
 
     useEffect(() => {
         // when component mounts
+        
         const config = createConfig(props);
         const verbose = props.verbose === true;
         // Suceess callback is required.
@@ -37,7 +38,6 @@ const Html5QrcodePlugin = (props) => {
         }
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, config, verbose);
         html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
-
         // cleanup function when component will unmount
         return () => {
             html5QrcodeScanner.clear().catch(error => {
@@ -114,13 +114,14 @@ export default function DashboardPendingDonation(props) {
   const authCtx = useContext(AuthContext);
   const [decodedResults, setDecodedResults] = useState([]);
   const [verificationId, setVerificationId] = useState("");
+  const [scanner, setScanner] = useState(false);
     const onNewScanResult = (decodedText, decodedResult) => {
         
         setDecodedResults(decodedText);
     };
 
   useEffect(() => {
-    
+    setScanner(false);
     setVerificationId(decodedResults);
     
   }, [decodedResults]);
@@ -143,22 +144,12 @@ export default function DashboardPendingDonation(props) {
     checkVerification();
     
   },[verificationId])
-  // const formatDate = (timestamp) => {
-  //   const dateObj = timestamp.toDate();
-  //   const options = { month: 'long', day: 'numeric', year: 'numeric' };
-  //   return dateObj.toLocaleDateString(undefined, options);
-  // };
-
-  // const handleScanQRCode = async () => {
-  //   // setIsCameraOpen(true);
-  //   const codeReader = new BarcodeReader();
-   
-  // };
-
+  
   return (
     <div className='tt-72-DashboardPendingDonationWrapper'>
       <div className="tt-72-DashboardPendingDonation">
         <h3>You have a Pending Donation</h3>
+        {!scanner && <button onClick={()=>{setScanner(true)}}>Start Scan</button>}
         
         {/* <video ref={videoRef} width="640" height="480" />
         <input
@@ -169,14 +160,15 @@ export default function DashboardPendingDonation(props) {
           onClick={handleScanQRCode}
         /> */}
         <div>
-        <Html5QrcodePlugin
+        {scanner && <Html5QrcodePlugin
                     fps={10}
                     qrbox={250}
                     disableFlip={false}
                     qrCodeSuccessCallback={onNewScanResult}
-                />
-        {/* <ResultContainerPlugin results={decodedResults} /> */}
-    </div>
+                    shouldPauseAfterScan={true}
+                />}
+            {/* <ResultContainerPlugin results={decodedResults} /> */}
+        </div>
         {/* {isCameraOpen && (
           <div>
             <video ref={videoRef} autoPlay />
@@ -184,6 +176,6 @@ export default function DashboardPendingDonation(props) {
           </div>
         )} */}
       </div>
-    </div>
-  );
+    </div>
+    );
 }

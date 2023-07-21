@@ -1,4 +1,5 @@
 import './index.scss';
+import GoogleIcon from './GoogleLogo.png';
 import { Link } from 'react-router-dom';
 import { useState,useContext} from "react";
 import FireBaseAuthService from '../../services/FirebaseAuthService';
@@ -59,10 +60,10 @@ export default function CreateAccountOrg(){
     return<>
     <div className='tt-84-container'>
     <h1>Join as Organization</h1>
-    <p>Sign up here to join us for great change</p>
+    <p className='body1'>Sign up here to join us for great change</p>
     <form onSubmit={handleCreateAccount}>
 
-        <label htmlFor="fullName">Your Fullname</label>
+        <label htmlFor="fullName">Your Fullname *</label>
         <input 
          type="text" 
          placeholder='Enter Your Name'
@@ -71,7 +72,7 @@ export default function CreateAccountOrg(){
          onChange={(signup)=> setFullName(signup.target.value)}
         />
 
-        <label htmlFor="phoneNumber">Phone Number</label>
+        <label htmlFor="phoneNumber">Phone Number *</label>
         <input 
         type="number" 
         placeholder='Enter Your Phone Number'
@@ -80,7 +81,7 @@ export default function CreateAccountOrg(){
         onChange={(signup)=> setPhoneNumber(signup.target.value)}
         />
 
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email *</label>
         <input 
         type="text" 
         placeholder='Enter Your Email Adress'
@@ -89,7 +90,7 @@ export default function CreateAccountOrg(){
         onChange={(signup)=> setEmail(signup.target.value)}
         />
 
-        <label htmlFor="password">Create Password</label>
+        <label htmlFor="password">Create Password *</label>
         <input 
         type="password" 
         placeholder='Password'
@@ -98,7 +99,7 @@ export default function CreateAccountOrg(){
         onChange={(signup)=>setPassword(signup.target.value)}
         />
 
-        <label htmlFor="confirmPassword">Confirm Password</label>
+        <label htmlFor="confirmPassword">Confirm Password *</label>
         <input 
         type="password" 
         placeholder='Password'
@@ -116,10 +117,24 @@ export default function CreateAccountOrg(){
         <label htmlFor='agreeTerms'>Agree to Terms and conditions.</label>
 
 
-        <button 
+        <button className='submitSignupButton'
         type="submit">Create account</button>
 
         <p>Already have an account? <Link to="/login">Sign In</Link></p>
+
+        <div id="or-separator">
+                        <hr className="or-line" />
+                        <p id="or-text">OR</p>
+                        <hr className="or-line" />
+                    </div>
+                        <div className='google-Facebook-Button'>
+                        <button className='signUpWithGoogleButton' type="button"  
+                        /*disabled={!userType} onClick={handleLoginWithGoogle}*/
+                        >
+                            <img src={GoogleIcon} alt='Google Icon'/>
+                             Sign up With Google
+                        </button>
+                        </div>
         
     </form>
     </div>

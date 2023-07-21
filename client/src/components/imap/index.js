@@ -201,8 +201,9 @@ const InteractiveMap = ()=>{
         position={center} 
         title='Your Location'
         icon={{
-              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Fmap-pin-default.svg?alt=media&token=39dab852-da50-4090-819b-cb35c20df43e',
+              url:'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Fmap-pin-user.svg?alt=media&token=4cc120c4-9f9b-4fbf-85e1-05b014986f0d' ,
               // scaledSize: new window.google.maps.Size(30, 30)
+              
             }}
         // icon={markerIcon}
         />
@@ -213,7 +214,7 @@ const InteractiveMap = ()=>{
             lng:-123.08303057488982
           }}
           icon={{
-              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Fmap-pin-user.svg?alt=media&token=4cc120c4-9f9b-4fbf-85e1-05b014986f0d'
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Fmap-pin-default.svg?alt=media&token=39dab852-da50-4090-819b-cb35c20df43e'
               // scaledSize: new window.google.maps.Size(30, 30)
             }}
         />
@@ -224,7 +225,7 @@ const InteractiveMap = ()=>{
             lng: -123.04438619999999
           }}
           icon={{
-              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Fmap-pin-user.svg?alt=media&token=4cc120c4-9f9b-4fbf-85e1-05b014986f0d'
+              url: 'https://firebasestorage.googleapis.com/v0/b/toystreasure-50c4d.appspot.com/o/icons%2Fmap-pin-default.svg?alt=media&token=39dab852-da50-4090-819b-cb35c20df43e'
               // scaledSize: new window.google.maps.Size(30, 30)
             }}
         />
