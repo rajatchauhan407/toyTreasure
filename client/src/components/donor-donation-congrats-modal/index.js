@@ -9,7 +9,7 @@ export default function DonorDonationModal(props){
             <img src={QR} alt="QR code sign" />
 
             <div className='ThankYouWrapper'>
-            <h2>Thank You</h2>
+            <h2>Thank You.</h2>
             <img src={Heart} alt="heart sign" />
             </div>
             

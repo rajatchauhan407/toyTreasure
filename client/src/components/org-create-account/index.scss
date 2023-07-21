@@ -20,14 +20,22 @@
     p{
         color: $text_not_just_gray;
         padding-bottom: 1.5rem;
-        border-bottom: 1px solid $text_pure_white;
+        padding: 0%;
+        
+    }
+    h1{
+        margin-top: 4rem;
+    }
+    .body1{
+        border-bottom: 1px solid $text_not_just_gray;
+        padding-bottom: 1rem;
     }
     form label{
         color: $text_not_just_gray;
     }
     form input{
-        margin-top: 1%;
-        margin-bottom: 2%;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
         height: 4rem;
         display: block;
         width: 100%;
@@ -48,10 +56,46 @@
         @include Buttuns($largest-button, $button_purple_CTA);
         color: white;
         width: 100%;
+        height: 4rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
     a{
         text-decoration: none;
         font-weight: $fw-semi-bold;
         margin-left: 2%;
     }
+}
+#or-separator{
+    margin: 0;
+}
+.google-Facebook-Button {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0%;
+    color: black;
+    border: none;
+    margin-bottom: 3rem;
+    .signUpWithGoogleButton{
+    @include Buttuns($largest-button, $text_pure_white);
+    border: 1px solid white;
+    width: 100%;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.08);
+    margin-right: 0%;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    gap: 1rem;
+    img{
+        width: 30px;
+    }
+  }
+}
+.submitSignupButton:hover{
+    color: $text_midnight_blue;
+}
+.submitSignupButton{
+    height: 4rem;
 }

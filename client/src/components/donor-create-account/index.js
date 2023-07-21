@@ -1,4 +1,5 @@
 import './index.scss';
+import GoogleIcon from './GoogleLogo.png';
 import { useState, useContext } from "react";
 import FireBaseAuthService from '../../services/FirebaseAuthService';
 import AuthContext from '../../services/auth-context';
@@ -54,12 +55,13 @@ export default function CreateAccountDonor(){
             console.error('Error creating account', error)
         }
     };
+    
     return<>
     <div className='tt-84-container'>
     <h1>Join as Donor</h1>
     <p className='body1'>sign up here to join us for great change</p>
     <form onSubmit={handleCreateAccount}>
-    <label htmlFor="fullName">Your Fullname</label>
+    <label htmlFor="fullName">Your Fullname *</label>
         <input
         type="text" 
         placeholder='Enter Your Name'
@@ -68,7 +70,7 @@ export default function CreateAccountDonor(){
         onChange={(signup)=> setFullName(signup.target.value)}
         />
 
-        <label htmlFor="phoneNumber">Phone Number</label>
+        <label htmlFor="phoneNumber">Phone Number *</label>
         <input 
         type="number" 
         placeholder='Enter Your Phone Number'
@@ -77,7 +79,7 @@ export default function CreateAccountDonor(){
         onChange={(signup)=> setPhoneNumber(signup.target.value)}
         />
 
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email *</label>
         <input 
         type="text" 
         placeholder='Enter Your Email Adress'
@@ -86,7 +88,7 @@ export default function CreateAccountDonor(){
         onChange={(signup)=> setEmail(signup.target.value)}
         />
 
-        <label htmlFor="password">Create Password</label>
+        <label htmlFor="password">Create Password *</label>
         <input 
         type="password" 
         placeholder='Password'
@@ -114,9 +116,23 @@ export default function CreateAccountDonor(){
         <label htmlFor='agreeTerms'> Agree to Terms and conditions. </label>
         </div>
 
-        <button type="submit">Create account</button>
+        <button className='submitSignupButton' type="submit">Create account</button>
     
-        <p>Already have an account?<span><Link to="/login">Sign In</Link></span></p>
+        <p className='signupHaveAccountText'>Already have an account?<span><Link to="/login">Sign In</Link></span></p>
+
+                    <div id="or-separator">
+                        <hr className="or-line" />
+                        <p id="or-text">OR</p>
+                        <hr className="or-line" />
+                    </div>
+                        <div className='google-Facebook-Button'>
+                        <button className='signUpWithGoogleButton' type="button"  
+                        /*disabled={!userType} onClick={handleLoginWithGoogle}*/
+                        >
+                            <img src={GoogleIcon} alt='Google Icon'/>
+                             Sign up With Google
+                        </button>
+                        </div>
     </form>
     </div>
     

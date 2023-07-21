@@ -1,7 +1,10 @@
 // This component is sample login page for checking purpose.. It shall be deleted phir.
 
-import { AiFillGoogleCircle } from 'react-icons/ai';
-// import googleIcon from './GoogleLogo.com.png'
+// import { AiFillGoogleCircle } from 'react-icons/ai';
+// import googleIcon from './GoogleLogo.com.png';
+import DonorIcon from './DonorIcon.png';
+import OrgIcon from './OrgIcon.png';
+import GoogleIcon from './GoogleLogo.png';
 import "./index.scss";
 import { useContext, useRef, useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
@@ -122,28 +125,39 @@ async function handleLoginWithGoogle(){
 }
     return (<>
         <div className="login-form-container">
+            <div className='orgDonorButtonFlex'>
         <button 
             className="loginDonorButton" 
             value="donor" 
             onClick={handleUserType}
             ref={donorRef}
-            >Donor</button> 
+            >
+                <img src={DonorIcon} alt='donor icon'/>
+                Donor
+        </button> 
+
+
         <button 
             className="loginOrgButton" 
             value="organization" 
             onClick={handleUserType}
             ref={orgRef}
-            >Organization</button>
+            >
+                 <img src={OrgIcon} alt='Organization icon'/>
+                Organization
+        </button>
+        </div>
             <h1>Welcome back!</h1>
-            <hr className="borderBottom" />
             <p>Log in to unlock the powere of giving </p>
+            <hr className="borderBottom" />
+            
             {existingUser ? <div className="row">
             
                 <h3>Welcome, {existingUser.email}</h3>
                 <button type="button" className="primary-button" onClick={handleLogout}>Logout</button>
             </div> : <form onSubmit={handleSubmit} className="login-form">
                     <label className="input-label login-label">
-                        Email:
+                        Email*
                         <input type="email" 
                         placeholder='Enter email address'
                             required
@@ -153,7 +167,7 @@ async function handleLoginWithGoogle(){
                         />
                     </label>
                     <label className="input-label login-label">
-                        Password:
+                        Password*
                         <input type="password" 
                         placeholder='Enter password'
                             required
@@ -180,11 +194,12 @@ async function handleLoginWithGoogle(){
                         </div>
                         <div className='google-Facebook-Button'>
                         <button type="button" disabled={!userType} onClick={handleLoginWithGoogle}>
-                            <AiFillGoogleCircle className="google-icon" />
+                            {/* <AiFillGoogleCircle className="google-icon" /> */}
+                            <img src={GoogleIcon} alt='Google Icon'/>
                              Login With Google
                         </button>
                         </div>
-                        <p>Don't have an account?  <Link to="/login-signup">Join Now!</Link></p>
+                        <p className='signInLinkText'>Don't have an account?  <Link to="/login-signup">Join Now!</Link></p>
                     </div>
             </form>
             }
