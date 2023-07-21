@@ -1,24 +1,21 @@
 @import '../../sass/main.scss';
 
 .tt-84-container{
-    // background-color: $accent_amethyst-light;
-    // display:flex;
     width:50%;
-    // justify-content: center;
-    // align-items: center;
-    // flex-direction: column;
     text-align: left;
+   .body1{
+    border-bottom: 1px solid $text_not_just_gray;
+   }
     p{
         color: $text_not_just_gray;
         padding-bottom: 1.5rem;
-        border-bottom: 1px solid $text_pure_white;
+        font-weight: $fw-normal;
     }
     form label{
         color: $text_not_just_gray;
+        
     }
     form input{
-        margin-top: 1%;
-        margin-bottom: 2%;
         height: 4rem;
         display: block;
         width: 100%;
@@ -30,19 +27,84 @@
         height: 1rem;
         width: min-content;
         margin-right: 3%;
+        margin-top: 0.5rem;
+        margin-bottom: 0.7rem;
     }
     .agreeTermsWrapper{
         display: flex;
         align-items: center;
+        
     }
-    button{
+    .submitSignupButton{
         @include Buttuns($largest-button, $button_purple_CTA);
-        color: white;
         width: 100%;
+        font-weight: $fw-semi-bold;
+        margin-top: 1rem;
+        cursor: pointer;
+    }
+    .submitSignupButton:hover{
+        color: $text_midnight_blue;
+    }
+    .submitSignupButton:active{
+        color: $text_midnight_blue;
+    }
+    .signupHaveAccountText{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: none;
     }
     a{
         text-decoration: none;
         font-weight: $fw-semi-bold;
         margin-left: 2%;
     }
+}
+#fullName,
+#phoneNumber,
+#email,
+#password,
+#confirmPassword{
+    margin-top: 0.7rem;
+    margin-bottom: 1.2rem;
+}
+  #or-separator{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    .or-line {
+        flex-grow: 1;
+        border: none;
+        border-top: 1px solid $text_just_gray;
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+      #or-text{
+        border-bottom: none;
+        padding: 0%;
+    }
+  }
+  .google-Facebook-Button {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0%;
+    color: black;
+    border: none;
+    margin-bottom: 3rem;
+    .signUpWithGoogleButton{
+    @include Buttuns($largest-button, $text_pure_white);
+    border: 1px solid white;
+    width: 100%;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.08);
+    margin-right: 0%;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    img{
+        width: 30px;
+    }
+  }
 }
