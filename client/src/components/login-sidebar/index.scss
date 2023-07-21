@@ -1,6 +1,6 @@
 
 .loginSidebar{
-    padding: 4%;
+    padding: 3rem;
     background-image: url('./Screenshot.png') ;
     background-size: cover; 
     display: flex;
@@ -9,7 +9,7 @@
     
     .sidebarText{
         padding: 4%;
-        width: fit-content;
+        width: auto;
         margin-bottom: 30%;
     }
     .loginLogo,
@@ -18,8 +18,7 @@
         color: white;
     }
     .loginLogo{
-        // margin-top: 50px;
-        // margin-bottom: 50px;
+        margin-top: 2rem;
     }
 
 }

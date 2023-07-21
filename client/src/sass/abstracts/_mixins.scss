@@ -65,7 +65,7 @@ color: $color;
 }
 
 
-@mixin globalPadding ($ptop:0, $pright:4rem, $pbottom:0, $pleft:4rem ){
+@mixin globalPadding ($ptop:0, $pright:8.125rem, $pbottom:0, $pleft:8.125rem ){
     padding-top: $ptop;
     padding-right: $pright;
     padding-bottom: $pbottom;
