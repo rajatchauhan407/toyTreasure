@@ -1,8 +1,8 @@
 @import '../../sass/main.scss';
 .donationCategoryCardWrapper{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 3rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2.5rem;
     margin-bottom: 1rem;
     
     h5{
@@ -39,6 +39,9 @@
     display: flex;
     border: 1px solid $text_not_just_gray;
     height: 2.5rem;
+    .input-field{
+        margin-bottom: 0;
+    }
     input{
         border: none;
         text-align: center;
