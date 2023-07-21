@@ -1,5 +1,5 @@
 import './index.scss';
-import { Html5QrcodeScanner } from 'html5-qrcode'
+import { Html5QrcodeScanner, Html5QrcodeScannerState} from 'html5-qrcode'
 import { useEffect, useState, useRef, useContext } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 import AuthContext from '../../services/auth-context';
@@ -37,7 +37,6 @@ const Html5QrcodePlugin = (props) => {
         }
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, config, verbose);
         html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
-
         // cleanup function when component will unmount
         return () => {
             html5QrcodeScanner.clear().catch(error => {
@@ -143,17 +142,6 @@ export default function DashboardPendingDonation(props) {
     checkVerification();
     
   },[verificationId])
-  // const formatDate = (timestamp) => {
-  //   const dateObj = timestamp.toDate();
-  //   const options = { month: 'long', day: 'numeric', year: 'numeric' };
-  //   return dateObj.toLocaleDateString(undefined, options);
-  // };
-
-  // const handleScanQRCode = async () => {
-  //   // setIsCameraOpen(true);
-  //   const codeReader = new BarcodeReader();
-   
-  // };
 
   return (
     <div className='tt-72-DashboardPendingDonationWrapper'>
@@ -174,9 +162,10 @@ export default function DashboardPendingDonation(props) {
                     qrbox={250}
                     disableFlip={false}
                     qrCodeSuccessCallback={onNewScanResult}
+                    shouldPauseVideo={true}
                 />
-        {/* <ResultContainerPlugin results={decodedResults} /> */}
-    </div>
+            {/* <ResultContainerPlugin results={decodedResults} /> */}
+        </div>
         {/* {isCameraOpen && (
           <div>
             <video ref={videoRef} autoPlay />
@@ -184,6 +173,6 @@ export default function DashboardPendingDonation(props) {
           </div>
         )} */}
       </div>
-    </div>
-  );
+    </div>
+    );
 }
