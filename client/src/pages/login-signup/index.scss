@@ -26,3 +26,20 @@ height: 100vh;
     border-radius: 8px;
     border: 1px solid rgb(122, 120, 120);
 }
+.divToAddTechTribeLogo{
+    display: grid;
+    grid-template-rows: 7fr 1fr;
+}
+.techTribeLogo{
+margin-right: 4rem;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    align-items: center;
+    p{
+        font-family: Roboto;
+    font-size: 0.8125rem;
+        margin-top: 20px;
+        color:$text_not_just_gray
+    }
+}
