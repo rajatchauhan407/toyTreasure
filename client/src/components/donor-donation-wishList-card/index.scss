@@ -8,7 +8,7 @@
     }
 }
 .donationWishListCardWrapper{
-    padding: 7%;
+    padding: 0 6rem;
     padding-bottom: 13%;
     position: relative;
     img{
@@ -55,4 +55,12 @@
     padding: 2% 8%;
     text-align: center;
     display: inline;
+}
+
+@media screen and (max-width: $break-point) {
+    .wrapperBugFinder{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2.5rem;
+    }
 }
