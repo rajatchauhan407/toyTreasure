@@ -1,5 +1,6 @@
 import './index.scss';
 import {useState } from "react";
+import techTribeLogo from './techTribeLogo.svg';
 import posterImage from './posterImage.png';
 import LoginSignupForm from '../../components/loginsignupform';
 import CreateAccountDonor from '../../components/donor-create-account';
@@ -37,12 +38,16 @@ export default function LoginSignUp() {
               /> */}
 
         </div>
-
+<div className='divToAddTechTribeLogo'>
         <div className={classUsedforbgc}>
         {
           !user?<LoginSignupForm getSignupInfo={handleSignUp}/>:user==="donor"?<CreateAccountDonor/>:user==="org"?<CreateAccountOrg/>:"No Data"
         }
         </div>
+        <div className="techTribeLogo">
+<p>Powered by</p> <img src={techTribeLogo} alt="Tech Tribe"/>
+</div>
+</div>
       </div>
     );
   }
