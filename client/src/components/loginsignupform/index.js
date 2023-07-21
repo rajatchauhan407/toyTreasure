@@ -1,4 +1,5 @@
 import "./index.scss";
+
 import donorIcon from './donorIcon.png';
 import orgIcon from './organizationIcon.png';
 import logo from "./appLogo.svg"
@@ -41,8 +42,10 @@ function LoginSignupForm(props) {
         </div>
     </button>    
 
-<p>Already have an account? <Link to="/login">Sign In!</Link></p>
+<p className="signUpLinkSignIn">Already have an account? <Link to="/login">Sign In!</Link></p>
+
 </div>
+
 
         );
   };
