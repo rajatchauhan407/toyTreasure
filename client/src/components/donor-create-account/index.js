@@ -116,17 +116,17 @@ export default function CreateAccountDonor(){
         <label htmlFor='agreeTerms'> Agree to Terms and conditions. </label>
         </div>
 
-        <button type="submit">Create account</button>
+        <button className='submitSignupButton' type="submit">Create account</button>
     
         <p className='signupHaveAccountText'>Already have an account?<span><Link to="/login">Sign In</Link></span></p>
 
-        <div className="or-separator">
+                    <div id="or-separator">
                         <hr className="or-line" />
-                        <p className="or-text">OR</p>
+                        <p id="or-text">OR</p>
                         <hr className="or-line" />
-                        </div>
+                    </div>
                         <div className='google-Facebook-Button'>
-                        <button type="button"  
+                        <button className='signUpWithGoogleButton' type="button"  
                         /*disabled={!userType} onClick={handleLoginWithGoogle}*/
                         >
                             <img src={GoogleIcon} alt='Google Icon'/>
