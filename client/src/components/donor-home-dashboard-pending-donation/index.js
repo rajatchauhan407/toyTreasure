@@ -3,8 +3,8 @@ import { Html5QrcodeScanner} from 'html5-qrcode'
 import { useEffect, useState,useContext } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 import AuthContext from '../../services/auth-context';
-
-
+import DonorPointsModal from '../donor-points-awarded-modal';
+import GeneralModalWrapper from '../general-modal-wrapper';
 const qrcodeRegionId = "html5qr-code-full-region";
 
 // Creates the configuration object for Html5QrcodeScanner.
@@ -107,7 +107,7 @@ export default function DashboardPendingDonation(props) {
         
         setDecodedResults(decodedText);
     };
-
+  const [openModal, setOpenModal] = useState(false)
   useEffect(() => {
     setScanner(false);
     setVerificationId(decodedResults);
@@ -123,11 +123,15 @@ export default function DashboardPendingDonation(props) {
         try{
           // updating the status of the donation to true
           await FireBaseFirestoreService.updateDocumentById("user_donations",props.donations.id,{verificationStatus:true});
+          
           // getting the user points
           const userPoints = await FireBaseFirestoreService.getDocumentById("user",props.donations.donorUID);
-          // updating the 
+          
+          // updating the user points in user collection
           await FireBaseFirestoreService.updateDocumentById("user",props.donations.donorUID,{user_points:props.donations.user_points+userPoints.data().user_points});
-
+          window.scrollTo(0, 0);
+          // updating the status of Modal to be true
+          setOpenModal(true);
         }
         catch(error){
           console.log("Error: "+error);
@@ -163,12 +167,14 @@ export default function DashboardPendingDonation(props) {
                 />}
             {/* <ResultContainerPlugin results={decodedResults} /> */}
         </div>
-        {/* {isCameraOpen && (
-          <div>
-            <video ref={videoRef} autoPlay />
-            <button onClick={handleStopCamera}>Stop Camera</button>
-          </div>
-        )} */}
+        {
+          openModal && 
+          <GeneralModalWrapper onCloseModal={(data)=>{setOpenModal(data)}}>
+          <DonorPointsModal 
+              points={props.donations.user_points}
+          />
+          </GeneralModalWrapper>
+        }
       </div>
     </div>
     );
