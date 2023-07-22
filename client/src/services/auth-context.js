@@ -63,7 +63,7 @@ export const AuthContextProvider = (props)=>{
                     localStorage.removeItem('uid');
                     localStorage.removeItem('userType');
                     setUserType(null);
-                    navigate('/login');
+                    navigate('/signup');
                 }
             }
         );
