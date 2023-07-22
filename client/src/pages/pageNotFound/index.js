@@ -14,7 +14,7 @@ export default function PageNotFound(){
             <h1>Error 404</h1>
             <h3>Page not found</h3>
             <p>The page doesn't exist or was deleted</p>
-            <button><Link to="/login">Back to Home</Link></button>
+            <button><Link to="/signup">Back to Home</Link></button>
         </div>
         </>);
 }

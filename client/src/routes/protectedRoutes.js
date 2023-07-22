@@ -9,7 +9,7 @@ export default function ProtectedRoutes(){
             !authCtx.isLoggedIn? <Outlet/>
             :authCtx.isLoggedIn && authCtx.userType==="donor"?<Navigate to="/home"/>:
             authCtx.isLoggedIn && authCtx.userType==="organization"?<Navigate to="/organization"/>:
-            <Navigate to="/login"/>
+            <Navigate to="/signup"/>
         }
         {/* <Outlet/> */}
         </>
