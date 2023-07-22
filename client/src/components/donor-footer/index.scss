@@ -9,11 +9,11 @@
     line-height: 20px; 
     background-color: $secondary_footer_soft_blue;
     margin-top:1rem;
-    padding:2rem 4rem;
     display:flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;  
+    @include globalPadding(2rem, 8.125rem, 2rem, 8.125rem);
     p 
     {
         padding:0;

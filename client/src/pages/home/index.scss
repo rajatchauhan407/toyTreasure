@@ -33,7 +33,7 @@
 
 .home-rewards{
     background-color: #F5F0FA;
-    padding: 4rem 4rem;
+    @include globalPadding (4rem, 8.125rem, 4rem, 8.125rem);
 }
 
 .rewards-info{
