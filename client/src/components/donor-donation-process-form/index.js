@@ -19,7 +19,7 @@ export default function DonorDonationProcessForm(props)
     const [confirm2,setConfirm2] = useState(false);
 
     async function storeDonationInDatabase(){
-        props.onFormClicked(true);
+        // props.onFormClicked(true);
         const autoId = nanoid();
         console.log("New ID is here:"+autoId);
         const donation = {

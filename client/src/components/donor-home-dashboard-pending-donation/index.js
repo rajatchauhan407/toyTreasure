@@ -95,23 +95,11 @@ const ResultContainerTable = ({ data }) => {
   );
 };
 
-const ResultContainerPlugin = (props) => {
-  const results = filterResults(props.results);
-  return (
-      <div className='Result-container'>
-          <div className='Result-header'>Scanned results ({results.length})</div>
-          <div className='Result-section'>
-              <ResultContainerTable data={results} />
-          </div>
-      </div>
-  );
-};
-
 
 export default function DashboardPendingDonation(props) {
-  const [donorPendingDonation, setPendingDonation] = useState([]);
+  // const [donorPendingDonation, setPendingDonation] = useState([]);
 
-  const authCtx = useContext(AuthContext);
+  // const authCtx = useContext(AuthContext);
   const [decodedResults, setDecodedResults] = useState([]);
   const [verificationId, setVerificationId] = useState("");
   const [scanner, setScanner] = useState(false);
@@ -133,7 +121,13 @@ export default function DashboardPendingDonation(props) {
       if(verificationId === props.donations.verificationId){
         console.log("verified");
         try{
+          // updating the status of the donation to true
           await FireBaseFirestoreService.updateDocumentById("user_donations",props.donations.id,{verificationStatus:true});
+          // getting the user points
+          const userPoints = await FireBaseFirestoreService.getDocumentById("user",props.donations.donorUID);
+          // updating the 
+          await FireBaseFirestoreService.updateDocumentById("user",props.donations.donorUID,{user_points:props.donations.user_points+userPoints.data().user_points});
+
         }
         catch(error){
           console.log("Error: "+error);
