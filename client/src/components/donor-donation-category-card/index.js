@@ -54,24 +54,15 @@ export default function DonationCategoryCard({onGetCategories}) {
 
   return (
     <div className="donationCategoryCardWrapper">
-<<<<<<< HEAD
-      {donationCategory.map((el, index) => ( 
-        <div key={index}>
-=======
       {donationCategory.map((el, index) => (
         <div key={index} className="donationCategoryCardWrappBorder">
->>>>>>> 53a270c6c7232875da584a85601ed6196ecf82ea
           <div className="donationCategoryCardImgWrapper">
             <img src={el.category_picture} alt="" />
             <p className="donationCategoryCardPoints"><span>{el.category_points}</span> <br></br>points</p>
           </div>
           <div className="donationCategoryNumberInput">
             <button className="decrement" onClick={() => handleDecrement(index)}>-</button>
-<<<<<<< HEAD
-            <input type="number" className="input-field" value={el.quantity} min="0" max="100" readOnly /> 
-=======
             <input type="number" className="input-field" value={el.quantity} min="0" max="100" readOnly />
->>>>>>> 53a270c6c7232875da584a85601ed6196ecf82ea
             <button className="increment" onClick={() => handleIncrement(index)}>+</button>
           </div>
           <h5>{el.category_name}</h5>
