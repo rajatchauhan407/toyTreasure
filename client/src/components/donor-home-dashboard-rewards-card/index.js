@@ -3,7 +3,7 @@ export default function HomeDashboardRewards(props){
     console.log(props)
         
     let state = props.status?.toString();
-       
+    
     return (
             <div className="homeDashboardRewardsCardWrapper" id={state}>
                 
@@ -16,7 +16,8 @@ export default function HomeDashboardRewards(props){
                 </div>
                 
                 {props.status}
-                <button className="redeemRewards">Redeem now</button>
+                <button className="redeemRewards" onClick={()=>{props.onClickRedeem(true)}}>Redeem now</button>
             </div>
+              
     )
 }

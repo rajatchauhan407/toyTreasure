@@ -8,7 +8,7 @@ import AuthContext from '../../services/auth-context';
 
 import GeneralMultipleSlider from '../containers/general-multiple-slider';
 
-function HomeDashboardRewardsCard() {
+function HomeDashboardRewardsCard(props) {
   const [donorRewardsList, setDonorRewardsList] = useState([]);
   const { user_points } = useContext(AuthContext); // Access the user_points value from AuthContext
 
@@ -31,7 +31,8 @@ function HomeDashboardRewardsCard() {
       <HomeDashboardRewards
         imageUrl={el.reward_image}
         points={el.reward_points}
-        status={el.reward_state}
+        status={el.reward_points <= user_points ? false : true}
+        onClickRedeem={() => {props.onClickRedeem(true)}}
       />
     );
   });

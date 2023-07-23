@@ -2,7 +2,8 @@ import './index.scss';
 import redeemIcon from './Redeem.png'
 import AuthContext from '../../services/auth-context';
 import React, {useContext} from "react";
-
+import GeneralModalWrapper from '../../components/general-modal-wrapper';
+import UserRewardsModal from '../../components/user-rewards-modal';
 import { useEffect, useState } from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 
@@ -18,6 +19,7 @@ export default function Home(){
   const userNameAuth = useContext(AuthContext);
   const [hasPendingDonation, setHasPendingDonation] = useState("");
   const [loading, setLoading] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     async function checkPendingDonation() {
       try {
@@ -85,7 +87,13 @@ export default function Home(){
             <img src={redeemIcon} alt='redeemIcon'/>
             <h2 className='custom-h1'>Rewards</h2>
           </div>
-            <HomeDashboardRewardsCard/>
+            <HomeDashboardRewardsCard
+              onClickRedeem={() => {window.scrollTo(0,0);setOpenModal(true);}}
+            />
+            {openModal && 
+                <GeneralModalWrapper onCloseModal={()=>{setOpenModal(false)}}>
+                    <UserRewardsModal/>
+                </GeneralModalWrapper>}
         </div>
 
         <div className="home-discount">
