@@ -16,7 +16,7 @@ export default function HomeDashboardRewards(props){
                 </div>
                 
                 {props.status}
-                <button className="redeemRewards" onClick={()=>{props.onClickRedeem(true)}}>Redeem now</button>
+                <button className="redeemRewards" onClick={(data,points)=>{props.onClickRedeem(true,points)}}>Redeem now</button>
             </div>
               
     )

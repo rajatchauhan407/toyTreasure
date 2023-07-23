@@ -5,9 +5,15 @@ import HomeDashboardRewardsCard from "../../components/donor-home-dashboard-rewa
 import HomeDashboardBadgeHistory from "../../components/donor-home-rewards-badge-history-Wrapper";
 import DiscountCard from "../../components/donor-rewards-discount-banner";
 import DashboardPoints from "../../components/donor-home-dashboard-points";
+import { useState,useContext } from "react";
+import GeneralModalWrapper from "../../components/general-modal-wrapper";
+import UserRewardsModal from "../../components/user-rewards-modal";
 import "./index.scss";
-
+import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+import AuthContext from "../../services/auth-context";
 export default function Reward(){
+    const userNameAuth = useContext(AuthContext);
+    const [openModal, setOpenModal] = useState(false);
     let discountData = [
         {
           url: 'https://picsum.photos/400/400?rand=431',
@@ -24,7 +30,10 @@ export default function Reward(){
         discount={el.discount}
         req={el.req} />
       ));
-    
+      async function reducePoints(rewardPoints){
+        const userData = await FireBaseFirestoreService.getDocumentById('user',userNameAuth.uid);
+          await FireBaseFirestoreService.updateDocumentById('user',userNameAuth.uid,{user_points: userData.data().user_points - rewardPoints});
+      }
     return(
         <div className="tt-101-DonorRewardsWrapper">
             <div className="tt-101-rewards-profile">
@@ -38,7 +47,13 @@ export default function Reward(){
 
             <div className="tt-101-redeem-rewards">
                 <h1>Rewards</h1>
-                <HomeDashboardRewardsCard/>
+                <HomeDashboardRewardsCard 
+                     onClickRedeem={(data,points) => {window.scrollTo(0,0);setOpenModal(true); reducePoints(points);}}
+                />
+                {openModal && 
+                <GeneralModalWrapper onCloseModal={()=>{setOpenModal(false)}}>
+                    <UserRewardsModal/>
+                </GeneralModalWrapper>}
             </div>
 
             <div className="tt-101-special-discount">

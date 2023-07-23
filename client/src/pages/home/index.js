@@ -56,7 +56,10 @@ export default function Home(){
         discount={el.discount}
         req={el.req} />
       ));
-
+      async function reducePoints(rewardPoints){
+        const userData = await FireBaseFirestoreService.getDocumentById('user',userNameAuth.uid);
+          await FireBaseFirestoreService.updateDocumentById('user',userNameAuth.uid,{user_points: userData.data().user_points - rewardPoints});
+      }
     return(<>
     <div className='home-page'>
         <div className="home-welcome">
@@ -88,7 +91,7 @@ export default function Home(){
             <h2 className='custom-h1'>Rewards</h2>
           </div>
             <HomeDashboardRewardsCard
-              onClickRedeem={() => {window.scrollTo(0,0);setOpenModal(true);}}
+              onClickRedeem={(data,points) => {window.scrollTo(0,0);setOpenModal(true); reducePoints(points);}}
             />
             {openModal && 
                 <GeneralModalWrapper onCloseModal={()=>{setOpenModal(false)}}>
