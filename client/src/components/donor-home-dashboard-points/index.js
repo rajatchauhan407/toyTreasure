@@ -24,7 +24,7 @@ export default function DashboardPoints(props) {
     
       <div className="ContentPoints">
         <img src={coin} alt="coins-img" />
-        <h3 className='body1'>your points:</h3>
+        <h3 className='body1'>Your Points:</h3>
         <h2 className="point">{user_points}</h2>
       </div>
 
