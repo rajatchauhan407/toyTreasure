@@ -83,13 +83,54 @@ export default function DonorDonationProcessList(props)
         console.log(name);
         if(action==='add')
         {
-            
+            if(name){
+                let filteredWishlist = wishlist?.map((el)=>{
+                    if(el.org_w_toy_name === name){
+                        return {...el,quantity:el.quantity+1}
+                    }else{
+                        return el;
+                    }
+                });
+                let filteredCategories = categories?.map((el)=>{ if(el.category_name === name){return {...el,quantity:el.quantity+1}}
+                else{return el;} })
+
+                authCtx.setUserCartData({...authCtx.userCartData,wishlist:filteredWishlist,categories:filteredCategories});
+                setCategories(filteredCategories);
+                setWishlist(filteredWishlist);
+            } 
+        
             // tt80data = Number(document.getElementById(index).value)+1;    
             // tt80sumOfAmt=tt80sumOfAmt+1; 
             // tt80sumOfPoints=tt80sumOfPoints+points;         
         }
         if(action==='remove')
         {         
+            if(name){
+                let filteredWishlist = wishlist?.map((el)=>{
+                    if(el.org_w_toy_name === name){
+                        console.log("remove outside")
+                        if(el.quantity === 0){
+                            return el;
+                        }
+                        return {...el,quantity:el.quantity-1}
+                    }else{
+                        return el;
+                    }
+                });
+                let filteredCategories = categories?.map((el)=>{ if(el.category_name === name){
+                    if(el.quantity === 1){
+                        removeRow(name,index,e);
+                    }
+                    if(el.quantity === 0){
+                        return el;
+                    }
+                    return {...el,quantity:el.quantity-1}}
+                else{return el;} })
+
+                authCtx.setUserCartData({...authCtx.userCartData,wishlist:filteredWishlist,categories:filteredCategories});
+                setCategories(filteredCategories);
+                setWishlist(filteredWishlist);
+            } 
             // tt80data = Number(document.getElementById(index).value)-1;   
             // tt80sumOfAmt=tt80sumOfAmt-1;  
             // tt80sumOfPoints=tt80sumOfPoints-points;  
