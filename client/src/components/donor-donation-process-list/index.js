@@ -7,12 +7,13 @@ import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function DonorDonationProcessList(props)
 {    
     let authCtx = useContext(AuthContext);
+    console.log(authCtx);
     const [categories, setCategories] = useState(authCtx.userCartData.categories);
     const [wishlist, setWishlist] = useState(authCtx.userCartData.wishlist);
     const [totalPoints, setTotalPoints] = useState(0);
     const [totalQuantity, setTotalQuantity] = useState(0);
     const [tt80sumOfPoints, setTT80SumOfPoints] = useState(0);
-    console.log(wishlist)
+    // console.log(wishlist)
     let tt80data=0;  
     let tt80totalpoints=0;
     let tt80pId="";
@@ -21,10 +22,10 @@ export default function DonorDonationProcessList(props)
     
    function calucateQuantity(wishlist,category){
         let count = 0;
-        wishlist.forEach((el)=>{
+        wishlist?.forEach((el)=>{
             count += el.quantity; 
         });
-        category.forEach((el)=>{
+        category?.forEach((el)=>{
             count += el.quantity
         });
         setTotalQuantity(count);
@@ -33,14 +34,14 @@ export default function DonorDonationProcessList(props)
    useEffect(()=>{
     calucateQuantity(wishlist,categories);
     calculatePoints(wishlist,categories);
-   },[])
+   },[wishlist,categories])
    
    async function calculatePoints(wishlist, categories){
     let totalPoints = 0;   
-    wishlist.forEach((el)=>{
+    wishlist?.forEach((el)=>{
         totalPoints+= +el.org_w_toy_points * el.quantity;
     });
-    categories.forEach((el)=>{
+    categories?.forEach((el)=>{
         totalPoints += +el.category_points * el.quantity;
     });
     setTotalPoints(totalPoints);
@@ -59,45 +60,52 @@ export default function DonorDonationProcessList(props)
     function removeRow(name,index,e)
     {
         e.preventDefault();   
-        tt80pId2=`tt-80-points${index}`; 
-        tt80sumOfAmt=tt80sumOfAmt-Number(document.getElementById(index).value);
-        tt80sumOfPoints=tt80sumOfPoints-Number(document.getElementById(tt80pId2).innerText);
-        document.getElementById("totalToystt80").innerText=tt80sumOfAmt;
-        document.getElementById("totalPointstt80").innerText=tt80sumOfPoints+"pts";
-        document.getElementById(name).remove();    
+        console.log(name)
+        let filteredList = categories.filter((el)=>el.category_name !== name);
+        console.log(filteredList)
+        authCtx.setUserCartData({...authCtx.userCartData,categories:filteredList});
+        authCtx.setUserCartData({...authCtx.userCartData,wishlist:wishlist.filter((el)=>el.org_w_toy_name !== name)});
+        // console.log(filteredList);
+        setCategories(filteredList);
+        setWishlist(wishlist.filter((el)=>el.org_w_toy_name !== name));
+        // tt80pId2=`tt-80-points${index}`; 
+        // tt80sumOfAmt=tt80sumOfAmt-Number(document.getElementById(index).value);
+        // tt80sumOfPoints=tt80sumOfPoints-Number(document.getElementById(tt80pId2).innerText);
+        // document.getElementById("totalToystt80").innerText=tt80sumOfAmt;
+        // document.getElementById("totalPointstt80").innerText=tt80sumOfPoints+"pts";
+        // document.getElementById(name).remove();    
     }
 
  
-    function addRemove(index,e,action,points)
+    function addRemove(index,e,action,name)
     {
-        e.preventDefault();    
-        tt80pId=`tt-80-amount${index}`;
-        tt80pId2=`tt-80-points${index}`;     
-    
+        e.preventDefault();        
+        console.log(name);
         if(action==='add')
         {
-            tt80data = Number(document.getElementById(index).value)+1;    
-            tt80sumOfAmt=tt80sumOfAmt+1; 
-            tt80sumOfPoints=tt80sumOfPoints+points;         
+            
+            // tt80data = Number(document.getElementById(index).value)+1;    
+            // tt80sumOfAmt=tt80sumOfAmt+1; 
+            // tt80sumOfPoints=tt80sumOfPoints+points;         
         }
         if(action==='remove')
         {         
-            tt80data = Number(document.getElementById(index).value)-1;   
-            tt80sumOfAmt=tt80sumOfAmt-1;  
-            tt80sumOfPoints=tt80sumOfPoints-points;  
-            if(tt80data<1)
-            {
-                tt80data=1;
-                tt80sumOfAmt=tt80sumOfAmt+1;   
-                tt80sumOfPoints=tt80sumOfPoints+points; 
-            }           
+            // tt80data = Number(document.getElementById(index).value)-1;   
+            // tt80sumOfAmt=tt80sumOfAmt-1;  
+            // tt80sumOfPoints=tt80sumOfPoints-points;  
+            // if(tt80data<1)
+            // {
+            //     tt80data=1;
+            //     tt80sumOfAmt=tt80sumOfAmt+1;   
+            //     tt80sumOfPoints=tt80sumOfPoints+points; 
+            // }           
         }    
-        document.getElementById("totalToystt80").innerText=tt80sumOfAmt;        
-        tt80totalpoints=points*tt80data;        
-        document.getElementById("totalPointstt80").innerText=tt80sumOfPoints+"pts";
-        document.getElementById(index).value = tt80data;
-        document.getElementById(tt80pId).innerText=tt80data;  
-        document.getElementById(tt80pId2).innerText=tt80totalpoints;    
+        // document.getElementById("totalToystt80").innerText=tt80sumOfAmt;        
+        // tt80totalpoints=points*tt80data;        
+        // document.getElementById("totalPointstt80").innerText=tt80sumOfPoints+"pts";
+        // document.getElementById(index).value = tt80data;
+        // document.getElementById(tt80pId).innerText=tt80data;  
+        // document.getElementById(tt80pId2).innerText=tt80totalpoints;    
     }
    
     let tt80wishListIcon="";  
@@ -119,7 +127,7 @@ export default function DonorDonationProcessList(props)
                     <table id="tt-80-table">
                     {/* <tbody> */}
                     {              
-                        categories.map((el,index)=>{                
+                       categories?.map((el,index)=>{                
                         tt80sumOfAmt=tt80sumOfAmt+el.amount;
                         {/* setTT80SumOfPoints(tt80sumOfPoints+el.category_points);  */}
                         {/* tt80sumOfPoints = tt80sumOfPoints + */}
@@ -145,9 +153,9 @@ export default function DonorDonationProcessList(props)
                         </td>                      
                         <td>
                             <div className="tt-80-amount-change">                              
-                                <button onClick={(e) => addRemove(index,e,"remove",el.category_points)}>-</button>
+                                <button onClick={(e) => addRemove(index,e,"remove",el?.category_name || el?.org_w_toy_name)}>-</button>
                                 <input type="text" id={index} value={el.quantity} ></input>                                                          
-                                <button onClick={(e) => addRemove(index,e,"add",el.category_points)}>+</button>                                
+                                <button onClick={(e) => addRemove(index,e,"add",el?.category_name || el?.org_w_toy_name)}>+</button>                                
                             </div>
                         </td>
                         <td>
@@ -160,7 +168,7 @@ export default function DonorDonationProcessList(props)
                         })                       
                     } 
                     {              
-                        wishlist.map((el,index)=>{                
+                        wishlist?.map((el,index)=>{                
                         tt80sumOfAmt=tt80sumOfAmt+el.amount;
                         {/* setTT80SumOfPoints(tt80sumOfPoints+el.org_w_toy_points);  */}
                         tt80pId=`tt-80-amount${index}`;                             
@@ -188,9 +196,9 @@ export default function DonorDonationProcessList(props)
                         </td>                      
                         <td>
                             <div className="tt-80-amount-change">                              
-                                <button className="tt-80-removebtn" onClick={(e) => addRemove(index,e,"remove",el.org_w_toy_points)}>-</button>
+                                <button className="tt-80-removebtn" onClick={(e) => addRemove(index,e,"remove",el?.category_name || el?.org_w_toy_name)}>-</button>
                                 <input type="text" id={index} value={el.quantity} disabled></input>                                                          
-                                <button className="tt-80-addbtn" onClick={(e) => addRemove(index,e,"add",el.org_w_toy_points)}>+</button>                                
+                                <button className="tt-80-addbtn" onClick={(e) => addRemove(index,e,"add",el?.category_name || el?.org_w_toy_name)}>+</button>                                
                             </div>
                         </td>
                         <td>
