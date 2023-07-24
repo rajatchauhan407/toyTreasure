@@ -10,14 +10,28 @@
     {
         text-decoration: none;
         padding: 1rem 2rem;
-        color:$text_pure_white;
+        color:$text_midnight_blue;
         font-size: 1rem;
     }
     button 
     {
-        background-color: $accent_amethyst;
+        background-color: $accent_amethyst-light;
         border:none;
         border-radius: .5rem;
+    }
+    button:hover
+    {
+        background-color: $accent_amethyst;   
+        a{    
+        color: $text_pure_white;
+        }
+    }
+    button:active
+    {
+        background-color: $accent_amethyst;
+        a{    
+            color: $text_midnight_blue;
+        }
     }
 }
 .error-page-image-wrapper
@@ -29,4 +43,17 @@
     padding:1rem;
     color:$secondary_ERR_red;
     font-size: 8rem;
+}
+
+@media screen and (max-width: $break-point) {
+    .error-page-image-wrapper
+    {
+       display:flex;
+       justify-content: center;
+    }
+    .errorPage .fa-exclamation-triangle, .errorPage h1
+    {       
+        padding:.5rem;
+        font-size: 3rem;
+    }
 }
