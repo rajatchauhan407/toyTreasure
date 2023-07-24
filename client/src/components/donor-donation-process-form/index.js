@@ -19,7 +19,7 @@ export default function DonorDonationProcessForm(props)
     const [confirm2,setConfirm2] = useState(false);
 
     async function storeDonationInDatabase(){
-        props.onFormClicked(true);
+        // props.onFormClicked(true);
         const autoId = nanoid();
         console.log("New ID is here:"+autoId);
         const donation = {
@@ -39,6 +39,8 @@ export default function DonorDonationProcessForm(props)
         }
         console.log(donation);
         await FireBaseFirestoreService.createDocument('user_donations',donation);
+        // scrolling the window to the top
+        window.scrollTo(0, 0);
         props.onFormClicked(true)
     }
     // console.dir(confirm1.current.checked);

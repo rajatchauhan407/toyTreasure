@@ -1,4 +1,49 @@
+@import '../../sass/main.scss';
 .modalPoints{
+    color:$text_midnight_blue;
+    padding:2rem;
+    border:1px solid black;
+    border-radius: 1rem;
     text-align: center;
     width: 300px;
+    p 
+    {
+        color:$text_midnight_blue;
+    }
+    h2 
+    {
+        color:$primary_crown_yellow;
+    }
+    h4
+    {
+        color:$text-just-gray;
+    } 
+    .points-donor 
+    {
+        border: 1px solid $primary_boy_blue;
+        border-radius: .5rem;
+    }
+    .go-rewards 
+    {
+        @include Buttuns ($medium-button, $accent_amethyst-light);
+        color:$text_midnight_blue;
+        margin:1rem;
+    }
+    .go-rewards:hover
+    {
+        background-color: $accent_amethyst;       
+        color: $text_pure_white;
+    }
+    .go-rewards:active
+    {
+        background-color: $accent_amethyst;
+        color: $text_midnight_blue;
+    }
+    a 
+    {
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-decoration: none;
+        color:$text_midnight_blue;
+    }
 }

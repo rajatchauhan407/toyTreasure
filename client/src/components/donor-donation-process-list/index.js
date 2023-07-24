@@ -44,11 +44,11 @@ export default function DonorDonationProcessList(props)
         totalPoints += +el.category_points * el.quantity;
     });
     setTotalPoints(totalPoints);
-    try{
-        await FireBaseFirestoreService.updateDocumentById('user',authCtx.uid,{user_points:totalPoints});
-    }catch(error){
-        console.log(error);
-    }
+    // try{
+    //     await FireBaseFirestoreService.updateDocumentById('user',authCtx.uid,{user_points:totalPoints});
+    // }catch(error){
+    //     console.log(error);
+    // }
     authCtx.setUserPoints(totalPoints);
    }
     function refresh()

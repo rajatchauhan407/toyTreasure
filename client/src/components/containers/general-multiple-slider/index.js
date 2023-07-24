@@ -16,17 +16,17 @@ const GeneralMultipleSlider = (props) => {
 
   return (
     <div className="tt-71-slider-container">
-      <div className="tt-71-slider" style={{ transform: `translateX(-${slideIndex * 30}%)` }}>
+      <div className="tt-71-slider" style={{ transform: `translateX(-${slideIndex * 20}%)` }}>
         {props.cards.map((el)=>{
           return el;
         })}
         {/* Add more card components if needed */}
       </div>
       <button className="tt-71-prev-button" onClick={handlePrevSlide} disabled={slideIndex === 0}>
-          <img src={arrowLeft}/>
+          <img src={arrowLeft} alt="arrow-left"/>
       </button>
       <button className="tt-71-next-button" onClick={handleNextSlide} disabled={slideIndex === props.cards.length-3}>
-          <img src={arrowRight}/>
+          <img src={arrowRight} alt="arrow-right"/>
       </button>
     </div>
   );
