@@ -41,19 +41,30 @@
 }
 
 .tt-62-charity-timing{
+    display: flex;
+    align-items: flex-end;
+
+    .timigInfo{
+        display: flex;
+        flex: 50%;
+    }
+    .btnDonate {
+        flex: 50%;
+        text-align: end;
+
+        button{
+            @include Buttuns ($medium-button, $button_soft_purple_CTA);
+            text-decoration: none;
+            color: $text_midnight_blue;
+            text-align: center;
+    
+            &:hover{
+                background-color: $text_pure_white;
+            }
+        }
+    }
+    
     p{
         margin: 0.5rem 0;
     }
-
-    button{
-        @include Buttuns ($medium-button, $button_soft_purple_CTA);
-        text-decoration: none;
-        color: $text_midnight_blue;
-        text-align: center;
-
-        &:hover{
-            background-color: $text_pure_white;
-        }
-    }
-
 }

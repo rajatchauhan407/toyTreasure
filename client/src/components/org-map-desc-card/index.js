@@ -15,9 +15,13 @@ export default function OrgMapDescCard({orgLogo, orgName,address,days,time,desc,
                     </div>
                 </div>
                 <div className="tt-62-charity-timing">
-                        <p><b>Received Donation Hours:</b></p>
-                        <p>{time}</p>
-                        <Link to={`/donation/toys/${id}`}><button>Donate Now</button></Link>
+                        <div className="timingInfo">
+                            <p><b>Received Donation Hours:</b></p>
+                            <p>{time}</p>
+                        </div>
+                        <div className='btnDonate'>
+                            <Link to={`/donation/toys/${id}`}><button>Donate Now</button></Link>
+                        </div>
                 </div>
             </div>
 }
