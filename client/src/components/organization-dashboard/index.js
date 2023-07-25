@@ -33,28 +33,33 @@ export default function OrgDashBoard({onWishlistClicked}){
     return (
         <div className='org-wrapper'>
             <div className="org-list-wrapper">
-            <div className="org-list-header">
-                <h2>DashBoard</h2>
-                <button onClick={()=>{onWishlistClicked(true)}}>                
-                    <i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Toy to Wishlist
-                </button>
-            </div>
-            <div className="org-wishlist-crown">
-                <h5>Wishlist <img className="crown" src={crown} alt={"crownicon"}/></h5>                
-            </div>
-           
-            <OrgWishlist/>
-        </div>
-        <div className="side-container">
-            <OrgDataCard displayMode="two-columns"  details={orgData}/>
-           <div className="org-pending-verification">
-                <div className="org-pending-verification-header">
-                    <h4>Pending Verification</h4>
-                    <h6><Link to="/organization/verification">See All</Link></h6>
+                <div className="org-list-header">
+                    <h2>DashBoard</h2>
+                    <button onClick={()=>{onWishlistClicked(true)}}>                
+                        <i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Toy to Wishlist
+                    </button>
                 </div>
-                <OrgVerificationCard/>  
-           </div>
-        </div>
+                <div className="OrgDataCard1">
+                    <OrgDataCard  displayMode="two-columns"  details={orgData}/>
+                </div>   
+                <div className="org-wishlist-crown">
+                    <h5>Wishlist <img className="crown" src={crown} alt={"crownicon"}/></h5>                
+                </div>  
+                     
+                <OrgWishlist/>
+            </div>
+            <div className="side-container">
+                <div className="OrgDataCard2">
+                    <OrgDataCard displayMode="two-columns"  details={orgData}/>
+                </div>
+                <div className="org-pending-verification">
+                        <div className="org-pending-verification-header">
+                            <h4>Pending Verification</h4>
+                            <h6><Link to="/organization/verification">See All</Link></h6>
+                        </div>
+                        <OrgVerificationCard/>  
+                </div>
+            </div>
         </div>
     )
 }

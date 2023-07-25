@@ -9,6 +9,14 @@
     border-left: 1px solid $text_just_gray;
    
 }
+.OrgDataCard1
+{
+    display:none;
+}
+.OrgDataCard2
+{
+    display:block;
+}
 .org-list-wrapper{
     @include displayfc;
     width:70%;
@@ -91,3 +99,45 @@
     color:$primary_boy_blue;
 }
 
+@media screen and (max-width: $break-point) {
+    .org-wrapper,.org-list-header
+ {
+     flex-direction: column;
+ } 
+ .side-container{
+    width:100%;
+    gap:.5rem;
+    @include displayfc;
+    .cards-wrapper{
+        width:100%;
+        display: flex;
+        flex-wrap: wrap;
+        // height:50%;
+        gap:.5rem;
+    }
+    .org-pending-verification-header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+.OrgDataCard1
+{
+    margin-top:1rem;
+    display:block;
+}
+.OrgDataCard2
+{
+    display:none;
+}
+.org-list-header button 
+{
+   font-size: 1rem;
+}
+.org-wishlist-crown
+{
+    margin-top:1rem;
+    margin-bottom:0;
+}
+ }
+ 
