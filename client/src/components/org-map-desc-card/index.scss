@@ -9,9 +9,11 @@
     padding:1rem;
     box-sizing: border-box;
     border-radius: 1rem;
-
-    color: $text_pure_white;
     margin: 1rem;
+
+    p{
+        color: $text_pure_white;
+    }
 }
 .tt-62-map-charities-desc{
     display: flex;

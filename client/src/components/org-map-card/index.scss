@@ -19,6 +19,9 @@
         button{
             background-color: $text_pure_white;
         }
+        p{
+            color: $text_pure_white;
+        }
     }
 
     h2{
@@ -41,7 +44,6 @@
     flex-direction: column;
     margin-top: 1rem;
     margin-bottom: 1rem;
-
 }
 .tt-62-short-details-wrapper{
     display:flex;
