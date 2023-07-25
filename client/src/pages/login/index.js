@@ -6,7 +6,7 @@ export default function Login(){
 return (
     <>
     <div className='loginWrapper'>
-    <LoginSidebar/>
+    <LoginSidebar className='responsiveWrapper'/>
     <div className='loginFormWrapper'>
     <LoginForm/>
     </div>

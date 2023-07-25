@@ -43,3 +43,8 @@ margin-right: 4rem;
         color:$text_not_just_gray
     }
 }
+@media screen and (max-width: $break-point) {
+    .responsiveWrapper{
+        display: none;
+    }
+}
