@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    padding: 6rem 4rem 6rem 4rem;
+    @include globalPadding (6rem, 8.125rem, 6rem, 8.125rem);
     background-color: $secondary_soft_blue;
 }
 
