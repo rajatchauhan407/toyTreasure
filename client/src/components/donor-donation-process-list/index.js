@@ -157,8 +157,7 @@ export default function DonorDonationProcessList(props)
     // ]  
     
     return( 
-        <form className="tt-80-donationProcessListForm"> 
-          <h1>Confirm your Donation</h1>     
+        <form className="tt-80-donationProcessListForm">               
             <div className="tt-80-donationProcessListWrapper">                            
                     <div className="tt-80-toy-list"> 
                         <div className="tt-80-toy-list-header">
@@ -176,20 +175,17 @@ export default function DonorDonationProcessList(props)
                         tt80pId2=`tt-80-points${index}`;                              
                       
                         return <tr className={index} id={el.category_name}>    
-                        <td class="donation-table">
-                            <div className="tt-80-imgandquantity">
+                        <td className="donation-table">
+                           
                                 <img src={el.category_picture} alt={el.category_name}></img>                               
                                 {/* <p className="tt-80-amount" id={tt80pId}>{el.quantity}</p> */}
-                            </div>
+                            
                         </td>     
                        
 
-                        <td>
-                            <div class="tt-80-nameandwishlist">  
-                                <div>                        
-                                    <p>{el.category_name}</p>
-                                </div> 
-                                {/* {el.donateTo} */}
+                        <td className="tt-80-toyname">
+                            <div className="tt-80-nameandwishlist">                                                     
+                                    <p>{el.category_name}</p>                                                               
                             </div>
                         </td>                      
                         <td>
@@ -228,7 +224,7 @@ export default function DonorDonationProcessList(props)
                        
 
                         <td>
-                            <div class="tt-80-nameandwishlist">  
+                            <div className="tt-80-nameandwishlist">  
                                 <div className="tt-80-wishlisticon">                        
                                     {el.org_w_toy_name}  <div className="crownIcon-tt-80">{tt80wishListIcon}</div>
                                 </div> 
