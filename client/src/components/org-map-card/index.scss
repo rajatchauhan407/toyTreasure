@@ -18,6 +18,11 @@
 
         button{
             background-color: $text_pure_white;
+
+            &:hover{
+                background-color: $button_soft_purple_CTA;
+                color: $text_midnight_blue;
+            }
         }
         p{
             color: $text_pure_white;
