@@ -1,5 +1,5 @@
 import './index.scss';
-
+import { Link } from 'react-router-dom';
 export default function UserRewardsModal(props){
     return(
         <div className="modalWrapper">
@@ -10,7 +10,7 @@ export default function UserRewardsModal(props){
             <div className="coupon-desc">
                 ZPHY TYRK DCHO
             </div>
-            <button className="redeem-now">Redeem on Website</button>
+            <button className="redeem-now"><Link to="/home">Redeem on Website</Link></button>
         </div>
     )
 }

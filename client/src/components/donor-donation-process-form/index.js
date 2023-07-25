@@ -19,7 +19,7 @@ export default function DonorDonationProcessForm(props)
     const [confirm2,setConfirm2] = useState(false);
 
     async function storeDonationInDatabase(){
-        props.onFormClicked(true);
+        // props.onFormClicked(true);
         const autoId = nanoid();
         console.log("New ID is here:"+autoId);
         const donation = {
@@ -39,6 +39,8 @@ export default function DonorDonationProcessForm(props)
         }
         console.log(donation);
         await FireBaseFirestoreService.createDocument('user_donations',donation);
+        // scrolling the window to the top
+        window.scrollTo(0, 0);
         props.onFormClicked(true)
     }
     // console.dir(confirm1.current.checked);
@@ -53,7 +55,7 @@ export default function DonorDonationProcessForm(props)
                     <div className="tt-81-donor-details"> 
                         <div className="tt-81-donor-details-header">
                             <h4>Donor Details</h4>   
-                            <Link to="#">Edit</Link>
+                            
                         </div>
                         <p>Name: {donorDetails_tt81[0].donorName}</p>
                         <p>Email: {donorDetails_tt81[0].donorEmail}</p>
@@ -69,9 +71,9 @@ export default function DonorDonationProcessForm(props)
                         <h3>Date and Time</h3>     
                         <div className="tt-81-inputs">                  
                             <input type="date" id="tt-81-date" value={date} name="tt-81-date" onChange={(e)=>{setDate(e.target.value)}}></input>  
-                            <label for="tt-81-date">Select date</label>                        
+                            <label for="tt-81-date"></label>                        
                             <input type="time" id="tt-81-time" name="tt-81-time" value={time} onChange={(e)=>{setTime(e.target.value)}}></input>
-                            <label for="tt-81-time">Select time</label>
+                            <label for="tt-81-time"></label>
                         </div> 
                     </div>
                     <div className="tt-81-donation-instruction"> 
@@ -82,12 +84,12 @@ export default function DonorDonationProcessForm(props)
                     </div>
                 
                     <div className="tt-81-checkboxes"> 
-                        <label class="tt-81-remind-me-label">
+                        {/* <label class="tt-81-remind-me-label">
                             <input type="checkbox" id="tt-81-remind-me"  name="tt-81-remind-me" onChange={(e)=>{setConfirm1(e.target.checked)}}
                                 checked={confirm1}
                             />
                             Remind me to drop-off/pick-up donation via Text Message.
-                        </label>
+                        </label> */}
                         <label class="tt-81-confirm-details-label">
                             <input type="checkbox" 
                                     id="tt-81-confirm-details" 

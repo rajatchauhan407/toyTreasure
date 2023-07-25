@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import { database } from "../FirebaseConfig";
+// import { database } from "../FirebaseConfig";
 // import FireBaseAuthService from "./FirebaseAuthService";
-import { query,where,collection,getDocs} from 'firebase/firestore';
+// import { query,where,collection,getDocs} from 'firebase/firestore';
 import FireBaseAuthService from "./FirebaseAuthService";
 import {onAuthStateChanged} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -63,7 +63,7 @@ export const AuthContextProvider = (props)=>{
                     localStorage.removeItem('uid');
                     localStorage.removeItem('userType');
                     setUserType(null);
-                    navigate('/login');
+                    navigate('/signup');
                 }
             }
         );

@@ -25,7 +25,7 @@ export default function DonorDonationToysPage(){
     return(<>
     <div className='donorDonationToysPageWrapper'>
         <div className='backButton'>
-    <Link to="/charity/profile/${id}">
+    <Link to={`/charity/profile/${id}`}>
 
         <button>
         <img src={arrowBack} alt="back-arrow"/>

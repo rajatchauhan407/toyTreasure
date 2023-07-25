@@ -43,7 +43,7 @@ return(
     
         
         <Route element={<ProtectedRoutes/>}>
-            <Route path="/login-signup" element={<LoginSignUp/>} />
+            <Route path="/signup" element={<LoginSignUp/>} />
             <Route path="/login" element={<Login/>} />
         </Route>  
         {authCtx.isLoggedIn && authCtx.userType === "organization"&&(<Route  element={<OrganizationRoutes/>}>
