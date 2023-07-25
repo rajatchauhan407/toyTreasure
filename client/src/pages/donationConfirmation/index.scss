@@ -6,11 +6,21 @@
     gap: 1rem;
     @include globalPadding;
 }
+.donationConfirmation-page-Wrapper h1
+{
+    @include globalPadding;
+    img
+    {
+        width:2.5%;
+        height:3%;
+    }
+}
+
 
 .donation-confirmation-list{
-    flex: 45%;
+    flex: 50%;
 }
 
 .donation-confirmation-form{
-    flex:55%;
+    flex:50%;
 }
