@@ -21,14 +21,22 @@
     margin:1rem 3rem;
 }
 
-.tt-101-special-discount h1
-{
-  margin-left:3rem;
-}
+.tt-101-special-discount{
+    h1
+    {
+      margin-left:3rem;
+    }
+} 
 .tt-101-redeem-rewards{
     background-color: #F5F0FA;
     padding: 5%;
 h1{
     color: $button_purple_CTA;
 }
+}
+@media screen and (max-width: $break-point) {
+    .tt-101-special-discount{
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
 }
