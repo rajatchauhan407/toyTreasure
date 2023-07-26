@@ -12,7 +12,7 @@ export default function UserRewardsModal(props){
                 <h3>ZPHY TYRK DCHO</h3>
             </div>
             <button className="redeem-now">
-                <Link to="/home" target="_blank" rel="noopener noreferrer">
+                <Link to="https://jimsbouncycastles.com/" target="_blank" rel="noopener noreferrer">
                     Redeem on Website
                 </Link>
             </button>        
