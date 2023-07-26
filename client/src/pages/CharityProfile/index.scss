@@ -34,4 +34,8 @@
         gap: 10px;
     }
 
+    .charity_stories{
+        @include mobilePadding(2rem, 2rem, 2rem, 2rem);
+    }
+
 }
