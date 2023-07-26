@@ -1,6 +1,3 @@
-// import HomeDashboardRewardsCard from "../components/donor-home-dashboard-rewards-card-wrapper";
-// import HomeDashboardBadgeHistory from "../components/donor-home-rewards-badge-history-Wrapper";
-// import DiscountCard from "../components/donor-rewards-discount-banner";
 import HomeDashboardRewardsCard from "../../components/donor-home-dashboard-rewards-card-wrapper";
 import HomeDashboardBadgeHistory from "../../components/donor-home-rewards-badge-history-Wrapper";
 import DiscountCard from "../../components/donor-rewards-discount-banner";

@@ -18,7 +18,7 @@
 }
 .tt-101-rewards-profile
 {
-    margin:1rem 3rem;
+    @include globalPadding (2rem, 8.125rem, 4rem, 8.125rem);
 }
 
 .tt-101-special-discount{
