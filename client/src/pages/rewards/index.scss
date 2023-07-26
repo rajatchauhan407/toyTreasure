@@ -74,4 +74,9 @@ margin-left: 0%;
     .tt-101-rewards-profile-and-points{
         display: block;
     }
+    .tt-101-rewards-profile,
+    .tt-101-redeem-rewards{
+        @include mobilePadding;
+        margin: 0;
+    }
 }
