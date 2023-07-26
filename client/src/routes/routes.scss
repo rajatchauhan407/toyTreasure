@@ -1,3 +1,4 @@
+@import '.././sass/main.scss';
 .organization{
     display: grid;
     grid-template-columns: 25% 75%;
@@ -27,3 +28,20 @@
     top:0;
     background: white;
 }
+
+.tt-102-header-wrapperMobile
+{
+    display: none;
+}
+
+@media screen and (max-width: $break-point) {
+    .tt-102-header-wrapperMobile
+    {
+        display: block;
+    }
+    .tt-102-header-wrapper
+    {
+        display: none;
+    }
+ 
+ }
