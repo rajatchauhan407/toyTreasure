@@ -97,10 +97,14 @@
 
 @media screen and (max-width: $break-point) {
     .home-welcome,
-    .home-map,
     .home-stories,
     .home-discount{
     @include mobilePadding;
+    }
+
+    .home-map{
+        padding: 0;
+        margin: 0;
     }
 
     .home-welcome{

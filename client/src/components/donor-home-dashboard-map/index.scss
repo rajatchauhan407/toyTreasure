@@ -25,7 +25,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        filter: blur(3px);
+        filter: blur(2px);
         z-index: -1;
     }
     
@@ -88,4 +88,71 @@
     position: relative;
     top: 380px;
     left: 40px;
+}
+
+// =========== MOBILE
+@media screen and (max-width: $break-point) {
+    .donorHomeDashboardMap{
+        border-radius: 0;
+
+        h2{
+            margin: 0;
+            font-size: 32px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url(./mapScreenShot.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: blur(2px);
+            z-index: -1;
+        }
+        
+        img{
+            width: 5rem;
+            height: auto;
+    
+            &:hover{
+                transform: scale(1.1);
+                transition: all 0.4s;
+            }
+        }
+    }
+
+    .donorMapImage1{
+        position: relative;
+        top: -20px;
+        left: -20px;
+    }
+    
+    .donorMapImage2{
+        position: relative;
+        top: 80px;
+        left: 0px;
+    }
+    
+    .donorMapImage3{
+        position: relative;
+        top: 0px;
+        left: 50px;
+    }
+    
+    .donorMapImage4{
+        position: relative;
+        top: 450px;
+        left: 0px;
+    }
+    
+    .donorMapImage5{
+        position: relative;
+        top: 380px;
+        left: -100px;
+    }
 }
