@@ -2,8 +2,9 @@
 .donationCategoryCardWrapper{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 2.5rem;
+    grid-gap: 3rem;
     margin-bottom: 1rem;
+    padding: 0 6rem;
     
     h5{
         color: $text_midnight_blue;
@@ -54,4 +55,14 @@
         color: $text_not_just_gray;
     }
    }
+}
+@media screen and (max-width: $break-point) {
+    .donationCategoryCardWrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2.5rem;
+        padding: 0 1rem;
+    }
+        
+    
 }
