@@ -47,3 +47,22 @@ button{
         margin: 2%;
     }
 }
+@media screen and (max-width: $break-point) {
+    .donorWishListCardWrapper{
+        padding: 2rem 1rem;
+    }
+    .wishListTitle{
+        h1{
+            font-family: $font-heading;
+font-size: 25px;
+font-style: normal;
+font-weight: $fw-bold;
+line-height: 2.125rem;
+        }
+}
+.proceedToDonateTagLine{
+    button{
+        max-width: 150px;
+    }
+}
+}

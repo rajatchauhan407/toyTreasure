@@ -59,12 +59,31 @@
 }
 
 @media screen and (max-width: $break-point) {
+    .donationWishListNumberInput{
+        justify-content: center;
+        align-items: center;
+        button{
+            margin-right: 0%;
+            margin-left: 0%;
+        }
+        .input-field{
+            min-width: 1.5rem;
+            width: 1.5rem;
+        }
+    }
     .wrapperBugFinder{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 2.5rem;
+        grid-gap: 1rem;
+        h3{
+            font-size: 20px;
+        }
     }
     .donationWishListCardWrapper{
         padding: 1rem 1rem;
+        min-width: fit-content;
+    }
+    button .increment{
+        margin: 0%;
     }
 }

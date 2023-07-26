@@ -97,7 +97,7 @@ function DonationWishListCardWrapper({requiredCategories}) {
     </div>
 
 
-    <button className='proceedButton' onClick={storeDataInCart}><span className="proceedBefore">{totalToys}</span><h5>Proceed to Donate</h5></button>
+    <button className='proceedButton' onClick={storeDataInCart}><span className="proceedBefore">{totalToys}</span><h5>Donate</h5></button>
     </div>
     <div className='donorWishListCardWrap'>
       <DonationWishListCard
