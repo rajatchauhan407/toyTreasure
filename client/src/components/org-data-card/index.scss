@@ -45,3 +45,20 @@
 .card-4{
     background-color: #C2A3E0;
 }
+
+// ========== MOBILE 
+@media screen and (max-width: $break-point) {
+    .org-cards-wrapper{
+        flex-wrap: wrap;
+    }
+    .card-1,
+    .card-2,
+    .card-3,
+    .card-4{
+        width: 200px;
+        flex-basis:25%;
+        flex-grow: 1;
+        padding: 1rem;
+    }
+
+}

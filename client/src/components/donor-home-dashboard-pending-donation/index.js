@@ -5,6 +5,7 @@ import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 import AuthContext from '../../services/auth-context';
 import DonorPointsModal from '../donor-points-awarded-modal';
 import GeneralModalWrapper from '../general-modal-wrapper';
+import FireBaseAuthService from '../../services/FirebaseAuthService';
 const qrcodeRegionId = "html5qr-code-full-region";
 
 // Creates the configuration object for Html5QrcodeScanner.
@@ -103,6 +104,7 @@ export default function DashboardPendingDonation(props) {
   const [decodedResults, setDecodedResults] = useState([]);
   const [verificationId, setVerificationId] = useState("");
   const [scanner, setScanner] = useState(false);
+  const [orgName, setOrgName] = useState("");
     const onNewScanResult = (decodedText, decodedResult) => {
         
         setDecodedResults(decodedText);
@@ -115,6 +117,16 @@ export default function DashboardPendingDonation(props) {
   }, [decodedResults]);
 
   useEffect(()=>{
+    async function fetchOrg(){
+      try{
+        const res = await FireBaseFirestoreService.getDocumentById("organization_profile",props.donations.orgId);
+        console.log(res.data().profileDetails.org_name);
+        setOrgName(res.data().profileDetails.org_name);
+      }catch(error){
+        console.log("Error: "+error);
+      }
+    };
+    fetchOrg();
     async function checkVerification(){
       console.log("id: "+verificationId);
       console.log("props: "+props.donations.verificationId);
@@ -147,8 +159,8 @@ export default function DashboardPendingDonation(props) {
     <div className='tt-72-DashboardPendingDonationWrapper'>
       <div className="tt-72-DashboardPendingDonation">
         <h3>You have a Pending Donation</h3>
-        <h4>Organization Name</h4>
-        <p>Date of Donation</p>
+        <h4>{orgName}</h4>
+        <p>Date of Donation: {props.donations.date}</p>
         {!scanner && <button onClick={()=>{setScanner(true)}}>Scan QR code</button>}
         
         {/* <video ref={videoRef} width="640" height="480" />

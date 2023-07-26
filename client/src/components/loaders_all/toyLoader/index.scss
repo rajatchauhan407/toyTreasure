@@ -1,0 +1,49 @@
+/* ToyLoader.css */
+
+.toy-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .toy-car-container {
+    display: flex;
+  }
+  
+  .toy-car {
+    width: 40px;
+    height: 20px;
+    background-color: #f00; /* Replace with your preferred color for toy cars */
+    border-radius: 50%;
+    margin: 0 8px;
+    animation: toy-car-rotate 1s infinite linear;
+  }
+  
+  .toy-ball {
+    width: 30px;
+    height: 30px;
+    background-color: #00f; /* Replace with your preferred color for toy balls */
+    border-radius: 50%;
+    margin-top: 16px;
+    animation: toy-ball-bounce 1s infinite alternate;
+  }
+  
+  @keyframes toy-car-rotate {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes toy-ball-bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-20px);
+    }
+  }
+  

@@ -4,12 +4,24 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import DonationCategoryCardWrapper from '../../components/donor-donation-category-card-wrapper';
 import DonationWishListCardWrapper from '../../components/donor-donation-wishList-card-wrapper';
+import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import { useState,useEffect } from 'react';
 
 export default function DonorDonationToysPage(){
     const {id} = useParams();
+    const [isLoading, setIsLoading] = useState(true);
+    const [orgName, setOrgName] = useState('');
     
     const [categoriesData, setCategoriesData] = useState([]);
+    useEffect(()=>{
+        async function fetchOrg(){
+            const res = await FireBaseFirestoreService.getDocumentById('organization_profile',id);
+            console.log(res.data().profileDetails.org_name);
+            setOrgName(res.data().profileDetails.org_name);
+            setIsLoading(false);
+        }
+        fetchOrg();
+    },[]);
     function getSelectedCategories(data){
             let array = [];
             data.forEach((el)=>{
@@ -32,7 +44,7 @@ export default function DonorDonationToysPage(){
                     </button>
                 </Link>
             </div>
-            <h2>Organization Name</h2>
+            <h2>{orgName}</h2>
     </div>
 
         

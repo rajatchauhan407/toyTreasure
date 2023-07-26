@@ -69,3 +69,19 @@
 
 }
 
+// ================== MOBILE
+@media screen and (max-width: $break-point){
+    .charityInformation{
+        flex-direction: column;
+        @include mobilePadding;
+
+        .profileinformation {
+            width: 100%;
+        }
+
+        .profileImage {
+            order: -1;
+        }
+    }
+}
+

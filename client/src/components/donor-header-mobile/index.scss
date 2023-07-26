@@ -16,44 +16,49 @@
 }
 .tt-22-donor-image-wrapper
 {
-    padding:1rem;
-    margin: .5rem 0 .5rem 0;   
+    @include mobilePadding;
+    margin-top: .5rem;  
     display:flex;
     align-items: center;
     justify-content: space-between;
 }
 .tt-22-main-menu li
 {    
+    display: block;
     width: 100%;
     list-style: none;   
     padding: 1rem 0 1rem 0;
     margin:0;   
+
+    &:hover{
+        background-color:$primary_boy_blue;
+        color:$text_pure_white;
+
+        a{
+            color:$text_pure_white;
+        }
+    }
+
 }
-.tt-22-main-menu li:hover
-{
-    background-color:$primary_boy_blue;
-    color:$text_pure_white;
-}
-.tt-22-main-menu li:hover a
-{   
-    color:$text_pure_white;
-}
+
 .tt-22-main-menu li a
 { 
+    display: block;
     text-decoration: none;
     color:$text_midnight_blue;
-    padding: 0 0 0 4rem;
+    padding: 0 0 0 2rem;
     margin:0;
     font-family: $font-heading;
     font-size: 18px;
     font-style: normal;
     font-weight: $fw-bold;
     line-height: normal;
+
+    &:hover{
+        font-weight: $fw-bold;
+    }
 }
-.tt-22-main-menu li a:hover
-{
-   font-weight: bold;
-}
+
 .fa-times-circle
 {
     width: 40px;
@@ -71,18 +76,18 @@
     background-color: $secondary_footer_soft_blue;   
 }
 
-.tt-22-main-menu
-{  
+.tt-22-main-menu {  
     width: 100%;        
-    z-index:40;
+    z-index: 40;
     position: fixed;    
-    top: 120px;   
-    transform:translateX(0);    
-    transition: all .5s ease-in-out;   
-    
+    top: 0;
+    opacity: 0;
+    transition: opacity .8s ease-in-out, transform .8s ease-in-out; 
+    transform: translateY(-100%); 
 }
-.tt-22-menu-active .tt-22-main-menu
-{   
-    transform:translateX(-100%);
-    transition: all .5s ease-in-out;  
+
+.tt-22-menu-active .tt-22-main-menu {   
+    opacity: 1;
+    transform: translateY(55%);
 }
+
