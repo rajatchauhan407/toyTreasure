@@ -8,6 +8,7 @@ import { useState,useEffect } from 'react';
 
 export default function DonorDonationToysPage(){
     const {id} = useParams();
+    const [isLoading, setIsLoading] = useState(true);
     
     const [categoriesData, setCategoriesData] = useState([]);
     function getSelectedCategories(data){
