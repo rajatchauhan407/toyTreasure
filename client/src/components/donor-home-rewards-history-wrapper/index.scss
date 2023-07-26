@@ -17,3 +17,22 @@
         color: $text_not_just_gray;
     }
 }
+@media screen and (max-width: $break-point) {
+    .WrapperDonationHistory{
+        padding: 0%;
+        background-color: white;
+        h3{
+            color: black;
+        }
+    }
+    .historyOfDonations{
+        padding: 0%;
+        ul{
+            background-color:$button_soft_purple_CTA ;
+            padding: 2%;
+            border-radius: 10px;
+            height: 57px;
+            align-items: center;
+    }
+}
+}
