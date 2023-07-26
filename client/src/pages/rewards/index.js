@@ -7,6 +7,7 @@ import GeneralModalWrapper from "../../components/general-modal-wrapper";
 import UserRewardsModal from "../../components/user-rewards-modal";
 import "./index.scss";
 import specialDiscount from './specialDiscount.png';
+import redeemIcon from './../home/Redeem.png'
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 import AuthContext from "../../services/auth-context";
 export default function Reward(){
@@ -44,14 +45,17 @@ export default function Reward(){
             </div>
 
             <div className="tt-101-redeem-rewards">
-                <h1>Rewards</h1>
-                <HomeDashboardRewardsCard 
-                     onClickRedeem={(data,points) => {window.scrollTo(0,0);setOpenModal(true); reducePoints(points);}}
-                />
-                {openModal && 
-                <GeneralModalWrapper onCloseModal={()=>{setOpenModal(false)}}>
-                    <UserRewardsModal/>
-                </GeneralModalWrapper>}
+                <div className='rewards-info'>
+                    <img src={redeemIcon} alt='redeemIcon'/>
+                    <h2 className='custom-h1'>Rewards</h2>
+                </div>
+                    <HomeDashboardRewardsCard
+                    onClickRedeem={(data,points) => {window.scrollTo(0,0);setOpenModal(true); reducePoints(points);}}
+                    />
+                    {openModal && 
+                        <GeneralModalWrapper onCloseModal={()=>{setOpenModal(false)}}>
+                            <UserRewardsModal/>
+                        </GeneralModalWrapper>}
             </div>
 
             <div className="tt-101-special-discount">
@@ -60,7 +64,7 @@ export default function Reward(){
             </div>
 
             <div className="tt-101-special-discount-mq">
-                <h1>Special discount for you</h1>
+                <h2 className='custom-h1'>Special discounts for you</h2>                
                 <img src={specialDiscount} alt="special Discount"/>
             </div>
         </div>

@@ -22,17 +22,30 @@
 }
 
 .tt-101-special-discount{
-    h1
-    {
-      margin-left:3rem;
-    }
+    @include globalPadding;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 } 
 .tt-101-redeem-rewards{
-    background-color: #F5F0FA;
-    padding: 5%;
-h1{
-    color: $button_purple_CTA;
-}
+        background-color: #F5F0FA;
+        @include globalPadding (4rem, 8.125rem, 4rem, 8.125rem);
+
+        .rewards-info{
+            display: flex;
+            flex-direction: row;
+            align-items:center;
+        
+            img{
+                width: 2.5rem;
+                height: 2.5rem;
+                margin-right: 1rem;
+            }
+        }
+        
+        .custom-h1{
+            color: $accent_amethyst;
+            margin: 0;
+        }
 }
 .tt-101-special-discount-mq{
     display: none;
