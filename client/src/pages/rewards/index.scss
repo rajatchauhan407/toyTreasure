@@ -34,9 +34,25 @@ h1{
     color: $button_purple_CTA;
 }
 }
+.tt-101-special-discount-mq{
+    display: none;
+}
 @media screen and (max-width: $break-point) {
-    .tt-101-special-discount{
+    .tt-101-special-discount-mq{
+        display: block;
         margin-left: 1.5rem;
         margin-right: 1.5rem;
+        img{
+        width: 100%;
+        height: auto;
+        }
+    }
+    .tt-101-special-discount-mq{
+        h1{
+margin-left: 0%;
+        }
+    }
+    .tt-101-special-discount{
+        display: none;
     }
 }
