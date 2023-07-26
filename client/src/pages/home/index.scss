@@ -93,6 +93,8 @@
     }
 }
 
+// ===================== MOBILE 
+
 @media screen and (max-width: $break-point) {
     .home-welcome,
     .home-map,
@@ -115,6 +117,15 @@
     .home-map{
         margin-top: 0;
         margin-bottom: 1rem;
+    }
+
+    .home-stories{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-rewards{
+        @include mobilePadding(2rem, 2rem, 2rem, 2rem);
     }
     
 }
