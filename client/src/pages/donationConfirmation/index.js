@@ -30,7 +30,8 @@ export default function DonationConfirmation(){
                 </div>
                 {openModal && 
                 <GeneralModalWrapper>
-                    <DonorDonationModal/>
+                    <DonorDonationModal
+                    />
                 </GeneralModalWrapper>    
                 }
             </div>

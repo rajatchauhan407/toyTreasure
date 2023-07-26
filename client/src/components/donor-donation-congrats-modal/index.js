@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Heart from './heart.svg';
 import QR from './QR.svg';
 
-export default function DonorDonationModal(props){
+export default function DonorDonationModal(){
     return(
         <div className="modalCongrats">
             <img src={QR} alt="QR code sign" />
