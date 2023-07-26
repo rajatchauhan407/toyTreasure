@@ -9,7 +9,7 @@
 /* Body/Body 1 Bold */
 .body1{
     font-family: Roboto;
-    font-size: 1.125rem;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: 1.5rem;
@@ -18,7 +18,7 @@
 /* Body/Body 2 Regular */
 body{
 font-family: $font-body;
-font-size: 1rem;
+font-size: 16px;
 font-style: normal;
 font-weight: $fw-normal;
 line-height: 1.3125rem;
@@ -37,7 +37,7 @@ line-height: 1.75rem;
 h1,
 .custom-h1{
 font-family: $font-heading;
-font-size: 2rem;
+font-size: 38px;
 font-style: normal;
 font-weight: $fw-bold;
 line-height: 3rem;
@@ -46,7 +46,7 @@ line-height: 3rem;
 /* Headlines/H2 */
 h2{
     font-family: $font-heading ;
-   font-size: 1.875rem;
+   font-size: 34px;
    font-style: normal;
    font-weight: $fw-semi-bold;
    line-height: 2.5625rem;
@@ -56,7 +56,7 @@ h2{
 h3{
    
 font-family: $font-heading;
-font-size: 1.75rem;
+font-size: 25px;
 font-style: normal;
 font-weight: $fw-bold;
 line-height: 2.125rem;
@@ -65,7 +65,7 @@ line-height: 2.125rem;
 /* Headlines/H5 */
 h5{
     font-family: $font-heading;
-    font-size: 1.25rem;
+    font-size: 20px;
     font-style: normal;
     font-weight: $fw-bold;
     line-height: 1.625rem;

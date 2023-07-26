@@ -4,7 +4,7 @@ import ProfileCategoryCard from '../donor-charity-profile-categories';
 function CharityProfileCategoryCardWrapper({categories}) {
   return <div className='charityProfileCategoryCard'>
     <h1>Categories of Toys</h1>
-    <p>These categories of toys are accepted by the charity.</p>
+    <p>Choose the category to donate if you can not find in wishlist.</p>
     <div className='charityProfileCategoryCardWrap'>
       <ProfileCategoryCard
         categories = {categories}

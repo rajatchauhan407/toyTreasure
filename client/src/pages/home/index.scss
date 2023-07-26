@@ -33,7 +33,7 @@
 
 .home-rewards{
     background-color: #F5F0FA;
-    padding: 4rem 4rem;
+    @include globalPadding (4rem, 8.125rem, 4rem, 8.125rem);
 }
 
 .rewards-info{
@@ -59,4 +59,36 @@
 
 .custom-h1{
     color: $text_midnight_blue;
+}
+
+.pending-donation{
+    display: flex;
+    flex-direction: row;
+    @include globalPadding (2rem, 8.125rem, 0, 8.125rem);
+
+    .donationInfo{
+        flex: 65%
+    }
+    
+    .donationImage{
+        display: flex;
+        flex: 35%;
+        justify-content: end;
+    }
+
+    h3, h4, p{
+        color: $text_pure_white;
+        margin: 0;
+        line-height: 2;
+    }
+
+    button{
+        @include Buttuns ($medium-button, $button_soft_purple_CTA);
+        color: $text_midnight_blue;
+        margin-top: 1rem;
+
+        &:hover{
+            background-color: $text_pure_white;
+        }
+    }
 }

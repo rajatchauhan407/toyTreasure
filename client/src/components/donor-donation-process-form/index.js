@@ -55,10 +55,9 @@ export default function DonorDonationProcessForm(props)
                     <div className="tt-81-donor-details"> 
                         <div className="tt-81-donor-details-header">
                             <h4>Donor Details</h4>   
-                            
+                            <p>Name: {donorDetails_tt81[0].donorName}</p>
+                            <p>Email: {donorDetails_tt81[0].donorEmail}</p>
                         </div>
-                        <p>Name: {donorDetails_tt81[0].donorName}</p>
-                        <p>Email: {donorDetails_tt81[0].donorEmail}</p>
                     </div>
                     <div className="tt-81-delivery-method"> 
                         <h3>Delivery Method</h3>
@@ -106,7 +105,7 @@ export default function DonorDonationProcessForm(props)
                             value="Confirm to Donate"  
                             id="tt-81-confirm"  
                             className="tt-81-confirm"
-                            disabled={!(confirm1 && confirm2)}
+                            disabled={!(confirm2)}
                             />
                     </div>                
                         

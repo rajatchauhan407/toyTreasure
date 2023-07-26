@@ -148,7 +148,7 @@ async function handleLoginWithGoogle(){
         </button>
         </div>
             <h1>Welcome back!</h1>
-            <p>Log in to unlock the powere of giving </p>
+            <p>Log in to unlock the power of giving </p>
             <hr className="borderBottom" />
             
             {existingUser ? <div className="row">

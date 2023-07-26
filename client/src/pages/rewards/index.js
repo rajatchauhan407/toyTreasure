@@ -9,6 +9,7 @@ import { useState,useContext } from "react";
 import GeneralModalWrapper from "../../components/general-modal-wrapper";
 import UserRewardsModal from "../../components/user-rewards-modal";
 import "./index.scss";
+import specialDiscount from './specialDiscount.png';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 import AuthContext from "../../services/auth-context";
 export default function Reward(){
@@ -59,6 +60,11 @@ export default function Reward(){
             <div className="tt-101-special-discount">
                 <h1>Special discount for you</h1>                
                 {discountList}
+            </div>
+
+            <div className="tt-101-special-discount-mq">
+                <h1>Special discount for you</h1>
+                <img src={specialDiscount} alt="special Discount"/>
             </div>
         </div>
     )

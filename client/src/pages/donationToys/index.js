@@ -26,13 +26,17 @@ export default function DonorDonationToysPage(){
     return(<>
     <div className='donorDonationToysPageWrapper'>
         <div className='backButton'>
-    <Link to={`/charity/profile/${id}`}>
-
-        <button>
-        <img src={arrowBack} alt="back-arrow"/>
-        </button>
-    </Link>
+            <div className="btn">
+                <Link to={`/charity/profile/${id}`}>
+                    <button>
+                    <img src={arrowBack} alt="back-arrow"/>
+                    </button>
+                </Link>
+            </div>
+            <h2>Organization Name</h2>
     </div>
+
+        
 
         <DonationWishListCardWrapper
             requiredCategories = {categoriesData}
