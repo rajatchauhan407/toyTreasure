@@ -1,5 +1,5 @@
 import "./index.scss";
-import silverBadge from './silverBadge.png';
+import silverBadge from './badge-2.svg';
 import WrapperHistoryOfDonations from '../donor-home-rewards-history-wrapper';
 export default function HomeDashboardBadgeHistory(props){
     return (
