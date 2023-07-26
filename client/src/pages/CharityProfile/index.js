@@ -9,6 +9,8 @@ import { useParams } from 'react-router-dom';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 
 import OrgDataCard from '../../components/org-data-card';
+import ToyLoader from '../../components/loaders_all/toyLoader';
+// import LegoLoader from '../../components/loaders_all/legoLoader';
 
 
 export default function DonorCharityProfilePage(){
@@ -26,7 +28,7 @@ export default function DonorCharityProfilePage(){
     function getSelectedCategories(data){
         console.log(data);
     }
-    return((orgData && <>
+    return((orgData ? <>
     <div className='DonorCharityProfileWrapper'>
         <div className='charity_profile'>
             <DonorCharityProfileInformation
@@ -61,5 +63,5 @@ export default function DonorCharityProfilePage(){
             <HomeDashBoardStories/>
             </div>
     </div>
-    </>));
+    </>:<ToyLoader/>));
 };
