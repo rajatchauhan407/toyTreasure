@@ -26,3 +26,12 @@
     margin: 0%;
     padding: 0%;
 }
+
+// ========== MOBILE 
+@media screen and (max-width: $break-point) {
+    .card-wrapper{
+        @include mobilePadding(2rem, 2rem, 2rem, 2rem);
+        gap: 10px;
+    }
+
+}
