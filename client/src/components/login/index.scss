@@ -107,19 +107,7 @@ p{
       width: 25px;
     }
 }
-// .loginRememberMeCheckbox{
-//   margin: 0%;
-//   width: min-content;
-//   display: flex;
-//   justify-content: space-between;
-// }
-// .loginRememberMeCheckboxWrapper{
-//   margin: 0%;
-//   width: min-content;
-//   display: flex;
-//   justify-content: space-between;
-//   margin-right: 0%;
-// }
+
 .loginRememberMeCheckboxWrapper input{
   width: 20px;
 }
@@ -137,4 +125,18 @@ label input{
     text-decoration: none;
     font-weight: 700;
   }
+}
+
+@media screen and (max-width: $break-point){
+  .login-form-container{
+    width:21rem ;
+}
+form .primary-button{
+  @include Buttuns(21rem, $accent_amethyst-light);
+  margin-right: 0%;
+}
+.borderBottom{
+  width: 21rem;
+  margin: 0%;
+}
 }
