@@ -147,7 +147,9 @@ export default function DashboardPendingDonation(props) {
     <div className='tt-72-DashboardPendingDonationWrapper'>
       <div className="tt-72-DashboardPendingDonation">
         <h3>You have a Pending Donation</h3>
-        {!scanner && <button onClick={()=>{setScanner(true)}}>Start Scan</button>}
+        <h4>Organization Name</h4>
+        <p>Date of Donation</p>
+        {!scanner && <button onClick={()=>{setScanner(true)}}>Scan QR code</button>}
         
         {/* <video ref={videoRef} width="640" height="480" />
         <input
