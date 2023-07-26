@@ -1,0 +1,64 @@
+@import '../../sass/main.scss';
+.tt-223-orgHeaderWrapper
+{      
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: stretch;     
+}
+.tt-223-org-image-wrapper
+{
+    padding:1rem;
+    margin: .5rem 0 .5rem 0;   
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tt-223-main-menu li
+{    
+    width: 100%;
+    list-style: none;   
+    padding: 1rem 0 1rem 0;
+    margin:0;   
+}
+.tt-223-main-menu li:hover
+{
+    background-color:$primary_boy_blue;
+    color:$text_pure_white;
+}
+.tt-223-main-menu li:hover a
+{   
+    color:$text_pure_white;
+}
+.tt-223-main-menu li a
+{ 
+    text-decoration: none;
+    color:$text_midnight_blue;
+    padding: 0 0 0 4rem;
+    margin:0;
+    font-family: $font-heading;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: normal;
+}
+.tt-223-main-menu li a:hover
+{
+   font-weight: bold;
+}
+.fa-times-circle
+{
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    color: $accent_amethyst;
+    
+}
+.tt-223-main-menu ul
+{    
+    display: flex;
+    flex-direction:column;
+    padding:0;
+    margin:0;
+    background-color: rgb(246, 242, 242);
+   
+}
