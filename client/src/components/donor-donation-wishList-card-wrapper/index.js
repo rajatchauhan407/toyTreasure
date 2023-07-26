@@ -86,17 +86,19 @@ function DonationWishListCardWrapper({requiredCategories}) {
  
 
   return <div className='donorWishListCardWrapper'>
-    <div className='proceedToDonateTagLine'>
+   
       <h3>Select the toys you want to donate.</h3>
-      <button className='proceedButton' onClick={storeDataInCart}><span className="proceedBefore">{totalToys}</span><h5>Proceed to Donate</h5></button>
-      </div>
+      
     
-    
+      <div className='proceedToDonateTagLine'>
     <div className='wishListTitle'>
     <h1>Wishlists</h1>
     <img src={vectore} alt='WishList sign'/>
     </div>
-    
+
+
+    <button className='proceedButton' onClick={storeDataInCart}><span className="proceedBefore">{totalToys}</span><h5>Proceed to Donate</h5></button>
+    </div>
     <div className='donorWishListCardWrap'>
       <DonationWishListCard
         onDonationWishlist={getDonationListData}
