@@ -1,12 +1,17 @@
 @import '../../sass/main.scss';
 .donorWishListCardWrapper{
-    padding: 5%;
+    @include globalPadding (1rem, 8.125rem, 4rem, 8.125rem);
 }
 .proceedToDonateTagLine{
 display: flex;
 justify-content: space-between;
 align-items: baseline;
 margin-bottom: 3rem;
+
+h3{
+    font-weight: 600;
+    color: $text_just_gray;
+}
 button{
     @include Buttuns($largest-button, $button_soft_purple_CTA);
 }
