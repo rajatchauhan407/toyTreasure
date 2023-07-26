@@ -31,6 +31,24 @@ export default function DonorFooter(props)
                 </p>
                 <img className="tt-47-team-logo" src={teamlogo} alt={"teamlogo"}/>
             </div> 
+            <div className="tt-47-copyright-logo-wrapper">
+                <div className="tt-47-copyright-logo">
+                    <div className="tt-47-copyright1">
+                        <p>
+                            <span>Copyright &copy; 2023 TOYS TREASURE</span>
+                        </p>
+                        <p>
+                            All rights reserved.
+                        </p>
+                    </div>
+                    <div className="tt-47-techTribe-logo1">
+                        <p>
+                            Powered by
+                        </p>
+                        <img className="tt-47-team-logo" src={teamlogo} alt={"teamlogo"}/>
+                    </div> 
+                </div>
+            </div>
         </div>
     )
 }
