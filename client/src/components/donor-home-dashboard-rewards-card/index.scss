@@ -25,21 +25,28 @@
         position: absolute;
         top: -15px;
         right: -20px;
+
+        .rewardsPoints{
+            font-weight: $fw-bold;
+            margin: 0;
+            color: $text_pure_white;
+        }
+        p{
+            color: $text_pure_white;
+            margin: 0;
+        }
     }
 
-    .rewardsPoints{
-        font-weight: $fw-bold;
-        margin: 0
-    }
 
-    p{
-        margin: 0
-    }
 
     .redeemRewards{
         @include mediumButton(8rem,$button_soft_purple_CTA);
         margin: 1rem 0;
         cursor: pointer;
+
+        &:hover{
+            background-color: $text_pure_white;
+        }
     }
 }
 
