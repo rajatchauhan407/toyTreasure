@@ -51,7 +51,8 @@
         }
 
         &:hover{
-            background-color: $primary_boy_blue;
+            background-color: $button_soft_purple_CTA;
+            border: 1px solid $text_midnight_blue;
             a{
                 color: $text_midnight_blue;
             }
