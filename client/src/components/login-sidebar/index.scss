@@ -1,4 +1,5 @@
 
+@import '../../sass/main.scss';
 .loginSidebar{
     padding: 3rem;
     background-image: url('./Screenshot.png') ;
@@ -21,4 +22,9 @@
         margin-top: 2rem;
     }
 
+}
+@media screen and (max-width: $break-point) {
+    .loginSidebar{
+        display: none;
+    }
 }
