@@ -21,14 +21,44 @@
     margin:1rem 3rem;
 }
 
-.tt-101-special-discount h1
-{
-  margin-left:3rem;
-}
+.tt-101-special-discount{
+    h1
+    {
+      margin-left:3rem;
+    }
+} 
 .tt-101-redeem-rewards{
     background-color: #F5F0FA;
     padding: 5%;
 h1{
     color: $button_purple_CTA;
 }
+}
+.tt-101-special-discount-mq{
+    display: none;
+}
+@media screen and (max-width: $break-point) {
+    .tt-101-special-discount-mq{
+        display: block;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        img{
+        width: 100%;
+        height: auto;
+        }
+    }
+    .tt-101-special-discount-mq{
+        h1{
+margin-left: 0%;
+        }
+    }
+    .tt-101-special-discount{
+        display: none;
+    }
+    .tt-101-rewards-profile{
+        margin: 5%;
+    }
+    .tt-101-rewards-profile-and-points{
+        display: block;
+    }
 }

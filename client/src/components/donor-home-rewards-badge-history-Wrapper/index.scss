@@ -22,3 +22,12 @@
     background-color: $button_soft_purple_CTA;
     border-radius: $b-radius;
 }
+@media screen and (max-width: $break-point) {
+    .homeDashboardBadgeHistoryWrapper{
+        display: block;
+        width: 100%;
+    }
+    .homeDashboardBage{
+        margin-bottom: 1rem;
+    }
+}

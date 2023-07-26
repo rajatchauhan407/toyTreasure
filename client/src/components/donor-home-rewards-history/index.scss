@@ -1,5 +1,16 @@
+@import '../../sass/main.scss';
 .historyOfDonations{
     h4{
         margin: 0%;
+    }
+}
+@media screen and (max-width: $break-point) {
+    .toysPoints{
+        font-family: Lexend;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 26px;
+color: $button_purple_CTA;
     }
 }

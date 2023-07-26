@@ -5,7 +5,7 @@ export default function HistoryOfDonations(props){
                 <div className="historyOfDonations">
                     <ul> 
                         <li><h4>{props.toyType}</h4></li>
-                        <li><h4>{props.points}</h4></li>
+                        <li><h4 className='toysPoints'>{props.points}</h4></li>
                     </ul>
                 </div>
         )}
