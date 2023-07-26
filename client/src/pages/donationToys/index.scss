@@ -27,3 +27,11 @@
             }
         }
 }
+@media screen and (max-width: $break-point) {
+    .backButton{
+        display: block;
+    }
+    .btn{
+        display: inline-block;
+    }
+}
