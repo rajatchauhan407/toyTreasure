@@ -6,11 +6,48 @@
     gap: 1rem;
     @include globalPadding;
 }
+.donationConfirmation-page-Wrapper h1
+{
+    @include globalPadding;
+    img
+    {
+        width:2.5%;
+        height:3%;
+    }
+}
+
 
 .donation-confirmation-list{
-    flex: 45%;
+    flex: 50%;
 }
 
 .donation-confirmation-form{
-    flex:55%;
+    flex:50%;
+}
+
+@media screen and (max-width: $break-point) {
+  
+    .donationConfirmation-page{
+       
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: stretch;
+        padding:1rem;     
+    }
+    .donation-confirmation-list{
+        flex-basis: 100%;
+    }
+    
+    .donation-confirmation-form{
+        flex-basis:100%;
+    }
+    .donationConfirmation-page-Wrapper h1
+    {    
+        padding:1rem;     
+    img
+    {
+        width:4%;
+        height:4%;
+    }
+    }
 }

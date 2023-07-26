@@ -4,6 +4,12 @@
     display:flex;
     flex-flow: column nowrap;
     align-items: stretch;     
+    color:$text_midnight_blue;
+    button 
+    {
+        border:none;
+        background-color: white;
+    }
 }
 .tt-22-donor-image-wrapper
 {
@@ -59,6 +65,6 @@
     flex-direction:column;
     padding:0;
     margin:0;
-    background-color: rgb(246, 242, 242);
+    background-color:#eeeeee;
    
 }
