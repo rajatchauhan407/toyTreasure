@@ -9,7 +9,7 @@ export default function DonorPointsModal(props){
             <h2>Congratulations!</h2>
             <h4>You have earned</h4>
             <div className='points-donor'>
-                <h3>200 points</h3>                
+                <h3>{`${props.points} points`}</h3>                
             </div>
             <p>Thank you for your contribution to the community.</p>
                 <button className="go-rewards"><Link to="/rewards">Go to Rewards</Link></button> <br />
