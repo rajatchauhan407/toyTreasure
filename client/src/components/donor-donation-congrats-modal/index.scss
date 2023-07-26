@@ -51,3 +51,18 @@
     text-align: left;
     padding-top: 1rem;
 }
+
+@media screen and (max-width: $break-point) {
+    .modalCongrats{
+        width: min-content;
+        min-width: 280px;
+        padding: 0%;
+        h2{
+            font-family: $font-heading;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: 1.625rem;
+        }
+    }
+}
