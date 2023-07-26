@@ -57,3 +57,12 @@ a{
     font-weight: $fw-semi-bold;
 }
 }
+
+@media screen and (max-width: $break-point) {
+    .loginsignupformWrapper{
+        width: 350px;
+    }
+    .createAccountOrganization{
+        width: 100%;
+    }
+}
