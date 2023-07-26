@@ -41,6 +41,12 @@ font-size: 38px;
 font-style: normal;
 font-weight: $fw-bold;
 line-height: 3rem;
+
+@media screen and (max-width: 414px) {
+    font-size: 28px;
+    line-height: 2.5rem;
+}
+
 }
 
 /* Headlines/H2 */

@@ -92,3 +92,30 @@
         }
     }
 }
+
+@media screen and (max-width: $break-point) {
+    .home-welcome,
+    .home-map,
+    .home-stories,
+    .home-discount{
+    @include mobilePadding;
+    }
+
+    .home-welcome{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        margin-bottom: 1rem;
+
+        h1{
+            margin-bottom: 2rem;
+        }
+    }
+
+    .home-map{
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+    
+}
+
