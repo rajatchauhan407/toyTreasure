@@ -133,6 +133,15 @@
     .home-rewards{
         @include mobilePadding(2rem, 2rem, 2rem, 2rem);
     }
+
+    .pending-donation{
+        flex-direction: column;
+        @include mobilePadding;
+
+        .donationImage{
+            justify-content: center;
+        }
+    }
     
 }
 
