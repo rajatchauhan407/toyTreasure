@@ -2,7 +2,6 @@
 .modalPoints{
     color:$text_midnight_blue;
     padding:2rem;
-    border:1px solid black;
     border-radius: 1rem;
     text-align: center;
     width: 300px;
@@ -20,25 +19,23 @@
     } 
     .points-donor 
     {
-        border: 1px solid $primary_boy_blue;
+        border: 1px solid $primary_crown_yellow;
         border-radius: .5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
     .go-rewards 
     {
         @include Buttuns ($medium-button, $accent_amethyst-light);
         color:$text_midnight_blue;
         margin:1rem;
+
+        &:hover{
+            background-color: $accent_amethyst;       
+            color: $text_pure_white;
+        }
     }
-    .go-rewards:hover
-    {
-        background-color: $accent_amethyst;       
-        color: $text_pure_white;
-    }
-    .go-rewards:active
-    {
-        background-color: $accent_amethyst;
-        color: $text_midnight_blue;
-    }
+    
     a 
     {
         font-weight: bold;

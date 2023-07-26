@@ -43,19 +43,18 @@
         color: $text_midnight_blue;
         font-weight: $fw-bold;
         margin: 0 10rem;
-        font-size: 3rem;
         line-height: 1.5;
     }
 
     button{
-        @include Buttuns(20rem, $accent_amethyst);
+        @include Buttuns($largest-button, $accent_amethyst);
         color:$text_pure_white;
         text-decoration: none;
         font-family: $font-body;
         margin: 2rem 0;
 
         &:hover{
-            background-color: $primary_boy_blue;
+            background-color: $button_soft_purple_CTA;
             color: $text_midnight_blue;
         }
     }

@@ -39,8 +39,7 @@
     color:$text_midnight_blue;
 
     p 
-    {
-        margin:0;        
+    {       
         color:$text_midnight_blue;
     }
 }
@@ -53,12 +52,7 @@
 .tt-81-donor-details-header
 {
     display: flex;
-    justify-content: space-between;
-    align-items: center;   
-    h4 
-    {
-        margin-bottom: .7rem;
-    }
+    flex-direction: column;
 }
 .tt-81-donor-details-header >*
 {
@@ -103,23 +97,27 @@
 }
 .tt-81-confirm
 {
-    margin-top:1rem;
-    border-radius: 5px;
-    padding:.5rem 2rem;
-    background-color: $accent_amethyst-light;       
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    @include Buttuns ($largest-button, $button_soft_purple_CTA);
     color: $text_midnight_blue;
-    font-weight: bold;
-}
-.tt-81-confirm:hover
-{
+    font-family: "Lexend", sans-serif;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.75rem;
+
+    &:hover{
     background-color: $accent_amethyst;       
     color: $text_pure_white;
+    }
+    &:disabled{
+        background-color: $text_not_just_gray;
+        color: $text_pure_white;
+        cursor: default;
+    }
 }
-.tt-81-confirm:active
-{
-    background-color: $accent_amethyst;
-    color: $text_midnight_blue;
-}
+
 .tt-81-remind-me-label, .tt-81-confirm-details-label
 {
     color:$text_midnight_blue;

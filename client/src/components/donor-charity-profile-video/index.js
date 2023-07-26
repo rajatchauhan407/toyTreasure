@@ -14,19 +14,14 @@ const Player = ({video}) => {
     };
 
     return (
-        <div>
             <iframe
                 ref={videoRef}
                 width="100%"
-                height="500px"
+                height="600px"
                 controls
                 title='charity video'
-                // src="https://www.youtube.com/embed/7sDY4m8KNLc"
                 src={video}
-
             />
-                {/* <source src={video} type="video/mp4" /> */}
-        </div>
     )
 }
 

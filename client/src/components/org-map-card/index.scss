@@ -18,6 +18,14 @@
 
         button{
             background-color: $text_pure_white;
+
+            &:hover{
+                background-color: $button_soft_purple_CTA;
+                color: $text_midnight_blue;
+            }
+        }
+        p{
+            color: $text_pure_white;
         }
     }
 
@@ -41,7 +49,6 @@
     flex-direction: column;
     margin-top: 1rem;
     margin-bottom: 1rem;
-
 }
 .tt-62-short-details-wrapper{
     display:flex;

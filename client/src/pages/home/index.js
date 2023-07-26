@@ -1,5 +1,6 @@
 import './index.scss';
 import redeemIcon from './Redeem.png'
+import toybox from './toy-box.png'
 import AuthContext from '../../services/auth-context';
 import React, {useContext} from "react";
 import GeneralModalWrapper from '../../components/general-modal-wrapper';
@@ -71,9 +72,14 @@ export default function Home(){
 
         {!loading && (
           <div className='pending-donation'>
-            <DashboardPendingDonation
-              donations={hasPendingDonation}
-            />
+            <div className="donationInfo">
+              <DashboardPendingDonation
+                donations={hasPendingDonation}
+              />
+            </div>
+            <div className='donationImage'>
+              <img src={toybox} alt="" />
+            </div>
           </div>
         )}
 
