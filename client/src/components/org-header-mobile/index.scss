@@ -3,7 +3,16 @@
 {      
     display:flex;
     flex-flow: column nowrap;
-    align-items: stretch;     
+    align-items: stretch;   
+    color:$text_midnight_blue;
+    button 
+    {
+        border:none;
+        padding:.5rem 1rem;
+        border-radius: 2rem;
+        background-color: $accent_amethyst-light;
+        color:$text_midnight_blue;
+    }  
 }
 .tt-223-org-image-wrapper
 {
@@ -59,6 +68,23 @@
     flex-direction:column;
     padding:0;
     margin:0;
-    background-color: rgb(246, 242, 242);
+    background-color: $secondary_footer_soft_blue;
    
 }
+
+.tt-223-main-menu
+{  
+    width: 100%;        
+    z-index:40;
+    position: fixed;    
+    top: 170px;   
+    transform:translateX(0);    
+    transition: all .5s ease-in-out;   
+    
+}
+.tt-223-menu-active .tt-223-main-menu
+{   
+    transform:translateX(-100%);
+    transition: all .5s ease-in-out;  
+}
+

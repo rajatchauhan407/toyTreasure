@@ -4,6 +4,12 @@ import { Link,useNavigate } from "react-router-dom";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
 export default function DonorHeaderMobile(props)
 {
+   
+    function toggleMenu()
+    {
+        document.body.classList.toggle('tt-22-menu-active');
+    }
+    
     const navigate = useNavigate();
     async function handleLogout(){
         await FireBaseAuthService.logoutUser();
@@ -13,7 +19,7 @@ export default function DonorHeaderMobile(props)
         <div className="tt-22-donorHeaderWrapper">
             <div class="tt-22-donor-image-wrapper">
             <Link to="/home"><img className="tt-22-site-logo" src={logo} alt={"siteLogo"}/></Link>                              
-                <button><i class="far fa-times-circle"></i></button>  
+            <button onClick={toggleMenu} className="tt-22-menu-button" id="tt-22-menu-button"><i class="fa fa-bars" aria-hidden="true"></i></button>
             </div>                  
             <nav className="tt-22-main-menu">
                 <ul>

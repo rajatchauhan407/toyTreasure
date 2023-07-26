@@ -33,6 +33,10 @@
 {
     display: none;
 }
+.organization-mobile-header-container
+{
+    display:none;
+}
 
 @media screen and (max-width: $break-point) {
     .tt-102-header-wrapperMobile
@@ -43,5 +47,17 @@
     {
         display: none;
     }
- 
+    .side-menu-wrapper
+    {
+        display:none;
+    }
+    .organization{
+        display: grid;
+        grid-template-columns: 100%;
+        height:auto;
+    }
+    .organization-mobile-header-container
+    {
+        display:block;
+    }
  }
