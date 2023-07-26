@@ -2,12 +2,11 @@
 
 .tt-62-container{
     display: grid;
-    grid-template-columns: 1fr 1fr;  
-    gap:2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
     height: 100vh;
-
     background-color: $button_soft_purple_CTA;
-    margin: 0 5rem;
+    margin: 0 5rem 5rem 5rem;
     border-radius: 1rem;
 }
 
@@ -85,4 +84,33 @@
 .background{
     background-color: $text_pure_white;
     border-radius: 1rem;
+}
+
+// ================== MOBILE
+@media screen and (max-width: $break-point){
+    .tt-62-container {
+        height: 100%;
+        gap: 0;
+        margin: 1rem 0 0 0;
+        border-radius: 0;
+        grid-template-columns: 1fr; 
+        grid-template-areas: 
+          'map'
+          'content'; 
+      }
+    
+      .tt-62-side-wrapper {
+        grid-area: content; 
+      }
+    
+      .tt-62-right-map {
+        grid-area: map;
+      }
+
+      .tt-62-org-card-wrapper{
+        margin-left: 0;
+      }
+        .tt-62-side-wrapper{
+        padding: 1rem;
+      }
 }

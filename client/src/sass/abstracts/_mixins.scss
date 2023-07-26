@@ -71,3 +71,10 @@ color: $color;
     padding-bottom: $pbottom;
     padding-left: $pleft;
 }
+
+@mixin mobilePadding ($ptop:1rem, $pright:2rem, $pbottom:1rem, $pleft:2rem ){
+    padding-top: $ptop;
+    padding-right: $pright;
+    padding-bottom: $pbottom;
+    padding-left: $pleft;
+}
