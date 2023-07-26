@@ -92,3 +92,47 @@
         }
     }
 }
+
+// ===================== MOBILE 
+
+@media screen and (max-width: $break-point) {
+    .home-welcome,
+    .home-stories,
+    .home-discount{
+    @include mobilePadding;
+    }
+
+    .home-map{
+        padding: 0;
+        margin: 0;
+    }
+
+    .home-welcome{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        margin-bottom: 1rem;
+
+        h1{
+            margin-bottom: 2rem;
+        }
+    }
+
+    .home-map,
+    .home-rewards,
+    .home-discount{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-stories{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-rewards{
+        @include mobilePadding(2rem, 2rem, 2rem, 2rem);
+    }
+    
+}
+
