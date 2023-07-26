@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import OrgSideMenu from "../components/org-side-menu";
 import './routes.scss';
 import OrgHeader from '../components/org-header';
+import OrgHeaderMobile from '../components/org-header-mobile';
 export default function OrganizationRoutes(){
     let authCtx = useContext(AuthContext);
     console.log(authCtx);
@@ -15,6 +16,9 @@ export default function OrganizationRoutes(){
                 </div>
                 <div className='organization-dashboard-side-menu-container'>
                 <OrgHeader/>
+                    <div className="organization-mobile-header-container">
+                        <OrgHeaderMobile/>
+                    </div>
                 {/* {
                     authCtx.isLoggedIn && authCtx.userType==="organization"?<Outlet/>:<Navigate to="/login"/>
                 } */}
