@@ -1,15 +1,45 @@
+@import '../../sass/main.scss';
 .modalWrapper{
-    position: relative;
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:1rem;
+    padding:2rem;
+    border-radius: 1rem;
+    text-align: center;
+    width: 400px;
+
+    h2{
+        color: $accent_amethyst;
+    }
+
+    p{
+        color:$text_midnight_blue;
+    }
+    h4{
+        color: $text-just-gray;
+        margin: 0;
+    }
+
+    .coupon-desc{
+        border:1px solid $primary_boy_blue;
+        border-radius:.5rem;
+        padding:.5rem 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;        
+    }
+
+    button{
+        @include Buttuns (100%, $button_soft_purple_CTA);
+
+        a{
+            color: $text_midnight_blue;
+            text-decoration: none;
+        }
+
+        &:hover{
+            background-color: $accent_amethyst;
+
+            a{
+                color: $text_pure_white;
+            }
+        }
+    }
 }
-.coupon-desc{
-    border:1px solid black;
-    border-radius:7px;
-    padding:.5rem 1rem;
-    
-}
+
