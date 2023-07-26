@@ -10,7 +10,6 @@ const InteractiveMap = ()=>{
         try{
           const data = await fetch('https://us-central1-toystreasure-50c4d.cloudfunctions.net/getMapsAPIKey');
           const result = await data.json()
-          console.log(result);
           setMapsApiKey(result);
           setLoading(false);
         }catch(error){
