@@ -1,7 +1,7 @@
 import "./index.scss";
-import { useState, useEffect } from 'react';
-import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
-import GeneralMultipleSlider from "../containers/general-multiple-slider";
+// import { useState, useEffect } from 'react';
+// import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
+// import GeneralMultipleSlider from "../containers/general-multiple-slider";
 export default function ProfileCategoryCard({categories}) {
   console.log(categories)
   // const [profileCategory, setProfileCategory] = useState([]);

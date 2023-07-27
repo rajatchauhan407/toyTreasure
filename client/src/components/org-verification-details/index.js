@@ -42,17 +42,16 @@ export default function OrgVerificationDetails(props)
         
 
     }
-    let sumOfAmt=0;
-    let sumOfPoints=0;
+  
     let wishListIcon="";
-    const verToyList = [
-        {fromWishlist:"y",name:"Teddy Bear 1", amount:1,points:50},
-        {fromWishlist:"n",name:"Teddy Bear 2", amount:1,points:50},
-        {fromWishlist:"n",name:"Barbie Doll 1", amount:1,points:25}
-    ]
-    const donorDetails = [
-        {donationId:"#45634", donorName:"Greg Thomas",donorPhone:"+1 673 564 7823",dateAndTime:"May 30, 2023, 11:30pm"}       
-    ]
+    // const verToyList = [
+    //     {fromWishlist:"y",name:"Teddy Bear 1", amount:1,points:50},
+    //     {fromWishlist:"n",name:"Teddy Bear 2", amount:1,points:50},
+    //     {fromWishlist:"n",name:"Barbie Doll 1", amount:1,points:25}
+    // ]
+    // const donorDetails = [
+    //     {donationId:"#45634", donorName:"Greg Thomas",donorPhone:"+1 673 564 7823",dateAndTime:"May 30, 2023, 11:30pm"}       
+    // ]
     return(      
         <div className="OrgVerDetailsCardWrapper">
             <div className="org-ver-details-card">
