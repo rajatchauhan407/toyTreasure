@@ -104,7 +104,7 @@ export default function CardOrgTT13() {
             <td>{props?.data().toysQuantity}</td>
             <td>{props?.data().donationStatus}</td>
             <td>
-            <button disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
+            <button className="verifyButtonPendingDonation" disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
                 Verify
                 </button>
             </td>

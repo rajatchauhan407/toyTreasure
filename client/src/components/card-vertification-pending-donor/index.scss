@@ -53,7 +53,20 @@
 .verifyButtonPendingDonation{
     @include Buttuns($medium-button, $button_blue_CTA);
     cursor: pointer;
+    }
+
+    .verifyButtonPendingDonation:hover{
+       color:white;
+        cursor: pointer;
         }
+    
+    .verifyButtonPendingDonation:active{
+        @include Buttuns($medium-button, $text_midnight_blue);
+        color:white;
+    cursor: pointer;
+    }
+    
+
  .TableCardOrgTT13 td:nth-child(1){
     background-color:$secondary_teal_green;
     color: $text_pure_white;
