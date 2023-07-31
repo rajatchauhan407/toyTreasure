@@ -8,6 +8,12 @@ height: 100vh;
     background-image: url('./posterImage.png') ;
     background-size: cover; 
 }
+.loginsignupimageDonor,
+.loginsignupimageOrg{
+    background-image: url('./Donorimage.png') ;
+    background-size: cover; 
+    // height: 100vh;
+}
 .loginSignupformInnerWrapper{
     display: flex;
     align-items: center;
