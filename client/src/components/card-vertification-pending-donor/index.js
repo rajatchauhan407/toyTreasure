@@ -78,6 +78,7 @@ export default function CardOrgTT13() {
   };
 
   return (
+    <div>
     <table className="TableCardOrgTT13">
         <thead>
           <tr>
@@ -107,11 +108,11 @@ export default function CardOrgTT13() {
                 Verify
                 </button>
             </td>
-            
             </tr>
            
         ))}
         </tbody>
     </table>
+    </div>
   );
 }

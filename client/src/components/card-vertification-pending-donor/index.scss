@@ -30,7 +30,7 @@
 //         }
 //     }
 // }
-table{
+.TableCardOrgTT13{
     color: $text_just_gray;
 }
 .TableCardOrgTT13 {
@@ -44,15 +44,68 @@ table{
     // padding: 10px;
     margin: 10px
   }
+  tr 
+  {
+    border-bottom: 1px solid $text_just_gray;
+  }
 }
   
 .verifyButtonPendingDonation{
     @include Buttuns($medium-button, $button_blue_CTA);
     cursor: pointer;
         }
-td:nth-child(1){
+ .TableCardOrgTT13 td:nth-child(1){
     background-color:$secondary_teal_green;
     color: $text_pure_white;
 }
 
+// ================= MOBILE
+@media screen and (max-width: $break-point) {
+    .TableCardOrgTT13 thead {
+        display:none;   
+    }
+    .TableCardOrgTT13 tr {
+        display: flex;
+        flex-direction: column;
+        gap:0;
+        padding: 1rem .5rem;
+        align-items: start;
+        background-color:$secondary_footer_soft_blue;
+        border:none;
+        border-radius:.5rem;
+        
+    }
+    .TableCardOrgTT13 tr td:last-child {
+        align-self: center;
+        margin-top: .5rem;
+        
+    }
+    .TableCardOrgTT13 tr td:nth-last-child(6){
+        font-weight: bold;
+        margin-bottom: .5rem;
+        
+    }
+    .TableCardOrgTT13 tr td:nth-last-child(5)::before{
+        content:"Method: ";        
+    }
+    .TableCardOrgTT13 tr td:nth-last-child(4)::before{
+        content:"Date: ";        
+    }
+    .TableCardOrgTT13 tr td:nth-last-child(3)::before{
+        content:"Quantity: ";        
+    }
+    .TableCardOrgTT13 tr td:nth-last-child(2)::before{
+        content:"Status: ";        
+    }
+    .TableCardOrgTT13 td{
+        margin: 0 1rem;
+        padding: 0 1rem;
+    }
+    .TableCardOrgTT13 td:nth-child(1){
+        background-color:$secondary_footer_soft_blue;
+        color: $text_midnight_blue;
+        font-weight: bold;
+    }
+    
+}
     

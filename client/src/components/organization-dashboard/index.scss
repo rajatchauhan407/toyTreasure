@@ -9,14 +9,7 @@
     border-left: 1px solid $text_just_gray;
    
 }
-.OrgDataCard1
-{
-    display:none;
-}
-.OrgDataCard2
-{
-    display:block;
-}
+
 .org-list-wrapper{
     @include displayfc;
     width:70%;
@@ -121,15 +114,7 @@
         }
 
     }
-    .OrgDataCard1
-    {
-        margin-top:1rem;
-        display:block;
-    }
-    .OrgDataCard2
-    {
-        display:none;
-    }
+
     .org-list-header button 
     {
     font-size: 1rem;

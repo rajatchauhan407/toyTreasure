@@ -39,9 +39,7 @@ export default function OrgDashBoard({onWishlistClicked}){
                         <i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Toy to Wishlist
                     </button>
                 </div>
-                <div className="OrgDataCard1">
-                    <OrgDataCard  displayMode="two-columns"  details={orgData}/>
-                </div>   
+                  
                 <div className="org-wishlist-crown">
                     <h5>Wishlist <img className="crown" src={crown} alt={"crownicon"}/></h5>                
                 </div>  
