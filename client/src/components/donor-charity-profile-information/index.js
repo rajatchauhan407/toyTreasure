@@ -2,7 +2,7 @@ import "./index.scss";
 import arrowBack from './../../pages/map/back_arrow.png';
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+// import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 
 export default function DonorCharityProfileInformation({info,logo, main}){
   console.log(info);

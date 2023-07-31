@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import crown from "./crown.svg";
 import React, { useState,useContext, useEffect } from 'react';
 import AuthContext from "../../services/auth-context";
-import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+// import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function DonorDonationProcessList(props)
 {    
     let authCtx = useContext(AuthContext);
@@ -12,13 +12,13 @@ export default function DonorDonationProcessList(props)
     const [wishlist, setWishlist] = useState(authCtx.userCartData.wishlist);
     const [totalPoints, setTotalPoints] = useState(0);
     const [totalQuantity, setTotalQuantity] = useState(0);
-    const [tt80sumOfPoints, setTT80SumOfPoints] = useState(0);
+    // const [tt80sumOfPoints, setTT80SumOfPoints] = useState(0);
     // console.log(wishlist)
-    let tt80data=0;  
-    let tt80totalpoints=0;
-    let tt80pId="";
-    let tt80pId2="";   
-    let tt80sumOfAmt=0;
+    // let tt80data=0;  
+    // let tt80totalpoints=0;
+    // let tt80pId="";
+    // let tt80pId2="";   
+    // let tt80sumOfAmt=0;
     
    function calucateQuantity(wishlist,category){
         let count = 0;
@@ -67,13 +67,7 @@ export default function DonorDonationProcessList(props)
         authCtx.setUserCartData({...authCtx.userCartData,wishlist:wishlist.filter((el)=>el.org_w_toy_name !== name)});
         // console.log(filteredList);
         setCategories(filteredList);
-        setWishlist(wishlist.filter((el)=>el.org_w_toy_name !== name));
-        // tt80pId2=`tt-80-points${index}`; 
-        // tt80sumOfAmt=tt80sumOfAmt-Number(document.getElementById(index).value);
-        // tt80sumOfPoints=tt80sumOfPoints-Number(document.getElementById(tt80pId2).innerText);
-        // document.getElementById("totalToystt80").innerText=tt80sumOfAmt;
-        // document.getElementById("totalPointstt80").innerText=tt80sumOfPoints+"pts";
-        // document.getElementById(name).remove();    
+        setWishlist(wishlist.filter((el)=>el.org_w_toy_name !== name));  
     }
 
  
@@ -97,11 +91,7 @@ export default function DonorDonationProcessList(props)
                 authCtx.setUserCartData({...authCtx.userCartData,wishlist:filteredWishlist,categories:filteredCategories});
                 setCategories(filteredCategories);
                 setWishlist(filteredWishlist);
-            } 
-        
-            // tt80data = Number(document.getElementById(index).value)+1;    
-            // tt80sumOfAmt=tt80sumOfAmt+1; 
-            // tt80sumOfPoints=tt80sumOfPoints+points;         
+            }         
         }
         if(action==='remove')
         {         
@@ -168,11 +158,7 @@ export default function DonorDonationProcessList(props)
                     {/* <tbody> */}
                     {              
                        categories?.map((el,index)=>{                
-                        tt80sumOfAmt=tt80sumOfAmt+el.amount;
-                        {/* setTT80SumOfPoints(tt80sumOfPoints+el.category_points);  */}
-                        {/* tt80sumOfPoints = tt80sumOfPoints + */}
-                        tt80pId=`tt-80-amount${index}`;                             
-                        tt80pId2=`tt-80-points${index}`;                              
+                        
                       
                         return <tr className={index} id={el.category_name}>    
                         <td className="donation-table">
@@ -197,7 +183,7 @@ export default function DonorDonationProcessList(props)
                         </td>
                         <td>
                             <div className="tt-80-pointsandclose">
-                            <p className="tt-80-points" id={tt80pId2}>{el.category_points * el.quantity}</p><p>pts</p>                              
+                            <p className="tt-80-points">{el.category_points * el.quantity}</p><p>pts</p>                              
                                 <Link onClick={(e) => removeRow(el.category_name,index,e)}> <i className="fa fa-times" aria-hidden="true"></i></Link>                               
                             </div>                        
                         </td>                            
@@ -206,10 +192,6 @@ export default function DonorDonationProcessList(props)
                     } 
                     {              
                         wishlist?.map((el,index)=>{                
-                        tt80sumOfAmt=tt80sumOfAmt+el.amount;
-                        {/* setTT80SumOfPoints(tt80sumOfPoints+el.org_w_toy_points);  */}
-                        tt80pId=`tt-80-amount${index}`;                             
-                        tt80pId2=`tt-80-points${index}`;                              
                         
                             tt80wishListIcon=<img className="donor-donation-processlist-crownIcon" src={crown} alt={"crown"}/> ;                   
                         
@@ -240,7 +222,7 @@ export default function DonorDonationProcessList(props)
                         </td>
                         <td>
                             <div className="tt-80-pointsandclose">
-                            <p className="tt-80-points" id={tt80pId2}>{el.org_w_toy_points * el.quantity}</p><p>pts</p>                              
+                            <p className="tt-80-points" >{el.org_w_toy_points * el.quantity}</p><p>pts</p>                              
                                 <Link onClick={(e) => removeRow(el.org_w_toy_name,index,e)}> <i className="fa fa-times" aria-hidden="true"></i></Link>                               
                             </div>                        
                         </td>                            

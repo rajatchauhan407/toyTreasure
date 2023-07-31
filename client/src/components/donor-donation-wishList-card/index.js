@@ -1,15 +1,15 @@
 import "./index.scss";
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 // import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
-import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+import {collection, query, where, getDocs } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
 
 
 export default function DonationWishListCard({onDonationWishlist}) {
   const [donationWishList, setDonationWishList] = useState([]);
-  const [donations, setDonations] = useState([]);
-  const [selectedWishlist, setSelectedWishlist] = useState([]);
+  // const [donations, setDonations] = useState([]);
+  // const [selectedWishlist, setSelectedWishlist] = useState([]);
   const {id} = useParams();
   async function getDonationWishListData() {
     const wishlistCollection = collection(database,"organization_wishlist");
@@ -38,7 +38,7 @@ export default function DonationWishListCard({onDonationWishlist}) {
       console.log(newList);
       return newList;
     });
-    setDonations(donationWishList);
+    // setDonations(donationWishList);
   };
   // sending wishList to the cart
 
@@ -50,7 +50,7 @@ export default function DonationWishListCard({onDonationWishlist}) {
       console.log(newList);
       return newList;
     });
-    setDonations(donationWishList);
+    // setDonations(donationWishList);
   };
 
   useEffect(() => {
