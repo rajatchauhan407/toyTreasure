@@ -110,3 +110,10 @@ label{
     font-weight: 400;
 }
 
+@media screen and (max-width: $break-point) {
+    .OrgProfile{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1rem;
+}
+}
