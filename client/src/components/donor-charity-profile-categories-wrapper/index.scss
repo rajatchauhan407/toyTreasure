@@ -2,7 +2,7 @@
 
 .charityProfileCategoryCardwrapper{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
     margin-bottom: 1rem;
     
@@ -15,4 +15,17 @@
 .charityProfileCategoryCard{
 background-color: $secondary_footer_soft_blue ;
 @include globalPadding (6rem,8.125rem ,6rem, 8.125rem);
+}
+
+
+@media screen and (max-width: $break-point) {
+    .charityProfileCategoryCard{
+        @include mobilePadding;
+    
+    }
+    .charityProfileCategoryCardwrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0.5rem;
+    }
 }

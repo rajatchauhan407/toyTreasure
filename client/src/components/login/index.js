@@ -24,12 +24,16 @@ function LoginForm({existingUser}){
     function handleUserType(e){
         setUserType(e.target.value);
         if(e.target.value === "donor"){
-            donorRef.current.style.background = "orange";
+            donorRef.current.style.background = "rgba(102, 34, 170, 1)";
+            donorRef.current.style.color = "white";
             orgRef.current.style.background = "unset"
+            orgRef.current.style.color = "unset"
         }
         if(e.target.value === "organization"){
+            orgRef.current.style.background = "rgba(102, 34, 170, 1)"
+            orgRef.current.style.color = "white";
             donorRef.current.style.background = "unset";
-            orgRef.current.style.background = "orange"
+            donorRef.current.style.color = "unset";
         }
     }
     async function handleSubmit(event){

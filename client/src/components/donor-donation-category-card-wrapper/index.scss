@@ -3,3 +3,12 @@
     @include globalPadding (4rem, 8.125rem, 4rem, 8.125rem);
     background-color: $secondary_footer_soft_blue;
 }
+@media screen and (max-width: $break-point) {
+    .donorDonationCategoryCardWrapper{
+        padding: 2%;
+        .donationCategoryCardWrapper{
+            grid-gap: 0.5rem;
+        }
+    }
+    
+}
