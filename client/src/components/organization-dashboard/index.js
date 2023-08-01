@@ -12,8 +12,9 @@ import { useContext } from 'react';
 import { database } from '../../FirebaseConfig';
 import AuthContext from '../../services/auth-context';
 
-export default function OrgDashBoard({onWishlistClicked}){
+export default function OrgDashBoard({onWishlistClicked,onAddedToy}){
     let authCtx=useContext(AuthContext);
+    
     // console.log("authContext"+authContext);
     const {id} = useParams();
     const [orgData, setOrgData] = useState(null);
