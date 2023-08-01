@@ -5,7 +5,7 @@ import org_icon3 from './total-kids.svg';
 import org_icon4 from './donated-toys.svg';
 
 import { useEffect, useState } from 'react';
-import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+// import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 
 
 export default function OrgDataCard({ displayMode,details }){
