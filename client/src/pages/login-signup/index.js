@@ -1,7 +1,7 @@
 import './index.scss';
 import {useState } from "react";
 import techTribeLogo from './techTribeLogo.svg';
-import posterImage from './posterImage.png';
+// import posterImage from './posterImage.png';
 import LoginSignupForm from '../../components/loginsignupform';
 import CreateAccountDonor from '../../components/donor-create-account';
 import CreateAccountOrg from '../../components/org-create-account';

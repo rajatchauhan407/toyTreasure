@@ -1,5 +1,5 @@
 import "./index.scss";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useContext,useState} from "react";
 import AuthContext from "../../services/auth-context";
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
@@ -15,7 +15,7 @@ export default function DonorDonationProcessForm(props)
     const [deliveryMethod, setDeliveryMethod] = useState("");
     const [date,setDate] = useState("");
     const [time, setTime] = useState(""); 
-    const [confirm1,setConfirm1] = useState(false);
+    // const [confirm1,setConfirm1] = useState(false);
     const [confirm2,setConfirm2] = useState(false);
 
     async function storeDonationInDatabase(){
