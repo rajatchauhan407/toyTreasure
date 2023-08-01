@@ -36,7 +36,10 @@
     }
 }
 .org-wrapper
-{
+{   
+    h1{
+        color: $secondary_teal_green;
+    }
     h5{
         color:$secondary_teal_green;
         padding:0;
@@ -60,7 +63,7 @@
         cursor: pointer;
         
         &:hover{
-            background-color: $secondary_teal_green;
+            background-color: $text_midnight_blue;
             color: $text_pure_white;
         }
     }
@@ -85,6 +88,14 @@
     justify-content: flex-start;
     margin:0;
     padding:0;
+
+    h4{
+        color:$secondary_teal_green;
+        font-size: 22px;
+        font-family: "Lexend";
+        padding:0;
+        margin:0;
+    }
 }
 .org-pending-verification a
 {
