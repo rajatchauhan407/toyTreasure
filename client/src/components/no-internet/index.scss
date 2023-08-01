@@ -1,0 +1,32 @@
+@import '../../sass/main.scss';
+.noConnectionContainer {
+    margin-top:2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+    color:$text_just_gray;   
+}
+ .noConnectionContainer h3
+{
+    padding:1rem;
+    color:$secondary_ERR_red;   
+    text-align: center; 
+}
+.noConnectionContainer .noWifi
+{
+    width: 20%;
+    height:20%;
+    text-align: center;
+}
+.noConnection
+{
+    margin-top:2rem;
+    display: flex;
+    gap:1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
