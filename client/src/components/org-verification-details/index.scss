@@ -182,6 +182,18 @@
     background-color: $text_midnight_blue;
     color:white;
 }
+.verificationCheckBox 
+{
+    padding: 0 2rem;      
+} 
+.verificationCheckBox 
+{
+    display:flex;
+    flex-flow: row nowrap;  
+    justify-content: center;
+    align-items: start;
+    gap:1rem;
+} 
 
 @media screen and (max-width: $break-point) {
     .OrgVerDetailsCardWrapper
@@ -232,6 +244,6 @@
 }
 .verificationCheckBox 
 {
-    padding: 0 2rem;      
-}   
+    align-items: end;
+}  
 }

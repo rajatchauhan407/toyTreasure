@@ -17,7 +17,7 @@ export default function OrgVerificationQRActive(props)
                                          */}
                     <QRCode value={props.qrCode} />                   
                     <div className="OrgVerQRCardButton">
-                        <input type="Button" value="Go to Dashboard"  id="gotoDashboard"  className="orgVerGotoDashboard"/>
+                        <input type="Button" value="Go to Dashboard"  id="gotoDashboard" className="orgVerGotoDashboard"/>
                     </div>
                 </div>          
         </div>    
