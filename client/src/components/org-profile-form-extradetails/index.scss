@@ -30,4 +30,19 @@
         margin-top: 10px;
         margin-bottom: 15px ;
     }
+    .tt-38-item-container{
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .tt-38-item-container button{
+        margin-top: 10px;
+        width: 700px;
+        display: block;
+        background-color: white;
+        border: 1px solid $text_just_gray;
+    }
+    .dropdown-content label{
+        height: auto;
+    }
 }
