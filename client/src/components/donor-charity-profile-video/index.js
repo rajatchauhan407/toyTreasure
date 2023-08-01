@@ -1,17 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 
 const Player = ({video}) => {
-    const [isPlaying, setIsPlaying] = useState(false);
+    // const [isPlaying, setIsPlaying] = useState(false);
     const videoRef = useRef(null);
 
-    const togglePlay = () => {
-        if (isPlaying) {
-            videoRef.current.pause();
-        } else {
-            videoRef.current.play();
-        }
-        setIsPlaying(!isPlaying);
-    };
+    // const togglePlay = () => {
+    //     if (isPlaying) {
+    //         videoRef.current.pause();
+    //     } else {
+    //         videoRef.current.play();
+    //     }
+    //     setIsPlaying(!isPlaying);
+    // };
 
     return (
             <iframe

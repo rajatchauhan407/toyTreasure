@@ -7,7 +7,7 @@ import OrgProfileMedia from "../org-profile-form-media";
 import OrgProfileExtraD from "../org-profile-form-extradetails";
 import OrgProfileCategories from "../org-profile-form-categories";
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { ref} from "firebase/storage";
 // import app from "../../FirebaseConfig";
 // import {useState, useEffect} from "react";
 // import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
