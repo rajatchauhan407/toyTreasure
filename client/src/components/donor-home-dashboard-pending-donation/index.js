@@ -1,11 +1,11 @@
 import './index.scss';
 import { Html5QrcodeScanner} from 'html5-qrcode'
-import { useEffect, useState,useContext } from 'react';
+import { useEffect, useState} from 'react';
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
-import AuthContext from '../../services/auth-context';
+// import AuthContext from '../../services/auth-context';
 import DonorPointsModal from '../donor-points-awarded-modal';
 import GeneralModalWrapper from '../general-modal-wrapper';
-import FireBaseAuthService from '../../services/FirebaseAuthService';
+// import FireBaseAuthService from '../../services/FirebaseAuthService';
 const qrcodeRegionId = "html5qr-code-full-region";
 
 // Creates the configuration object for Html5QrcodeScanner.
@@ -35,7 +35,7 @@ const Html5QrcodePlugin = (props) => {
         const verbose = props.verbose === true;
         // Suceess callback is required.
         if (!(props.qrCodeSuccessCallback)) {
-            throw "qrCodeSuccessCallback is required callback.";
+            console.error("qrCodeSuccessCallback is required callback.");
         }
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, config, verbose);
         html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
@@ -54,47 +54,47 @@ const Html5QrcodePlugin = (props) => {
 
 
 
-function filterResults (results) {
-  let filteredResults = [];
-  for (var i = 0; i < results.length; ++i) {
-      if (i === 0) {
-          filteredResults.push(results[i]);
-          continue;
-      }
+// function filterResults (results) {
+//   let filteredResults = [];
+//   for (var i = 0; i < results.length; ++i) {
+//       if (i === 0) {
+//           filteredResults.push(results[i]);
+//           continue;
+//       }
 
-      if (results[i].decodedText !== results[i - 1].decodedText) {
-          filteredResults.push(results[i]);
-      }
-  }
-  return filteredResults;
-}
+//       if (results[i].decodedText !== results[i - 1].decodedText) {
+//           filteredResults.push(results[i]);
+//       }
+//   }
+//   return filteredResults;
+// }
 
-const ResultContainerTable = ({ data }) => {
-  const results = filterResults(data);
-  return (
-      <table className={'Qrcode-result-table'}>
-          <thead>
-              <tr>
-                  <td>#</td>
-                  <td>Decoded Text</td>
-                  <td>Format</td>
-              </tr>
-          </thead>
-          <tbody>
-              {
-                  results.map((result, i) => {
-                      console.log(result);
-                      return (<tr key={i}>
-                          <td>{i}</td>
-                          <td>{result.decodedText}</td>
-                          <td>{result.result.format.formatName}</td>
-                      </tr>);
-                  })
-              }
-          </tbody>
-      </table>
-  );
-};
+// const ResultContainerTable = ({ data }) => {
+//   const results = filterResults(data);
+//   return (
+//       <table className={'Qrcode-result-table'}>
+//           <thead>
+//               <tr>
+//                   <td>#</td>
+//                   <td>Decoded Text</td>
+//                   <td>Format</td>
+//               </tr>
+//           </thead>
+//           <tbody>
+//               {
+//                   results.map((result, i) => {
+//                       console.log(result);
+//                       return (<tr key={i}>
+//                           <td>{i}</td>
+//                           <td>{result.decodedText}</td>
+//                           <td>{result.result.format.formatName}</td>
+//                       </tr>);
+//                   })
+//               }
+//           </tbody>
+//       </table>
+//   );
+// };
 
 
 export default function DashboardPendingDonation(props) {

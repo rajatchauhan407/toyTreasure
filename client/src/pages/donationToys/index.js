@@ -9,7 +9,7 @@ import { useState,useEffect } from 'react';
 
 export default function DonorDonationToysPage(){
     const {id} = useParams();
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
     const [orgName, setOrgName] = useState('');
     
     const [categoriesData, setCategoriesData] = useState([]);
@@ -18,7 +18,7 @@ export default function DonorDonationToysPage(){
             const res = await FireBaseFirestoreService.getDocumentById('organization_profile',id);
             console.log(res.data().profileDetails.org_name);
             setOrgName(res.data().profileDetails.org_name);
-            setIsLoading(false);
+            // setIsLoading(false);
         }
         fetchOrg();
     },[]);

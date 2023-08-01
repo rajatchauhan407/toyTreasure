@@ -1,5 +1,5 @@
 import "./index.scss";
-import { useState,useEffect, useCallback,useContext } from "react";
+import { useState,useEffect,useContext } from "react";
 import AuthContext from "../../services/auth-context";
 export default function OrgProfileDetails({getFormData,getDataState}){   
      let authCtx = useContext(AuthContext);
@@ -17,7 +17,7 @@ export default function OrgProfileDetails({getFormData,getDataState}){
     const [phoneNumber,setPhoneNumber]=useState("");
     
   
-    const getFormDataCallback = useCallback(getFormData,[getFormData]);
+    // const getFormDataCallback = useCallback(getFormData,[getFormData]);
         useEffect(()=>{
             const formObject ={
                 org_name:orgName,
