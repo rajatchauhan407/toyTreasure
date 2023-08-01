@@ -1,4 +1,5 @@
 import "./index.scss";
+import crown from './../organization-dashboard/crown.svg'
 import { useState,useEffect, useContext } from "react";
 import { ref } from "firebase/storage";
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
@@ -69,13 +70,14 @@ export default function OrgAddWishlist({onClickCancel, onClickCancelButton, onAd
     }
     return (
         <div className="modalWishlist">
+            <img src="" alt="crown" />
             <h2>Add Toy to Wishlist</h2>
             <MdCancel className='cancelIcon' onClick={()=>{onClickCancelButton(false)}}/>
             <form>
                 <label htmlFor="toyName">Toy Name</label>
                 <input type="text" id="toyName" onChange={(e)=>{setToyName(e.target.value)}} name="toyName" required /><br />
 
-                <label htmlFor="categories~">Select Category</label>
+                <label htmlFor="categories~">Select the Category</label>
                         <select id="categories" onChange={(e)=>{setToyCategory(e.target.value)}} name="categories" required>
                         {orgToyCategories && orgToyCategories.map((el)=>{                          
                                 return <option value={el.category_name}>{el.category_name}</option>
@@ -87,7 +89,8 @@ export default function OrgAddWishlist({onClickCancel, onClickCancelButton, onAd
                 <input type="number" id="qty" onChange={(e)=>{setToysRequired(e.target.value)}} name="qty" required /><br />
 
                
-                <label htmlFor="toyUpload">Upload Image</label>
+                <label htmlFor="toyUpload">Upload Photo</label>
+                <p>Add a photo for donor’s as a reference.</p>
                 <input type="file" id="toyUpload" onChange={(e)=>{setImage(e.target.files[0])}} name="toyUpload" accept="image/*" className="toy-input" required/>    
                 
             </form>
