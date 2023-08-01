@@ -14,7 +14,7 @@ color: black;
 .createAccountOrganization,
 .createAccountDonor
 {
-    border: none;
+    border: 1px solid $accent_amethyst;
     margin-left: auto;
     margin-right: auto;
 width: 28.75rem;
@@ -25,7 +25,7 @@ height: 6.75rem;
 border-radius: $b-radius;
 background-color: $text_pure_white;
 align-content: center;
-justify-items: center;
+justify-items: start;
 align-items: center;
 text-align: left;
 box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.04);
@@ -41,11 +41,12 @@ cursor: pointer;
 
 button p{
     @include FootnoteRegular($text_not_just_gray);
+    margin-top: .3rem;
 }
 .orgIcon,
 .donorIcon{
-  max-width: 3rem; 
-  margin-left: 1rem; 
+  width: 3rem; 
+  margin: 1.5rem; 
 }
 .site-logo{
     margin-bottom: 3rem;
@@ -55,5 +56,9 @@ button p{
 a{
     text-decoration: none;
     font-weight: $fw-semi-bold;
+    color: $button_purple_CTA;
+        &:hover{
+            color: $primary_girly_pink;
+        }
 }
 }
