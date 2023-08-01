@@ -1,6 +1,6 @@
 import "./index.scss";
 import logo from "./appLogo.svg";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
 export default function DonorHeaderMobile(props)

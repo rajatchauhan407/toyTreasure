@@ -27,6 +27,7 @@
     position:sticky;
     top:0;
     background: white;
+    z-index: 2;
 }
 
 .tt-102-header-wrapperMobile
@@ -42,6 +43,12 @@
     .tt-102-header-wrapperMobile
     {
         display: block;
+        position:sticky;
+        background: white;
+        top:0;
+        left:0;
+        right:0;     
+        z-index: 100;
     }
     .tt-102-header-wrapper
     {
@@ -57,7 +64,13 @@
         height:auto;
     }
     .organization-mobile-header-container
-    {
+    {       
         display:block;
+        position:sticky;
+        background: white;
+        top:45px;
+        left:0;
+        right:0;     
+        z-index: 100;
     }
  }

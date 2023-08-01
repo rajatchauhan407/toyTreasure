@@ -9,8 +9,8 @@ import "./index.scss";
 import { useContext, useRef, useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
 import {Link} from "react-router-dom";
-import { query,where,collection,getDocs} from 'firebase/firestore';
-import {database} from "../../FirebaseConfig";
+// import { query,where,collection,getDocs} from 'firebase/firestore';
+// import {database} from "../../FirebaseConfig";
 import AuthContext from '../../services/auth-context';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 function LoginForm({existingUser}){

@@ -1,13 +1,13 @@
 @import '../../sass/main.scss';
 .orgVerQRImg{
-    width: 80%;
+    width: 100%;
     height: auto;
-  
+}
 .OrgVerQRCardWrapper img{
     width: 150px;
 }
 
-.orgVerQRText
+ .orgVerQRText
 {
     display:flex;
     flex-direction: column;
@@ -46,64 +46,27 @@
     padding:1rem;
     border-radius: 5px;
     font-weight: $fw-bold;
-
+    font-size: 1rem;
+    border:none;
 }
-
-@import '../../sass/main.scss';
-.orgVerQRImg{
-    width: 80%;
-    height: auto;
-  
+.orgVerGotoDashboard:hover
+{    
+    color:$text_pure_white;    
 }
-.orgVerQRText
-{
-    display:flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding:1rem;
-}
-.OrgVerQRCardWrapperActive
-{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.25);
-    border-radius: 2px;
-    background-color: #fdfdfd;
-    h2 
-    {
-        color:$secondary_teal_green;
-        font-family: $font_heading;
-    }
-    p 
-    {
-        color:$text_just_gray;
-        font-family: $font_body;
-    }
-}
-.OrgVerQRCardButton
-{
-    display:flex;
-    justify-content: center;    
-}
-.orgVerGotoDashboard
-{
-    background-color: $primary_boy_blue;
-    color:$text_midnight_blue;
-    margin:1rem;
-    padding:1rem;
-    border-radius: 5px;
-    font-weight: $fw-bold;
-
+.orgVerGotoDashboard:active
+{   
+    background-color: $text_midnight_blue; 
+    color:$text_pure_white;    
 }
 
 .org-ver-qr-active 
 {
     display:flex;
-    // flex-direction: column;
+    flex-direction: column;
     align-items: center;
     justify-content:center;
     margin:1rem;
+    gap:1rem;
     padding:1rem;
 }
-}
+

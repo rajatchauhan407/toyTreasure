@@ -1,8 +1,8 @@
 import './index.scss';
-import { Link,Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import DonationWishListCard from '../donor-donation-wishList-card';
 import { useEffect, useState, useContext } from 'react';
-import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
+// import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import AuthContext from '../../services/auth-context';
 import vectore from './Vector-wishlist.png'
 

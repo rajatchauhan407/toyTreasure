@@ -6,14 +6,15 @@ import './index.scss';
 import {Link} from "react-router-dom";
 import { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
-import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
+import {  collection,  where, getDocs } from 'firebase/firestore';
+// import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import { useContext } from 'react';
 import { database } from '../../FirebaseConfig';
 import AuthContext from '../../services/auth-context';
 
-export default function OrgDashBoard({onWishlistClicked}){
+export default function OrgDashBoard({onWishlistClicked,onAddedToy}){
     let authCtx=useContext(AuthContext);
+    
     // console.log("authContext"+authContext);
     const {id} = useParams();
     const [orgData, setOrgData] = useState(null);
@@ -39,9 +40,7 @@ export default function OrgDashBoard({onWishlistClicked}){
                         <i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Toy to Wishlist
                     </button>
                 </div>
-                <div className="OrgDataCard1">
-                    <OrgDataCard  displayMode="two-columns"  details={orgData}/>
-                </div>   
+                  
                 <div className="org-wishlist-crown">
                     <h5>Wishlist <img className="crown" src={crown} alt={"crownicon"}/></h5>                
                 </div>  

@@ -39,45 +39,46 @@ export default function CardOrgTT13() {
 
   const navigate = useNavigate();
 
-  const statusMapping = {
-    cancelled: "Cancelled",
-    completed: "Completed",
-    pending: "Pending",
-  };
+  // const statusMapping = {
+  //   cancelled: "Cancelled",
+  //   completed: "Completed",
+  //   pending: "Pending",
+  // };
 
-  const deliveryMethodMapping = {
-    drop_off: "Drop-off",
-    pickup: "Pick-up",
-  };
+  // const deliveryMethodMapping = {
+  //   drop_off: "Drop-off",
+  //   pickup: "Pick-up",
+  // };
 
-  const getStatusText = (statusObj) => {
-    if (!statusObj) {
-      return "N/A";
-    }
+  // const getStatusText = (statusObj) => {
+  //   if (!statusObj) {
+  //     return "N/A";
+  //   }
 
-    const trueStatus = Object.keys(statusObj).find((key) => statusObj[key]);
-    return statusMapping[trueStatus] || "N/A";
-  };
+  //   const trueStatus = Object.keys(statusObj).find((key) => statusObj[key]);
+  //   return statusMapping[trueStatus] || "N/A";
+  // };
 
-  const getDeliveryMethodText = (methodObj) => {
-    if (!methodObj) {
-      return "N/A";
-    }
+  // const getDeliveryMethodText = (methodObj) => {
+  //   if (!methodObj) {
+  //     return "N/A";
+  //   }
 
-    const trueMethod = Object.keys(methodObj).find((key) => methodObj[key]);
-    return deliveryMethodMapping[trueMethod] || "N/A";
-  };
+  //   const trueMethod = Object.keys(methodObj).find((key) => methodObj[key]);
+  //   return deliveryMethodMapping[trueMethod] || "N/A";
+  // };
 
-  const formatDate = (timestamp) => {
-    if (!timestamp) {
-      return "N/A";
-    }
-    const dateObj = timestamp.toDate();
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    return dateObj.toLocaleDateString(undefined, options);
-  };
+  // const formatDate = (timestamp) => {
+  //   if (!timestamp) {
+  //     return "N/A";
+  //   }
+  //   const dateObj = timestamp.toDate();
+  //   const options = { month: 'long', day: 'numeric', year: 'numeric' };
+  //   return dateObj.toLocaleDateString(undefined, options);
+  // };
 
   return (
+    <div>
     <table className="TableCardOrgTT13">
         <thead>
           <tr>
@@ -103,15 +104,15 @@ export default function CardOrgTT13() {
             <td>{props?.data().toysQuantity}</td>
             <td>{props?.data().donationStatus}</td>
             <td>
-            <button disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
+            <button className="verifyButtonPendingDonation" disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
                 Verify
                 </button>
             </td>
-            
             </tr>
            
         ))}
         </tbody>
     </table>
+    </div>
   );
 }

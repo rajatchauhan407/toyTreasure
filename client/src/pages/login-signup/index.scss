@@ -8,6 +8,12 @@ height: 100vh;
     background-image: url('./posterImage.png') ;
     background-size: cover; 
 }
+.loginsignupimageDonor,
+.loginsignupimageOrg{
+    background-image: url('./Donorimage.png') ;
+    background-size: cover; 
+    // height: 100vh;
+}
 .loginSignupformInnerWrapper{
     display: flex;
     align-items: center;
@@ -33,7 +39,7 @@ height: 100vh;
 .techTribeLogo{
 margin-right: 4rem;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 10px;
     align-items: center;
     p{
@@ -46,5 +52,9 @@ margin-right: 4rem;
 @media screen and (max-width: $break-point) {
     .responsiveWrapper{
         display: none;
+    }
+    .loginsignupformWrapper{
+        width: 100%;
+        display: block;
     }
 }
