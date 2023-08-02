@@ -38,6 +38,13 @@
     border-collapse: collapse;
     margin-bottom: 20px;
     border-spacing: 0 8px; 
+
+    thead{
+        color: $text_just_gray;
+        font-family: 'Lexend';
+        font-size: 18px;
+        text-align: start;
+    }
  td {
     
     background-color:$secondary_footer_soft_blue;
@@ -52,10 +59,12 @@
   
 .verifyButtonPendingDonation{
     @include Buttuns($medium-button, $button_blue_CTA);
+    color: $text_midnight_blue;
     cursor: pointer;
     }
 
     .verifyButtonPendingDonation:hover{
+        background-color: $text_midnight_blue;
        color:white;
         cursor: pointer;
         }
@@ -63,7 +72,12 @@
     .verifyButtonPendingDonation:active{
         @include Buttuns($medium-button, $text_midnight_blue);
         color:white;
-    cursor: pointer;
+        cursor: pointer;
+    }
+    .verifyButtonPendingDonation:disabled{
+        @include Buttuns($medium-button, #EEEEEE);
+        color:$text_not_just_gray;
+        cursor: default;
     }
     
 

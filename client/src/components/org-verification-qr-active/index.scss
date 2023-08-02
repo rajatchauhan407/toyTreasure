@@ -19,18 +19,24 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.25);
-    border-radius: 2px;
+    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.665);
     background-color: #fdfdfd;
-    h2 
+    padding: 1rem;
+    border-radius: 1rem;
+    h4 
     {
         color:$secondary_teal_green;
-        font-family: $font_heading;
+        font-size: 22px;
+        font-weight: $fw-bold;
+        font-family: 'Lexend';
+        margin: 0;
     }
     p 
     {
-        color:$text_just_gray;
-        font-family: $font_body;
+        color:#8F8F8F;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-weight: $fw-bold;
     }
 }
 .OrgVerQRCardButton
@@ -40,14 +46,26 @@
 }
 .orgVerGotoDashboard
 {
-    background-color: $primary_boy_blue;
+    @include Buttuns ($medium-button, $primary_boy_blue);
     color:$text_midnight_blue;
-    margin:1rem;
-    padding:1rem;
-    border-radius: 5px;
+    font-size: 18px;
+    font-family: "Roboto";
     font-weight: $fw-bold;
-    font-size: 1rem;
-    border:none;
+    a{
+        text-decoration: none;
+        color: $text_midnight_blue;
+    }
+
+    &:hover{
+        background-color: $text_midnight_blue;
+        a{
+            color:white;
+        }
+    }
+    &:active{
+        background-color: $text_midnight_blue;
+        color:white;
+    }
 }
 .orgVerGotoDashboard:hover
 {    
@@ -65,8 +83,7 @@
     flex-direction: column;
     align-items: center;
     justify-content:center;
-    margin:1rem;
-    gap:1rem;
+    gap:2rem;
     padding:1rem;
 }
 

@@ -56,8 +56,8 @@ export default function OrgVerificationDetails(props)
         <div className="OrgVerDetailsCardWrapper">
             <div className="org-ver-details-card">
                 <div className="detailsHeader">
-                    <h3>Verification Details</h3>
-                    <h5>{donationId}</h5>
+                    <h4>Donation Request</h4>
+                    <p>Donation: #{donationId}</p>
                 </div>
                 <div className="details">
                     <img className="gift" src={gift} alt={"gift"}/>
@@ -68,11 +68,11 @@ export default function OrgVerificationDetails(props)
                         </div>
                         <div className="displayDonorInfo">
                             <p className="dTitle">Donor Email</p>
-                            <p className="dInfo">{donorEmail}</p>
+                            <p className="dEmail">{donorEmail}</p>
                         </div>
                         <div className="displayDonorInfo">
                             <p className="dTitle">Date</p>
-                            <p className="dInfo">{donationData.date} 
+                            <p className="dDate">{donationData.date} 
                             {/* <i class="fa-sharp fa-light fa-triangle-exclamation dTitle"></i> */}
                             </p>
                         </div>

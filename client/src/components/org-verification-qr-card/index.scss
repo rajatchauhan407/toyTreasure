@@ -6,21 +6,28 @@
     display:flex;
     align-items: flex-start;
     justify-content: space-evenly;
-    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.25);
+    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.665);
     background-color: #fdfdfd;
+    padding: 2rem;
+    border-radius: 1rem;
     img 
     {
         width: 100%;
     }
-    h2 
+    h4 
     {
         color:$secondary_teal_green;
-        font-family: $font_heading;
+        font-size: 22px;
+        font-weight: $fw-bold;
+        font-family: 'Lexend';
+        margin: 0;
     }
     p 
     {
-        color:$text_just_gray;
-        font-family: $font_body;
+        color:#8F8F8F;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-weight: $fw-bold;
     }
 
 }
@@ -29,12 +36,13 @@
 {
     background-image: url(./blurredQR.jpg);
     background-repeat: no-repeat;
-    background-size: 60%;
+    background-size: 100%;
     background-position: center; 
-    opacity: .9;    
+    background-size: contain;
+    opacity: .8;    
     
     color:$text_midnight_blue;
-    padding:5rem;
+    padding:8rem 2rem;
     h3 
     {
         text-align: center;                     
