@@ -1,0 +1,27 @@
+@import '../../../sass/abstracts/colors';
+
+/* MultipleSlider.css */
+/* Custom styling for the previous and next buttons */
+.slick-arrow.slick-prev,.slick-next {
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+  border-radius: 50%;
+  background-color: $button_purple_CTA; /* Replace with your desired color code */
+   /* Make sure the buttons appear on top of the slides */
+}
+
+/* Styling for the previous button */
+// .slick-prev {
+//   left: 10px; /* Adjust the left position as needed */
+// }
+
+/* Styling for the next button */
+// .slick-next {
+//   right: 10px; /* Adjust the right position as needed */
+// }
+
+// /* Hover styles for the buttons */
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: #0056b3; /* Hover color, adjust as needed */
+}
