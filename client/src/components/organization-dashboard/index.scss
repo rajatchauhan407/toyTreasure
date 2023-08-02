@@ -33,6 +33,19 @@
     .org-pending-verification-header{
         display: flex;
         justify-content: space-between;
+        align-items: center;
+
+        h4{
+            font-size: 20px;
+            font-weight: $fw-bold;
+            margin: 0;
+        }
+        a{
+            font-size: 14px;
+            font-family: 'Lexend';
+            text-decoration: none;
+            color:$primary_boy_blue;
+        }
     }
 }
 .org-wrapper
@@ -41,7 +54,27 @@
         color: $secondary_teal_green;
     }
     h5{
-        color:$secondary_teal_green;
+        color:$text_pure_white;
+        padding:0;
+        margin:0;
+    }
+}
+
+.OrgDataCard2{
+    .img-wrapper{
+        img{
+            width: 4rem;
+        }
+    }
+    .custom-h1{
+        font-size: 28px;
+        margin: 0;
+
+    }
+    h5{
+        color:$text_just_gray;
+        font-weight: 400;
+        font-size: 14px;
         padding:0;
         margin:0;
     }

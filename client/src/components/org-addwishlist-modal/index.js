@@ -70,7 +70,7 @@ export default function OrgAddWishlist({onClickCancel, onClickCancelButton, onAd
     }
     return (
         <div className="modalWishlist">
-            <img src="" alt="crown" />
+            <img src={crown} alt="crown" />
             <h2>Add Toy to Wishlist</h2>
             <MdCancel className='cancelIcon' onClick={()=>{onClickCancelButton(false)}}/>
             <form>
