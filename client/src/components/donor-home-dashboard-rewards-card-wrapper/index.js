@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './index.scss';
 import HomeDashboardRewards from '../donor-home-dashboard-rewards-card';
 
@@ -23,7 +24,7 @@ useEffect(()=>{
     const userData = await FireBaseFirestoreService.getDocumentById('user',userNameAuth.uid);
   setUserPoints(userData.data().user_points);
   }
-  getUserPoints()
+  getUserPoints();
   
 },[user_points])
   useEffect(() => {

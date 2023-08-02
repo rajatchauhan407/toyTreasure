@@ -95,7 +95,7 @@ export default function DonorDonationProcessForm(props)
                                      name="tt-81-confirm-details" 
                                      onChange={(e)=>{setConfirm2(e.target.checked)}}
                                      checked={confirm2} />
-                            I hereby confirm that all the details are correct and follow guidelines for donation.
+                            <p>I hereby confirm that all the details are correct and follow guidelines for donation.</p>
                         </label>
                     </div>
                     <div className="tt-81-buttons">                   
