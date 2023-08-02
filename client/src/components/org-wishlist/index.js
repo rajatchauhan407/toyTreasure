@@ -4,10 +4,11 @@ import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
 import AuthContext from "../../services/auth-context";
-import LoaderRocket from "../loader";
+// import LoaderRocket from "../loader";
 // import Loader from '../../sass/images/block-loop.svg'; 
-import GeneralModalWrapper from "../general-modal-wrapper";
-import LoaderBox from "../loaders_all/LoaderBox";
+// import GeneralModalWrapper from "../general-modal-wrapper";
+// import LoaderBox from "../loaders_all/LoaderBox";
+import LoaderToysTreasure from "../loader";
 // import LoaderRocket from "../loader";
 export default function OrgWishlist(){
     const authCtx = useContext(AuthContext);
@@ -35,6 +36,7 @@ export default function OrgWishlist(){
             }
     useEffect(()=>{        
             getOrgWishListData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     // let orgWishlistData = [
     //     {
@@ -92,7 +94,7 @@ export default function OrgWishlist(){
         }
        
     }
-    return isLoad?<LoaderBox/>:(<div className="table-container">
+    return isLoad?<div className="loaderContainer"><LoaderToysTreasure/></div>:(<div className="table-container">
                 <table>
                     <thead>
                         <tr>
@@ -104,7 +106,7 @@ export default function OrgWishlist(){
                             <td></td>
                         </tr>
                     </thead>
-                    {isLoad ? <LoaderRocket/>:(<tbody>
+                    <tbody>
                         {orgWishList.map((el)=>{
                             return <tr>
                             <td>{el.org_w_toy_name}</td>
@@ -114,7 +116,7 @@ export default function OrgWishlist(){
                             <td onClick={()=>{deleteToyFromWishlist(el.id)}}><i className="fa-solid fa-trash"></i></td>
                         </tr>
                         })}
-                    </tbody>)}
+                    </tbody>
                 </table>
                 
             </div>)

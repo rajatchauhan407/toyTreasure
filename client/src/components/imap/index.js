@@ -1,6 +1,7 @@
 import './index.scss';
 import { GoogleMap, LoadScript,Marker} from '@react-google-maps/api';
 import { useEffect,useState } from 'react';
+import LoaderToysTreasure from '../loader';
 const InteractiveMap = ()=>{
     const[mapsApiKey, setMapsApiKey] = useState({});
     const [loading, setLoading] = useState(true);
@@ -171,6 +172,7 @@ const InteractiveMap = ()=>{
         )
       };
       console.log(location);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
     
     const containerStyle = {
@@ -183,7 +185,7 @@ const InteractiveMap = ()=>{
         lng: location?.longitude
       };
       if (loading) {
-        return <div>Loading...</div>;
+        return <LoaderToysTreasure />;
       }
     return <>
     {mapsApiKey && (<LoadScript
