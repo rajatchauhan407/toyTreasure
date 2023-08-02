@@ -7,6 +7,9 @@
     h3{
         margin-bottom: 1rem;
     }
+    @media screen and (max-width: $break-point) {
+        grid-gap: 2.5rem 1rem !important;
+    }
 }
 .donationWishListCardWrapper{
     padding: 0 1rem;

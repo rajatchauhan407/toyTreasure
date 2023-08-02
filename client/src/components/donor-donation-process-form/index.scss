@@ -117,7 +117,17 @@
         cursor: default;
     }
 }
-
+.tt-81-confirm-details-label{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 5% 90%;
+    align-items: center;
+    input[type="checkbox"]{
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-top:0;
+    }
+}
 .tt-81-remind-me-label, .tt-81-confirm-details-label
 {
     color:$text_midnight_blue;
@@ -131,6 +141,25 @@
      align-items: flex-start;
      border-bottom: 1px solid lightgray;   
  } 
- 
+ .tt-81-inputs input[type="radio"]{
+    margin-left: 0 !important;
+ }
+ .tt-81-inputs input[type="radio"]:nth-of-type(2){
+    margin-left: 2.5rem !important;
+ }
+ .tt-81-inputs input[type="date"]{
+    margin-left: 0 !important;
+ }
+ .tt-81-inputs{
+    display: flex;
+    justify-content: center;
+ }
+ .tt-81-inputs label{
+    display: flex;
+    align-items: center;
+ }
+ .tt-81-inputs label i{
+    padding-right:.5rem;
+ }
  }
  
