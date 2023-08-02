@@ -6,7 +6,7 @@
   width: 40px; /* Adjust the width as needed */
   height: 40px; /* Adjust the height as needed */
   border-radius: 50%;
-  background-color: $button_purple_CTA; /* Replace with your desired color code */
+  background-color: $primary_boy_blue; /* Replace with your desired color code */
    /* Make sure the buttons appear on top of the slides */
 }
 
@@ -23,5 +23,5 @@
 // /* Hover styles for the buttons */
 .slick-prev:hover,
 .slick-next:hover {
-  background-color: #0056b3; /* Hover color, adjust as needed */
+  background-color: $text_midnight_blue; /* Hover color, adjust as needed */
 }

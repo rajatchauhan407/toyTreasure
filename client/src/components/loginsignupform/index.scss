@@ -46,7 +46,7 @@ button p{
 .orgIcon,
 .donorIcon{
   width: 3rem; 
-  margin: 1.5rem; 
+  margin: 1rem; 
 }
 .site-logo{
     margin-bottom: 3rem;
@@ -65,9 +65,14 @@ a{
 
 @media screen and (max-width: $break-point) {
     .loginsignupformWrapper{
-        width: 350px;
+        width: 400px;
+
+        h5{
+            font-size: 18px;
+        }
     }
     .createAccountOrganization{
         width: 100%;
     }
+
 }
