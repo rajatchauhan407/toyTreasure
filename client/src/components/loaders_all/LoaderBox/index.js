@@ -1,12 +1,11 @@
 import React from 'react';
+import GeneralModalWrapper from '../../general-modal-wrapper';
 // import {ReactComponent as LoaderSVG} from './block-loop.svg';
 const LoaderBox = () => {
     return (
-      <div className="loader-backdrop">
-        <div className="loader-container">
-          {/* <LoaderSVG /> */}
-        </div>
-      </div>
+      <GeneralModalWrapper>
+        <img src={require('./block-loop-ps.gif')} alt="Loading...." />
+      </GeneralModalWrapper>
     );
   };
   export default LoaderBox;

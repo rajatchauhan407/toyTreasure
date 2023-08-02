@@ -14,5 +14,14 @@
   
   .loader-container {
     /* Add any additional styling for the loader container */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 100%;
+      height:auto;
+      display: block;
+    }
   }
   

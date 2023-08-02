@@ -6,6 +6,7 @@ import DonationCategoryCardWrapper from '../../components/donor-donation-categor
 import DonationWishListCardWrapper from '../../components/donor-donation-wishList-card-wrapper';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import { useState,useEffect } from 'react';
+import LoaderToysTreasure from '../../components/loader';
 
 export default function DonorDonationToysPage(){
     const {id} = useParams();
@@ -13,14 +14,22 @@ export default function DonorDonationToysPage(){
     const [orgName, setOrgName] = useState('');
     
     const [categoriesData, setCategoriesData] = useState([]);
+    const [isLoad,setIsLoad] = useState(false);
     useEffect(()=>{
+        setIsLoad(true);
         async function fetchOrg(){
             const res = await FireBaseFirestoreService.getDocumentById('organization_profile',id);
             console.log(res.data().profileDetails.org_name);
             setOrgName(res.data().profileDetails.org_name);
-            // setIsLoading(false);
+            setIsLoad(false);
         }
-        fetchOrg();
+        try {
+            fetchOrg();
+        } catch (error) {
+            setIsLoad(false);
+        }
+        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     function getSelectedCategories(data){
             let array = [];
@@ -31,10 +40,10 @@ export default function DonorDonationToysPage(){
                 }
             });
     }
-    useEffect(() => {
-        console.log(categoriesData);
-      }, []);
-    return(<>
+    // useEffect(() => {
+    //     console.log(categoriesData);
+    //   }, []);
+    return(isLoad?<LoaderToysTreasure/>:<>
     <div className='donorDonationToysPageWrapper'>
         <div className='backButton'>
             <div className="btn">
@@ -52,6 +61,7 @@ export default function DonorDonationToysPage(){
         <DonationWishListCardWrapper
             requiredCategories = {categoriesData}
         />
+        
 
         <DonationCategoryCardWrapper
             onGetCat = {getSelectedCategories}

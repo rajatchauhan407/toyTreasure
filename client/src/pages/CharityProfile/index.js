@@ -9,7 +9,8 @@ import { useParams } from 'react-router-dom';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 
 import OrgDataCard from '../../components/org-data-card';
-import ToyLoader from '../../components/loaders_all/toyLoader';
+// import ToyLoader from '../../components/loaders_all/toyLoader';
+import LoaderToysTreasure from '../../components/loader';
 // import LegoLoader from '../../components/loaders_all/legoLoader';
 
 
@@ -63,5 +64,5 @@ export default function DonorCharityProfilePage(){
             <HomeDashBoardStories/>
             </div>
     </div>
-    </>:<ToyLoader/>));
+    </>:<LoaderToysTreasure/>));
 };

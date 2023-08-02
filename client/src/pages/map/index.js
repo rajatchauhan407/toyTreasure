@@ -7,18 +7,23 @@ import OrgMapCard from '../../components/org-map-card';
 import {useState,useEffect } from 'react';
 import OrgMapDescCard from '../../components/org-map-desc-card';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
+import LoaderToysTreasure from '../../components/loader';
 
 export default function Map(){
     const [selectedIndex, setSelectedIndex] = useState(null);
     const [isOrgDescShown, setIsOrgDescShown] = useState(false);
     const [orgsData, setOrgsData] = useState([]);
+    const [isLoad,setIsLoad] = useState(false);
     useEffect(()=>{
+        setIsLoad(true);
         async function fetchData(){
             let res = await FireBaseFirestoreService.getDocumentsInArray('organization_profile');
             setOrgsData(res);
-            console.log(res)
+            // console.log(res)
+            setIsLoad(false);
         }
         fetchData();
+        
     },[setOrgsData])
     // let orgs = [
     //     {orgName:"Sharing Smiles",
@@ -54,7 +59,7 @@ export default function Map(){
     // ];
 
     const SideHeader = ()=>{
-        return <div className="tt-62-side-wrapper">
+        return isLoad?<LoaderToysTreasure/>:<div className="tt-62-side-wrapper">
 
                 <div className='mapHeader'>
                     <div className='mapSearch'>
