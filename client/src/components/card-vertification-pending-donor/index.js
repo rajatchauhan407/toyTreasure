@@ -5,15 +5,18 @@ import { useContext, useEffect, useState } from 'react';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
 import AuthContext from "../../services/auth-context";
+import LoaderToysTreasure from "../loader";
 
 
 
 export default function CardOrgTT13() {
   const [orgVerificationList, setOrgVerificationList] = useState([]);
+  const [isLoad, setIsLoad] = useState(false);
   const authCtx = useContext(AuthContext);
   async function getOrgVerificationListData() {
     try {
       console.log(authCtx);
+      setIsLoad(true);
       let orgRef = collection(database,'organization_profile');
       let qOrg = query(orgRef, where("uid","==",authCtx.uid));
       // console.log("is it being called")
@@ -28,8 +31,10 @@ export default function CardOrgTT13() {
       // donationData.forEach((el)=>{
       //   console.log(el.data())
       // })
+      setIsLoad(false);
     } catch (error) {
       console.error("Error fetching data:", error);
+      setIsLoad(false);
     }
   }
   useEffect(() => {
@@ -78,7 +83,7 @@ export default function CardOrgTT13() {
   // };
 
   return (
-    <div>
+    isLoad?<LoaderToysTreasure/>:<div>
     <table className="TableCardOrgTT13">
         <thead>
           <tr>

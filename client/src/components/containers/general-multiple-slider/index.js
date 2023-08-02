@@ -16,7 +16,7 @@ const GeneralMultipleSlider = (props) => {
 
   return (
     <div className="tt-71-slider-container">
-      <div className="tt-71-slider" style={{ transform: `translateX(-${slideIndex * 20}%)` }}>
+      <div className="tt-71-slider" style={{ transform:`translateX(-${slideIndex * 100}%)` }}>
         {props.cards.map((el)=>{
           return el;
         })}

@@ -53,6 +53,9 @@ function getDocumentById(collectionName, documentId){
         console.log(error);
     }
 }
+function getDocumentRefById(collectionName, documentId){
+    return doc(collection(database,collectionName),documentId);
+}
 
 // Update a document 
    async function updateDocumentById(collectionName, documentId, updatedData){
@@ -84,8 +87,8 @@ const FireBaseFirestoreService = {
     getDocumentById,
     updateDocumentById,
     settingDocument,
-    deleteDocumentById
-}
+    deleteDocumentById,
+    getDocumentRefById}
 
 
 
