@@ -5,8 +5,8 @@ import { useState,useEffect,useContext } from 'react';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import React from "react";
 import AuthContext from '../../services/auth-context';
-
-import GeneralMultipleSlider from '../containers/general-multiple-slider';
+import MultipleSlider from '../containers/multiple-slider';
+// import GeneralMultipleSlider from '../containers/general-multiple-slider';
 
 function HomeDashboardRewardsCard(props) {
   const userNameAuth = useContext(AuthContext);
@@ -45,7 +45,7 @@ useEffect(()=>{
     );
   });
 
-  return <GeneralMultipleSlider cards={rewardsList} />;
+  return <MultipleSlider cards={rewardsList} />;
 }
 
 export default HomeDashboardRewardsCard;

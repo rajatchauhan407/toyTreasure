@@ -8,12 +8,16 @@
     margin: 1rem;
     width: 11rem;
     text-align: center;
-
     .homeDashboardRewardsCardImgWrapper img{
         border-radius: 0.5rem;
         width: 100%;
     }
-
+@media screen and (max-width:570px) {
+    // display: flex;
+    justify-content: center;
+    width: 85%;
+    
+}
     .homeDashboardRewardsPoints{
         text-align: center;
         background-color: $primary_girly_pink;
