@@ -9,14 +9,7 @@
     border-left: 1px solid $text_just_gray;
    
 }
-.OrgDataCard1
-{
-    display:none;
-}
-.OrgDataCard2
-{
-    display:block;
-}
+
 .org-list-wrapper{
     @include displayfc;
     width:70%;
@@ -40,12 +33,44 @@
     .org-pending-verification-header{
         display: flex;
         justify-content: space-between;
+        align-items: center;
+
+        h4{
+            font-size: 20px;
+            font-family: 'Lexend';
+            font-weight: $fw-bold;
+            margin: 0;
+        }
+        a{
+            font-size: 14px;
+            font-family: 'Lexend';
+            text-decoration: none;
+            color:$primary_boy_blue;
+        }
     }
 }
 .org-wrapper
-{
+{   
+    h1{
+        color: $secondary_teal_green;
+    }
+}
+
+.OrgDataCard2{
+    .img-wrapper{
+        img{
+            width: 4rem;
+        }
+    }
+    .custom-h1{
+        font-size: 28px;
+        margin: 0;
+
+    }
     h5{
-        color:$secondary_teal_green;
+        color:$text_just_gray;
+        font-weight: 400;
+        font-size: 14px;
         padding:0;
         margin:0;
     }
@@ -67,7 +92,7 @@
         cursor: pointer;
         
         &:hover{
-            background-color: $secondary_teal_green;
+            background-color: $text_midnight_blue;
             color: $text_pure_white;
         }
     }
@@ -92,6 +117,14 @@
     justify-content: flex-start;
     margin:0;
     padding:0;
+
+    h4{
+        color:$secondary_teal_green;
+        font-size: 22px;
+        font-family: "Lexend";
+        padding:0;
+        margin:0;
+    }
 }
 .org-pending-verification a
 {
@@ -121,15 +154,7 @@
         }
 
     }
-    .OrgDataCard1
-    {
-        margin-top:1rem;
-        display:block;
-    }
-    .OrgDataCard2
-    {
-        display:none;
-    }
+
     .org-list-header button 
     {
     font-size: 1rem;

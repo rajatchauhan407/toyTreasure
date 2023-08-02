@@ -56,8 +56,8 @@ export default function OrgVerificationDetails(props)
         <div className="OrgVerDetailsCardWrapper">
             <div className="org-ver-details-card">
                 <div className="detailsHeader">
-                    <h2>Verification Details</h2>
-                    <h5>Donation:  {donationId}</h5>
+                    <h4>Donation Request</h4>
+                    <p>Donation: #{donationId}</p>
                 </div>
                 <div className="details">
                     <img className="gift" src={gift} alt={"gift"}/>
@@ -68,11 +68,11 @@ export default function OrgVerificationDetails(props)
                         </div>
                         <div className="displayDonorInfo">
                             <p className="dTitle">Donor Email</p>
-                            <p className="dInfo">{donorEmail}</p>
+                            <p className="dEmail">{donorEmail}</p>
                         </div>
                         <div className="displayDonorInfo">
                             <p className="dTitle">Date</p>
-                            <p className="dInfo">{donationData.date} 
+                            <p className="dDate">{donationData.date} 
                             {/* <i class="fa-sharp fa-light fa-triangle-exclamation dTitle"></i> */}
                             </p>
                         </div>
@@ -124,11 +124,11 @@ export default function OrgVerificationDetails(props)
                         </tr>
                     </tbody>
                 </table>
-                <label>
-                    <input type="checkbox" id="toysChecked"  name="toysChecked"  />
-                    Donated toys has been thoroughly checked before 
-                    proceeding for the donation.
-                </label>
+                <div className="verificationCheckBox">                
+                    <input type="checkbox" id="toysChecked"  name="toysChecked" className="verificationCheckBoxInput" />
+                    <label for="toysChecked">Donated toys has been thoroughly checked before proceeding for the donation.
+                    </label>
+                </div>
                 <div className="orgVerButtons">
                     <input type="Button" value="Cancel"  id="cancelDonation"  className="orgVerButtonCancel"/>
                     <input type="Button" value="Accept"  id="acceptDonation"  className="orgVerButtonAccept" onClick={handleAccept}/>

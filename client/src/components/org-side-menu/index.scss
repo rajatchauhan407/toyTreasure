@@ -9,12 +9,11 @@
     font-size: 20px;
     font-style: normal;
     font-weight: $fw-bold;
-    line-height: 26px;  
     display:flex;
     flex-flow: column nowrap;
     align-items: flex-start; 
     margin-left:2rem;
-    width: 100%;
+    width: fit-content;
     height: 100vh;
     top:0;
 }
@@ -49,17 +48,23 @@
     flex-flow: column wrap;
     align-items: flex-start; 
     padding:0;
+    gap: 1rem;
 }
 .OrgSideMenuWrapper nav ul li a
 {   
     text-decoration: none;
     /* padding:1rem; */
-    color:black;
+    color:$text_just_gray;
+
+    &:hover{
+        color:$secondary_teal_green;
+    }
+
+    &:focus{
+        color:$secondary_teal_green;
+    }
 }
-.OrgSideMenuWrapper nav ul li a:focus
-{    
-    color:$secondary_teal_green;
-}
+
 .OrgSideMenuWrapper nav ul li
 {
     padding-bottom:1rem;

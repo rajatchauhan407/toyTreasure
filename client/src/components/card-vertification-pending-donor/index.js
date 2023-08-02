@@ -5,15 +5,18 @@ import { useContext, useEffect, useState } from 'react';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
 import AuthContext from "../../services/auth-context";
+import LoaderToysTreasure from "../loader";
 
 
 
 export default function CardOrgTT13() {
   const [orgVerificationList, setOrgVerificationList] = useState([]);
+  const [isLoad, setIsLoad] = useState(false);
   const authCtx = useContext(AuthContext);
   async function getOrgVerificationListData() {
     try {
       console.log(authCtx);
+      setIsLoad(true);
       let orgRef = collection(database,'organization_profile');
       let qOrg = query(orgRef, where("uid","==",authCtx.uid));
       // console.log("is it being called")
@@ -28,8 +31,10 @@ export default function CardOrgTT13() {
       // donationData.forEach((el)=>{
       //   console.log(el.data())
       // })
+      setIsLoad(false);
     } catch (error) {
       console.error("Error fetching data:", error);
+      setIsLoad(false);
     }
   }
   useEffect(() => {
@@ -78,12 +83,13 @@ export default function CardOrgTT13() {
   // };
 
   return (
+    isLoad?<LoaderToysTreasure/>:<div>
     <table className="TableCardOrgTT13">
         <thead>
           <tr>
-            <th>Order Number</th>
+            <th>Order no.</th>
             <th>Donor Name</th>
-            <th>Method</th>
+            <th>Delivery</th>
             <th>Date</th>
             <th>Qty</th>
             <th>Donation Status</th>
@@ -103,15 +109,15 @@ export default function CardOrgTT13() {
             <td>{props?.data().toysQuantity}</td>
             <td>{props?.data().donationStatus}</td>
             <td>
-            <button disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
+            <button className="verifyButtonPendingDonation" disabled={props?.data().donationStatus === "completed"} onClick={() => { navigate('/organization/verification/'+props.id) }}>
                 Verify
                 </button>
             </td>
-            
             </tr>
            
         ))}
         </tbody>
     </table>
+    </div>
   );
 }

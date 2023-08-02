@@ -1,7 +1,7 @@
 import "./index.scss";
 
-import donorIcon from './donorIcon.png';
-import orgIcon from './organizationIcon.png';
+import donorIcon from './donorIcon.svg';
+import orgIcon from './organizationIcon.svg';
 import logo from "./appLogo.svg"
 import { Link } from "react-router-dom";
 
@@ -38,7 +38,7 @@ function LoginSignupForm(props) {
 
         <div className="gridIconLogin">
             <h5>Create Account as Organization</h5>
-            <p>Recieve toy donations and support your cause.</p>
+            <p>Receive toy donations and support your cause.</p>
         </div>
     </button>    
 

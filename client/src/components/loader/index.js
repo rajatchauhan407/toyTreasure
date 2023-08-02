@@ -1,10 +1,15 @@
 import './index.scss';
 
-export default function LoaderRocket(){
+
+export default function LoaderToysTreasure(){
+
     return (
         <>
-        <div className="backdrop"></div>
-        <span class="loader"></span>
+            <div id="backdrop"></div>
+            <div className="load_container">
+                <img src={require('./block-loop-ps.gif')} alt="Loading......" />
+            </div>       
         </>
-    )
+        
+    );
 }

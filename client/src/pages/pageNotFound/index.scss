@@ -14,10 +14,9 @@
         font-size: 1rem;
     }
     button 
-    {
-        background-color: $accent_amethyst-light;
-        border:none;
-        border-radius: .5rem;
+    {   
+        @include Buttuns($largest-button, $button_soft_purple_CTA);
+        color:$text_midnight_blue;
     }
     button:hover
     {
@@ -42,7 +41,7 @@
 {
     padding:1rem;
     color:$secondary_ERR_red;
-    font-size: 8rem;
+    font-size: 5rem;
 }
 
 @media screen and (max-width: $break-point) {

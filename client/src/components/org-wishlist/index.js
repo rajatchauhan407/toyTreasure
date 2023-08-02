@@ -1,29 +1,42 @@
 import "./index.scss";
 import { useState,useEffect, useContext } from 'react';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
 import AuthContext from "../../services/auth-context";
+// import LoaderRocket from "../loader";
+// import Loader from '../../sass/images/block-loop.svg'; 
+// import GeneralModalWrapper from "../general-modal-wrapper";
+// import LoaderBox from "../loaders_all/LoaderBox";
+import LoaderToysTreasure from "../loader";
+// import LoaderRocket from "../loader";
 export default function OrgWishlist(){
     const authCtx = useContext(AuthContext);
     const [orgWishList, setOrgWishList] = useState([]); 
     const [toysReceived] = useState(0);
-    useEffect(()=>{        
-        async function getOrgWishListData()
-        {    
+    const [isLoad, setIsLoad] = useState(false);
+    async function getOrgWishListData()
+        {    setIsLoad(true);
             const profiles = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
             if(profiles.length>0){
             const orgId = profiles.find((profile) => profile.uid === authCtx.uid).id;
             const usersCollectionRef = collection(database, "organization_wishlist");
              const q = query(usersCollectionRef, where("profile_id", "==", orgId));
-             const data = await getDocs(q);
-             console.log(data.docs)
-        let array = data.docs.map((el)=>{return el.data()});
-        console.log(array)
-            //  let array = data;       
-            setOrgWishList(array); }      
-        }
-        getOrgWishListData();
+             
+             const unsubscribe = onSnapshot(q, async (snapshot) => {
+                const updatedData = await snapshot.docs.map((doc) => ({
+                  id: doc.id,
+                  ...doc.data(),
+                }));
+                setOrgWishList(updatedData);
+                setIsLoad(false);
+              });
+             
+              return () => unsubscribe(); }      
+            }
+    useEffect(()=>{        
+            getOrgWishListData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     // let orgWishlistData = [
     //     {
@@ -71,19 +84,21 @@ export default function OrgWishlist(){
     // ]
     async function deleteToyFromWishlist(id){
         try{
+            console.log(id)
             await FireBaseFirestoreService.deleteDocumentById('organization_wishlist',id);
             console.log("Deleted From WishList");
+            getOrgWishListData();
 
         }catch(error){
             console.log(error);
         }
        
     }
-    return (<div className="table-container">
+    return isLoad?<div className="loaderContainer"><LoaderToysTreasure/></div>:(<div className="table-container">
                 <table>
                     <thead>
                         <tr>
-                            <td>Category</td>
+                            <td>Toy Name</td>
                             <td>Required</td>
                             {/* Yet to decide on data for Qty Received*/}
                             <td>Received</td>
@@ -103,5 +118,7 @@ export default function OrgWishlist(){
                         })}
                     </tbody>
                 </table>
-            </div>);
+                
+            </div>)
+            ;
 }

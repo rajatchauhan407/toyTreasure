@@ -1,4 +1,9 @@
 @import '../../sass/main.scss';
+.loaderContainer{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 
 .table-container{
     table{
@@ -8,7 +13,6 @@
         td:nth-of-type(1){
             text-align: left;
             background-color: transparent;
-            color: $text_midnight_blue;
         }
         td{
             text-align: center;
@@ -19,12 +23,15 @@
             border-bottom: none;
         }
         thead{
+            color: black;
             td{
                 font-style: bold;
                 font-family: $font_heading;
-                color: $text_midnight_blue;
                 font-weight: bold;
             }
+        }
+        tbody{
+            color: $text_just_gray;
         }
     }
 }

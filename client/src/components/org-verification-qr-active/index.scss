@@ -1,13 +1,13 @@
 @import '../../sass/main.scss';
 .orgVerQRImg{
-    width: 80%;
+    width: 100%;
     height: auto;
-  
+}
 .OrgVerQRCardWrapper img{
     width: 150px;
 }
 
-.orgVerQRText
+ .orgVerQRText
 {
     display:flex;
     flex-direction: column;
@@ -19,18 +19,24 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.25);
-    border-radius: 2px;
+    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.665);
     background-color: #fdfdfd;
-    h2 
+    padding: 1rem;
+    border-radius: 1rem;
+    h4 
     {
         color:$secondary_teal_green;
-        font-family: $font_heading;
+        font-size: 22px;
+        font-weight: $fw-bold;
+        font-family: 'Lexend';
+        margin: 0;
     }
     p 
     {
-        color:$text_just_gray;
-        font-family: $font_body;
+        color:#8F8F8F;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-weight: $fw-bold;
     }
 }
 .OrgVerQRCardButton
@@ -40,70 +46,44 @@
 }
 .orgVerGotoDashboard
 {
-    background-color: $primary_boy_blue;
+    @include Buttuns ($medium-button, $primary_boy_blue);
     color:$text_midnight_blue;
-    margin:1rem;
-    padding:1rem;
-    border-radius: 5px;
+    font-size: 18px;
+    font-family: "Roboto";
     font-weight: $fw-bold;
-
-}
-
-@import '../../sass/main.scss';
-.orgVerQRImg{
-    width: 80%;
-    height: auto;
-  
-}
-.orgVerQRText
-{
-    display:flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding:1rem;
-}
-.OrgVerQRCardWrapperActive
-{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.25);
-    border-radius: 2px;
-    background-color: #fdfdfd;
-    h2 
-    {
-        color:$secondary_teal_green;
-        font-family: $font_heading;
+    a{
+        text-decoration: none;
+        color: $text_midnight_blue;
     }
-    p 
-    {
-        color:$text_just_gray;
-        font-family: $font_body;
+
+    &:hover{
+        background-color: $text_midnight_blue;
+        a{
+            color:white;
+        }
+    }
+    &:active{
+        background-color: $text_midnight_blue;
+        color:white;
     }
 }
-.OrgVerQRCardButton
-{
-    display:flex;
-    justify-content: center;    
+.orgVerGotoDashboard:hover
+{    
+    color:$text_pure_white;    
 }
-.orgVerGotoDashboard
-{
-    background-color: $primary_boy_blue;
-    color:$text_midnight_blue;
-    margin:1rem;
-    padding:1rem;
-    border-radius: 5px;
-    font-weight: $fw-bold;
-
+.orgVerGotoDashboard:active
+{   
+    background-color: $text_midnight_blue; 
+    color:$text_pure_white;    
 }
 
 .org-ver-qr-active 
 {
     display:flex;
-    // flex-direction: column;
+    flex-direction: column;
     align-items: center;
     justify-content:center;
-    margin:1rem;
+    gap:2rem;
     padding:1rem;
 }
-}
+

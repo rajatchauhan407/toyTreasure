@@ -12,8 +12,9 @@ import { useContext } from 'react';
 import { database } from '../../FirebaseConfig';
 import AuthContext from '../../services/auth-context';
 
-export default function OrgDashBoard({onWishlistClicked}){
+export default function OrgDashBoard({onWishlistClicked,onAddedToy}){
     let authCtx=useContext(AuthContext);
+    
     // console.log("authContext"+authContext);
     const {id} = useParams();
     const [orgData, setOrgData] = useState(null);
@@ -34,16 +35,14 @@ export default function OrgDashBoard({onWishlistClicked}){
         <div className='org-wrapper'>
             <div className="org-list-wrapper">
                 <div className="org-list-header">
-                    <h2>DashBoard</h2>
+                    <h1>DashBoard</h1>
                     <button onClick={()=>{onWishlistClicked(true)}}>                
                         <i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Toy to Wishlist
                     </button>
                 </div>
-                <div className="OrgDataCard1">
-                    <OrgDataCard  displayMode="two-columns"  details={orgData}/>
-                </div>   
+                  
                 <div className="org-wishlist-crown">
-                    <h5>Wishlist <img className="crown" src={crown} alt={"crownicon"}/></h5>                
+                    <h4>Wishlist <img className="crown" src={crown} alt={"crownicon"}/></h4>                
                 </div>  
                      
                 <OrgWishlist/>
