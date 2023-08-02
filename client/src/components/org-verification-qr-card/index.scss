@@ -29,16 +29,21 @@
 {
     background-image: url(./blurredQR.jpg);
     background-repeat: no-repeat;
-    background-size: 80%;
+    background-size: 60%;
     background-position: center; 
     opacity: .9;    
     
     color:$text_midnight_blue;
-    padding:10rem;
+    padding:5rem;
     h3 
     {
         text-align: center;                     
     }
 }
 
-
+@media screen and (max-width: $break-point) {
+   .OrgVerQRCardWrapper
+   {
+    display:none;
+   } 
+}
