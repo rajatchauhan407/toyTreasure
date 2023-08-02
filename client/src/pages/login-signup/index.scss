@@ -8,9 +8,13 @@ height: 100vh;
     background-image: url('./posterImage.png') ;
     background-size: cover; 
 }
-.loginsignupimageDonor,
+.loginsignupimageDonor{
+    background-image: url('./login-donor.jpg') ;
+    background-size: cover; 
+    // height: 100vh;
+}
 .loginsignupimageOrg{
-    background-image: url('./Donorimage.png') ;
+    background-image: url('./join-org.jpg') ;
     background-size: cover; 
     // height: 100vh;
 }
@@ -24,13 +28,16 @@ height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $accent_amethyst-light;
+    background-color: $button_soft_purple_CTA;
 }
 .login-form button,
 .login-form input{
     width: 100%;
     border-radius: 8px;
     border: 1px solid rgb(122, 120, 120);
+}
+.logoBackground{
+    background-color: $button_soft_purple_CTA;
 }
 .divToAddTechTribeLogo{
     display: grid;

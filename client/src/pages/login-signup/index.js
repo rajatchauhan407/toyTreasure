@@ -10,20 +10,23 @@ export default function LoginSignUp() {
   const [user,setUser] = useState(null);
   const [classUsed, setClassUsed] = useState("loginsignupimage");
   const [classUsedforbgc, setClassUsedforbgc] = useState("loginSignupformInnerWrapper");
-
+  const [showTechTribe, setShowTechTribe]=useState(true)
     function handleSignUp(selectedUser){
         setUser(selectedUser); 
         if(selectedUser === "donor"){
           setClassUsed('loginsignupimageDonor');
           setClassUsedforbgc('loginSignupformInnerWrapperCreateAccount');
+          setShowTechTribe(false);
         }
         else if(selectedUser === "org"){
           setClassUsed('loginsignupimageOrg');
           setClassUsedforbgc('loginSignupformInnerWrapperCreateAccount');
+          setShowTechTribe(false);
         }
         else{
           setClassUsed('loginsignupimage');
           setClassUsed('loginSignupformInnerWrapper');
+          setShowTechTribe(true);
         }
     }
     return (
@@ -38,15 +41,15 @@ export default function LoginSignUp() {
               /> */}
 
         </div>
-<div className='divToAddTechTribeLogo'>
+<div className={showTechTribe?'divToAddTechTribeLogo ':'logoBackground divToAddTechTribeLogo'}>
         <div className={classUsedforbgc}>
         {
           !user?<LoginSignupForm getSignupInfo={handleSignUp}/>:user==="donor"?<CreateAccountDonor/>:user==="org"?<CreateAccountOrg/>:"No Data"
         }
         </div>
-        <div className="techTribeLogo">
+        {showTechTribe && <div className="techTribeLogo">
 <p>Powered by</p> <img src={techTribeLogo} alt="Tech Tribe"/>
-</div>
+</div>}
 </div>
       </div>
     );
