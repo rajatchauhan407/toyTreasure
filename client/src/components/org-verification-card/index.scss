@@ -2,15 +2,14 @@
 .verification-card-wrapper{
     width: 100%;
     @include roundedBorder(9px);
-    border: 1px solid $text_not_just_gray;
     padding:.5rem;
     
     box-sizing: border-box;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
     background: $secondary_footer_soft_blue;
-    h4{
-        margin: unset;
-        // margin-bottom: .5rem;
+    h5{
+        color: black;
+        font-size: 20px;
     }
    
     .verification-date-button{
@@ -24,7 +23,21 @@
             @include customButton($button_blue_CTA);
             border-radius: 10px;
             width:100px;
-            color:$text_midnight_blue;
+
+            a{
+                color:$text_midnight_blue;
+            }
+
+            &:hover{
+                background-color: $text_midnight_blue;
+                a{
+                    color: $text_pure_white;
+                }
+            }
+            &:disabled{
+                background-color: $text_not_just_gray;
+                color: $text_just_gray;
+            }
         }
     }
     .icon-author{
@@ -33,10 +46,10 @@
         gap:.5rem;
         p{
             margin:0;
-            font-size: .7rem;
+            font-size: 16px;
         }
         i{
-            font-size: .7rem;
+            font-size: 16px;
         }
     }
 }
