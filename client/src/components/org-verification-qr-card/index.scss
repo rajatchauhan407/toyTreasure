@@ -14,15 +14,20 @@
     {
         width: 100%;
     }
-    h2 
+    h4 
     {
         color:$secondary_teal_green;
-        font-family: $font_heading;
+        font-size: 22px;
+        font-weight: $fw-bold;
+        font-family: 'Lexend';
+        margin: 0;
     }
     p 
     {
-        color:$text_just_gray;
-        font-family: $font_body;
+        color:#8F8F8F;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-weight: $fw-bold;
     }
 
 }
@@ -31,12 +36,13 @@
 {
     background-image: url(./blurredQR.jpg);
     background-repeat: no-repeat;
-    background-size: 60%;
+    background-size: 100%;
     background-position: center; 
-    opacity: .9;    
+    background-size: contain;
+    opacity: .8;    
     
     color:$text_midnight_blue;
-    padding:5rem;
+    padding:8rem 2rem;
     h3 
     {
         text-align: center;                     
