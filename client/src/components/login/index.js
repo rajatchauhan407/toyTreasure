@@ -185,7 +185,7 @@ async function handleLoginWithGoogle(){
                         <label className='loginRememberMeCheckboxWrapper'>
                          <input type="checkbox" 
                          className='loginRememberMeCheckbox' />
-                         Keep signed in
+                         <p>Keep signed in</p>
                          </label>
                          </div>
                         
@@ -203,7 +203,7 @@ async function handleLoginWithGoogle(){
                              Login With Google
                         </button>
                         </div>
-                        <p className='signInLinkText'>Don't have an account?  <Link to="/login-signup">Join Now!</Link></p>
+                        <p className='signInLinkText'>Don't have an account?  <Link to="/signup">Join Now!</Link></p>
                     </div>
             </form>
             }
