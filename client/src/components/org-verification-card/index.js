@@ -66,7 +66,7 @@ export default function OrgVerificationCard(){
                     <div className="verification-date-button">
                         <p>{el.data().date}</p>
                         <button disabled={el.data().donationStatus === "completed"}>
-                        <Link to={el.data().donationStatus === "completed"?"#":`/organization/verification/${el.id}`}>
+                        <Link to={`/organization/verification/${el.id}`}>
                             Verify
                         </Link>
                         </button>
