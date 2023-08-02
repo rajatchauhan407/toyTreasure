@@ -1,13 +1,20 @@
+@import '../../sass/main.scss';
+
 .Verification {
-    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    border-left: 1px solid $text_just_gray;
+    height: 100%;
     
     h1 {
-      font-style: normal;
-      font-weight: 700;
-      font-size: 28px;
-      line-height: 35px;
-      margin-bottom: 80px;
+      color: $secondary_teal_green;
     }
+    h3{
+      color: $secondary_teal_green;
+    }
+
   }
   
   .TableCardOrgTT13 {

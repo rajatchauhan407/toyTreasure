@@ -61,9 +61,9 @@ export default function OrgVerificationCard(){
     return (
             orgVerificationList.map((el)=>{
                 return <div className="verification-card-wrapper">
-                    <h4>{el.data().donorName}</h4>
+                    <h5>{el.data().donorName}</h5>
                     <div className="verification-date-button">
-                        <p>{el.data().date} - From wishlist</p>
+                        <p>{el.data().date}</p>
                         <button>
                         <Link to={`/organization/verification/${el.id}`}>
                             Verify
@@ -71,7 +71,7 @@ export default function OrgVerificationCard(){
                         </button>
                     </div>
                     <div className="icon-author">
-                        <i className="fa-solid fa-user"></i>
+                        <i class="fa-regular fa-file-lines"></i>
                         <p>{el.data().donationStatus}</p>
                     </div> 
                 </div>

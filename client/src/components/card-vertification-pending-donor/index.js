@@ -87,9 +87,9 @@ export default function CardOrgTT13() {
     <table className="TableCardOrgTT13">
         <thead>
           <tr>
-            <th>Order Number</th>
+            <th>Order no.</th>
             <th>Donor Name</th>
-            <th>Method</th>
+            <th>Delivery</th>
             <th>Date</th>
             <th>Qty</th>
             <th>Donation Status</th>

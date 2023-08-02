@@ -19,8 +19,14 @@
 .dInfo 
 {
     font-family: $font_body;
-    font-size: 14px;
-    font-style: normal;
+    font-size: 16px;
+    font-weight: $fw-normal;
+    line-height: 22px;
+}
+.dEmail, .dDate
+{
+    font-family: $font_body;
+    font-size: 18px;
     font-weight: $fw-bold;
     line-height: 22px;
     color: $secondary_teal_green;
@@ -58,10 +64,11 @@
 {
     display: flex;
     flex-direction: column;
-    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.25);
+    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.665);
     border-radius: 2px;
     background-color: #fdfdfd;
     border-radius: 1rem;
+    padding: 2rem;
 }
 .detailsHeader
 {
@@ -71,10 +78,16 @@
     h2{
         color:$secondary_teal_green;
     }
-    h5{
+    h4{
+        font-size: 22px;
+        color: $secondary_teal_green;
+    }
+    p{
         background-color: $secondary_footer_soft_blue;
-        padding: .5rem 2rem;
+        padding: .5rem;
         border-radius: 5px;
+        font-size: 14px;
+        font-weight: $fw-normal;
     }
 }
 .OrgVerDetailsCardWrapper table
@@ -163,25 +176,42 @@
     margin-top:1rem;
 }
 .verificationCheckBox label
-{
+{   
+    font-size: 14px;
     padding:0;
     margin:0;
 }
 .orgVerButtonAccept
 {
-    background-color: $button_blue_CTA;
+    @include Buttuns ($medium-button, $primary_boy_blue);
     color:$text_midnight_blue;
+    font-size: 18px;
+    font-family: "Roboto";
+
+    &:hover{
+        background-color: $text_midnight_blue;
+        color:white;
+    }
+    &:active{
+        background-color: $text_midnight_blue;
+        color:white;
+    }
 }
-.orgVerButtonAccept:hover
+
+.orgVerButtonCancel
 {
-    background-color: $button_blue_CTA;
-    color:white;
+    background-color: transparent;
+    width: $medium-button;
+    color:$text_just_gray;
+    font-size: 18px;
+    font-family: "Roboto";
+    cursor: pointer;
+
+    &:hover{
+        color:$text_midnight_blue;
+    }
 }
-.orgVerButtonAccept:active
-{
-    background-color: $text_midnight_blue;
-    color:white;
-}
+
 .verificationCheckBox 
 {
     padding: 0 2rem;      

@@ -2,8 +2,8 @@
 
 // import { AiFillGoogleCircle } from 'react-icons/ai';
 // import googleIcon from './GoogleLogo.com.png';
-import DonorIcon from './DonorIcon.png';
-import OrgIcon from './OrgIcon.png';
+import DonorIcon from './../loginsignupform/donorIcon.svg';
+import OrgIcon from './../loginsignupform/organizationIcon.svg';
 import GoogleIcon from './GoogleLogo.png';
 import "./index.scss";
 import { useContext, useRef, useState } from "react";
