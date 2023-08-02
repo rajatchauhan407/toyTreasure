@@ -1,11 +1,12 @@
 import "./index.scss";
 import gift from "./gift.svg";
 import crown from "./crown.svg";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
 export default function OrgVerificationDetails(props)
-{
+{   
+    let checkRef = useRef(null);
     const [donationData, setDonationData] = useState({});
     const [donorEmail, setDonorEmail] = useState("");
     const {donationId} = useParams();
@@ -29,6 +30,7 @@ export default function OrgVerificationDetails(props)
                 console.log(error)
             }
         }
+        console.log(checkRef.current.checked)
         getDonationData();
         // console.log(donationData.wishlist.map((el)=>{console.log(el);}));
     },[])
@@ -125,13 +127,19 @@ export default function OrgVerificationDetails(props)
                     </tbody>
                 </table>
                 <div className="verificationCheckBox">                
-                    <input type="checkbox" id="toysChecked"  name="toysChecked" className="verificationCheckBoxInput" />
+                    <input type="checkbox" ref={checkRef} id="toysChecked"  name="toysChecked" className="verificationCheckBoxInput" />
                     <label for="toysChecked">Donated toys has been thoroughly checked before proceeding for the donation.
                     </label>
                 </div>
                 <div className="orgVerButtons">
                     <input type="Button" value="Cancel"  id="cancelDonation"  className="orgVerButtonCancel"/>
-                    <input type="Button" value="Accept"  id="acceptDonation"  className="orgVerButtonAccept" onClick={handleAccept}/>
+                    <input 
+                        type="Button" 
+                        value="Accept"  
+                        id="acceptDonation"  
+                        className="orgVerButtonAccept" 
+                        onClick={handleAccept}
+                        />
                 </div>                
             </div>           
         </div>

@@ -101,7 +101,9 @@ export default function Home(){
             />
             {openModal && 
                 <GeneralModalWrapper onCloseModal={()=>{setOpenModal(false)}}>
-                    <UserRewardsModal/>
+                    <UserRewardsModal
+                      onCloseModal={()=>{setOpenModal(false)}}
+                    />
                 </GeneralModalWrapper>}
         </div>
 

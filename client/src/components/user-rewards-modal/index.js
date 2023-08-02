@@ -2,6 +2,9 @@ import './index.scss';
 import congrats from './congrats.svg'
 import { Link } from 'react-router-dom';
 export default function UserRewardsModal(props){
+    function handleCloseModal(){
+        props.onCloseModal(true);
+    }
     return(
         <div className="modalWrapper">
             <img src={congrats} alt="congrats-icon" />
@@ -11,7 +14,7 @@ export default function UserRewardsModal(props){
             <div className="coupon-desc">
                 <h3>ZPHY TYRK DCHO</h3>
             </div>
-            <button className="redeem-now">
+            <button className="redeem-now" onClick={handleCloseModal}>
                 <Link to="https://jimsbouncycastles.com/" target="_blank" rel="noopener noreferrer">
                     Redeem on Website
                 </Link>

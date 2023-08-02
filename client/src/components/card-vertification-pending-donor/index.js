@@ -6,7 +6,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
 import AuthContext from "../../services/auth-context";
 import LoaderToysTreasure from "../loader";
-
+import { sortWithPending } from "../../utils/sort";
 
 
 export default function CardOrgTT13() {
@@ -26,8 +26,10 @@ export default function CardOrgTT13() {
       let userDonationRef = collection(database,'user_donations');
       let qUser = query(userDonationRef, where("orgId","==",orgId));
       let donationData = await getDocs(qUser);
-      console.log(donationData.docs);
-      setOrgVerificationList(donationData.docs || []);
+      // console.log(donationData.docs);
+      let sortedData = sortWithPending(donationData.docs);
+      console.log(sortedData);
+      setOrgVerificationList(sortedData || []);
       // donationData.forEach((el)=>{
       //   console.log(el.data())
       // })
