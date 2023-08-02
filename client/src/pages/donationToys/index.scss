@@ -36,7 +36,11 @@
 }
 @media screen and (max-width: $break-point) {
     .backButton{
-        display: block;
+        display: flex;
+
+        h2{
+            font-size: 28px;
+        }
     }
     .btn{
         display: inline-block;

@@ -59,18 +59,19 @@
       }
 
       .imageBanner{
-        border-radius: 1rem 1rem 1rem 10rem;
+        border-radius: 1rem 1rem 1rem 8rem;
       }
       .imageBanner::before {
         content: '';
         display: block;
-        padding-top: 100%; 
+        padding-top: 50%; 
       }
 
       .infoBanner{
         flex-basis: 30%;
         padding: 1.5rem;
         font-weight: bold; 
+        text-align: center;
     }
 
     .custom-heading{
