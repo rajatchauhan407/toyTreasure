@@ -60,12 +60,13 @@ export default function OrgVerificationCard(){
     ];
     return (
             orgVerificationList.map((el)=>{
+                console.log(el.data());
                 return <div className="verification-card-wrapper">
                     <h5>{el.data().donorName}</h5>
                     <div className="verification-date-button">
                         <p>{el.data().date}</p>
-                        <button>
-                        <Link to={`/organization/verification/${el.id}`}>
+                        <button disabled={el.data().donationStatus === "completed"}>
+                        <Link to={el.data().donationStatus === "completed"?"#":`/organization/verification/${el.id}`}>
                             Verify
                         </Link>
                         </button>

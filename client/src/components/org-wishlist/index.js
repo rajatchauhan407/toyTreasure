@@ -113,7 +113,7 @@ export default function OrgWishlist(){
                             <td>{el.org_w_toys_required}</td>
                             <td>{toysReceived}</td> 
                             {/* <td>08</td> */}
-                            <td onClick={()=>{deleteToyFromWishlist(el.id)}}><i className="fa-solid fa-trash"></i></td>
+                            <td className="deleteButtonOrgWishlist" onClick={()=>{deleteToyFromWishlist(el.id)}}><i className="fa-solid fa-trash"></i></td>
                         </tr>
                         })}
                     </tbody>

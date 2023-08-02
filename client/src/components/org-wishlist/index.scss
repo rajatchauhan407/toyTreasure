@@ -19,6 +19,9 @@
             @include borderBottom(1px, $text_not_just_gray);
             padding:.5rem;
         }
+        .deleteButtonOrgWishlist{
+            cursor:pointer;
+        }
         tr:nth-last-of-type() td{
             border-bottom: none;
         }
