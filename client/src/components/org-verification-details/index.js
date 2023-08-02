@@ -68,11 +68,11 @@ export default function OrgVerificationDetails(props)
                         </div>
                         <div className="displayDonorInfo">
                             <p className="dTitle">Donor Email</p>
-                            <p className="dInfo">{donorEmail}</p>
+                            <p className="dEmail">{donorEmail}</p>
                         </div>
                         <div className="displayDonorInfo">
                             <p className="dTitle">Date</p>
-                            <p className="dInfo">{donationData.date} 
+                            <p className="dDate">{donationData.date} 
                             {/* <i class="fa-sharp fa-light fa-triangle-exclamation dTitle"></i> */}
                             </p>
                         </div>
