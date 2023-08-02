@@ -1,4 +1,4 @@
-import {Outlet,useNavigate} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 import {useContext} from "react";
 import AuthContext from '../services/auth-context';
 import DonorHeader from '../components/donor-header';
@@ -6,7 +6,7 @@ import DonorFooter from '../components/donor-footer';
 import DonorHeaderMobile from '../components/donor-header-mobile';
 export default function UserRoutes(){
   let authCtx = useContext(AuthContext);
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   console.log(authCtx);
     return(
         <>
