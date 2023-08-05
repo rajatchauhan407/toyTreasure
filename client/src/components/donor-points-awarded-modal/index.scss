@@ -5,6 +5,10 @@
     border-radius: 1rem;
     text-align: center;
     width: 300px;
+    @media screen and (max-width: $break-point) {
+        width: 90%;
+        margin:auto;
+    }
     p 
     {
         color:$text_midnight_blue;
