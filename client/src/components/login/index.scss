@@ -16,6 +16,7 @@
 .loginRememberMeCheckboxWrapper{
   display: flex;
   gap:1rem;
+  padding: 1rem 0;
 }
 
 .loginDonorButton:active, 
@@ -63,6 +64,18 @@
 }
 .login-form{
   margin-top: 20px;
+  label {
+    input{
+    font-size: 1rem;
+    padding-left :1rem;
+    outline-color: $text_midnight_blue !important;
+  }
+}
+  .input-label{
+      color:$text_midnight_blue;
+      
+  }
+  
 }
 .borderBottom{
     width: 28.75rem;
@@ -129,15 +142,37 @@ p{
    
     img{
       width: 25px;
+      padding-right:.8rem;
     }
 }
 
 .loginRememberMeCheckboxWrapper input{
   width: 20px;
 }
+.loginRememberMeCheckboxWrapper{
+  display: flex;
+  align-items: center;
+  input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    margin:0;
+    padding:0;
+    
+    // margin-right: 0.5rem;
+  }
+  
+  label{
+    align-self: center;
+  }
+  p{ 
+    margin:0 !important;
+  }
+  
+}
 label input{
   margin-top: 1rem;
   margin-bottom: 2rem ;
+
 }
 .loginRememberMe{
   margin-top: 1rem;

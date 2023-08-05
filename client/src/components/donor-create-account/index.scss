@@ -1,10 +1,14 @@
 @import '../../sass/main.scss';
 
 .tt-84-container{
+    
     width:50%;
     text-align: left;
     @media screen and (max-width: $break-point) {
         width: 90% !important;
+        form label{
+        padding-top:1.5rem !important;
+    }
     }
     ::placeholder{
         font-size: .9rem;
@@ -12,9 +16,7 @@
     input{
         padding-left: .8rem;
     }
-    form label{
-        padding-top:1.5rem !important;
-    }
+    
     h1{
         letter-spacing: -.05rem;
     }
@@ -57,9 +59,7 @@
         margin-top: 1rem;
         cursor: pointer;
     }
-    .submitSignupButton:hover{
-        color: $text_midnight_blue;
-    }
+    
     .submitSignupButton:active{
         color: $text_midnight_blue;
     }

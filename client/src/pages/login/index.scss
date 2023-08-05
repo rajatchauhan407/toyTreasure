@@ -11,8 +11,16 @@
 .loginFormWrapper {
 margin: 0 auto;
 display: flex;
+padding-top:1rem;
 justify-content: space-between;
 align-items: center;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .loginFormWrapper{
+            margin:auto !important;
+            padding-top:1rem;
+    }
     }
 }
 @media screen and (max-width: $break-point) {

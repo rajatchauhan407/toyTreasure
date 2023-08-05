@@ -6,7 +6,7 @@ import DonorIcon from './../loginsignupform/donorIcon.svg';
 import OrgIcon from './../loginsignupform/organizationIcon.svg';
 import GoogleIcon from './GoogleLogo.png';
 import "./index.scss";
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
 import {Link,useNavigate} from "react-router-dom";
 // import { query,where,collection,getDocs} from 'firebase/firestore';
@@ -21,6 +21,16 @@ function LoginForm({existingUser}){
     const [userType, setUserType] = useState("");
     const donorRef = useRef(null);
     const orgRef = useRef(null);
+    useEffect(()=>{
+        if(userType === "donor"){
+            setUserEmail("donortest@toystreasure.org");
+            setPassword("donortest");
+        }else if(userType === "organization"){
+            setUserEmail("organization@lowermainland.com");
+            setPassword("LowerMainland");
+            
+    }
+},[userType]);
 // handling the userType
     function handleUserType(e){
         setUserType(e.target.value);
@@ -178,7 +188,7 @@ async function handleLoginWithGoogle(){
                     <label className="input-label login-label">
                         Email*
                         <input type="email" 
-                        placeholder='Enter email address'
+                            placeholder='Enter email address'
                             required
                             value={userEmail}
                             onChange={(e)=>{setUserEmail(e.target.value)}}

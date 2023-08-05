@@ -1,5 +1,5 @@
 import './index.scss';
-import GoogleIcon from './GoogleLogo.png';
+// import GoogleIcon from './GoogleLogo.png';
 import { Link , useNavigate} from 'react-router-dom';
 import { useState,useContext} from "react";
 import FireBaseAuthService from '../../services/FirebaseAuthService';
@@ -115,19 +115,19 @@ export default function CreateAccountOrg(){
 
         <p>Already have an account? <Link to="/login">Sign In</Link></p>
 
-        <div id="or-separator">
+        {/* <div id="or-separator">
                         <hr className="or-line" />
                         <p id="or-text">OR</p>
                         <hr className="or-line" />
                     </div>
                         <div className='google-Facebook-Button'>
                         <button className='signUpWithGoogleButton' type="button"  
-                        /*disabled={!userType} onClick={handleLoginWithGoogle}*/
+                        disabled={!userType} onClick={handleLoginWithGoogle}
                         >
                             <img src={GoogleIcon} alt='Google Icon'/>
                              Sign up With Google
                         </button>
-                        </div>
+                        </div> */}
         
     </form>
     </div>

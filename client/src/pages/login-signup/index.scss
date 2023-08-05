@@ -1,10 +1,10 @@
 @import '../../sass/main.scss';
 .loginsignupwrapper{
     box-sizing: border-box;
-display: grid;
-grid-template-columns: 2fr 3fr;
-height: 100vh;
-@media screen and (max-width: $break-point) {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    height: 100vh;
+    @media screen and (max-width: $break-point) {
     grid-template-columns: 1fr;
     height: auto;
 }
@@ -13,6 +13,8 @@ height: 100vh;
     background-image: url('./posterImage.png') ;
     background-size: cover; 
 }
+
+
 .loginsignupimageDonor{
     background-image: url('./login-donor.jpg') ;
     background-size: cover; 
@@ -23,31 +25,37 @@ height: 100vh;
     background-size: cover; 
     // height: 100vh;
 }
+
 .loginSignupformInnerWrapper{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 }
+
 .loginSignupformInnerWrapperCreateAccount{
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: $button_soft_purple_CTA;
 }
+
 .login-form button,
 .login-form input{
     width: 100%;
     border-radius: 8px;
     border: 1px solid rgb(122, 120, 120);
 }
+
 .logoBackground{
     background-color: $button_soft_purple_CTA;
 }
+
 .divToAddTechTribeLogo{
     display: grid;
     grid-template-rows: 7fr 1fr;
 }
+
 .techTribeLogo{
 margin-right: 4rem;
     display: flex;
