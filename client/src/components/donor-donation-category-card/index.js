@@ -40,6 +40,7 @@ export default function DonationCategoryCard({onGetCategories}) {
       console.log(newList);
       return newList;
     });
+    console.log(donations);
     // setDonations(donationCategory);
     // onGetCategories(donations);
   };

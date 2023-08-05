@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./index.scss";
 // import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
@@ -36,28 +37,28 @@ export default function OrgVerificationCard(){
 
     getOrgVerificationListData();
   }, [setOrgVerificationList]);
-    let orgVerificationData = [
-        {
-            animalType:"Stuffed Animal",
-            date:"23-05-89",
-            name:"Greg Thomas"
-        },
-        {
-            animalType:"Stuffed Animal",
-            date:"23-05-89",
-            name:"Greg Thomas"
-        },
-        {
-            animalType:"Stuffed Animal",
-            date:"23-05-89",
-            name:"Greg Thomas"
-        },
-        {
-            animalType:"Stuffed Animal",
-            date:"23-05-89",
-            name:"Greg Thomas"
-        }
-    ];
+    // let orgVerificationData = [
+    //     {
+    //         animalType:"Stuffed Animal",
+    //         date:"23-05-89",
+    //         name:"Greg Thomas"
+    //     },
+    //     {
+    //         animalType:"Stuffed Animal",
+    //         date:"23-05-89",
+    //         name:"Greg Thomas"
+    //     },
+    //     {
+    //         animalType:"Stuffed Animal",
+    //         date:"23-05-89",
+    //         name:"Greg Thomas"
+    //     },
+    //     {
+    //         animalType:"Stuffed Animal",
+    //         date:"23-05-89",
+    //         name:"Greg Thomas"
+    //     }
+    // ];
     return (
             orgVerificationList.map((el)=>{
                 console.log(el.data());

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import ComponentDropdown from "../component-dropdown-selection";
 import "./index.scss";
 import {useState,useEffect} from "react";
