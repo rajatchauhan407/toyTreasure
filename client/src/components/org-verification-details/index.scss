@@ -1,26 +1,47 @@
+@import '../../sass/main.scss';
 .OrgVerDetailsCardWrapper
 {
     margin:1rem;
     display:flex;
     align-items: flex-start;
     justify-content: space-evenly;
+
+    tbody tr
+    {
+        color:$text_just_gray;
+    }
 }
-p
+.OrgVerDetailsCardWrapper p
 {
     margin:0;
     padding:0;
 }
 .dInfo 
 {
-    color: #5B5B5B;
-    font-weight: 500;
+    font-family: $font_body;
+    font-size: 16px;
+    font-weight: $fw-normal;
+    line-height: 22px;
+}
+.dEmail, .dDate
+{
+    font-family: $font_body;
+    font-size: 18px;
+    font-weight: $fw-bold;
+    line-height: 22px;
+    color: $secondary_teal_green;
 }
 .dTitle 
 {
-    color: #9E9E9E;
-    font-weight: 500;
+    font-family: $font_body;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: $fw-normal;
+    line-height: 22px;
+    color: $text_just_gray;
+    
 }
-i 
+.OrgVerDetailsCardWrapper i 
 {
     font-family:'FontAwesome'!important;
     color:#404040;
@@ -43,11 +64,11 @@ i
 {
     display: flex;
     flex-direction: column;
-    box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
-    -webkit-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
-    -moz-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
+    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.665);
     border-radius: 2px;
     background-color: #fdfdfd;
+    border-radius: 1rem;
+    padding: 2rem;
 }
 .detailsHeader
 {
@@ -55,21 +76,27 @@ i
     align-items: center;
     justify-content: space-around;
     h2{
-        color:#404040;
+        color:$secondary_teal_green;
     }
-    h3{
-        background-color: #E9E9E9;
-        padding: 0 1rem 0 1rem;
-        border-radius: 1rem;
+    h4{
+        font-size: 22px;
+        color: $secondary_teal_green;
+    }
+    p{
+        background-color: $secondary_footer_soft_blue;
+        padding: .5rem;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: $fw-normal;
     }
 }
-table
+.OrgVerDetailsCardWrapper table
 {
     border-collapse:collapse;
     color:#817F7F;
     font-weight:500;
 }
-table,tr,td
+.OrgVerDetailsCardWrapper table,.OrgVerDetailsCardWrapper tr,.OrgVerDetailsCardWrapper td
 {
     margin:2rem;
     padding:0.5rem 0.5rem 1rem 0.5rem;
@@ -85,34 +112,168 @@ table,tr,td
 .totalPoints
 {
     border-top: 1px solid #817F7F;
+    font-weight: $fw-bold;
+    color:$text_just_gray; ;
 }
-th
+.OrgVerDetailsCardWrapper
 {
-    background-color: #E9E9E9;       
-    padding:1rem;         
+    font-family: $font_heading;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: 22px;    
+    color:$text_just_gray; 
 }
-th:nth-child(1) 
+.OrgVerDetailsCardWrapper th
+{
+    font-family: $font_heading;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: 22px;
+    background-color: $secondary_footer_soft_blue;       
+    padding:1rem;        
+    color:$text_just_gray; 
+}
+.OrgVerDetailsCardWrapper th:nth-child(1) 
 {
     border-radius: 9px 0px 0px 9px;
 }
-th:nth-last-child(1) 
+.OrgVerDetailsCardWrapper th:nth-last-child(1) 
 {
     border-radius: 0px 9px 9px 0px;
 }
-.buttons
+.orgVerButtons
 {
     display: flex;    
     justify-content: center;
 }
-.buttonCancel,.buttonAccept
+.orgVerButtonCancel,.orgVerButtonAccept
 {
     border-radius: 5px;
-    font-weight: bold;
-    width: 25%;
+    font-weight: bold;   
     margin:.5rem;
     padding:1rem;
 }
-.buttonAccept
+.orgVerButtonAccept
 {
-    background-color: #ABABAB;
+    
+    background-color: $text_not_just_gray;
+    color:$text_pure_white;
+}
+.org-ver-details-crownIcon
+{
+    width:100%;
+    height:15%;
+}
+.orgVerButtonAccept, .orgVerButtonCancel
+{
+    border: none;
+    font-weight: bold;
+}
+.orgVerButtons 
+{
+    margin-top:1rem;
+}
+.verificationCheckBox label
+{   
+    font-size: 14px;
+    padding:0;
+    margin:0;
+}
+.orgVerButtonAccept
+{
+    @include Buttuns ($medium-button, $primary_boy_blue);
+    color:$text_midnight_blue;
+    font-size: 18px;
+    font-family: "Roboto";
+
+    &:hover{
+        background-color: $text_midnight_blue;
+        color:white;
+    }
+    &:active{
+        background-color: $text_midnight_blue;
+        color:white;
+    }
+}
+
+.orgVerButtonCancel
+{
+    background-color: transparent;
+    width: $medium-button;
+    color:$text_just_gray;
+    font-size: 18px;
+    font-family: "Roboto";
+    cursor: pointer;
+
+    &:hover{
+        color:$text_midnight_blue;
+    }
+}
+
+.verificationCheckBox 
+{
+    padding: 0 2rem;      
+} 
+.verificationCheckBox 
+{
+    display:flex;
+    flex-flow: row nowrap;  
+    justify-content: center;
+    align-items: flex-start;
+    gap:1rem;
+} 
+
+@media screen and (max-width: $break-point) {
+    .OrgVerDetailsCardWrapper
+    {
+        width: 100%;
+        padding:0;
+        margin:0;
+        display: flex;
+        flex-direction: column;
+        gap:.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .details
+    {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-left:3rem;
+    }
+    // .orgVerButtons
+    // {       
+    //     display: flex;
+    //     flex-direction: column-reverse;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
+   
+    .gift
+    {
+        display: none;
+    }
+    .detailsHeader
+    {
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
+    }
+    .verificationCheckBox label
+{
+    padding:0;
+    margin:0;
+    font-size: small;
+    
+}
+.verificationCheckBox 
+{
+    align-items: end;
+}  
 }

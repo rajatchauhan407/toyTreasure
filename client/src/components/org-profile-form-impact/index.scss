@@ -1,0 +1,24 @@
+@import '../../sass/main.scss';
+.OrgProfileImpact 
+{
+    color:$text_just_gray;
+    h2 
+    {
+        font-size: 1rem;
+        color:$text_just_gray;
+    }
+}
+@media screen and (max-width: $break-point) {
+    input, 
+    label,
+    textarea,
+    select{
+        height: 42px;
+        margin-top: 10px;
+        margin-bottom: 15px ;
+    }
+    .statistics{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

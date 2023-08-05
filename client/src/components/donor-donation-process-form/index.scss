@@ -1,0 +1,187 @@
+@import '../../sass/main.scss';
+.tt-81-donationFormCardWrapper{
+    background-color: #F5F0FA;
+    padding: 1.5rem;
+    border-radius: 1rem;
+
+}
+
+
+.tt-81-donationForm
+{
+    color:$text_just_gray;
+    font-family: $font-body;
+}
+
+.tt-81-donationForm
+{
+    h1,h2,h3,h4,h5,h6 
+    {
+        color:$text_midnight_blue;
+        font-family: $font-heading;
+    }
+    h3 
+    {
+        font-size: 20px;
+    }
+    p 
+    {        
+        margin-top:5px;
+    }
+}
+.tt-81-donor-details
+{
+    display: flex;
+    flex-direction: column;   
+    background-color: $accent_amethyst-light;
+    padding:1rem 1rem 1rem 1rem;
+    border-radius: 1rem;
+    color:$text_midnight_blue;
+
+    p 
+    {       
+        color:$text_midnight_blue;
+    }
+}
+.tt-81-donor-details a
+{
+    text-decoration: none;
+    color:black;
+}
+
+.tt-81-donor-details-header
+{
+    display: flex;
+    flex-direction: column;
+}
+.tt-81-donor-details-header >*
+{
+    padding:0;
+    margin:0;  
+}
+.tt-81-delivery-method, .tt-81-dateandtime
+{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    padding: 1rem 0 1rem 0;
+}
+#tt-81-dropOff, #tt-81-pickUp, #tt-81-date, #tt-81-time
+{
+    margin-left:3rem;
+}
+.tt-81-inputs label
+{
+    padding-left: .5rem;
+}
+
+// .tt-81-donation-instruction
+// {
+//     padding: 1rem 0 1rem 0;
+// }
+.tt-81-donation-instruction h3
+{
+  padding-bottom:.7rem;
+}
+.tt-81-checkboxes
+{
+    display:flex;
+    flex-direction: column;
+    // padding: 1rem 0 1rem 0;
+}
+.tt-81-buttons
+{
+    display: flex;    
+    justify-content: center;
+    
+}
+.tt-81-confirm
+{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    @include Buttuns ($largest-button, $button_soft_purple_CTA);
+    color: $text_midnight_blue;
+    font-family: "Lexend", sans-serif;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.75rem;
+
+    &:hover{
+    background-color: $accent_amethyst;       
+    color: $text_pure_white;
+    }
+    &:disabled{
+        background-color: $text_not_just_gray;
+        color: $text_pure_white;
+        cursor: default;
+    }
+}
+.tt-81-confirm-details-label{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 5% 90%;
+    align-items: center;
+    input[type="checkbox"]{
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-top:0;
+    }
+}
+.tt-81-remind-me-label, .tt-81-confirm-details-label
+{
+    color:$text_midnight_blue;
+}
+.tt-81-inputs input[type="radio"]{
+    margin-left: 0 !important;
+ }
+ .tt-81-inputs input[type="radio"]:nth-of-type(2){
+    margin-left: 2.5rem !important;
+ }
+ .tt-81-inputs input[type="date"]{
+    margin-left: 0 !important;
+ }
+ .tt-81-inputs{
+    display: flex;
+    justify-content: center;
+ }
+ .tt-81-inputs label{
+    display: flex;
+    align-items: center;
+    padding-right: .2rem;
+ }
+ .tt-81-inputs label i{
+    padding-right:.5rem;
+ }
+ 
+@media screen and (max-width: $break-point) {
+    .tt-81-delivery-method, .tt-81-dateandtime
+ {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     border-bottom: 1px solid lightgray;   
+ } 
+ .tt-81-inputs input[type="radio"]{
+    margin-left: 0 !important;
+ }
+ .tt-81-inputs input[type="radio"]:nth-of-type(2){
+    margin-left: 2.5rem !important;
+ }
+ .tt-81-inputs input[type="date"]{
+    margin-left: 0 !important;
+ }
+ .tt-81-inputs{
+    display: flex;
+    justify-content: center;
+ }
+ .tt-81-inputs label{
+    display: flex;
+    align-items: center;
+ }
+ .tt-81-inputs label i{
+    padding-right:.5rem;
+ }
+ }
+
+ 

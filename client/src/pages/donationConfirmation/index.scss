@@ -1,0 +1,53 @@
+@import '../../sass/main.scss';
+
+.donationConfirmation-page{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    @include globalPadding (1rem, 8.125rem, 4rem, 8.125rem);
+}
+.donationConfirmation-page-Wrapper h1
+{
+    @include globalPadding;
+    img
+    {
+        width:2.5%;
+        height:3%;
+    }  
+}
+
+
+.donation-confirmation-list{
+    flex: 50%;
+}
+
+.donation-confirmation-form{
+    flex:50%;
+}
+
+@media screen and (max-width: $break-point) {
+  
+    .donationConfirmation-page{
+       
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: stretch;
+        padding:1rem;     
+    }
+    .donation-confirmation-list{
+        flex-basis: 100%;
+    }
+    
+    .donation-confirmation-form{
+        flex-basis:100%;
+    }
+    .donationConfirmation-page-Wrapper h1
+    {   font-size: 1.5rem;  
+        padding:1rem;     
+    img
+    {
+        width:4%;
+        height:4%;
+    }
+    }
+}

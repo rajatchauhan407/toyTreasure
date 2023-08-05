@@ -1,0 +1,48 @@
+@import '../../sass/main.scss';
+
+.donorDonationToysPageWrapper{
+    margin: 0;
+}
+.backButton{
+        display: flex;
+        align-items: center;
+
+        h2{
+            margin-left: 2rem;
+            @media screen and (max-width:768px){
+                margin-left: 1rem;
+            }
+        }
+        
+        
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: transparent;
+            border: none;
+            margin-left: 8.125rem;
+            padding: 0;
+            cursor: pointer;
+
+            img{
+                width: 2.5rem;
+            }
+            @media screen and (max-width:768px){
+                margin-left: 1rem;
+            }
+        }
+}
+@media screen and (max-width: $break-point) {
+    .backButton{
+        display: flex;
+
+        h2{
+            font-size: 28px;
+        }
+    }
+    .btn{
+        display: inline-block;
+    }
+}

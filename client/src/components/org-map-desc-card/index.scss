@@ -1,0 +1,70 @@
+@import '../../sass/main.scss';
+
+.tt-62-map-charities-desc-container{
+    width:90%;
+    height:fit-content; 
+    position:absolute;
+    background: $accent_amethyst;
+    bottom: 0;
+    padding:1rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    margin: 1rem;
+
+    p{
+        color: $text_pure_white;
+    }
+}
+.tt-62-map-charities-desc{
+    display: flex;
+    flex-direction: column;
+}
+.tt-62-image-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+    h3{
+        margin-left: 1rem;
+        color: $text_pure_white;
+    }
+}
+.tt-62-image-wrapper img{
+    width:80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 100%;
+    padding: 0.5rem;
+    margin-top: .5rem;
+    background-color: $text_pure_white;
+}
+
+.tt-62-charity-timing{
+    display: flex;
+    align-items: flex-end;
+
+    .timigInfo{
+        display: flex;
+        flex: 50%;
+    }
+    .btnDonate {
+        flex: 50%;
+        text-align: end;
+
+        button{
+            @include Buttuns ($medium-button, $button_soft_purple_CTA);
+            text-decoration: none;
+            color: $text_midnight_blue;
+            text-align: center;
+    
+            &:hover{
+                background-color: $text_pure_white;
+            }
+        }
+    }
+    
+    p{
+        margin: 0.5rem 0;
+    }
+}

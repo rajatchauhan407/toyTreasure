@@ -4,14 +4,22 @@
     height:auto;
     display: flex;
     gap:1rem;
-    padding:.5rem;
+    padding:2rem;
     box-sizing: border-box;
+    border-left: 1px solid $text_just_gray;
+   
 }
+
 .org-list-wrapper{
     @include displayfc;
     width:70%;
     table{
         width:100%;
+    }
+    margin-right: 1rem;
+    @media screen and (max-width: $break-point) {
+        width:100%;
+        // margin-right: 0;
     }
 }
 
@@ -29,21 +37,136 @@
     .org-pending-verification-header{
         display: flex;
         justify-content: space-between;
+        align-items: center;
+
+        h4{
+            font-size: 20px;
+            font-family: 'Lexend';
+            font-weight: $fw-bold;
+            margin: 0;
+        }
+        a{
+            font-size: 14px;
+            font-family: 'Lexend';
+            text-decoration: none;
+            color:$primary_boy_blue;
+        }
+    }
+}
+.org-wrapper
+{   
+    h1{
+        color: $secondary_teal_green;
     }
 }
 
+.OrgDataCard2{
+    .img-wrapper{
+        img{
+            width: 4rem;
+        }
+    }
+    .custom-h1{
+        font-size: 28px;
+        margin: 0;
+
+    }
+    h5{
+        color:$text_just_gray;
+        font-weight: 400;
+        font-size: 14px;
+        padding:0;
+        margin:0;
+    }
+}
 .org-list-header{
+  
     display: flex;
     justify-content: space-between;
 
     h2{
         margin:0;
+        color:$secondary_teal_green;
     }
+   
     button{
-        @include customButton($secondary_midnight_blue);
+        @include customButton($primary_boy_blue);
         @include roundedBorder(9px);
+        color:$text_midnight_blue;
+        cursor: pointer;
+        
+        &:hover{
+            background-color: $text_midnight_blue;
+            color: $text_pure_white;
+        }
     }
 }
 
+.org-cards-wrapper.two-columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
+.crown 
+{
+    width: 15%;
+    height: 15%;
+    padding:0;
+    margin:0;
+}
+.org-wishlist-crown 
+{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin:0;
+    padding:0;
 
+    h4{
+        color:$secondary_teal_green;
+        font-size: 22px;
+        font-family: "Lexend";
+        padding:0;
+        margin:0;
+    }
+}
+.org-pending-verification a
+{
+    text-decoration: none;
+    color:$primary_boy_blue;
+}
+
+@media screen and (max-width: $break-point) {
+    .org-wrapper,.org-list-header
+    {
+        flex-direction: column;
+    } 
+    .side-container{
+        width:100%;
+        gap:.5rem;
+        @include displayfc;
+        .cards-wrapper{
+            width:100%;
+            display: flex;
+            flex-wrap: wrap;
+            // height:50%;
+            gap:.5rem;
+        }
+        .org-pending-verification-header{
+            display: flex;
+            justify-content: space-between;
+        }
+
+    }
+
+    .org-list-header button 
+    {
+    font-size: 1rem;
+    }
+    .org-wishlist-crown
+    {
+        margin-top:1rem;
+        margin-bottom:0;
+    }
+ }
+ 

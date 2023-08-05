@@ -1,11 +1,21 @@
+
+@import '../../sass/main.scss';
+
 .OrgSideMenuWrapper
-{  
+{    
+    // position:fixed;
+    position:sticky;
+    font-family: $font-heading;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: $fw-bold;
     display:flex;
     flex-flow: column nowrap;
     align-items: flex-start; 
     margin-left:2rem;
-    width: 100%;
+    width: fit-content;
     height: 100vh;
+    top:0;
 }
 .org-image-wrapper{
     display: flex;
@@ -38,13 +48,23 @@
     flex-flow: column wrap;
     align-items: flex-start; 
     padding:0;
+    gap: 1rem;
 }
 .OrgSideMenuWrapper nav ul li a
 {   
     text-decoration: none;
     /* padding:1rem; */
-    color:black;
+    color:$text_just_gray;
+
+    &:hover{
+        color:$secondary_teal_green;
+    }
+
+    &:focus{
+        color:$secondary_teal_green;
+    }
 }
+
 .OrgSideMenuWrapper nav ul li
 {
     padding-bottom:1rem;

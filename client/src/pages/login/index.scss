@@ -1,11 +1,60 @@
-.loginWrapper{
-    display: flex;
-    align-items: baseline;
+@import '../../sass/main.scss';
 
+.loginWrapper{
+   display: grid;
+   grid-template-columns: 2fr 3fr;
+   height: 100vh;
+//    .resposiveWrapper{
+//     height: 100vh;
+//     height: 100%;
+//    }
 .loginFormWrapper {
-    margin: 0 auto;
+margin: 0 auto;
 display: flex;
+padding-top:1rem;
 justify-content: space-between;
 align-items: center;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .loginFormWrapper{
+            margin:auto !important;
+            padding-top:1rem;
+    }
+    }
+}
+@media screen and (max-width: $break-point) {
+    .loginsignupimageDonor,
+    .loginsignupimage,
+    .loginsignupimageOrg{
+        display: none;
+    }
+    .loginWrapper{
+        // display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .loginsignupwrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        @include mobilePadding;
+    }
+    .techTribeLogo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 0;
+    }
+    .loginFormWrapper,
+    .loginWrapper{
+        // display: block !important;
+        display: flex;
+        justify-content: center;
+    }
+    .createAccountDonor{
+        width: 100%;
     }
 }

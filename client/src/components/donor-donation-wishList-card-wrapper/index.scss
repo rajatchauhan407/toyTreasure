@@ -1,0 +1,68 @@
+@import '../../sass/main.scss';
+.donorWishListCardWrapper{
+    @include globalPadding (1rem, 8.125rem, 4rem, 8.125rem);
+}
+.proceedToDonateTagLine{
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+margin-bottom: 3rem;
+
+h3{
+    font-weight: 600;
+    color: $text_just_gray;
+}
+button{
+    @include Buttuns($largest-button, $button_soft_purple_CTA);
+}
+.proceedButton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:hover{
+        background-color: $accent_amethyst;
+        color: $text_pure_white;
+
+        h5{
+            color: $text_pure_white;
+        }
+    }
+    h5{
+        border-left: 1px solid $text_midnight_blue;
+        padding: 0 10%;
+    }
+}
+}
+.proceedBefore{
+    padding:1rem;
+}
+.wishListTitle{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    img{
+        width: 2.25rem;
+        height: 100%;
+        margin: 2%;
+    }
+}
+@media screen and (max-width: $break-point) {
+    .donorWishListCardWrapper{
+        padding: 2rem 1rem;
+    }
+    .wishListTitle{
+        h1{
+            font-family: $font-heading;
+font-size: 25px;
+font-style: normal;
+font-weight: $fw-bold;
+line-height: 2.125rem;
+        }
+}
+.proceedToDonateTagLine{
+    button{
+        max-width: 150px;
+    }
+}
+}

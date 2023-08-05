@@ -1,33 +1,108 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from "react";
+// import { database } from "../FirebaseConfig";
 // import FireBaseAuthService from "./FirebaseAuthService";
+// import { query,where,collection,getDocs} from 'firebase/firestore';
 import FireBaseAuthService from "./FirebaseAuthService";
 import {onAuthStateChanged} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import FireBaseFirestoreService from "./Firebasefirestoreservice";
 const AuthContext = new React.createContext({
-    isLoggedIn:''
+    isLoggedIn:'',
+    profilePic:'',
+    displayName:'',
+    email:'',
+    emailVerified:'',
+    user_type:'',
+    setUserType:()=>{},
+    uid:'',
+    user_points: 0,
+    userCartData:{},
+    serUserCartData:()=>{},
+    setProfilePic:()=>{},
 });
 
 export const AuthContextProvider = (props)=>{
-    const initialIsLoggedIn = sessionStorage.getItem('isLoggedIn');
+    let navigate = useNavigate()
+    const initialIsLoggedIn = localStorage.getItem('isLoggedIn');
     const [isLoggedIn, setIsLoggedIn] = useState(initialIsLoggedIn);
+    const [profilePic, setProfilePic] = useState(localStorage.getItem('profile_pic')||'');
+    const [displayName, setDisplayName] = useState(localStorage.getItem('displayName')||'');
+    const [email,setEmail] = useState(localStorage.getItem('email')||'');
+    const [emailVerified, setEmailVerified] = useState(localStorage.getItem('emailVerified') || '');
+    const [uid,setUid] = useState(localStorage.getItem('uid')|| '');
+    const [userType, setUserType] = useState(localStorage.getItem('userType')||'');
+    const [userPoints, setUserPoints] = useState(0);
+    const [toysQuantity, setToysQuantity] = useState(0);
+    const [userCartData, setUserCartData] = useState({});
+    
+    
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(FireBaseAuthService.auth,
-            (user)=>{
+            async (user)=>{
                 if(user){
+                    console.log(user.uid);
+                    console.log(user);
+                    let res = await FireBaseFirestoreService.getDocumentById('user',user.uid);
+                    console.log(res.data());
+                    const user_type = localStorage.getItem('userType');
                     setIsLoggedIn(true);
-                    sessionStorage.setItem('isLoggedIn', 'true');
+                    console.log(user);
+                    // if(profilePic === "" && user_type === "organization"){
+                    //     try {
+                    //         let resData = await FireBaseFirestoreService.getDocumentById('organization_profile',user.uid);
+                    //         console.log(resData.data());
+                    //         setProfilePic(resData.data().logoUrl);
+                    //     } catch (error) {
+                            
+                    //     }
+                    //     setProfilePic(res.data().logoUrl);
+                    // }
+                    setDisplayName(user.displayName || res.data().displayName);
+                    setEmail(user.email);
+                    setProfilePic(user.photoURL);
+                    setEmailVerified(user.emailVerified);
+                    setUid(user.uid);
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('userType',user_type);
                 }else{
+                    console.log("changed to false")
                     setIsLoggedIn(false);   
-                    sessionStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('profile_pic');
+                    localStorage.removeItem('displayName');
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('emailVerified');
+                    localStorage.removeItem('uid');
+                    localStorage.removeItem('userType');
+                    setUserType(null);
+                    navigate('/signup');
                 }
             }
         );
         return ()=>{
             unsubscribe();
         }
-    },[setIsLoggedIn]);
+    },[]);
     let contextValue={
-        isLoggedIn:isLoggedIn
+        isLoggedIn:isLoggedIn,
+        profilePic:profilePic,
+        displayName:displayName,
+        email:email,
+        emailVerified:emailVerified,
+        uid:uid,
+        userType:userType,
+        setUserType,
+        user_points: userPoints,
+        setUserPoints,
+        userCartData:userCartData,
+        setUserCartData,
+        toysQuantity:toysQuantity,
+        setToysQuantity,
+        setProfilePic
     }
+    
+    
     return (<AuthContext.Provider value={contextValue}>
             {props.children}
     </AuthContext.Provider>);

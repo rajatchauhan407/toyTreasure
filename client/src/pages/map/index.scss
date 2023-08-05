@@ -1,0 +1,122 @@
+@import '../../sass/main.scss';
+
+.tt-62-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    height: 100vh;
+    background-color: $button_soft_purple_CTA;
+    margin: 0 5rem 5rem 5rem;
+    border-radius: 1rem;
+}
+
+.tt-62-side-wrapper{
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    .mapHeader{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mapSearch{
+        display: flex;
+        align-items: center;
+        
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: transparent;
+            border: none;
+            margin-right: 0.5rem;
+            padding: 0;
+            cursor: pointer;
+
+            img{
+                width: 2.5rem;
+            }
+        }
+    }
+
+    .tt-62-wrapper-input{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap:1rem;
+
+        p{
+            flex:50%;
+            color: $text_not_just_gray;
+            font-weight: $fw-normal;
+            margin: 0;
+        }
+
+        select{
+            width: fit-content;
+            height: 56px;
+            background-color: $text_pure_white;
+            color: $accent_amethyst;
+            border: none;
+            font-weight: $fw-bold;
+            margin: 0;
+        }
+    }
+
+}
+.tt-62-org-card-wrapper::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #f1f1f1;
+  }
+.tt-62-org-card-wrapper{
+   
+    display:flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    gap:1rem;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height:70vh;
+    cursor: pointer;
+    
+}
+.tt-62-right-map{
+    position: relative;
+}
+.background{
+    background-color: $text_pure_white;
+    border-radius: 1rem;
+}
+
+// ================== MOBILE
+@media screen and (max-width: $break-point){
+    .tt-62-container {
+        height: 100%;
+        gap: 0;
+        margin: 1rem 0 0 0;
+        border-radius: 0;
+        grid-template-columns: 1fr; 
+        grid-template-areas: 
+          'map'
+          'content'; 
+      }
+    
+      .tt-62-side-wrapper {
+        grid-area: content; 
+      }
+    
+      .tt-62-right-map {
+        grid-area: map;
+      }
+
+      .tt-62-org-card-wrapper{
+        margin-left: 0;
+      }
+        .tt-62-side-wrapper{
+        padding: 1rem;
+      }
+}

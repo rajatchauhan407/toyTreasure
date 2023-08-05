@@ -1,3 +1,4 @@
+@import '../../sass/main.scss';
 /* STRUCTURE =============================== */
 .OrgProfile{
     display: grid;
@@ -5,24 +6,52 @@
     gap: 1rem;
     // margin: 2rem;
 }
+.profile-form-buttons 
+{
+    display:flex;
+    justify-content: center;      
+}
+.profile-form-buttons button
+{
+   padding:.5rem 2rem;
+   margin:1rem;
+   border-radius: .5rem;
+   border:none;
+   font-size: 1rem;       
+}
+.profile-form-submit
+{
+ background-color: $primary_boy_blue;
+ color:$text_midnight_blue;
+}
+.profile-form-reset
+{
+    color:$text_just_gray;
+}
 
 .OrgProfile h1{
     font-size: 1.5rem;
     grid-column: span 2;
     margin-bottom: 0;
+    font-family: $font-heading;
+    color:$text_midnight_blue;
 }
 
 .wrapper-left form,
 .wrapper-right form{
     margin-bottom: 1rem;
 }
+.save{
+    cursor:pointer;
+}
 
 .Details,
 .Impact,
 .Upload,
 .ExtraDetails,
+.OrgProfileExtraD,
 .Categories{
-    border: 1px solid gray;
+    border: 1px solid $primary_boy_blue;
     border-radius: 10px;
     padding: 1rem;
 }
@@ -54,20 +83,23 @@ textarea {
 .phone-input{
     display: grid;
     grid-template-columns: 10% 90%;
+    gap:1rem;
 }
 
 /* TYPOGRAPHY ================================ */
 h1, h2,h3 {
     margin-top: 0.4rem;
     margin-bottom: 0.4rem;
-}
+    font-family: $font-heading;
+    color:$text_midnight_blue;
+   }
 
 h2{
-    font-size: 1.2rem;
+    font-size: .1rem;
 }
 
 h3{
-    font-size: 1rem;
+    font-size: .1rem;
 }
 
 label{
@@ -78,3 +110,36 @@ label{
     font-weight: 400;
 }
 
+@media screen and (max-width: $break-point) {
+    .OrgProfile{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1rem;
+}
+.profile-form-buttons{
+display: grid;
+grid-template-columns: 1fr;
+justify-content: center;
+}
+.profile-form-buttons button
+{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 80%;
+    height: 50px;
+}
+.one-line,
+.statistics{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.Details,
+.Impact,
+.Upload,
+.ExtraDetails,
+.OrgProfileExtraD,
+.Categories
+{   border: none;
+}
+}

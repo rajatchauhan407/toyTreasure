@@ -1,4 +1,9 @@
 @import '../../sass/main.scss';
+.loaderContainer{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 
 .table-container{
     table{
@@ -7,21 +12,29 @@
         margin-top:2rem;
         td:nth-of-type(1){
             text-align: left;
+            background-color: transparent;
         }
         td{
             text-align: center;
-            @include borderBottom(1px, $secondary_not_just_gray);
+            @include borderBottom(1px, $text_not_just_gray);
             padding:.5rem;
+        }
+        .deleteButtonOrgWishlist{
+            cursor:pointer;
         }
         tr:nth-last-of-type() td{
             border-bottom: none;
         }
         thead{
+            color: black;
             td{
                 font-style: bold;
                 font-family: $font_heading;
-                color: $secondary_midnight_blue;
+                font-weight: bold;
             }
+        }
+        tbody{
+            color: $text_just_gray;
         }
     }
 }

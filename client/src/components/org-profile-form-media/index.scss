@@ -1,0 +1,42 @@
+@import '../../sass/main.scss';
+.tt-90-upload{
+    margin-top:4rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border:1px solid $primary_boy_blue;
+    padding:1rem;
+    color:$text_just_gray;
+}
+
+.tt-90-upload input[type=file]::file-selector-button {
+    
+    border:none;
+    border-radius: .5rem;
+    padding:.5rem 1rem;     
+    font-size: 12px;
+    background-color: $primary_boy_blue;
+    color:$text_midnight_blue;  
+    font-weight: bold;
+  }
+  @media screen and (max-width: $break-point) {
+    input{
+        
+    }
+.tt-90-upload{
+    border: none;
+  }
+  .photo-input,
+  .logo-input,
+  #photoUpload,
+  #logoUpload{
+width: 100%;
+height: 122px;
+background-color: #EEF8FB;
+border: 1px dashed $primary-boy-blue;
+border-radius: 8px;
+padding-left: calc(100%/4);
+padding-right: calc(100%/4);
+padding-top: 50px;
+  }
+}

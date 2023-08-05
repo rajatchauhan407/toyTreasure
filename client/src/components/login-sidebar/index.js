@@ -1,4 +1,5 @@
-import logo from "./appLogo.svg"
+import logo from "./Vector.png";
+import typo from "./typo.png";
 import "./index.scss";
 
 function LoginSidebar() {
@@ -8,18 +9,15 @@ function LoginSidebar() {
         <img className="site-logo" src={logo} alt={"siteLogo"}/>
         </div>
         <div className="sidebarItemWrapper">
-        <div className="sidebar-item">
-          <h3> Your details</h3>
-          <p>Please provide your name and email</p>
+          <img className="sidebarText" src={typo} alt={"Unlock happiness through donation"}/>
+          {/* <h1> Unlocking </h1> 
+          <h2>Happiness</h2>
+          <p>Through</p>
+          <h1>Donations</h1> */}
         </div>
-        <div className="sidebar-item">
-        <h3> Choose a password</h3>
-          <p>Must be at least 8 characters</p>
-        </div>
-        </div>
-        <div className="loginSidebarPhoto">
+        {/* <div className="loginSidebarPhoto">
           <img src="https://picsum.photos/517/517" alt="sidebar" />
-        </div>
+        </div> */}
       </div>
     );
   }

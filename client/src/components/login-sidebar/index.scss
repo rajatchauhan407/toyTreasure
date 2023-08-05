@@ -1,28 +1,30 @@
+
+@import '../../sass/main.scss';
 .loginSidebar{
-    width: 517px;
-    height: 100%;
-    background-color: #F0F0F0 ;
+    padding: 3rem;
+    background-image: url('./Screenshot.png') ;
+    background-size: cover; 
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-
-    .loginSidebarPhoto{
-        margin-top: 50px;
-        align-items: end;
-
-        img{
-            width: 517px;
-            height: auto;
-        }
-    }
     
+    .sidebarText{
+        padding: 4%;
+        width: auto;
+        margin-bottom: 30%;
+    }
     .loginLogo,
     .sidebarItemWrapper{
-        margin-left: 100px;
+        // margin-left: 100px;
+        color: white;
     }
     .loginLogo{
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top: 2rem;
     }
 
+}
+@media screen and (max-width: $break-point) {
+    .loginSidebar{
+        display: none;
+    }
 }

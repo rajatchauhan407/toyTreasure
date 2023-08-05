@@ -1,0 +1,40 @@
+@import '../../sass/main.scss';
+
+.charity_categories,
+.charity_stories{
+    @include globalPadding;
+}
+
+.card-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    @include globalPadding (6rem, 8.125rem, 6rem, 8.125rem);
+    background-color: $secondary_soft_blue;
+}
+
+.charity_video{
+    height: 600px;
+}
+
+.charity_categories{
+    margin: 6rem 0 6rem 0;
+}
+.charity_categories{
+    margin: 0%;
+    padding: 0%;
+}
+
+// ========== MOBILE 
+@media screen and (max-width: $break-point) {
+    .card-wrapper{
+        @include mobilePadding(2rem, 2rem, 2rem, 2rem);
+        gap: 10px;
+    }
+
+    .charity_stories{
+        @include mobilePadding(2rem, 2rem, 2rem, 2rem);
+    }
+
+}

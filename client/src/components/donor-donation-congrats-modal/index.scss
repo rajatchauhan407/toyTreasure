@@ -1,0 +1,68 @@
+@import '../../sass/main.scss';
+.modalCongrats{    
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+    padding:1rem;
+    align-items: center;
+    // text-align: center;
+    width: 300px;
+    color: $text_midnight_blue;
+    a{
+        text-decoration: none;
+        color: $text_midnight_blue;
+    }
+    .go-home{
+        @include Buttuns(200px, $button_soft_purple_CTA);
+        // padding: 2%;        
+    }
+    .go-home:hover
+    {
+        background-color: $accent_amethyst;
+        a{
+            color: $text_pure_white;
+        }
+    }
+    .go-home:active
+    {
+        background-color: $accent_amethyst;
+        a{
+            color: $text_midnight_blue;
+        }
+    }
+    .ThankYouWrapper{
+        // margin-left: auto;
+        // margin-left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap:.5rem;
+        img{
+            width: 20px;
+        }
+    }
+}
+
+.instructions{
+    h5{
+        color:$text_not_just_gray;
+    }
+    border-top: 1px solid black;
+    text-align: left;
+    padding-top: 1rem;
+}
+
+@media screen and (max-width: $break-point) {
+    .modalCongrats{
+        width: min-content;
+        min-width: 280px;
+        padding: 0%;
+        h2{
+            font-family: $font-heading;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: 1.625rem;
+        }
+    }
+}

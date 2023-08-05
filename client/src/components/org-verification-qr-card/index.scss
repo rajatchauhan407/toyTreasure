@@ -1,27 +1,57 @@
+@import '../../sass/main.scss';
 .OrgVerQRCardWrapper
 {
     margin:1rem;
+    padding:1rem;
     display:flex;
     align-items: flex-start;
     justify-content: space-evenly;
+    box-shadow: 3px 4px 16px -1px rgba(177, 177, 177, 0.665);
+    background-color: #fdfdfd;
+    padding: 2rem;
+    border-radius: 1rem;
+    img 
+    {
+        width: 100%;
+    }
+    h4 
+    {
+        color:$secondary_teal_green;
+        font-size: 22px;
+        font-weight: $fw-bold;
+        font-family: 'Lexend';
+        margin: 0;
+    }
+    p 
+    {
+        color:#8F8F8F;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-weight: $fw-bold;
+    }
+
 }
-.org-ver-qr-card
+
+.orgVerQRMessage
 {
-    color:#686868;
-    padding:10rem 5rem 10rem 5rem;
+    background-image: url(./blurredQR.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center; 
+    background-size: contain;
+    opacity: .8;    
+    
+    color:$text_midnight_blue;
+    padding:8rem 2rem;
     h3 
     {
-        text-align: center;
+        text-align: center;                     
     }
 }
 
-.org-ver-qr-card
-{
-    display: flex;
-    flex-direction: column;
-    box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
-    -webkit-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
-    -moz-box-shadow: 6px 6px 5px 0px rgba(161,161,161,0.34);
-    border-radius: 2px;
-    background-color: #fdfdfd;
+@media screen and (max-width: $break-point) {
+   .OrgVerQRCardWrapper
+   {
+    display:none;
+   } 
 }

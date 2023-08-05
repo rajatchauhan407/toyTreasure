@@ -1,0 +1,144 @@
+@import '../../sass/main.scss';
+
+.tt-80-donationProcessListForm
+{
+   color:$text_midnight_blue;
+}
+.tt-80-donationProcessListForm h1
+{
+   width: 100%;
+}
+.crownIcon-tt-80
+{
+   width: 20%;
+}
+.tt-80-removebtn,.tt-80-addbtn
+{
+    background-color: $accent_amethyst-light;
+}
+.tt-80-donationProcessListWrapper
+{
+    background-color: $accent_amethyst-light;
+    color:$text_midnight_blue;
+    border-radius: 1rem;
+    padding:1rem; 
+
+    @media screen and (max-width: $break-point) {
+        padding: 1.5rem;
+
+        
+    }
+    
+}
+.tt-80-toy-list-header
+{
+    display: flex;
+    justify-content: space-between;
+    h4 a 
+    {
+        text-decoration: none;
+        color:$text_midnight_blue;
+    }
+}
+
+#tt-80-table img
+{
+   border-radius: .5rem;
+   width: 100%;
+//    height:auto;
+   padding:0;
+   margin:0;
+   
+}
+
+#tt-80-table 
+{
+   align-items: center;
+    border-collapse:collapse;
+}
+  
+#tt-80-table td
+{
+//    margin:1rem;
+   padding:.5rem;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    width:25%;    
+}
+
+#tt-80-table tr:last-child td
+{
+    border-bottom: none;
+}
+.tt-80-pointsandclose
+{
+    display: flex;
+    p 
+    {
+    color:$text_midnight_blue;
+    font-weight: bold;
+    }
+}
+.tt-80-pointsandclose i
+{
+    padding-left:2rem;
+    padding-bottom:1rem;
+}
+.tt-80-amount-change
+{   
+    display: flex;
+    align-items: center;    
+    border: 1px solid rgb(190, 187, 187);
+    input 
+    {
+        border:none;
+    }
+}
+.tt-80-amount-change button, .tt-80-amount-change input[type="text"]
+{
+   border:none;
+   outline: none;
+  
+}
+
+.tt-80-nameandwishlist
+{    
+    // display: flex;
+    // gap:1rem;
+   padding:0;
+   font-weight: bold;
+   color:$text_midnight_blue;
+    // flex-direction: column;
+    // align-items: start;
+ 
+}
+.tt-80-amount-change button
+{
+    padding: .5rem;
+    margin: .2rem;
+}
+
+
+// .tt-80-amount
+// {
+//     background-color: yellow;
+//     padding:.1rem .6rem .1rem .6rem;
+//     position: absolute;
+//     border-radius: 2rem;
+//     color:black;
+//     right: 0;
+// }
+// .tt-80-imgandquantity
+// {
+//     position:relative;
+//     background-color: $accent_amethyst-light;
+// }
+.tt-80-tt80totalpoints
+{
+    font-weight: bold;
+    color:$text_midnight_blue;
+}
+#totalToystt80
+{
+    text-align: center;
+}

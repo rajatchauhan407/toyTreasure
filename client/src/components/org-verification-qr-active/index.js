@@ -1,16 +1,27 @@
 import "./index.scss";
-import qr from './qr-code-temp.jpg';
+// import qr from './qr-code-temp.jpg';
+import QRCode from "react-qr-code";
+import { Link } from 'react-router-dom';
+
 
 export default function OrgVerificationQRActive(props)
 {
     
     return(  
-        <div className="OrgVerQRCardWrapper">                
-            <div className="org-ver-qr-active">
-                    <h2>QR Code</h2>
-                    <p>Share the QR Code with the donor to redeem points</p>
-                    <img src={qr} alt=""/>
-            </div>          
+        <div className="OrgVerQRCardWrapperActive">            
+                <div className="orgVerQRText">
+                    <h4>QR Code</h4>
+                    <p>Show the QR Code below to the donor to redeem points.</p>
+                </div>
+                <div className="org-ver-qr-active">
+                    {/* <img className="orgVerQRImg" src={qr} alt=""/>
+                                         */}
+                    <QRCode value={props.qrCode} />                   
+                    <div className="OrgVerQRCardButton">
+                        <button className="orgVerGotoDashboard"><Link to="/organization/dashboard">Go to Dashboard</Link></button>                    </div>
+                </div>          
         </div>    
+
+        
     )
 }

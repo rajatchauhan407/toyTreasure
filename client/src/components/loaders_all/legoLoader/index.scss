@@ -1,0 +1,43 @@
+/* ComplexLegoLoader.css */
+
+.complex-lego-loader {
+    display: flex;
+    justify-content: center;
+    align-items: flex-center;
+    height: 100vh;
+  }
+  
+  .lego-block {
+    width: 30px;
+    height: 15px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    margin: 2px;
+    animation: lego-build 1s infinite alternate;
+  }
+  
+  .red {
+    background-color: #ff3333;
+  }
+  
+  .yellow {
+    background-color: #fcb400;
+  }
+  
+  .blue {
+    background-color: #3399ff;
+  }
+  
+  .green {
+    background-color: #33cc33;
+  }
+  
+  @keyframes lego-build {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-30px);
+    }
+  }
+  

@@ -1,0 +1,69 @@
+@import '../../sass/main.scss';
+
+.tt-62-org-card-container{
+    display: grid;
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    background-color: $text_pure_white;
+
+    &:hover{
+        background-color: $accent_amethyst;
+        color: $text_pure_white;
+
+        h2{
+            color: $text_pure_white;
+        }
+
+        button{
+            background-color: $text_pure_white;
+
+            &:hover{
+                background-color: $button_soft_purple_CTA;
+                color: $text_midnight_blue;
+            }
+        }
+        p{
+            color: $text_pure_white;
+        }
+    }
+
+    h2{
+        color: $text_midnight_blue;
+        font-weight: $fw-bold;
+    }
+
+    p{
+        margin: 0;
+    }
+
+    .donationSchedule{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+.tt-62-timing{
+    display:flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.tt-62-short-details-wrapper{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: last baseline;
+
+    .tt-62-vd-btn{
+        cursor: pointer;
+        @include Buttuns ($small-button, $button_soft_purple_CTA);
+        color: $text_midnight_blue;
+
+        &:hover{
+            background: $text_pure_white;
+        }
+    }
+}

@@ -1,0 +1,130 @@
+@import '../../sass/main.scss';
+.tt-47-donorFooterWrapper
+{  
+    color:$text_just_gray;
+    font-family: $font-body;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: $fw-normal;
+    line-height: 20px; 
+    background-color: $secondary_footer_soft_blue;
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;  
+    @include globalPadding(2rem, 8.125rem, 2rem, 8.125rem);
+    p 
+    {
+        padding:0;
+        margin:0;
+    }
+    .tt-47-site-logo 
+   {
+        width: 77.576px;
+        height: 40px;
+        flex-shrink: 0;
+   }
+    .tt-47-team-logo 
+    {
+        width: 54px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+}
+.tt-47-donor-image-wrapper
+{
+    display:flex;   
+    align-items: center; 
+}
+.tt-47-techTribe-logo
+{
+    display:flex;   
+    align-items: flex-end; 
+}
+.tt-47-copyright
+{
+    display:flex;
+    flex-direction: column;
+    text-align: center;        
+}
+.tt-47-address p
+{
+    padding-left: 1rem;  
+}
+.tt-47-techTribe-logo p
+{
+    padding-right: 1rem;
+}
+.tt-47-copyright-logo-wrapper 
+{
+    display:none;
+}
+@media screen and (max-width: $break-point) 
+{
+    .tt-47-donorFooterWrapper
+    {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap:1rem;        
+    }
+   
+    .tt-47-donor-image-wrapper
+    {
+        flex-direction: column;
+       
+        align-items: start;
+        gap:1rem;
+        padding:0;
+    }
+   
+    .tt-47-techTribe-logo
+    {        
+        display:none;
+    }
+    .tt-47-copyright
+    {
+        display:none;    
+    }
+    .tt-47-address p
+    {
+        padding:0;
+        margin:0;
+    }
+    .tt-47-copyright-logo-wrapper 
+    {
+        display:block;
+        width: 100%;
+    }
+    .tt-47-copyright-logo
+    {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(2,1fr);
+        justify-items: stretch;
+        align-items: center;
+    }
+    .tt-47-techTribe-logo1
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+}
+
+// ================= MOBILE
+@media screen and (max-width: $break-point) {
+    .tt-47-donorFooterWrapper{
+        @include mobilePadding;
+    }
+
+    .tt-47-copyright-logo {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 70% 30%;
+        justify-items: stretch;
+        align-items: center;
+    }
+
+}

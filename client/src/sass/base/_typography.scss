@@ -1,0 +1,83 @@
+/* Body/Footnote Regular */
+// $body-footnote: {
+// font-family: $font-body;
+// font-size: 0.875rem;
+// font-style: normal;
+// font-weight: $fw-normal;
+// line-height: 1.375rem
+// }
+/* Body/Body 1 Bold */
+.body1{
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+/* Body/Body 2 Regular */
+body{
+font-family: $font-body;
+font-size: 16px;
+font-style: normal;
+font-weight: $fw-normal;
+line-height: 1.3125rem;
+}
+
+ /* Button */
+button{
+font-family: $font-heading;
+font-size: 1.125rem;
+font-style: normal;
+font-weight: $fw-bold;
+line-height: 1.75rem;
+}
+
+/* Headlines/H1 */
+h1,
+.custom-h1{
+font-family: $font-heading;
+font-size: 38px;
+font-style: normal;
+font-weight: $fw-bold;
+line-height: 3rem;
+
+@media screen and (max-width: 414px) {
+    font-size: 28px;
+    line-height: 2.5rem;
+}
+
+}
+
+/* Headlines/H2 */
+h2{
+    font-family: $font-heading ;
+   font-size: 34px;
+   font-style: normal;
+   font-weight: $fw-semi-bold;
+   line-height: 2.5625rem;
+
+   @media screen and (max-width: 414px) {
+    font-size: 25px;
+    line-height: 2rem;
+}
+}
+
+ /* Headlines/H3 */
+h3{
+   
+font-family: $font-heading;
+font-size: 25px;
+font-style: normal;
+font-weight: $fw-bold;
+line-height: 2.125rem;
+}
+
+/* Headlines/H5 */
+h5{
+    font-family: $font-heading;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: $fw-bold;
+    line-height: 1.625rem;
+}

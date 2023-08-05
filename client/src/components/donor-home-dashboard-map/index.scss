@@ -1,0 +1,158 @@
+@import '../../sass/main.scss';
+
+.donorHomeDashboardMap{
+  height: 38rem;
+  padding: 3%;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url(./mapScreenShot.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: blur(2px);
+        z-index: -1;
+    }
+    
+    img{
+        width: 9rem;
+        height: auto;
+
+        &:hover{
+            transform: scale(1.1);
+            transition: all 0.4s;
+        }
+    }
+
+    h2{
+        color: $text_midnight_blue;
+        font-weight: $fw-bold;
+        margin: 0 10rem;
+        line-height: 1.5;
+    }
+
+    button{
+        @include Buttuns($largest-button, $accent_amethyst);
+        color:$text_pure_white;
+        text-decoration: none;
+        font-family: $font-body;
+        margin: 2rem 0;
+
+        &:hover{
+            background-color: $button_soft_purple_CTA;
+            color: $text_midnight_blue;
+        }
+    }
+}
+
+.donorMapImage1{
+    position: relative;
+    top: -20px;
+    left: -80px;
+}
+
+.donorMapImage2{
+    position: relative;
+    top: -80px;
+    left: 100px;
+}
+
+.donorMapImage3{
+    position: relative;
+    top: -20px;
+    left: 300px;
+}
+
+.donorMapImage4{
+    position: relative;
+    top: 360px;
+    left: -550px;
+}
+
+.donorMapImage5{
+    position: relative;
+    top: 380px;
+    left: 40px;
+}
+
+// =========== MOBILE
+@media screen and (max-width: $break-point) {
+    .donorHomeDashboardMap{
+        border-radius: 0;
+
+        h2{
+            margin: 0;
+            font-size: 32px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url(./mapScreenShot.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: blur(2px);
+            z-index: -1;
+        }
+        
+        img{
+            width: 5rem;
+            height: auto;
+    
+            &:hover{
+                transform: scale(1.1);
+                transition: all 0.4s;
+            }
+        }
+    }
+
+    .donorMapImage1{
+        position: relative;
+        top: -20px;
+        left: -40px;
+    }
+    
+    .donorMapImage2{
+        position: relative;
+        top: -80px;
+        left: 0px;
+    }
+    
+    .donorMapImage3{
+        position: relative;
+        top: 0px;
+        left: 50px;
+    }
+    
+    .donorMapImage4{
+        position: relative;
+        top: 200px;
+        left: 150px;
+    }
+    
+    .donorMapImage5{
+        position: relative;
+        top: 380px;
+        left: -200px;
+    }
+}

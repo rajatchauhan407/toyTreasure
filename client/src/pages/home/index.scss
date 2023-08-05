@@ -1,2 +1,147 @@
+@import '../../sass/main.scss';
 
+.home-welcome,
+.home-map,
+.home-stories,
+.home-discount{
+    @include globalPadding;
+}
+
+.home-map{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.home-rewards,
+.home-discount{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.home-stories{
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+.home-welcome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 2.5rem;
+}
+
+.home-rewards{
+    background-color: #F5F0FA;
+    @include globalPadding (4rem, 8.125rem, 4rem, 8.125rem);
+}
+
+.rewards-info{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+
+    img{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 1rem;
+    }
+}
+
+.home-welcome h1{
+    color: $text_midnight_blue;
+}
+
+.home-rewards .custom-h1{
+    color: $accent_amethyst;
+    margin: 0;
+}
+
+.custom-h1{
+    color: $text_midnight_blue;
+}
+
+.pending-donation{
+    display: flex;
+    flex-direction: row;
+    @include globalPadding (2rem, 8.125rem, 0, 8.125rem);
+
+    .donationInfo{
+        flex: 65%
+    }
+    
+    .donationImage{
+        display: flex;
+        flex: 35%;
+        justify-content: flex-end;
+    }
+
+    h3, h4, p{
+        color: $text_pure_white;
+        margin: 0;
+        line-height: 2;
+    }
+
+    button{
+        @include Buttuns ($medium-button, $button_soft_purple_CTA);
+        color: $text_midnight_blue;
+        margin-top: 1rem;
+
+        &:hover{
+            background-color: $text_pure_white;
+        }
+    }
+}
+
+// ===================== MOBILE 
+
+@media screen and (max-width: $break-point) {
+    .home-welcome,
+    .home-stories,
+    .home-discount{
+    @include mobilePadding;
+    }
+
+    .home-map{
+        padding: 0;
+        margin: 0;
+    }
+
+    .home-welcome{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        margin-bottom: 1rem;
+
+        h1{
+            margin-bottom: 2rem;
+        }
+    }
+
+    .home-map,
+    .home-rewards,
+    .home-discount{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-stories{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-rewards{
+        @include mobilePadding(2rem, 2rem, 2rem, 2rem);
+    }
+
+    .pending-donation{
+        flex-direction: column;
+        @include mobilePadding;
+
+        .donationImage{
+            justify-content: center;
+        }
+    }
+    
+}
 

@@ -1,39 +1,61 @@
 import "./index.scss";
-export default function OrgDataCard(){
+import org_icon1 from './founded-year.svg';
+import org_icon2 from './total-donors.svg';
+import org_icon3 from './total-kids.svg';
+import org_icon4 from './donated-toys.svg';
 
-    let orgData = [
-        {
-            imageUrl:"https://picsum.photos/400/400?rand=431",
-            type: "Donors",
-            count:256
-        },
-        {
-            imageUrl:"https://picsum.photos/400/400?rand=432",
-            type: "Donors",
-            count:256
-        },
-        {
-            imageUrl:"https://picsum.photos/400/400?rand=433",
-            type: "Donors",
-            count:256
-        },
-        {
-            imageUrl:"https://picsum.photos/400/400?rand=434",
-            type: "Donors",
-            count:256
-        }
-    ]
+import { useEffect, useState } from 'react';
+// import FireBaseFirestoreService from "../../services/Firebasefirestoreservice";
+
+
+export default function OrgDataCard({ displayMode,details }){
+    const [orgImpact, setOrgImpact] = useState([]);
+
+  useEffect(() => {
+    console.log("Details Provided:"+details)
+    setOrgImpact(details);
+  }, [details]);
+
+  const orgCardsWrapperClass = displayMode === 'two-columns' ? 'org-cards-wrapper two-columns' : 'org-cards-wrapper';
+
     return (
-        orgData.map((el) => <div className="card-wrapper">
+        (orgImpact && <div className="charityImpact">
+        
+            <div className={orgCardsWrapperClass}>
+                <div className="card-1 forOrgDataCard">
                     <div className="img-wrapper">
-                        <img src={el.imageUrl} alt="randompic"/>
+                        <img src={org_icon1} alt="founded-year-icon"/>
                     </div>
-                    <p>
-                       {el.count}
-                    </p>
-                    <p>
-                        Total {el.type}
-                    </p>
-               </div>)
-    )
+                    <h2 className="custom-h1">{orgImpact.founded_year}</h2>
+                    <h5>Founded Year</h5>
+                </div>
+
+                <div className="card-2 forOrgDataCard">
+                    <div className="img-wrapper">
+                        <img src={org_icon2} alt="donors-icon"/>
+                    </div>
+                    <h2 className="custom-h1">{orgImpact.total_donors}</h2>
+                    <h5>Total Donors</h5>
+                </div>
+
+                <div className="card-3 forOrgDataCard">
+                    <div className="img-wrapper">
+                        <img src={org_icon3} alt="kids-icon"/>
+                    </div>
+                    <h2 className="custom-h1">{orgImpact.kids}</h2>
+                    <h5>Kids</h5>
+                </div>
+
+                <div className="card-4 forOrgDataCard">
+                    <div className="img-wrapper">
+                        <img src={org_icon4} alt="toys-donated-icons"/>
+                    </div>
+                    <h2 className="custom-h1">{orgImpact.toys}</h2>
+                    <h5>Donated Toys</h5>
+                </div>
+            </div>
+       
+
+    </div>
+    ))
 }

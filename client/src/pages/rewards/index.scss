@@ -1,0 +1,82 @@
+@import '../../sass/main.scss';
+.tt-101-DonorRewardsWrapper
+{
+    margin: 0;
+}
+
+.tt-101-rewards-profile-and-points
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tt-101-points
+{
+    background-color: rgb(218, 217, 217);
+    padding:1rem;
+    border-radius: 5px;
+}
+.tt-101-rewards-profile
+{
+    @include globalPadding (2rem, 8.125rem, 4rem, 8.125rem);
+}
+
+.tt-101-special-discount{
+    @include globalPadding;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+} 
+.tt-101-redeem-rewards{
+        background-color: #F5F0FA;
+        @include globalPadding (4rem, 8.125rem, 4rem, 8.125rem);
+
+        .rewards-info{
+            display: flex;
+            flex-direction: row;
+            align-items:center;
+        
+            img{
+                width: 2.5rem;
+                height: 2.5rem;
+                margin-right: 1rem;
+            }
+        }
+        
+        .custom-h1{
+            color: $accent_amethyst;
+            margin: 0;
+        }
+}
+.tt-101-special-discount-mq{
+    display: none;
+}
+@media screen and (max-width: $break-point) {
+    .tt-101-special-discount-mq{
+        display: block;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        img{
+        width: 100%;
+        height: auto;
+        }
+    }
+    .tt-101-special-discount-mq{
+        h1{
+margin-left: 0%;
+        }
+    }
+    .tt-101-special-discount{
+        display: none;
+    }
+    .tt-101-rewards-profile{
+        margin: 5%;
+    }
+    .tt-101-rewards-profile-and-points{
+        display: block;
+    }
+    .tt-101-rewards-profile,
+    .tt-101-redeem-rewards{
+        @include mobilePadding;
+        margin: 0;
+    }
+}

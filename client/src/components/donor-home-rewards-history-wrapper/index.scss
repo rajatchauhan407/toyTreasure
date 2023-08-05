@@ -1,0 +1,40 @@
+@import '../../sass/main.scss';
+.WrapperDonationHistory{
+    ul{
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        padding: 1rem;
+        border-radius: .5rem;
+    }
+    li{
+        list-style-type: none;
+        color: $text_midnight_blue;
+        font-size: 1.25rem;
+    }
+}
+.WrapperDonationHistory{
+    padding:2rem;
+    h3{
+        color: $text_not_just_gray;
+    }
+}
+@media screen and (max-width: $break-point) {
+    .WrapperDonationHistory{
+        padding: 0%;
+        background-color: white;
+        h3{
+            color: black;
+        }
+    }
+    .historyOfDonations{
+        padding: 0%;
+        ul{
+            background-color:$button_soft_purple_CTA ;
+            padding: 2%;
+            border-radius: 10px;
+            height: 57px;
+            align-items: center;
+    }
+}
+}

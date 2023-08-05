@@ -1,0 +1,48 @@
+@import '../../sass/main.scss';
+.tt-38-item-container{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    justify-content: left;   
+}
+.tt-38-extraDetails{
+ display: grid;
+ gap : 1rem;
+}
+.OrgProfileExtraD
+{
+    margin-bottom: 1rem;
+    color:$text_just_gray;
+    h1, h2,h3,h4,h5,h6 
+    {
+        color:$text_just_gray;
+        font-size: 1rem;
+        font-family: $font-heading;
+    }
+   
+}
+@media screen and (max-width: $break-point) {
+    input, 
+    label,
+    textarea,
+    select{
+        height: 42px;
+        margin-top: 10px;
+        margin-bottom: 15px ;
+    }
+    .tt-38-item-container{
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .tt-38-item-container button{
+        margin-top: 10px;
+        width: 700px;
+        display: block;
+        background-color: white;
+        border: 1px solid $text_just_gray;
+    }
+    .dropdown-content label{
+        height: auto;
+    }
+}
