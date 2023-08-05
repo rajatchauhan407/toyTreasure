@@ -18,7 +18,7 @@ const registerUser = (email,password)=>{
 };
 
 const loginUser = (email,password)=>{
-    signInWithEmailAndPassword(auth,email,password);
+    return signInWithEmailAndPassword(auth,email,password);
 }
 
 const logoutUser = ()=>{

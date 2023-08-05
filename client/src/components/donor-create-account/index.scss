@@ -3,6 +3,21 @@
 .tt-84-container{
     width:50%;
     text-align: left;
+    @media screen and (max-width: $break-point) {
+        width: 90% !important;
+    }
+    ::placeholder{
+        font-size: .9rem;
+    }
+    input{
+        padding-left: .8rem;
+    }
+    form label{
+        padding-top:1.5rem !important;
+    }
+    h1{
+        letter-spacing: -.05rem;
+    }
    .body1{
     border-bottom: 1px solid $text_not_just_gray;
    }

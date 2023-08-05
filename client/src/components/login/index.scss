@@ -5,6 +5,7 @@
   height: 56px;
   margin-bottom: 2rem;
 }
+
 .input-text{
   display: block;
   width: 28.75rem;
@@ -120,7 +121,12 @@ p{
         &:hover{
           border: 1px solid $button_purple_CTA;
         }
+        &:disabled{
+          cursor: not-allowed;
+          filter: grayscale(100%);
+        }
     }
+   
     img{
       width: 25px;
     }

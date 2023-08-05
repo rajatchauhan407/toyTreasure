@@ -40,16 +40,19 @@ export default function CreateAccountDonor(){
                 phoneNumber: phoneNumber,
                 email: email,
                 uid: uid,
-                user_type:"donor"
+                user_type:"donor",
+                user_points:0,
+                emailVerified:false,
             }
-            
-            FireBaseFirestoreService.createDocument("user", userInfo);
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('displayName',userInfo.displayName);
-            sessionStorage.setItem('email',email);
-            sessionStorage.setItem('userType',userInfo.user_type);
+            console.log(userInfo);
+            FireBaseFirestoreService.settingDocument("user",uid, userInfo);
+            localStorage.setItem('isLoggedIn', true);
+            localStorage.setItem('displayName',userInfo.displayName);
+            localStorage.setItem('email',email);
+            localStorage.setItem('userType',userInfo.user_type);
+            localStorage.setItem('uid',uid);
+            localStorage.setItem('user_points',userInfo.user_points);
             authCtx.setUserType(userInfo.user_type);
-
             navigate('/login');
         }catch(error){
             console.error('Error creating account', error)

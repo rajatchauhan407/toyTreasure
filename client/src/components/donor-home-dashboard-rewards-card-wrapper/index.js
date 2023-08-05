@@ -22,7 +22,7 @@ function HomeDashboardRewardsCard(props) {
 useEffect(()=>{
   async function getUserPoints(){
     const userData = await FireBaseFirestoreService.getDocumentById('user',userNameAuth.uid);
-  setUserPoints(userData.data().user_points);
+  setUserPoints(userData?.data().user_points);
   }
   getUserPoints();
   

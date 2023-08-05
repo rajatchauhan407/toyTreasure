@@ -44,7 +44,11 @@ export default function LoginSignUp() {
 <div className={showTechTribe?'divToAddTechTribeLogo ':'logoBackground divToAddTechTribeLogo'}>
         <div className={classUsedforbgc}>
         {
-          !user?<LoginSignupForm getSignupInfo={handleSignUp}/>:user==="donor"?<CreateAccountDonor/>:user==="org"?<CreateAccountOrg/>:"No Data"
+          !user?<LoginSignupForm getSignupInfo={handleSignUp}/>:user==="donor"?<CreateAccountDonor
+            userType="donor"
+          />:user==="org"?<CreateAccountOrg
+            userType="organization"
+          />:"No Data"
         }
         </div>
         {showTechTribe && <div className="techTribeLogo">
