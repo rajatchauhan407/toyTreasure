@@ -17,7 +17,8 @@ const AuthContext = new React.createContext({
     uid:'',
     user_points: 0,
     userCartData:{},
-    serUserCartData:()=>{}
+    serUserCartData:()=>{},
+    setProfilePic:()=>{},
 });
 
 export const AuthContextProvider = (props)=>{
@@ -46,6 +47,16 @@ export const AuthContextProvider = (props)=>{
                     const user_type = localStorage.getItem('userType');
                     setIsLoggedIn(true);
                     console.log(user);
+                    // if(profilePic === "" && user_type === "organization"){
+                    //     try {
+                    //         let resData = await FireBaseFirestoreService.getDocumentById('organization_profile',user.uid);
+                    //         console.log(resData.data());
+                    //         setProfilePic(resData.data().logoUrl);
+                    //     } catch (error) {
+                            
+                    //     }
+                    //     setProfilePic(res.data().logoUrl);
+                    // }
                     setDisplayName(user.displayName || res.data().displayName);
                     setEmail(user.email);
                     setProfilePic(user.photoURL);
@@ -86,7 +97,8 @@ export const AuthContextProvider = (props)=>{
         userCartData:userCartData,
         setUserCartData,
         toysQuantity:toysQuantity,
-        setToysQuantity
+        setToysQuantity,
+        setProfilePic
     }
     
     

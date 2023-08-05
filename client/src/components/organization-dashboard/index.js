@@ -26,8 +26,12 @@ export default function OrgDashBoard({onWishlistClicked,onAddedToy}){
             // console.log(res.foreac);
             console.log(res.docs[0].data());
             setOrgData(res.docs[0].data().impactDetails);
+            if(authCtx.profilePic === ""){
+                authCtx.setProfilePic(res.docs[0].data().logoUrl);
+            }
         }
         fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[setOrgData,id]);
 
     // console.log("orgdata >>>>>>>>>> "+id);

@@ -69,9 +69,9 @@ export default function DonorDonationProcessForm(props)
                     <div className="tt-81-dateandtime"> 
                         <h3>Date and Time</h3>     
                         <div className="tt-81-inputs">                  
-                            <input type="date" id="tt-81-date" value={date} name="tt-81-date" onChange={(e)=>{setDate(e.target.value)}}></input>  
+                            <input type="date" id="tt-81-date" value={date} name="tt-81-date" onChange={(e)=>{setDate(e.target.value)}} required></input>  
                             <label for="tt-81-date"></label>                        
-                            <input type="time" id="tt-81-time" name="tt-81-time" value={time} onChange={(e)=>{setTime(e.target.value)}}></input>
+                            <input type="time" id="tt-81-time" name="tt-81-time" value={time} onChange={(e)=>{setTime(e.target.value)}} required></input>
                             <label for="tt-81-time"></label>
                         </div> 
                     </div>
@@ -94,7 +94,7 @@ export default function DonorDonationProcessForm(props)
                                     id="tt-81-confirm-details" 
                                      name="tt-81-confirm-details" 
                                      onChange={(e)=>{setConfirm2(e.target.checked)}}
-                                     checked={confirm2} />
+                                     checked={confirm2}/>
                             <p>I hereby confirm that all the details are correct and follow guidelines for donation.</p>
                         </label>
                     </div>

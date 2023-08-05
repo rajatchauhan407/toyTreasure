@@ -1,5 +1,5 @@
 import './index.scss';
-import GoogleIcon from './GoogleLogo.png';
+// import GoogleIcon from './GoogleLogo.png';
 import { useState, useContext } from "react";
 import FireBaseAuthService from '../../services/FirebaseAuthService';
 import AuthContext from '../../services/auth-context';
@@ -123,19 +123,19 @@ export default function CreateAccountDonor(){
     
         <p className='signupHaveAccountText'>Already have an account?<span><Link to="/login">Sign In</Link></span></p>
 
-                    <div id="or-separator">
+                    {/* <div id="or-separator">
                         <hr className="or-line" />
                         <p id="or-text">OR</p>
                         <hr className="or-line" />
-                    </div>
-                        <div className='google-Facebook-Button'>
-                        <button className='signUpWithGoogleButton' type="button"  
-                        /*disabled={!userType} onClick={handleLoginWithGoogle}*/
+                    </div> */}
+                        {/* <div className='google-Facebook-Button'> */}
+                        {/* <button className='signUpWithGoogleButton' type="button"  
+                        disabled={!userType} onClick={handleLoginWithGoogle}
                         >
                             <img src={GoogleIcon} alt='Google Icon'/>
                              Sign up With Google
-                        </button>
-                        </div>
+                        </button> */}
+                        {/* </div> */}
     </form>
     </div>
     
