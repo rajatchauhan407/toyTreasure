@@ -1,6 +1,6 @@
 import "./index.scss";
 export default function HomeDashboardRewards(props){   
-    console.log(props)
+    // console.log(props)
         
     let state = props.status?.toString();
     

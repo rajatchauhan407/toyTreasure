@@ -7,7 +7,7 @@ import DonorHeaderMobile from '../components/donor-header-mobile';
 export default function UserRoutes(){
   let authCtx = useContext(AuthContext);
   // let navigate = useNavigate();
-  console.log(authCtx);
+  // console.log(authCtx);
     return(
         <>
         <div className='tt-102-donor-wrapper'>

@@ -23,7 +23,7 @@ import AuthContext from "../services/auth-context";
 export default function Routing(){
     const authCtx = useContext(AuthContext);
     // console.log('authCtx.isLoggedIn:', authCtx.isLoggedIn);
-  console.log('authCtx.userType:', authCtx);
+  // console.log('authCtx.userType:', authCtx);
   if(!authCtx.userType){
     authCtx.userType = sessionStorage.getItem('userType');
   }
