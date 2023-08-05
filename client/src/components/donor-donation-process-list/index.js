@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./index.scss";
 import { Link } from "react-router-dom";
 import crown from "./crown.svg";

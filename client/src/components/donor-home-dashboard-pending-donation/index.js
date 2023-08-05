@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './index.scss';
 import { Html5QrcodeScanner} from 'html5-qrcode'
 import { useEffect, useState} from 'react';

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./index.scss";
 import { useState,useEffect,useContext } from "react";
 import AuthContext from "../../services/auth-context";

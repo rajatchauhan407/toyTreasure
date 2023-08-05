@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./index.scss";
 import crown from './../organization-dashboard/crown.svg'
 import { useState,useEffect, useContext } from "react";

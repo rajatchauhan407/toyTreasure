@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./index.scss";
 import {useState,useEffect} from "react";
 import {BiDownArrowAlt} from "react-icons/bi";

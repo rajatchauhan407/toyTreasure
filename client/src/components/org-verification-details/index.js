@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./index.scss";
 import gift from "./gift.svg";
 import crown from "./crown.svg";
