@@ -1,13 +1,13 @@
 import './index.scss';
 import GoogleIcon from './GoogleLogo.png';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import { useState,useContext} from "react";
 import FireBaseAuthService from '../../services/FirebaseAuthService';
 import AuthContext from '../../services/auth-context';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 export default function CreateAccountOrg(){
 
-
+    const navigate = useNavigate();
     const authCtx = useContext(AuthContext);
     const [fullName, setFullName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -34,28 +34,21 @@ export default function CreateAccountOrg(){
                 phoneNumber: phoneNumber,
                 email: email,
                 uid: uid,
-                user_type:"organization"
+                user_type:"organization",
+                emailVerified:false,
             }
-            
-            FireBaseFirestoreService.createDocument("user", userInfo);
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('displayName',userInfo.displayName);
-            sessionStorage.setItem('email',email);
-            sessionStorage.setItem('userType',userInfo.user_type);
+            console.log(userInfo);
+            FireBaseFirestoreService.settingDocument("user",uid, userInfo);
+            localStorage.setItem('isLoggedIn', true);
+            localStorage.setItem('displayName',userInfo.displayName);
+            localStorage.setItem('email',email);
+            localStorage.setItem('userType',userInfo.user_type);
+            localStorage.setItem('uid',uid);
             authCtx.setUserType(userInfo.user_type);
-            
+            navigate('/login');
         }catch(error){
-            console.log(error);
+            console.error('Error creating account', error)
         }
-        
-
-        
-        // try{
-        //     await FireBaseAuthService.registerUser(email, password);
-        //     console.log('account created sucessfully.');
-        // } catch (error){
-        //     console.error('Error creating account', error)
-        // }
     };
     return<>
     <div className='tt-84-container'>

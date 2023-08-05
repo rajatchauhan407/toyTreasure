@@ -8,14 +8,15 @@ import GoogleIcon from './GoogleLogo.png';
 import "./index.scss";
 import { useContext, useRef, useState } from "react";
 import FireBaseAuthService from "../../services/FirebaseAuthService";
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 // import { query,where,collection,getDocs} from 'firebase/firestore';
 // import {database} from "../../FirebaseConfig";
 import AuthContext from '../../services/auth-context';
 import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 function LoginForm({existingUser}){
+    const navigate = useNavigate();
     let authCtx = useContext(AuthContext);
-    const [userName, setUserName] = useState("");
+    const [userEmail, setUserEmail] = useState("");
     const [password, setPassword] = useState("");
     const [userType, setUserType] = useState("");
     const donorRef = useRef(null);
@@ -39,10 +40,23 @@ function LoginForm({existingUser}){
     async function handleSubmit(event){
         event.preventDefault();
         try {
-            await FireBaseAuthService.registerUser(userName,password);
-            setUserName("");
-            setPassword("");
-              
+            let res = await FireBaseAuthService.loginUser(userEmail,password);
+                
+                const data = await FireBaseFirestoreService.getDocumentById('user',res.user.uid);
+                const {email,emailVerified, displayName, uid,user_type,user_points} = data.data();
+                console.log(data.data());
+                localStorage.setItem('isLoggedIn', 'true');
+                // localStorage.setItem('profile_pic', photoURL);
+                localStorage.setItem('displayName',displayName);
+                localStorage.setItem('email',email);
+                localStorage.setItem('emailVerified',emailVerified);
+                localStorage.setItem('uid',uid);
+                localStorage.setItem('userType',user_type);
+                localStorage.setItem('userPoints',user_points);
+                authCtx.setUserType(userType);
+                console.log("hello from res",res);
+                window.location.reload();
+                navigate('/home');
         } catch (error) {
             alert(error.message);
         }
@@ -96,6 +110,7 @@ async function handleLoginWithGoogle(){
             localStorage.setItem('uid',uid);
             localStorage.setItem('userType',userType);
             authCtx.setUserType(userType);
+            
         }else{
             console.log("newOne");
             let result = await FireBaseFirestoreService.settingDocument("user",uid,document); 
@@ -165,8 +180,8 @@ async function handleLoginWithGoogle(){
                         <input type="email" 
                         placeholder='Enter email address'
                             required
-                            value={userName}
-                            onChange={(e)=>{setUserName(e.target.value)}}
+                            value={userEmail}
+                            onChange={(e)=>{setUserEmail(e.target.value)}}
                             className="email-input-text"
                         />
                     </label>
@@ -202,6 +217,7 @@ async function handleLoginWithGoogle(){
                             <img src={GoogleIcon} alt='Google Icon'/>
                              Login With Google
                         </button>
+                        
                         </div>
                         <p className='signInLinkText'>Don't have an account?  <Link to="/signup">Join Now!</Link></p>
                     </div>

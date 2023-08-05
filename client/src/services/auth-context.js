@@ -46,7 +46,7 @@ export const AuthContextProvider = (props)=>{
                     const user_type = localStorage.getItem('userType');
                     setIsLoggedIn(true);
                     console.log(user);
-                    setDisplayName(user.displayName);
+                    setDisplayName(user.displayName || res.data().displayName);
                     setEmail(user.email);
                     setProfilePic(user.photoURL);
                     setEmailVerified(user.emailVerified);
@@ -54,6 +54,7 @@ export const AuthContextProvider = (props)=>{
                     localStorage.setItem('isLoggedIn', 'true');
                     localStorage.setItem('userType',user_type);
                 }else{
+                    console.log("changed to false")
                     setIsLoggedIn(false);   
                     localStorage.removeItem('isLoggedIn');
                     localStorage.removeItem('profile_pic');

@@ -6,6 +6,7 @@ import logo from "./appLogo.svg"
 import { Link } from "react-router-dom";
 
 function LoginSignupForm(props) {
+    
     function handleSignupDonor(){
         props.getSignupInfo("donor");
     }

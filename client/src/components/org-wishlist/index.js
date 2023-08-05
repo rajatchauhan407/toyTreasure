@@ -4,6 +4,7 @@ import FireBaseFirestoreService from '../../services/Firebasefirestoreservice';
 import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { database } from "../../FirebaseConfig";
 import AuthContext from "../../services/auth-context";
+import { useNavigate } from "react-router-dom";
 // import LoaderRocket from "../loader";
 // import Loader from '../../sass/images/block-loop.svg'; 
 // import GeneralModalWrapper from "../general-modal-wrapper";
@@ -11,6 +12,7 @@ import AuthContext from "../../services/auth-context";
 import LoaderToysTreasure from "../loader";
 // import LoaderRocket from "../loader";
 export default function OrgWishlist(){
+    const navigate = useNavigate();
     const authCtx = useContext(AuthContext);
     const [orgWishList, setOrgWishList] = useState([]); 
     const [toysReceived] = useState(0);
@@ -19,7 +21,12 @@ export default function OrgWishlist(){
         {    setIsLoad(true);
             const profiles = await FireBaseFirestoreService.getDocumentsInArray("organization_profile");
             if(profiles.length>0){
-            const orgId = profiles.find((profile) => profile.uid === authCtx.uid).id;
+            const orgId = profiles.find((profile) => profile.uid === authCtx.uid)?.id;
+            if(!orgId){
+                setIsLoad(false);
+                navigate("/organization/profile")
+                return;
+            }
             const usersCollectionRef = collection(database, "organization_wishlist");
              const q = query(usersCollectionRef, where("profile_id", "==", orgId));
              
