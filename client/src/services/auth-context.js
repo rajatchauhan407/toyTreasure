@@ -41,13 +41,13 @@ export const AuthContextProvider = (props)=>{
         const unsubscribe = onAuthStateChanged(FireBaseAuthService.auth,
             async (user)=>{
                 if(user){
-                    console.log(user.uid);
-                    console.log(user);
+                    // console.log(user.uid);
+                    // console.log(user);
                     let res = await FireBaseFirestoreService.getDocumentById('user',user.uid);
-                    console.log(res.data());
+                    // console.log(res.data());
                     const user_type = localStorage.getItem('userType');
                     setIsLoggedIn(true);
-                    console.log(user);
+                    // console.log(user);
                     // if(profilePic === "" && user_type === "organization"){
                     //     try {
                     //         let resData = await FireBaseFirestoreService.getDocumentById('organization_profile',user.uid);
@@ -66,7 +66,7 @@ export const AuthContextProvider = (props)=>{
                     localStorage.setItem('isLoggedIn', 'true');
                     localStorage.setItem('userType',user_type);
                 }else{
-                    console.log("changed to false")
+                    // console.log("changed to false")
                     setIsLoggedIn(false);   
                     localStorage.removeItem('isLoggedIn');
                     localStorage.removeItem('profile_pic');
